@@ -1,3 +1,5 @@
+
+/* The main components of the document */
 html,body {
   height:100vh;  
   max-width: 1500px;
@@ -8,26 +10,48 @@ html,body {
 #wrapper {
   height: 100%;
   overflow: auto;
-}*/
-   
-.container .row { 
+}
+*/   
+.container .row .col-md-6 .col-sm-4 { 
   height: 100vh;
   overflow: auto;  
 } 
 
-#left-menu {
+.row {
+    height: 100%;
+    overflow: auto;
+}
+
+.left-menu {
     text-align: center;
     align-content: center;
+    background-color: blue;
+    height: 90vh;
+    overflow-y: hidden;
 }
 
 #content {
     text-align: center;
-    align-content: center;  
-    background-color: azure;
+    align-content: center;
+    background-color: aliceblue;
+    height: 90vh;
+    overflow-y: auto;
+    
+    /*float:left;
+    width:100%;
+    background:#eee;
+    border-left: 260px solid #555;*/
 }
 
+/* Entities within rows/divs/ etc*/
 #image {
     width: 150px;
     height: 150px;
     background-color: black;
+    align-content: center;
+    text-align: center;
 }
+
+/*#sidenav-buttons {
+    width: 30%;
+}*/
