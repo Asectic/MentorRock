@@ -16,6 +16,13 @@ router.get('/about', function(req, res) {
     });
 });
 
+router.get('/ui-home', function(req, res) {
+    res.render('main/basic-ui', {  // Note that .html is assumed.
+        errors: ''
+    });
+});
+
+
 // Pages for Mentee, Mentor
 
 
