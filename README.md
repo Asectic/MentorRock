@@ -1,5 +1,9 @@
-<b>SHALEE Project: Mentor-Mentee Class Sessions</b>
+<b>SHALEE Project: MentorRock</b>
 -------------------
+
+What this project is about:
+---------------------
+See our propsoal documents in the proposal directory
 
 For our reference:
 -------------------
