@@ -11,11 +11,11 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
-    <link href="bootstrap3/css/font-awesome.css" rel="stylesheet" />
+    <link href="../../public/bootstrap3/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../public/bootstrap3/css/font-awesome.css" rel="stylesheet" />
 
-	<link href="assets/css/gsdk.css" rel="stylesheet" />
-    <link href="assets/css/demo.css" rel="stylesheet" />
+	<link href="../../public/assets/css/gsdk.css" rel="stylesheet" />
+    <link href="../../public/assets/css/demo.css" rel="stylesheet" />
 
     <!--     Font Awesome     -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -24,22 +24,16 @@
 </head>
 
 <body>
-    
-<!-- Navigation bar -->    
  <div id="navbar-full">
     <div id="navbar">
     <!--
         navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
         -->
-        <nav class="navbar navbar-ct-blue navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
           <div class="alert alert-success hidden">
-            <div class="container">
-                <b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-            </div>
           </div>
 
           <div class="container">
-              
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -48,20 +42,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-                
-              <a class="navbar-brand" href="#gsdk">MentorRock</a>
+              <a class="navbar-brand" href="home.html">MentorRock</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            
-              <!-- Left side of navigation bar -->
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li class="active"><a href="#about">About</a></li>
-                  
-                <!-- Optional dropdown menu and searchcode-->  
-                <!--<li class="dropdown">
+                <li class="active"><a href="About.html">About</a></li>
+                <li class="dropdown">
                       <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                       <ul class="dropdown-menu">
                         <li><a href="#gsdk">Action</a></li>
@@ -75,21 +63,16 @@
                 </li>
                 <li>
                     <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
-                </li>-->
-                    
-              </ul> <!-- End of left side nav buttons -->
-                
+                </li>
+              </ul>
                <form class="navbar-form navbar-left navbar-search-form" role="search">
                  <div class="form-group">
                       <input type="text" value="" class="form-control" placeholder="Search...">
                  </div>
               </form>
-                
-              <!-- Right side of navigation bar -->    
               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/register">Register</a></li>
-
-                    <li><a href="/login">Sign in</a></li>
+                    <li><a href="../user-setup/register.html">Register</a></li>
+                    <li><button href="../user-setup/login.html" class="btn btn-round btn-default">Sign in</button></li>
                </ul>
 
             </div><!-- /.navbar-collapse -->
@@ -97,6 +80,7 @@
         </nav>
         <div class="blurred-container">
             <div class="img-src" style="background-image: url('../../public/assets/img/cover_mine.jpg')"></div>
+            <div class='img-src blur' style="background-image: url('../../public/assets/img/cover_blur.png')"></div>
         </div>
     </div><!--  end navbar -->
 
@@ -104,33 +88,168 @@
 
 <div class="main">
     <div class="container tim-container" style="max-width:800px; padding-top:100px">
-       <h1 class="text-center">Awesome looking header <br> just for my friends<small class="subtitle">This is like a small motto before the story.</small></h1>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-           <!--     end extras -->
+      <h1 class="text-center">Get Conneted To <br>Your Mentors<small class="subtitle">write anything you want</small></h1>
+      <div class="tim-title">
+         <h2>Our Populor Mentors</h2>
+     </div>
+      <div id="carousel">
+          <!-- MPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"
+          -->
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <div id="images">
+                      <div class="tim-title">
+                         <h2>CSC department</h2>
+                     </div>
+                     <br>
+                     <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                           <h4>Circle Image</h4>
+                           <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                           <h2>Heading</h2>
+                           <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                             <h4>Circle Image</h4>
+                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                             <h2>Heading</h2>
+							 <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                             <h4>Circle Image</h4>
+                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                             <h2>Heading</h2>
+							 <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                         </div>
+                     </div>
+                     <div class="row">
+                     </div>
+                 </div>
+              </div>
+              <div class="item">
+                <div id="images">
+                      <div class="tim-title">
+                         <h2>BLABLA</h2>
+                     </div>
+                     <br>
+                     <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                           <h4>Circle Image</h4>
+                           <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                           <h2>Heading</h2>
+                           <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>  
+                         </div>
+                         <div class="col-md-4 col-sm-6">
+                             <h4>Circle Image</h4>
+                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                            <h2>Heading</h2>
+                           <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                         </div>
+                         <div class="col-md-4 col-sm-6">
+                             <h4>Circle Image</h4>
+                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                             <h2>Heading</h2>
+	                         <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                           </div>
+                     </div>
+                     <div class="row">
+                     </div>
+                 </div>
+              </div>
+              <div class="item">
+                <div id="images">
+                      <div class="tim-title">
+                         <h2>BLABLA</h2>
+                     </div>
+                     <br>
+                     <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                           <h4>Circle Image</h4>
+                           <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                           <h2>Heading</h2>
+                           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>                         </div>
+                         <div class="col-md-4 col-sm-6">
+                             <h4>Circle Image</h4>
+                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                             <h2>Heading</h2>
+							 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                         </div>
+                         <div class="col-md-4 col-sm-6">
+                             <h4>Circle Image</h4>
+                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                             <h2>Heading</h2>
+							 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>                         </div>
+                     </div>
+                     <div class="row">
+                     </div>
+                 </div>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="fa fa-angle-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="fa fa-angle-right"></span>
+            </a>
+          </div>
+      </div> <!-- end carousel -->
+
+        <!--     end extras -->
     </div>
     <div class="space"></div>
-    
-    
-    
-    
-    
-    <div id="about" class="container tim-container" style="max-width:800px; padding-top:100px">
-       <h1 class="text-center">About MentorRock</h1>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-           <!--     end extras -->
-    </div>
-    <div class="space"></div>
-    
-    
 <!-- end container -->
 </div>
 <!-- end main -->
 
+<div class="footer">
+    <div class="overlayer">
+	    <div class="social-area text-center" itemscope="" itemtype="http://schema.org/LocalBusiness">
+                <a itemprop="url" href="about.html" class="footer-brand">
+                    <span itemprop="name">MentorRock</span>
+                </a>
+
+               <br>
+                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-dribbble"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-google-plus-square"></i></a>
+
+                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-youtube"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-pinterest"></i></a>
+            </div>
+    <div class="container">
+        <div class="row">
+            <div class="credits">
+                &copy; <script>document.write(new Date().getFullYear())</script> MentorRock by Shalee team, made with <i class="fa fa-heart heart" alt="love"></i> for a better web.
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
 </body>
 
-    <script src="../../public/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+  <script src="../../public/jquery/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="../../public/assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 
 	<script src="../../public/bootstrap3/js/bootstrap.js" type="text/javascript"></script>

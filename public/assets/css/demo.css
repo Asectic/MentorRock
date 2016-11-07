@@ -125,7 +125,7 @@
     color: #EEE;
 }
 .footer .credits a{
-    color: #FFFFFF;
+    color: #000000;
 }
 .social-share{
     float: left;
@@ -284,11 +284,11 @@
 .credits{
     display: block;
     margin: 15px 0;
-    color: #ddd;
+    color: #111;
     opacity: .8;
 }
 .credits a{
-    color: #FFFFFF;
+    color: #000000;
 }
 .sharing-title{
     margin: 10px;
