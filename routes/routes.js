@@ -10,20 +10,23 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/about', function(req, res) {
-    res.render('home/about', {  // Note that .html is assumed.
+router.get('/login', function(req, res) {
+    res.render('user-setup/login', {  // Note that .html is assumed.
+        errors: ''
+    });
+});router.get('/register', function(req, res) {
+    res.render('user-setup/register', {  // Note that .html is assumed.
         errors: ''
     });
 });
 
+// Pages for Mentee, Mentor
 router.get('/ui-home', function(req, res) {
     res.render('main/basic-ui', {  // Note that .html is assumed.
         errors: ''
     });
 });
 
-
-// Pages for Mentee, Mentor
 
 
 // Pages for Admin
