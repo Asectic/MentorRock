@@ -141,8 +141,10 @@
 .btn.btn-social.btn-round:hover{
 	border-color: rgba(255, 255, 255, 0.5);
 	color: rgba(255, 255, 255, 0.5); 
-
 }
+
+
+
 #subscribe_email{
     border-radius: 0;
     border-left: 0;
@@ -389,6 +391,7 @@
     width: 306px;
     height: 0;
 }
+
 .blurred-container .motto .border{
     float: left;
     border: 3px solid #FFFFFF;
@@ -397,6 +400,37 @@
 }
 .blurred-container .motto .no-right-border{
     border-right: none;
+}
+
+.blurred-container .about-intro{
+	background-color: rgba(26, 24, 24, 1);
+    color: #FFFFFF;
+    
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.33);
+
+    top: 100px;
+    z-index: 3;
+
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 500px;
+    height: 0;
+}
+
+.blurred-container .about-intro .title{
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 150;
+
+    
+}
+.blurred-container .about-intro p{
+	font-size: 15px;
+   font-weight: 50;
+   width: 500px;
+   
 }
 .carousel-indicators {
     bottom: -50px;

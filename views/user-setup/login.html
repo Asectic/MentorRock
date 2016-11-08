@@ -11,11 +11,12 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
-    <link href="bootstrap3/css/font-awesome.css" rel="stylesheet" />
+    <link href="../../public/bootstrap3/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../public/bootstrap3/css/font-awesome.css" rel="stylesheet" />
 
-	<link href="assets/css/gsdk.css" rel="stylesheet" />
-    <link href="assets/css/demo.css" rel="stylesheet" />
+	<link href="../../public/assets/css/gsdk.css" rel="stylesheet" />
+    <link href="../../public/assets/css/demo.css" rel="stylesheet" />
+    <link href="../../public/bootstrap3/css/bootstrap-social.css" rel="stylesheet" />
 
     <!--     Font Awesome     -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -24,22 +25,16 @@
 </head>
 
 <body>
-    
-<!-- Navigation bar -->    
  <div id="navbar-full">
     <div id="navbar">
     <!--
         navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
         -->
-        <nav class="navbar navbar-ct-blue navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
           <div class="alert alert-success hidden">
-            <div class="container">
-                <b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-            </div>
           </div>
 
           <div class="container">
-              
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -48,20 +43,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-                
-              <a class="navbar-brand" href="#gsdk">MentorRock</a>
+              <a class="navbar-brand" href="../home/home.html">MentorRock</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            
-              <!-- Left side of navigation bar -->
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li class="active"><a href="#about">About</a></li>
-                  
-                <!-- Optional dropdown menu and searchcode-->  
-                <!--<li class="dropdown">
+                <li class="active"><a href="../home/About.html">About</a></li>
+                <li class="dropdown">
                       <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                       <ul class="dropdown-menu">
                         <li><a href="#gsdk">Action</a></li>
@@ -75,59 +64,78 @@
                 </li>
                 <li>
                     <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
-                </li>-->
-                    
-              </ul> <!-- End of left side nav buttons -->
-                
+                </li>
+              </ul>
                <form class="navbar-form navbar-left navbar-search-form" role="search">
                  <div class="form-group">
                       <input type="text" value="" class="form-control" placeholder="Search...">
                  </div>
               </form>
-                
-              <!-- Right side of navigation bar -->    
               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/register">Register</a></li>
-
-                    <li><a href="/login">Sign in</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><button href="login.html" class="btn btn-round btn-default">Sign in</button></li>
                </ul>
 
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
-        <div class="blurred-container">
-            <div class="img-src" style="background-image: url('../../public/assets/img/cover_mine.jpg')"></div>
-        </div>
     </div><!--  end navbar -->
-
 </div> <!-- end menu-dropdown -->
 
-    
-    
-    
 <div class="main">
-    <div class="container tim-container" style="max-width:800px;">
-        
-        
-       <!-- CONTENT OF THE WEBPAGE GOES HERE -->    
-       <h1 class="text-center">Login Form</h1>
-       <p>To be added soon...</p>
-          
-        
-        
-        
-        
+    <div class="container tim-container" style="max-width:800px; width = 80%; padding-top:50px">
+      <h1 class="text-center"> <br>Sign in<small class="subtitle">Discover anything you want</small></h1>
         <!--     end extras -->
-           <!--     end extras -->
+        <div class="col-md-7">
+        <form class="form-horizontal">
+		  <div class="form-group" >
+		    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		    <div class="col-sm-7">
+		      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+		    <div class="col-sm-7">
+		      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-5">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox"> Remember me
+		        </label>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-default">Sign in</button>
+		    </div>
+		  </div>
+		</form>
+        </div>
+        <div class="col-md-4">
+	        <a class="btn btn-block btn-social btn-google" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-google']);">
+            <span class="fa fa-google-plus-square"></span> Sign in with Google
+          </a>
+          <a class="btn btn-block btn-social btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-facebook']);">
+            <span class="fa fa-facebook"></span> Sign in with Facebook
+          </a>
+	        <a class="btn btn-block btn-social btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-linkedin']);">
+            <span class="fa fa-linkedin"></span> Sign in with LinkedIn
+          </a>
+        </div>
     </div>
-    <div class="space"></div>
+   
+
 <!-- end container -->
 </div>
 <!-- end main -->
-
 </body>
 
-    <script src="../../public/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+  <script src="../../public/jquery/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="../../public/assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 
 	<script src="../../public/bootstrap3/js/bootstrap.js" type="text/javascript"></script>
@@ -139,4 +147,3 @@
     <script src="../../public/assets/js/custom.js"></script>
 
 </html>
-

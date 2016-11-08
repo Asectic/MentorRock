@@ -1590,17 +1590,6 @@ input.ct-red + span + label + span.switch-right {
   background-image: none; }
 .carousel-control .fa {
   font-size: 35px; }
-  
-.carousel-control.fa-angle-left,{
-   left: 0;  //or you can increase this
-}
- .carousel-control.right{
-	 right: 0;
- }
-
-.carousel-control.fa.fa-angle-right,{
-   right: 0;//or you can increase this
-}
 .carousel-control .fa,
 .carousel-control .icon-prev,
 .carousel-control .icon-next {
@@ -1608,9 +1597,8 @@ input.ct-red + span + label + span.switch-right {
   position: absolute;
   top: 50%;
   z-index: 5;
-  width: 200%
-  margin-left: -170px;
-  margin-right: -170px;
+  width: 100%
+  margin-left: -9px;
   margin-top: -17px;
   }
 
