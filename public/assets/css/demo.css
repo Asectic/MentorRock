@@ -134,6 +134,15 @@
 .social-share a{
     color: #FFFFFF;
 }
+.btn.btn-social.btn-round{
+	border-color: #2CA8FF;
+	color: #2CA8FF; 
+}
+.btn.btn-social.btn-round:hover{
+	border-color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.5); 
+
+}
 #subscribe_email{
     border-radius: 0;
     border-left: 0;
@@ -312,14 +321,15 @@
 .blurred-container{
   position:relative;
   width:100%;
-  height:540px;
+  height:630px;
   top:0;
   left:0;
 }
 .blurred-container > .img-src{
+	margin-top: 68px;
     position:fixed;
     width:100%;
-    height:540px;
+    height:600px;
     background-repeat:no-repeat;
     background-size:cover;
     background-position: center center;
@@ -327,6 +337,16 @@
 .blur{
   opacity:0;
 }
+
+.social-area.btn{
+  border-color: #000000;
+  color: #000000;
+}
+.social-area.btn:hover{
+  border-color: rgba(54, 159, 204, 0.6);
+  color: rgba(54, 159, 204, 0.6);
+}
+
 
 .logo-container{
     margin-top: 10px;
@@ -377,6 +397,9 @@
 }
 .blurred-container .motto .no-right-border{
     border-right: none;
+}
+.carousel-indicators {
+    bottom: -50px;
 }
 
 @media (max-width: 768px){

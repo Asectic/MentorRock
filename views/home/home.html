@@ -87,10 +87,10 @@
 </div> <!-- end menu-dropdown -->
 
 <div class="main">
-    <div class="container tim-container" style="max-width:800px; padding-top:100px">
+    <div class="container tim-container" style="max-width:100%; padding-top:50px">
       <h1 class="text-center">Get Conneted To <br>Your Mentors<small class="subtitle">write anything you want</small></h1>
       <div class="tim-title">
-         <h2>Our Populor Mentors</h2>
+         <h2 class="text-center">Our Populor Mentors</h2>
      </div>
       <div id="carousel">
           <!-- MPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"
@@ -104,15 +104,15 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" role="listbox" >
               <div class="item active">
-                <div id="images">
-                      <div class="tim-title">
-                         <h2>CSC department</h2>
-                     </div>
-                     <br>
-                     <div class="row">
-                        <div class="col-md-4 col-sm-6">
+                <div id="images" style="max-width:800px;  margin:0 auto;">
+                    <div class="tim-title">
+                        <h2>CSC department</h2>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class=" col-md-4 col-sm-6">
                            <h4>Circle Image</h4>
                            <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
                            <h2>Heading</h2>
@@ -132,14 +132,12 @@
                              <h2>Heading</h2>
 							 <p>Introduction</p>
                            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-                         </div>
-                     </div>
-                     <div class="row">
-                     </div>
+                        </div>
+                    </div>
                  </div>
               </div>
               <div class="item">
-                <div id="images">
+                 <div id="images" style="max-width:800px;  margin:0 auto;">
                       <div class="tim-title">
                          <h2>BLABLA</h2>
                      </div>
@@ -167,12 +165,10 @@
                            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
                            </div>
                      </div>
-                     <div class="row">
-                     </div>
                  </div>
               </div>
               <div class="item">
-                <div id="images">
+                <div id="images" style="max-width:800px; margin:0 auto;">
                       <div class="tim-title">
                          <h2>BLABLA</h2>
                      </div>
@@ -182,23 +178,23 @@
                            <h4>Circle Image</h4>
                            <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
                            <h2>Heading</h2>
-                           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>                         </div>
-                         <div class="col-md-4 col-sm-6">
-                             <h4>Circle Image</h4>
-                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
-                             <h2>Heading</h2>
-							 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                           <p>Introduction</p>
                            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
                          </div>
                          <div class="col-md-4 col-sm-6">
                              <h4>Circle Image</h4>
                              <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
                              <h2>Heading</h2>
-							 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>                         </div>
-                     </div>
-                     <div class="row">
+							 <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                         </div>
+                         <div class="col-md-4 col-sm-6">
+                             <h4>Circle Image</h4>
+                             <img src="../../public/assets/img/mockup.png" alt="Circle Image" class="img-circle">
+                             <h2>Heading</h2>
+							 <p>Introduction</p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                         </div>
                      </div>
                  </div>
               </div>
@@ -206,7 +202,7 @@
 
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-              <span class="fa fa-angle-left"></span>
+              <p class="fa fa-angle-left"></p>
             </a>
             <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
               <span class="fa fa-angle-right"></span>
@@ -225,18 +221,17 @@
     <div class="overlayer">
 	    <div class="social-area text-center" itemscope="" itemtype="http://schema.org/LocalBusiness">
                 <a itemprop="url" href="about.html" class="footer-brand">
-                    <span itemprop="name">MentorRock</span>
+                    <br><span itemprop="name">MentorRock</span><br>
                 </a>
 
                <br>
-                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-dribbble"></i></a>
-                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-facebook-square"></i></a>
-                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-twitter"></i></a>
-                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-google-plus-square"></i></a>
-
-                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-instagram"></i></a>
-                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-youtube"></i></a>
-                <a itemprop="sameAs" href="" class="btn btn-default btn-social btn-round" target="_blank"><i class="fa fa-pinterest"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-social btn-round" target="_blank"><i class="fa fa-dribbble"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-social btn-round" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-social btn-round" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-social btn-round" target="_blank"><i class="fa fa-google-plus-square"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-social btn-round" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-social btn-round" target="_blank"><i class="fa fa-youtube"></i></a>
+                <a itemprop="sameAs" href="" class="btn btn-social btn-round" target="_blank"><i class="fa fa-pinterest"></i></a>
             </div>
     <div class="container">
         <div class="row">
