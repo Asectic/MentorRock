@@ -6,7 +6,7 @@ html,body {
   max-width: 1500px;
   margin: 0 auto;
   padding-top: 00px; 
-  background-color: ghostwhite;
+  background-color: white;
 }
 
 .container .row .col-md-6 .col-sm-4 { 
@@ -29,7 +29,7 @@ html,body {
 
 #content {
     align-content: center;
-    background-color: ghostwhite;
+    background-color: white;
     height: 95vh;
     overflow-y: auto;
     
@@ -40,7 +40,33 @@ html,body {
 }
 
 /* ===================================================== */
-/* Entities within rows/divs/ etc*/
+/* Entities within rows/divs/ etc */
+#sidenav-buttons.li {
+    text-align: center;
+}
+
+#title {
+    color: #f74622;
+    text-shadow: 0 0 5px #ff6c4f, 0 0 10px #ff6c4f,
+             0 0 20px #ff6c4f, 0 0 30px #ff6c4f,
+             0 0 40px #ff6c4f;
+    float: left;
+}
+
+#title2 {
+    color: #D0F8FF;
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+             0 0 20px #ff6c4f, 0 0 30px #A5F1FF,
+             0 0 40px #A5F1FF;
+}
+
+#mentee {
+    font-style: italic;
+}
+
+/* ===================================================== */
+
+/* User Profile CSS (my-profile.html) */
 #image {
     width: 100px;
     height: 100px;
@@ -50,19 +76,6 @@ html,body {
     margin-right: 10px;
 }
 
-#sidenav-buttons.li {
-    text-align: center;
-}
-
-#title {
-    color: #D0F8FF;
-    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
-             0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
-             0 0 40px #A5F1FF;
-}
-
-/* ===================================================== */
-/* User Profile CSS (my-profile.html) */
 #about, #interests, #blog {
     background-color: grey;
     border: solid lightgray;
