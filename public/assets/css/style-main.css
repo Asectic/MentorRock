@@ -113,8 +113,26 @@ html,body {
     display: none;
 }
 
-/* ===================================================== */
-
 .mentors {
     color: black;
 }
+
+/* ===================================================== */
+
+/* Account Settings CSS (acc-settings).html) */
+#avatar, #general-acc {
+    background-color: grey;
+    border: solid lightgray;
+    border-radius: 25px;
+}
+
+#avatar-content, #general-content {
+    background-color: ghostwhite;
+    /*border-bottom: solid lightgray;
+    border-radius: 15px;*/
+}
+
+
+/* ===================================================== */
+
+
