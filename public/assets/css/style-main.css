@@ -45,11 +45,12 @@ html,body {
 
 /* Entities within rows/divs/ etc*/
 #image {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background-color: black;
-    align-content: center;
-    text-align: center;
+    
+    float:left;
+    margin-right: 10px;
 }
 
 #sidenav-buttons.li {
@@ -61,4 +62,22 @@ html,body {
     text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
              0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
              0 0 40px #A5F1FF;
+}
+
+/* User Profile CSS*/
+#about, #interests, #blog {
+    background-color: grey;
+    border: solid lightgray;
+    border-radius: 25px;
+}
+
+#about-content, #interests-content, #blog-content {
+    background-color: ghostwhite;
+    /*border-bottom: solid lightgray;
+    border-radius: 15px;*/
+}
+
+#user-about, #user-interests, #user-blog {
+    font-size: 22px;
+    text-align: center;
 }
