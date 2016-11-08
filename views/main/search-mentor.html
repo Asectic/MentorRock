@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/search-mentor.js"></script>
     
   <!-- server.js already points to "public". Just add the next file/folder for the path -->
   <link href="assets/css/style-main.css" type="text/css" rel="stylesheet"/>
@@ -57,8 +58,49 @@
                 
                 <!-- Main content of the page -->
                 <div id="content" class="col-md-9">
-                    <h1>Search for a Mentor</h1>
+                    <h1>Search for Mentors</h1>
                     
+                    <br>
+                    
+                    <p>Click on any of the following interest categories to get started.</p>
+                    
+                    
+                    <h2>TO-DO:</h2>
+                    <p>Add in the interest and academic categories</p>
+                    <p>Implement the "Submit" button function, so that it connects to the DB and searches for mentors.</p>
+                    
+                    <br>
+                    
+                    <button id="academics" class="button" onclick="showList(this.id)">Academics</button>
+                    
+                    <div id="academics-box">
+                        <br>
+                        <ul class="mentors">
+                            <li>Sample 1</li>
+                            <li>Sample 2</li>
+                            <li>Sample 3</li>
+                            <li>Sample 4</li>
+                        </ul>
+                    </div>
+                    
+                    <br><br>
+                    
+                    <button id="interests-butt" class="button" onclick="showList(this.id)">Interests</button>
+                    
+                    <div id="interests-box">
+                        <br>
+                        <ul class="mentors">
+                            <li>Sample 1</li>
+                            <li>Sample 2</li>
+                            <li>Sample 3</li>
+                            <li>Sample 4</li>
+                        </ul>
+                    </div><!-- End of interests box -->
+                    
+                    <br>
+                    <br>
+                    
+                    <center><button id="mentors-butt" class="button" onclick="mentors_submit(this.id)">Submit</button></center>
                     
                 </div>
 
