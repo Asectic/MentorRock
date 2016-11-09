@@ -22,7 +22,7 @@ html,body {
 .left-menu {
     text-align: center;
     align-content: center;
-    background-color: ghostwhite;
+    background-color: deepskyblue;
     height: 95vh;
     overflow-y: hidden;
 }
@@ -108,27 +108,67 @@ html,body {
     cursor: pointer;
 }
 
+/* Buttons: in the order in which they appear on the page*/
 #academics {
     background-color:  royalblue; 
+    width: 200px;
 } 
+
+#interests-butt {
+    background-color: green; 
+    width: 200px;
+}
 
 #mentors-butt {
     background-color:  lightblue;
     align-content: center;
     text-align: center;
+    width: 200px;
 } 
 
-#interests-butt {
-    background-color: green; 
-}
-
-#academics-box, #interests-box {
+#academics-box, #interests-box, ul.pagination {
     display: none;
 }
 
 .mentors {
     color: black;
 }
+
+/*#interests-li, #academic-list {
+    height: 200px; 
+    -webkit-column-count: 5;
+       -moz-column-count: 5;
+            column-count: 5;
+}
+#interests-li li, #academic-list li {
+    display: inline-block;
+    padding-bottom: 20px; 
+}*/
+
+.patt-one {
+    background-color: white;
+    text-align: center;
+}
+
+.patt-two {
+    background-color: azure;
+    text-align: center;
+}
+
+#academic-table, #interests-table {
+    border: double black;
+    align-content: center;
+}
+
+tr, td {
+    border: dotted black;
+        padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
 
 /* ===================================================== */
 
