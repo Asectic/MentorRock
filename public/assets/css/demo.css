@@ -144,7 +144,6 @@
 }
 
 
-
 #subscribe_email{
     border-radius: 0;
     border-left: 0;
@@ -455,3 +454,36 @@
     display: inline-block;
     margin-bottom: 25px;
 }
+
+.input-icon {
+	
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .fa {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .fa { left:  0px;}
+.right-addon .fa { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
