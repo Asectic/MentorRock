@@ -134,17 +134,6 @@ html,body {
     color: black;
 }
 
-/*#interests-li, #academic-list {
-    height: 200px; 
-    -webkit-column-count: 5;
-       -moz-column-count: 5;
-            column-count: 5;
-}
-#interests-li li, #academic-list li {
-    display: inline-block;
-    padding-bottom: 20px; 
-}*/
-
 .patt-one {
     background-color: white;
     text-align: center;
@@ -185,6 +174,21 @@ tr, td {
     border-radius: 15px;*/
 }
 
+
+/* ===================================================== */
+/* CSS for mentee-home.html*/
+
+#newsfeed {
+    background-color: grey;
+    border: solid lightgray;
+    border-radius: 25px;
+}
+
+#news-content, #interests-content, #blog-content {
+    background-color: ghostwhite;
+    /*border-bottom: solid lightgray;
+    border-radius: 15px;*/
+}
 
 /* ===================================================== */
 
