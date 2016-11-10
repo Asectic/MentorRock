@@ -69,10 +69,12 @@ router.get('/contacts', function(req, res) {
     });
 });
 
-
-
 // Pages for Admin
-
+router.get('/admin', function(req, res) {
+    res.render('admin/base', {  // Note that .html is assumed.
+        errors: ''
+    });
+});
 
 /* ============================================ */
 
