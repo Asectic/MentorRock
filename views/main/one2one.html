@@ -19,7 +19,8 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
     
-  <!-- MY CSS -->
+    
+    <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -34,7 +35,7 @@
   
     <div id="wrapper">
         
-         <div id="navbar-full">
+                <div id="navbar-full">
             <div id="navbar">
             <!--
                 navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
@@ -59,6 +60,20 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav">
                         <li class="active"><a href="/#about">About</a></li>
+
+                        <!--  Don't need dropdown 
+                        <li class="dropdown">
+                              <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#gsdk">Action</a></li>
+                                <li><a href="#gsdk">Another action</a></li>
+                                <li><a href="#gsdk">Something</a></li>
+                                <li><a href="#gsdk">Another action</a></li>
+                                <li><a href="#gsdk">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#gsdk">Separated link</a></li>
+                              </ul>
+                        </li>-->
                         <li>
                             <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
                         </li>
@@ -84,11 +99,8 @@
 
         </div> <!-- end menu-dropdown -->
         
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         
-        <!-- Sidenac and page content-->
         <div id ="content-con" class="container">
             <div class="row">
                 <!-- Left menu of the page -->
@@ -129,29 +141,22 @@
                 
                 <!-- Main content of the page -->
                 <div id="content" class="col-md-9">
-                    <h1>Welcome Username</h1>
+                    <h1>Basic UI Template for Users</h1>
                     
-                    <div id="newsfeed">
-                        <h2>Newsfeed</h2>
-                        
-                        <div id="news-content">
-                            <p>Test content</p>
-                        
-                        </div>
+                    <p>This is just a dud page, only for copy and paste this template purposes</p>
                     
-                    </div><!-- ENd of Newsfeed -->                    
+                    <h2>Notes and Changes:</h2>
                     
+                    <ul>
+                        <li>Removed top navigation, due to reduncancy. Instead added "Signout" option at bottom which links to home</li>
+                        <li>Added in comments in the doc, as to where to make changes later on (for links and etc)</li>
+                    </ul>
                     
-                    
-                    <h2>TO-DO:</h2>
-                    <p>Implement function where once a user logs into their account (mongodb for us), show the current username next to "Welcome"</p><br>
-                    
-                    
-                </div><!-- End of content div-->
+                </div>
 
-            </div><!-- End of row div-->
-        </div> <!-- ENd of content-con div-->
-    </div><!-- End of wrapper-->
+            </div>
+        </div> 
+    </div>
     
 </body>
         

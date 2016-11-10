@@ -7,67 +7,199 @@
     <meta name="renderer" content="webkit">
     <title>Contacts</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/bootstrap3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../public/owlcarousel/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../public/assets/css/contacts.css">
+    <link rel="stylesheet" href="bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/contacts.css">
+    
+      <!-- CSS FROM HOME -->
+    	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap3/css/font-awesome.css" rel="stylesheet" />
+
+	<link href="assets/css/gsdk.css" rel="stylesheet" />
+    <!--<link href=assets/css/demo.css" rel="stylesheet" />-->
+
+    <!--     Font Awesome     -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    
+  <!-- MY CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  <!-- server.js already points to "public". Just add the next file/folder for the path -->
+  <link href="assets/css/style-main.css" type="text/css" rel="stylesheet"/>
+    
 </head>
 
 <body>
-    <div class="jumbotron">
+    
+        <div id="wrapper">
+        
+         <div id="navbar-full">
+            <div id="navbar">
+            <!--
+                navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
+                -->
+                <nav class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
+                  <div class="alert alert-success hidden">
+                  </div>
 
-        <div>
-            <div class="container">
-                <h2 id="contact-title">My Contacts</h2>
-            </div>
-        </div>
-
-        <!--  mentor-carousel start  -->
-        <div id="mentor-list" class="owl-carousel">
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/face-2.jpg" alt="">Liche Bore<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/face-1.jpg" alt="">Morris Luck<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/max.gif" alt="">Max Well<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/tesla.jpg" alt="">Tesla Coil<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/einstein.jpg" alt="">Stein Rock<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/face-4.jpg" alt="">Jada King<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/face-5.jpeg" alt="">Babe Que<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/face-6.jpg" alt="">Sio Joe<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/face-7.jpg" alt="">Jamie Kaka<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-            <div class="carousel-item"> <img class="avatar" src="../../public/assets/img/face-8.jpg" alt="">Lemon Tea<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
-        </div>
-        <!--  mentor-carousel end  -->
-
-        <!--  mentee-carousel start  -->
-        <div id="mentee-list" class="owl-carousel">
-            <div class="carousel-item"> mentee 1 </div>
-            <div class="carousel-item"> mentee 2 </div>
-            <div class="carousel-item"> mentee 3 </div>
-        </div>
-        <!--  mentee-carousel end  -->
-
-        <div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-
+                  <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="/">MentorRock</a>
                     </div>
 
-                    <div class="col-md-4">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="/#about">About</a></li>
+                        <li>
+                            <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
+                        </li>
+                      </ul>
+                       <form class="navbar-form navbar-left navbar-search-form" role="search">
+                         <div class="form-group">
+                              <input type="text" value="" class="form-control" placeholder="Search...">
+                         </div>
+                      </form>
+                      <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/register">Register</a></li>
+                            <li><a href="/login" class="btn btn-round btn-default">Sign in</a></li>
+                       </ul>
 
-                    </div>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+                <div class="blurred-container">
+                    <div class="img-src" style="background-image: url('assets/img/cover_mine.jpg')"></div>
+                    <div class='img-src blur' style="background-image: url('assets/img/cover_blur.png')"></div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div><!--  end navbar -->
 
-    <footer>
+        </div> <!-- end menu-dropdown -->
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <!-- Sidenac and page content-->
+        <div id ="content-con" class="container">
+            <div class="row">
+                <!-- Left menu of the page -->
+                <div id="left-menu" class="col-md-3">
 
-    </footer>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1>
+                    <p id="mentee">Mentee</p> <!-- Change this p to "XXXX's" Page-->
+                    
+                    <br>
+                    <br>
+
+                    <!-- Sidenav for the user -->
+                      <nav id="ss" class="navbar navbar-default navbar-fixed-side">
+                        <!-- normal collapsable navbar markup -->
+                        <ul id="sidenav-buttons" class="nav navbar-nav">
+                            
+                            <!-- User Mentee/Mentor Page Links-->
+                            <li><a href="/ui-home"><span class="glyphicon glyphicon-home"></span> Home</a></li><br>
+                            <li><a href="/myprofile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li><br>
+                            <li><a href="/accsettings"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li><br>
+                            <li><a href="/chatslist"><span class="glyphicon glyphicon-road"></span> Chatbox</a></li><br>
+                            <li><a href="/one2one"><span class="glyphicon glyphicon-th-list"></span> One-to-One</a></li><br>
+                            <li><a href="/contacts"><span class="glyphicon glyphicon-star"></span> Contacts</a></li><br>
+                            <li><a href="/searchmentor"><span class="glyphicon glyphicon-search"></span> Search for Mentors</a></li><br>
+                            <li><a href="/mentorapp"><span class="glyphicon glyphicon-pencil"></span> Mentor Application</a></li><br>
+                        </ul> 
+
+                      </nav>
+                    <br>
+
+                </div><!-- End of left menu div -->  
+
+                <br>
+                
+                <!-- Main content of the page -->
+                <div id="content" class="col-md-9">
+
+                
+                        <div class="jumbotron">
+
+                            <div>
+                                <div class="container">
+                                    <h2 id="contact-title">My Contacts</h2>
+                                </div>
+                            </div>
+
+                            <!--  mentor-carousel start  -->
+                            <div id="mentor-list" class="owl-carousel">
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/face-2.jpg" alt="">Liche Bore<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/face-1.jpg" alt="">Morris Luck<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/max.gif" alt="">Max Well<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/tesla.jpg" alt="">Tesla Coil<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/einstein.jpg" alt="">Stein Rock<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/face-4.jpg" alt="">Jada King<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/face-5.jpeg" alt="">Babe Que<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/face-6.jpg" alt="">Sio Joe<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/face-7.jpg" alt="">Jamie Kaka<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                                <div class="carousel-item"> <img class="avatar" src="assets/img/face-8.jpg" alt="">Lemon Tea<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
+                            </div>
+                            <!--  mentor-carousel end  -->
+
+                            <!--  mentee-carousel start  -->
+                            <div id="mentee-list" class="owl-carousel">
+                                <div class="carousel-item"> mentee 1 </div>
+                                <div class="carousel-item"> mentee 2 </div>
+                                <div class="carousel-item"> mentee 3 </div>
+                            </div>
+                            <!--  mentee-carousel end  -->
+
+                            <div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-8">
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer>
+
+                        </footer>
+                    
+                    
+                </div><!-- End of content div-->
+
+            </div><!-- End of row div-->
+        </div> <!-- ENd of content-con div-->
+    </div><!-- End of wrapper-->
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="../../public/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../../public/javascript/contacts.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="javascript/contacts.js"></script>
 </body>
 
 </html>
