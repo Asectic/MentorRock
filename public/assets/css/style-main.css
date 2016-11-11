@@ -268,7 +268,9 @@ tr, td {
     /*border-bottom: solid lightgray;
     border-radius: 15px;*/
 }
-
+#avatar-content {
+    left: 5%;
+}
 
 /* ===================================================== */
 
