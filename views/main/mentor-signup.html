@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>MentorRock Mentor sign-up</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap3/css/font-awesome.css" rel="stylesheet" />
+    <link href="bootstrap3/css/bootstrap-social.css" rel="stylesheet" />
+    <link href="assets/css/gsdk.css" rel="stylesheet" />
+    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="assets/css/mentor-signup.css" rel="stylesheet" />
+
+    <!--     Font Awesome     -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <div id="navbar-full">
+        <div id="navbar">
+            <nav class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
+                <div class="alert alert-success hidden">
+                </div>
+
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                        <a class="navbar-brand" href="../home/home.html">MentorRock</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../home/About.html">About</a></li>
+                            <li class="dropdown">
+                                <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#gsdk">Action</a></li>
+                                    <li><a href="#gsdk">Another action</a></li>
+                                    <li><a href="#gsdk">Something</a></li>
+                                    <li><a href="#gsdk">Another action</a></li>
+                                    <li><a href="#gsdk">Something</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#gsdk">Separated link</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-left navbar-search-form" role="search">
+                            <div class="form-group">
+                                <input type="text" value="" class="form-control" placeholder="Search...">
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="register.html">Register</a></li>
+                            <li><button href="login.html" class="btn btn-round btn-default">Sign in</button></li>
+                        </ul>
+
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+        <!--  end navbar -->
+    </div>
+    <!-- end menu-dropdown -->
+
+    <div class="main">
+        <div class="jumbotron">
+
+            <div>
+                <div class="container">
+                    <h2 id="form-title">Become a Mentor</h2>
+                </div>
+            </div>
+
+            <div>
+                <div class="container panel">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                            <div class="col-bg-6 col-md-6 col-sm-10">
+                                <span id="prompt-field">I want to become a mentor in </span><br>
+                                <button id="academic-button">Academic area</button>
+                                <button id="interest-button">Interest area</button>
+                                <div id="academic-field">
+                                    <span>Academic Specialty</span>
+                                    <br>
+                                    <select name="academic" id="">
+                                  <option value="Arts & Miscellaneous">Arts & Miscellaneous</option>
+                                  <option value="Biotechnology & Environmental Sciences">Biotechnology & Environmental Sciences</option>
+                                  <option value="Business and Office Administration">Business and Office Administration</option>
+                                  <option value="Construction, Architecture & Interior Design">Construction, Architecture & Interior Design</option>
+                                  <option value="Customer Service, Sales & Marketing">Customer Service, Sales & Marketing</option>
+                                  <option value="Engineering">Engineering</option>
+                                  <option value="Finance, Accounting, Banking & Insurance">Finance, Accounting, Banking & Insurance</option>
+                                  <option value="Healthcare, Pharmacy & Laboratory">Healthcare, Pharmacy & Laboratory</option>
+                                  <option value="Human Resources">Human Resources</option>
+                                  <option value="Information Technologies">Information Technologies</option>
+                                  <option value="Legal & Social Services">Legal & Social Services</option>
+                                  <option value="Manufacturing & Logistics">Manufacturing & Logistics</option>
+                                  <option value="Teaching, Daycare & Library">Teaching, Daycare & Library</option>
+                              </select>
+
+                                </div>
+                                <div id="interest-field">
+                                    <span>Interest Specialty</span>
+                                    <br>
+                                    <select>
+                                  <option value="Soccer / Football">Soccer / Football</option>
+                                  <option value="Cricket">Cricket</option>
+                                  <option value="Basketball">Basketball</option>
+                                  <option value="Baseball">Baseball</option>
+                                  <option value="Volleyball">Volleyball</option>
+                                  <option value="Tennis">Tennis</option>
+                                  <option value="Field Hockey">Field Hockey</option>
+                                  <option value="American Football">American Football</option>
+                                  <option value="Table Tennis">Table Tennis</option>
+                                  <option value="Ice Hockey">Ice Hockey</option>
+                                  <option value="Golf">Golf</option>
+                                  <option value="Rugby">Rugby</option>
+                                  <option value="Badminton">Badminton</option>
+                                  <option value="Boxing / Combat Sports">Boxing / Combat Sports</option>
+                                  <option value="Dragon Boat Racing">Dragon Boat Racing</option>
+                                  <option value="Gymnastics">Gymnastics</option>
+                                  <option value="Handball">Handball</option>
+                                  <option value="Bowling">Bowling</option>
+                                  <option value="Swimming">Swimming</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                            <div class="col-bg-6 col-md-6 col-sm-10">
+                                <div id="interest-field">
+                                    <span>Experience in Field</span>
+                                    <br>
+                                    <input id="experience" type="text" placeholder="Experience (in year)" pattern="[0-9]{1,3}" required>
+                                </div>
+                            </div>
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                            <div class="col-bg-6 col-md-6 col-sm-10">
+                                <span>Upload CV</span><br>
+                                <label class="inputfile"><input type="file" id="upload-cv"  required>
+                                <i class="fa fa-upload icon" color="gray" style="font-size:28px"></i> <span id="upload-cv-text">Upload My CV</span>
+                                </label>
+                            </div>
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                            <div class="col-bg-6 col-md-6 col-sm-10">
+                                <span>Working experience</span><br>
+                                <textarea name="" id="working-ex" cols="40" rows="2" placeholder="Related working experience"></textarea>
+                            </div>
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                            <div class="col-bg-6 col-md-6 col-sm-10">
+                                <span>Voluntary Information</span><br>
+                                <textarea name="" id="voluntary-info" cols="40" rows="2" placeholder="Why become a mentor ?"></textarea>
+                            </div>
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                            <div class="col-bg-6 col-md-6 col-sm-10">
+                                <span>Additional Note</span><br>
+                                <textarea name="" id="note" cols="40" rows="2" placeholder="Anything you want to say :)"></textarea>
+                            </div>
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                            <div class="col-bg-6 col-md-6 col-sm-10">
+                                <button id="submit-button">Submit</button>
+                            </div>
+                            <div class="col-bg-3 col-md-3 col-sm-1"></div>
+
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- end container -->
+    </div>
+    <!-- end main -->
+</body>
+
+<script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+
+<script src="bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+<script src="assets/js/gsdk-checkbox.js"></script>
+<script src="assets/js/gsdk-radio.js"></script>
+<script src="assets/js/gsdk-bootstrapswitch.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="javascript/mentor-signup.js"></script>
+
+</html>

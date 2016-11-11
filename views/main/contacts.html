@@ -11,89 +11,121 @@
     <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/css/contacts.css">
-    
-  <!-- MY CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="assets/js/custom.js"></script>
-    
-  <!-- server.js already points to "public". Just add the next file/folder for the path -->
-  <link href="assets/css/style-main.css" type="text/css" rel="stylesheet"/>
-      <link href="assets/css/navi.css" rel="stylesheet" />
-    
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <!-- server.js already points to "public". Just add the next file/folder for the path -->
+    <link href="assets/css/style-main.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/navi.css" rel="stylesheet" />
+
 </head>
 
 <body>
-    
-    <div id="wrapper">
-        
-         <div id="navbar-full">
-            <div id="navbar">
-            <!--
-                navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
-                -->
-                <nav id="FULL-NAV" class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
-                  <div class="alert alert-success hidden">
-                  </div>
+    <div class="jumbotron">
 
-                  <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <div>
+            <div class="container">
+                <h2 id="contact-title">My Contacts</h2>
+            </div>
+        </div>
+
+        <!--  mentor-carousel start  -->
+        <div id="mentor-list" class="owl-carousel">
+            <div class="carousel-item"> <img class="avatar" src="assets/img/face-2.jpg" alt="">Liche Bore<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/face-1.jpg" alt="">Morris Luck<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/max.gif" alt="">Max Well<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/tesla.jpg" alt="">Tesla Coil<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/einstein.jpg" alt="">Stein Rock<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/face-4.jpg" alt="">Jada King<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/face-5.jpeg" alt="">Babe Que<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/face-6.jpg" alt="">Sio Joe<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/face-7.jpg" alt="">Jamie Kaka<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+            <div class="carousel-item"> <img class="avatar" src="assets/img/face-8.jpg" alt="">Lemon Tea<br><a href="chatbox.html"><button class="chat-button">Chat</button></a></div>
+        </div>
+        <!--  mentor-carousel end  -->
+
+        <!--  mentee-carousel start  -->
+        <div id="mentee-list" class="owl-carousel">
+            <div class="carousel-item"> mentee 1 </div>
+            <div class="carousel-item"> mentee 2 </div>
+            <div class="carousel-item"> mentee 3 </div>
+        </div>
+        <!--  mentee-carousel end  -->
+    </div>
+
+    <div id="wrapper">
+        <div id="navbar-full">
+            <div id="navbar">
+                <nav id="FULL-NAV" class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
+                    <div class="alert alert-success hidden">
+                    </div>
+                    >>>>>>> upstream/master
+
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="/">MentorRock</a>
+                            <a class="navbar-brand" href="/">MentorRock</a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/#about">About</a></li>
+                                <li>
+                                    <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
+                                </li>
+                            </ul>
+                            <form class="navbar-form navbar-left navbar-search-form" role="search">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="Search...">
+                                </div>
+                            </form>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/register">Register</a></li>
+                                <li><a href="/login" class="btn btn-round btn-default">Sign in</a></li>
+                            </ul>
+
+                        </div>
+                        <!-- /.navbar-collapse -->
                     </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav">
-                        <li class="active"><a href="/#about">About</a></li>
-                        <li>
-                            <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
-                        </li>
-                      </ul>
-                       <form class="navbar-form navbar-left navbar-search-form" role="search">
-                         <div class="form-group">
-                              <input type="text" value="" class="form-control" placeholder="Search...">
-                         </div>
-                      </form>
-                      <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/register">Register</a></li>
-                            <li><a href="/login" class="btn btn-round btn-default">Sign in</a></li>
-                       </ul>
-
-                    </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container-fluid -->
+                    <!-- /.container-fluid -->
                 </nav>
-            </div><!--  end navbar -->
+            </div>
+            <!--  end navbar -->
 
-        </div> <!-- end menu-dropdown -->
-        
+        </div>
+        <!-- end menu-dropdown -->
+
         <br>
         <br>
         <br>
         <br>
-        
+
         <!-- Sidenac and page content-->
-        <div id ="content-con" class="container">
+        <div id="content-con" class="container">
             <div class="row">
                 <!-- Left menu of the page -->
                 <div id="left-menu" class="col-xs-5 col-md-3">
 
                     <br>
-                    <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1> 
+                    <h1 id="title">Mentor</h1>
+                    <h1 id="title2">Rock</h1>
                     <br>
 
                     <!-- Sidenav for the user -->
-                      <nav id="ss" class="navbar navbar-default navbar-fixed-side">
+                    <nav id="ss" class="navbar navbar-default navbar-fixed-side">
                         <!-- normal collapsable navbar markup -->
                         <ul id="sidenav-buttons" class="nav navbar-nav">
-                            
+
                             <!-- User Mentee/Mentor Page Links-->
                             <li><a href="/ui-home"><span class="glyphicon glyphicon-home"></span> Home</a></li><br>
                             <li><a href="/myprofile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li><br>
@@ -102,15 +134,16 @@
                             <li><a href="/contacts"><span class="glyphicon glyphicon-star"></span> Contacts</a></li><br>
                             <li><a href="/searchmentor"><span class="glyphicon glyphicon-search"></span> Search for Mentors</a></li><br>
                             <li><a href="/mentorapp"><span class="glyphicon glyphicon-pencil"></span> Mentor Application</a></li><br>
-                        </ul> 
+                        </ul>
 
-                      </nav>
+                    </nav>
                     <br>
 
-                </div><!-- End of left menu div -->  
+                </div>
+                <!-- End of left menu div -->
 
                 <br>
-                
+
                 <!-- Main content of the page -->
 
                 <!--<div id="content" class="jumbotron col-xs-13 col-md-9">-->
@@ -164,10 +197,13 @@
 
                 </footer>
 
-            </div><!-- End of row div-->
-        </div> <!-- ENd of content-con div-->
-    </div><!-- End of wrapper-->
-    
+            </div>
+            <!-- End of row div-->
+        </div>
+        <!-- ENd of content-con div-->
+    </div>
+    <!-- End of wrapper-->
+
     <!-- Needed to load content of my-contats -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
