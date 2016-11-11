@@ -98,6 +98,7 @@ body {
     /*height: 80vh;*/
     height: 72%;
     position: fixed;
+    overflow-y: auto;
 }
 
 #sidenav-buttons > li {
