@@ -130,10 +130,10 @@ body {
 }
 
 #title {
-    color: #f74622;
-    text-shadow: 0 0 5px #ff6c4f, 0 0 10px #ff6c4f,
-             0 0 20px #ff6c4f, 0 0 30px #ff6c4f,
-             0 0 40px #ff6c4f;
+    color:  #9999ff;
+    text-shadow: 0 0 5px  #9999ff, 0 0 10px  #9999ff,
+             0 0 20px  #9999ff, 0 0 30px  #9999ff,
+             0 0 40px  #9999ff;
     float: left;
 }
 
