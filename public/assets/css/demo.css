@@ -487,3 +487,40 @@
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
 
+
+
+.btn-round {
+  border-width: 1px;
+  border-radius: 30px !important;
+  padding: 9px 18px; }
+  
+  .carousel-control.left, .carousel-control.right {
+    background-image: none;
+}
+.carousel-control:hover, .carousel-control:focus {
+    color: #ffffff;
+}
+.carousel-control .fa, .carousel-control .icon-prev, .carousel-control .icon-next {
+	display: inline-block;
+	position: absolute;
+	top: 50%;z-index: 5;width: 150%;
+	margin-left: -9px;
+	margin-top: -17px;
+}
+
+#upload-cv {
+    display: none;
+}
+
+.inputfile{
+	margin-top: 10px;
+    border: 2px white solid;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #f7f7f7;
+    background-color: rgba(54, 159, 204, 1);
+}
+input[type="file"]{
+	padding-left: 5px;
+}

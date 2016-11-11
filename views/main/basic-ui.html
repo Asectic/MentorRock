@@ -4,10 +4,27 @@
 <!-- Head of the html file -->
 <head>
     <title>MentorRock</title>
-    <!-- Latest compiled and minified CSS -->
+    
+  <!-- CSS FROM HOME -->
+    	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap3/css/font-awesome.css" rel="stylesheet" />
+
+	<link href="assets/css/gsdk.css" rel="stylesheet" />
+    <!--<link href=assets/css/demo.css" rel="stylesheet" />-->
+
+    <!--     Font Awesome     -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    
+    
+    <!-- MY CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/js/custom.js"></script>
     
   <!-- server.js already points to "public". Just add the next file/folder for the path -->
   <link href="assets/css/style-main.css" type="text/css" rel="stylesheet"/>
@@ -18,6 +35,55 @@
 <body>
   
     <div id="wrapper">
+        
+                <div id="navbar-full">
+            <div id="navbar">
+            <!--
+                navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
+                -->
+                <nav class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
+                  <div class="alert alert-success hidden">
+                  </div>
+
+                  <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="/">MentorRock</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="/#about">About</a></li>
+                        <li>
+                            <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
+                        </li>
+                      </ul>
+                       <form class="navbar-form navbar-left navbar-search-form" role="search">
+                         <div class="form-group">
+                              <input type="text" value="" class="form-control" placeholder="Search...">
+                         </div>
+                      </form>
+                      <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/register">Register</a></li>
+                            <li><a href="/login" class="btn btn-round btn-default">Sign in</a></li>
+                       </ul>
+
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+            </div><!--  end navbar -->
+
+        </div> <!-- end menu-dropdown -->
+        
+        
+        
         <div id ="content-con" class="container">
             <div class="row">
                 <!-- Left menu of the page -->
@@ -42,10 +108,11 @@
                             <li><a href="/ui-home"><span class="glyphicon glyphicon-home"></span> Home</a></li><br>
                             <li><a href="/myprofile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li><br>
                             <li><a href="/accsettings"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li><br>
-                            <li><a href="/chatslist"><span class="glyphicon glyphicon-road"></span> One-to-One</a></li><br>
+                            <li><a href="/chatslist"><span class="glyphicon glyphicon-road"></span> Chatbox</a></li><br>
+                            <li><a href="/one2one"><span class="glyphicon glyphicon-th-list"></span> One-to-One</a></li><br>
+                            <li><a href="/contacts"><span class="glyphicon glyphicon-star"></span> Contacts</a></li><br>
                             <li><a href="/searchmentor"><span class="glyphicon glyphicon-search"></span> Search for Mentors</a></li><br>
                             <li><a href="/mentorapp"><span class="glyphicon glyphicon-pencil"></span> Mentor Application</a></li><br>
-                            <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Signout</a></li><br>
                         </ul> 
 
                       </nav>
@@ -53,6 +120,8 @@
 
                 </div><!-- End of left menu div -->  
 
+                <br>
+                <br>
                 <br>
                 
                 <!-- Main content of the page -->

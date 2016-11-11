@@ -23,10 +23,8 @@ app.set('view engine', 'html');
 
 // Routes is where all navigation pages are found in terms of server link
 var routes = require('./routes/routes');
-//var users = require('./users');
 
 app.use('/', routes);
-//app.use('/users', users);
 
 // The request body is received on GET or POST.
 // A middleware that just simplifies things a bit.
@@ -36,5 +34,5 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 // start the server
-app.listen(3000);
-console.log('Listening on port 3000');
+app.listen(3001);
+console.log('Listening on port 3001');
