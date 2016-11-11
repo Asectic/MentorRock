@@ -6,14 +6,14 @@
     <title>MentorRock</title>
     
   <!-- CSS FROM HOME -->
-    	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
     <link href="bootstrap3/css/font-awesome.css" rel="stylesheet" />
 
-	<link href="assets/css/gsdk.css" rel="stylesheet" />
-    <!--<link href=assets/css/demo.css" rel="stylesheet" />-->
+	<!--<link href="assets/css/gsdk.css" rel="stylesheet" />-->
+    <!--<link href="assets/css/demo.css" rel="stylesheet" />-->
 
     <!--     Font Awesome     -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -34,12 +34,13 @@
   
     <div id="wrapper">
         
+         <!-- Naivgation Bar: TOP -->
          <div id="navbar-full">
             <div id="navbar">
             <!--
                 navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
                 -->
-                <nav class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
+                <nav id="FULL-NAV" class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
                   <div class="alert alert-success hidden">
                   </div>
 
@@ -81,7 +82,6 @@
                     <div class='img-src blur' style="background-image: url('assets/img/cover_blur.png')"></div>
                 </div>
             </div><!--  end navbar -->
-
         </div> <!-- end menu-dropdown -->
         
         <br>
@@ -90,18 +90,15 @@
         
         <!-- Sidenac and page content-->
         <div id ="content-con" class="container">
+            
             <div class="row">
-                <!-- Left menu of the page -->
-                <div id="left-menu" class="col-md-3">
+                
+                <!-- Bootstrap Sidenav -->
+                <div id="left-menu" class="col-xs-5 col-md-3">
 
+                    <!-- Glowing "MentorRock" header -->
                     <br>
-                    <br>
-                    <br>
-                    
-                    <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1>
-                    <p id="mentee">Mentee</p> <!-- Change this p to "XXXX's" Page-->
-                    
-                    <br>
+                    <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1> 
                     <br>
 
                     <!-- Sidenav for the user -->
@@ -128,7 +125,9 @@
                 <br>
                 
                 <!-- Main content of the page -->
-                <div id="content" class="col-md-9">
+                <div id="content" class="col-xs-13 col-md-9">
+                    
+                    <!-- Whatever content goes here -->
                     <h1>Welcome Username</h1>
                     
                     <div id="newsfeed">
@@ -136,21 +135,16 @@
                         
                         <div id="news-content">
                             <p>Test content</p>
-                        
                         </div>
-                    
-                    </div><!-- ENd of Newsfeed -->                    
-                    
-                    
+                    </div><!-- ENd of Newsfeed -->                          
                     
                     <h2>TO-DO:</h2>
                     <p>Implement function where once a user logs into their account (mongodb for us), show the current username next to "Welcome"</p><br>
                     
-                    
-                </div><!-- End of content div-->
+                </div><!-- End of content col-md-9 div-->
 
             </div><!-- End of row div-->
-        </div> <!-- ENd of content-con div-->
+        </div> <!-- ENd of container div-->
     </div><!-- End of wrapper-->
     
 </body>

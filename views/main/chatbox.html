@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
-    <title>Chat Box</title>
+    
+    <title>MentorRock</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap3/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/chatbox.css">
     
       <!-- CSS FROM HOME -->
-    	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
     <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
     <link href="bootstrap3/css/font-awesome.css" rel="stylesheet" />
 
-	<link href="assets/css/gsdk.css" rel="stylesheet" />
-    <!--<link href=assets/css/demo.css" rel="stylesheet" />-->
+	<!--<link href="assets/css/gsdk.css" rel="stylesheet" />-->
+    <!--<link href="assets/css/demo.css" rel="stylesheet" />-->
 
     <!--     Font Awesome     -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -44,7 +45,7 @@
             <!--
                 navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
                 -->
-                <nav class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
+                <nav id="FULL-NAV" class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
                   <div class="alert alert-success hidden">
                   </div>
 
@@ -92,22 +93,17 @@
         <br>
         <br>
         <br>
-        <br>
         
         <!-- Sidenac and page content-->
         <div id ="content-con" class="container">
             <div class="row">
-                <!-- Left menu of the page -->
-                <div id="left-menu" class="col-md-3">
+                
+                <!-- Bootstrap Sidenav -->
+                <div id="left-menu" class="col-xs-5 col-md-3">
 
+                    <!-- Glowing "MentorRock" header -->
                     <br>
-                    <br>
-                    <br>
-                    
-                    <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1>
-                    <p id="mentee">Mentee</p> <!-- Change this p to "XXXX's" Page-->
-                    
-                    <br>
+                    <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1> 
                     <br>
 
                     <!-- Sidenav for the user -->
@@ -129,176 +125,165 @@
                       </nav>
                     <br>
 
-                </div><!-- End of left menu div -->  
+                </div><!-- End of left menu div -->   
 
                 <br>
                 
-                <!-- Main content of the page -->
-                <div id="content" class="col-md-9">
+                <!-- Main content of the page -->   
+                <div id="content" class="jumbotron col-xs-13 col-md-9">
 
-                    
-                        <div class="jumbotron">
-
-                            <div class="container bigpanel">
-                                <!--  Chat menu starts  -->
-                                <div class="chat-menu">
-                                    <div class="friend-list">
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/face-1.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Morris Luck</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/face-2.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Liche Bore</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/face-4.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Jada King</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/face-5.jpeg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Babe Que</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/face-6.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Sio Joe</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/face-7.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Jamie Kaka</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/face-8.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Lemon Tea</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/tesla.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Tesla Coil</small>
-                                        </a>
-
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/max.gif" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Max Well</small>
-                                        </a>
-                                        <a class="friend-list-item" href="PROFILE">
-                                            <div class="pull-left">
-                                                <img src="assets/img/einstein.jpg" alt="" class="friend-list-avatar">
-                                            </div>
-                                            <small class="friend-list-item-name">Stein Rock</small>
-                                        </a>
+                    <div class="container bigpanel">
+                        <!--  Chat menu starts  -->
+                        <div class="chat-menu">
+                            <div class="friend-list">
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-1.jpg" alt="" class="friend-list-avatar">
                                     </div>
-                                </div>
-                                <!--  Chat menu ends  -->
-
-                                <!--  Chat box starts  -->
-                                <div class="chat-body">
-                                    <!--  active chat profile starts  -->
-                                    <div class="pull-left chat-profile">
-                                        <img src="assets/img/tesla.jpg" alt="" class="avatar m-r-10">
-                                        <span id="chat-name">Tesla Coil</span>
+                                    <small class="friend-list-item-name">Morris Luck</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-2.jpg" alt="" class="friend-list-avatar">
                                     </div>
-                                    <!--  active chat profile ends  -->
-                                    <!--  function nav starts  -->
-                                    <ul class="function-nav">
-                                        <li>
-                                            <a href="">
-                                                <i class="fa fa-times-rectangle" style="font-size:18px"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <i class="fa fa-folder-open" style="font-size:18px"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <i class="fa fa-refresh" style="font-size:18px"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <!--  function nav ends  -->
-                                    <div class="chat-box">
-
-                                        <div class="chat-bubble left">
-                                            <div class="pull-left">
-                                                <img src="assets/img/tesla.jpg" alt="" class="icon-avatar">
-                                            </div>
-                                            <div class="message-body">
-                                                <div class="message-content">
-                                                    Hello how are you doing? How is it going with the new chapter? Any questions that I can help?
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="chat-bubble right">
-                                            <div class="pull-right">
-                                                <img src="assets/img/face-3.jpg" alt="" class="icon-avatar">
-                                            </div>
-                                            <div class="message-body">
-                                                <div class="message-content pull-right">
-                                                    I have some problem with the experiment procedure. Could you please explain a little bit on the initial set-up. What is the importance of the callibration at the beginning, and what would be affected if we skip the tedious steps? Further, isn't it likely that we need to callibrate each time we do another round of observation given the criteria, it doesn't seem practical.
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="chat-bubble left">
-                                            <div class="pull-left">
-                                                <img src="assets/img/tesla.jpg" alt="" class="icon-avatar">
-                                            </div>
-                                            <div class="message-body">
-                                                <div class="message-content">
-                                                    Yeah that's a good question!! I remember having similar confusiton while I first read that part. Well, in fact, I think it would be easier if you try to go through the whole procedure in your mind, and consider taking out one step, and compare what might go wrong. Maybe you can now describe the procedure to me, and let's discuss what really is a must and what is not, and why.
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="chat-bubble right">
-                                            <div class="pull-right">
-                                                <img src="assets/img/face-3.jpg" alt="" class="icon-avatar">
-                                            </div>
-                                            <div class="message-body">
-                                                <div class="message-content pull-right">
-                                                    Oh that would be awesome, so from what I read, we should first .... and then ... so .... but.... XD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, tenetur?
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                    <small class="friend-list-item-name">Liche Bore</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-4.jpg" alt="" class="friend-list-avatar">
                                     </div>
-                                    <div class="create-message">
-                                        <button id="upload-button" class="bottom-button"><i class="fa fa-cloud-upload" style="font-size:24px"></i></button>
-                                        <button id="send-message-button" class="bottom-button"><i class="fa fa-send-o" style="font-size:24px"></i></button>
-                                        <textarea id="message-input" placeholder="I want to say..."></textarea>
+                                    <small class="friend-list-item-name">Jada King</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-5.jpeg" alt="" class="friend-list-avatar">
                                     </div>
-                                </div>
-                                <!--  Chat box ends  -->
+                                    <small class="friend-list-item-name">Babe Que</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-6.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Sio Joe</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-7.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Jamie Kaka</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-8.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Lemon Tea</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/tesla.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Tesla Coil</small>
+                                </a>
+
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/max.gif" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Max Well</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/einstein.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Stein Rock</small>
+                                </a>
                             </div>
-                        </div><!-- End of jumbotron-->
+                        </div>
+                        <!--  Chat menu ends  -->
 
-                        <footer>
+                        <!--  Chat box starts  -->
+                        <div class="chat-body">
+                            <!--  active chat profile starts  -->
+                            <div class="pull-left chat-profile">
+                                <img src="assets/img/tesla.jpg" alt="" class="avatar m-r-10">
+                                <span id="chat-name">Tesla Coil</span>
+                            </div>
+                            <!--  active chat profile ends  -->
+                            <!--  function nav starts  -->
+                            <ul class="function-nav">
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-times-rectangle" style="font-size:18px"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-folder-open" style="font-size:18px"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-refresh" style="font-size:18px"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--  function nav ends  -->
+                            <div class="chat-box">
 
-                        </footer>
-                    
-                    
-                    
-                </div><!-- End of content div-->
+                                <div class="chat-bubble left">
+                                    <div class="pull-left">
+                                        <img src="assets/img/tesla.jpg" alt="" class="icon-avatar">
+                                    </div>
+                                    <div class="message-body">
+                                        <div class="message-content">
+                                            Hello how are you doing? How is it going with the new chapter? Any questions that I can help?
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chat-bubble right">
+                                    <div class="pull-right">
+                                        <img src="assets/img/face-3.jpg" alt="" class="icon-avatar">
+                                    </div>
+                                    <div class="message-body">
+                                        <div class="message-content pull-right">
+                                            I have some problem with the experiment procedure. Could you please explain a little bit on the initial set-up. What is the importance of the callibration at the beginning, and what would be affected if we skip the tedious steps? Further, isn't it likely that we need to callibrate each time we do another round of observation given the criteria, it doesn't seem practical.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chat-bubble left">
+                                    <div class="pull-left">
+                                        <img src="assets/img/tesla.jpg" alt="" class="icon-avatar">
+                                    </div>
+                                    <div class="message-body">
+                                        <div class="message-content">
+                                            Yeah that's a good question!! I remember having similar confusiton while I first read that part. Well, in fact, I think it would be easier if you try to go through the whole procedure in your mind, and consider taking out one step, and compare what might go wrong. Maybe you can now describe the procedure to me, and let's discuss what really is a must and what is not, and why.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chat-bubble right">
+                                    <div class="pull-right">
+                                        <img src="assets/img/face-3.jpg" alt="" class="icon-avatar">
+                                    </div>
+                                    <div class="message-body">
+                                        <div class="message-content pull-right">
+                                            Oh that would be awesome, so from what I read, we should first .... and then ... so .... but.... XD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, tenetur?
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="create-message">
+                                <button id="upload-button" class="bottom-button"><i class="fa fa-cloud-upload" style="font-size:24px"></i></button>
+                                <button id="send-message-button" class="bottom-button"><i class="fa fa-send-o" style="font-size:24px"></i></button>
+                                <textarea id="message-input" placeholder="I want to say..."></textarea>
+                            </div>
+                        </div>
+                        <!--  Chat box ends  -->
+                    </div><!-- End of container-bigpanel -->
+                </div><!-- End of jumbotron-->
 
             </div><!-- End of row div-->
         </div> <!-- ENd of content-con div-->
