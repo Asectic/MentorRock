@@ -9,6 +9,7 @@ $(function () {
         $('#interest-field').hide();
         $('#academic-button').hide();
         $('#interest-button').hide();
+        $('#prompt-field').hide();
     });
 
     $('#interest-button').click(function () {
@@ -16,6 +17,7 @@ $(function () {
         $('#academic-field').hide();
         $('#academic-button').hide();
         $('#interest-button').hide();
+        $('#prompt-field').hide();
     });
 
 });
