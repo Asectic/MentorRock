@@ -10,6 +10,12 @@ router.get('/', function(req, res) {
     });
 });
 
+router.get('/home', function(req, res) {
+    res.render('home/home', {  // Note that .html is assumed.
+        errors: ''
+    });
+});
+
 router.get('/about', function(req, res) {
     res.render('home/about', {  // Note that .html is assumed.
         errors: ''
