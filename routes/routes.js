@@ -10,11 +10,19 @@ router.get('/', function(req, res) {
     });
 });
 
+router.get('/about', function(req, res) {
+    res.render('home/about', {  // Note that .html is assumed.
+        errors: ''
+    });
+});
+
 router.get('/login', function(req, res) {
     res.render('user-setup/login', {  // Note that .html is assumed.
         errors: ''
     });
-});router.get('/register', function(req, res) {
+});
+
+router.get('/register', function(req, res) {
     res.render('user-setup/register', {  // Note that .html is assumed.
         errors: ''
     });
