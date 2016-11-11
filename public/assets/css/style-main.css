@@ -96,7 +96,7 @@ body {
 
 #ss {
     /*height: 80vh;*/
-    height: 72%;
+    height: 67%;
     position: fixed;
     overflow-y: auto;
 }
@@ -113,7 +113,7 @@ body {
 #content {
     align-content: center;
     background-color: white;
-    height: 85vh;
+    height: 81vh;
     /*height: 70%;*/
     overflow-y: auto;
     
