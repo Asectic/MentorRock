@@ -135,19 +135,20 @@ body {
     text-align: center;
 }
 
-#title {
-    color:  #9999ff;
-    text-shadow: 0 0 5px  #9999ff, 0 0 10px  #9999ff,
-             0 0 20px  #9999ff, 0 0 30px  #9999ff,
-             0 0 40px  #9999ff;
-    float: left;
+#title2 {
+    color:  #b3b3ff;
+    text-shadow: 0 0 5px rgba(179, 132, 255, 1), 0 0 10px  #b3b3ff,
+             0 0 20px  #b3b3ff, 0 0 30px  #b3b3ff,
+             0 0 40px  #b3b3ff;
+    
 }
 
-#title2 {
+#title {
     color: #D0F8FF;
     text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
              0 0 20px #ff6c4f, 0 0 30px #A5F1FF,
              0 0 40px #A5F1FF;
+    float: left;
 }
 
 #mentee {
