@@ -60,8 +60,7 @@
 
 /* ===================================================== */
 
-/* ===================================================== */
-/* The main components of the document */
+/* The main components of the user-mentee UI document */
 html,body {
   height:100%;
   width: 100%;
@@ -108,7 +107,7 @@ body {
 
 #sidenav-buttons > li {
     height: 50%;
-    /*margin-bottom: -4%;*/
+    margin-bottom: -5%;
     padding-top: 0%;
     padding-bottom: 0%;
     padding-left: 10%;
