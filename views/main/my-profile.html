@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/js/custom.js"></script>
     
   <!-- server.js already points to "public". Just add the next file/folder for the path -->
   <link href="assets/css/style-main.css" type="text/css" rel="stylesheet"/>
@@ -76,9 +77,6 @@
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
                 </nav>
-                <div class="blurred-container">
-                    <div class="img-src" style="background-image: url('assets/img/cover_mine.jpg')"></div>
-                    <div class='img-src blur' style="background-image: url('assets/img/cover_blur.png')"></div>
                 </div>
             </div><!--  end navbar -->
 
@@ -129,7 +127,9 @@
                     <p>Implement function where once a user logs into their account (mongodb for us), show the current username on their own profile. And their corresponding icon image and field data</p><br>
                     
                     <br>
-                    <div id="image" class="img-thumbnail"></div>
+                    <div id="image" >
+                        <img class="img-thumbnail" src="assets/img/face-6.jpg">
+                    </div>
                     <br>
                     
                     <h1>USERNAME</h1>

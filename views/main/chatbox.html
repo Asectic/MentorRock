@@ -5,100 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
-    
     <title>MentorRock Chat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap3/css/bootstrap.min.css">
+
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <!-- server.js already points to "public". Just add the next file/folder for the path -->
+    <link href="assets/css/style-main.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/navi.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/chatbox.css">
-    
-  <!-- MY CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-  <!-- server.js already points to "public". Just add the next file/folder for the path -->
-  <link href="assets/css/style-main.css" type="text/css" rel="stylesheet"/>
-  <link href="assets/css/navi.css" rel="stylesheet" />
-    
+
 </head>
 
+
 <body>
-    
-        <div id="wrapper">
-        
-         <div id="navbar-full">
+
+    <div id="wrapper">
+
+        <div id="navbar-full">
             <div id="navbar">
-            <!--
+                <!--
                 navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
                 -->
                 <nav id="FULL-NAV" class="navbar navbar-ct-black navbar-fixed-top" role="navigation">
-                  <div class="alert alert-success hidden">
-                  </div>
+                    <div class="alert alert-success hidden">
+                    </div>
 
-                  <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="/">MentorRock</a>
+                            <a class="navbar-brand" href="/">MentorRock</a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/#about">About</a></li>
+                                <li>
+                                    <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
+                                </li>
+                            </ul>
+                            <form class="navbar-form navbar-left navbar-search-form" role="search">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="Search...">
+                                </div>
+                            </form>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/register">Register</a></li>
+                                <li><a href="/login" class="btn btn-round btn-default">Sign in</a></li>
+                            </ul>
+
+                        </div>
+                        <!-- /.navbar-collapse -->
                     </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav">
-                        <li class="active"><a href="/#about">About</a></li>
-                        <li>
-                            <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
-                        </li>
-                      </ul>
-                       <form class="navbar-form navbar-left navbar-search-form" role="search">
-                         <div class="form-group">
-                              <input type="text" value="" class="form-control" placeholder="Search...">
-                         </div>
-                      </form>
-                      <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/register">Register</a></li>
-                            <li><a href="/login" class="btn btn-round btn-default">Sign in</a></li>
-                       </ul>
-
-                    </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container-fluid -->
+                    <!-- /.container-fluid -->
                 </nav>
-                <div class="blurred-container">
-                    <div class="img-src" style="background-image: url('assets/img/cover_mine.jpg')"></div>
-                    <div class='img-src blur' style="background-image: url('assets/img/cover_blur.png')"></div>
-                </div>
-            </div><!--  end navbar -->
+            </div>
+            <!--  end navbar -->
 
-        </div> <!-- end menu-dropdown -->
-        
+        </div>
+        <!-- end menu-dropdown -->
+
         <br>
         <br>
         <br>
         <br>
-        
-        <!-- Sidenac and page content-->
-        <div id ="content-con" class="container">
+
+        <!-- Sidenav and page content-->
+        <div id="content-con" class="container">
             <div class="row">
-                
+
                 <!-- Bootstrap Sidenav -->
                 <div id="left-menu" class="col-xs-5 col-md-3">
 
                     <!-- Glowing "MentorRock" header -->
                     <br>
-                    <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1> 
+                    <h1 id="title">Mentor</h1>
+                    <h1 id="title2">Rock</h1>
                     <br>
 
                     <!-- Sidenav for the user -->
-                      <nav id="ss" class="navbar navbar-default navbar-fixed-side">
+                    <nav id="ss" class="navbar navbar-default navbar-fixed-side">
                         <!-- normal collapsable navbar markup -->
                         <ul id="sidenav-buttons" class="nav navbar-nav">
-                            
+
                             <!-- User Mentee/Mentor Page Links-->
                             <li><a href="/ui-home"><span class="glyphicon glyphicon-home"></span> Home</a></li><br>
                             <li><a href="/myprofile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li><br>
@@ -107,20 +109,22 @@
                             <li><a href="/contacts"><span class="glyphicon glyphicon-star"></span> Contacts</a></li><br>
                             <li><a href="/searchmentor"><span class="glyphicon glyphicon-search"></span> Search for Mentors</a></li><br>
                             <li><a href="/mentorapp"><span class="glyphicon glyphicon-pencil"></span> Mentor Application</a></li><br>
-                        </ul>  
+                        </ul>
 
-                      </nav>
+                    </nav>
                     <br>
 
-                </div><!-- End of left menu div -->   
+                </div>
+                <!-- End of left menu div -->
 
                 <br>
-                
-                <!-- Main content of the page -->   
+
+                <!-- Main content of the page -->
                 <!--<div id="content" class="jumbotron col-xs-13 col-md-9">-->
                 <div id="content" class="jumbotron col-xs-13 col-md-9">
 
                     <div class="container bigpanel">
+
                         <!--  Chat menu starts  -->
                         <div class="chat-menu">
                             <div class="friend-list">
@@ -239,50 +243,19 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="chat-bubble left">
-                                    <div class="pull-left">
-                                        <img src="assets/img/tesla.jpg" alt="" class="icon-avatar">
-                                    </div>
-                                    <div class="message-body">
-                                        <div class="message-content">
-                                            Yeah that's a good question!! I remember having similar confusiton while I first read that part. Well, in fact, I think it would be easier if you try to go through the whole procedure in your mind, and consider taking out one step, and compare what might go wrong. Maybe you can now describe the procedure to me, and let's discuss what really is a must and what is not, and why.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="chat-bubble right">
-                                    <div class="pull-right">
-                                        <img src="assets/img/face-3.jpg" alt="" class="icon-avatar">
-                                    </div>
-                                    <div class="message-body">
-                                        <div class="message-content pull-right">
-                                            Oh that would be awesome, so from what I read, we should first .... and then ... so .... but.... XD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, tenetur?
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="create-message">
-                                <button id="upload-button" class="bottom-button"><i class="fa fa-cloud-upload" style="font-size:24px"></i></button>
-                                <button id="send-message-button" class="bottom-button"><i class="fa fa-send-o" style="font-size:24px"></i></button>
-                                <textarea id="message-input" placeholder="I want to say..."></textarea>
                             </div>
                         </div>
-                        <!--  Chat box ends  -->
                     </div>
-                </div><!-- ENd of jumbo-->
-                
+                </div>
                 <footer>
 
                 </footer>
-
-            </div><!-- End of row div-->
-        </div> <!-- ENd of content-con div-->
-    </div><!-- End of wrapper-->
-    
-
-
+            </div>
+            <!-- End of row div-->
+        </div>
+        <!-- ENd of content-con div-->
+    </div>
+    <!-- End of wrapper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="javascript/chatbox.js"></script>

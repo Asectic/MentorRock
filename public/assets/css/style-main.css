@@ -4,7 +4,7 @@
 }
 
 .jumbotron {
-    background-image: url(../../assets/img/personal-mentor.jpg);
+    background-image: url(../../assets/img/personal-mentor-blur.jpg) ;
     background-size: 100%;
     height: 760px;
     margin: 0;
@@ -14,7 +14,8 @@
     width: 90%;
     margin: 0 auto;
     overflow: auto;
-    padding: 10px;
+    padding-left: : 15px;
+    padding-right: 15px;
 }
 
 #contact-title {
@@ -73,7 +74,9 @@ html {
 }
 
 body {
-    background-image: url("../img/cover_mine.jpg");
+    background-image: url("../img/cover_blur.png");
+     background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .container .row .col-md-6 .col-sm-4 { 
@@ -111,6 +114,9 @@ body {
 }
 
 #content {
+    border-radius: 15px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
     align-content: center;
     background-color: white;
     height: 81vh;
@@ -129,19 +135,20 @@ body {
     text-align: center;
 }
 
-#title {
-    color:  #9999ff;
-    text-shadow: 0 0 5px  #9999ff, 0 0 10px  #9999ff,
-             0 0 20px  #9999ff, 0 0 30px  #9999ff,
-             0 0 40px  #9999ff;
-    float: left;
+#title2 {
+    color:  #b3b3ff;
+    text-shadow: 0 0 5px rgba(179, 132, 255, 1), 0 0 10px  #b3b3ff,
+             0 0 20px  #b3b3ff, 0 0 30px  #b3b3ff,
+             0 0 40px  #b3b3ff;
+    
 }
 
-#title2 {
+#title {
     color: #D0F8FF;
     text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
              0 0 20px #ff6c4f, 0 0 30px #A5F1FF,
              0 0 40px #A5F1FF;
+    float: left;
 }
 
 #mentee {
