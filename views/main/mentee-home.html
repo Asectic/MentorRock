@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/js/custom.js"></script>
     
   <!-- server.js already points to "public". Just add the next file/folder for the path -->
   <link href="assets/css/style-main.css" type="text/css" rel="stylesheet"/>
@@ -78,10 +79,6 @@
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
                 </nav>
-                <div class="blurred-container">
-                    <div class="img-src" style="background-image: url('assets/img/cover_mine.jpg')"></div>
-                    <div class='img-src blur' style="background-image: url('assets/img/cover_blur.png')"></div>
-                </div>
             </div><!--  end navbar -->
         </div> <!-- end menu-dropdown -->
         
@@ -131,11 +128,36 @@
                     <!-- Whatever content goes here -->
                     <h1>Welcome Username</h1>
                     
-                    <div id="newsfeed">
-                        <h2>Newsfeed</h2>
+                    <div id="newsfeed" >
+                        <h2 align="center">Newsfeed</h2>
+                        <div class="row">
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">Meeting Schedule Confirm</h4>
+                            <p>You mentor XXX have scheduled a meeting this Friday 8:00pm 11/11/2016, </p>
+                            <button class="btn btn-success">Confirm</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
                         
-                        <div id="news-content">
-                            <p>Test content</p>
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">Become Mentor Request denied</h4>
+                            <p>You become a mentor request have been denied by admin.......</p>
+                            <button class="btn btn-warning">Click to see full message</button>
+                        </div>
+                        </div>
+                        <div class="space-30"></div>
+                        <div class="row">
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">You mentor XXX have sent you a message</h4>
+                            <p>Hi, my dear, I just viewed your resume, and it's pretty good. And that's my suggestion to make it even better.......</p>
+                            <button class="btn  btn-info">Click to see full message</button>
+                        </div>
+                        
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">You mentor XXX have sent you a message</h4>
+                            <p>Hi, my dear, I just viewed your resume, and it's pretty good. And that's my suggestion to make it even better.......</p>
+                            <button class="btn btn-info">Click to see full message</button>
+                        </div>
+                        </div>
                         </div>
                     </div><!-- ENd of Newsfeed -->                          
 
