@@ -1,0 +1,175 @@
+<html>
+
+<head>
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/chatbox-header %>
+
+</head>
+
+
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation %>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div id ="content-con" class="container">
+            <div class="row">
+        
+                <!-- Sidenav and page content-->
+                
+                <div id="left-menu" class="col-xs-5 col-md-3">
+                    <% include ../../partials/sidenav-main %>
+                </div><!-- End of left menu div --> 
+
+                <br>
+
+                <!-- Main content of the page -->
+                <!--<div id="content" class="jumbotron col-xs-13 col-md-9">-->
+                <div id="content" class="jumbotron col-xs-13 col-md-9">
+
+                    <div class="container bigpanel">
+
+                        <!--  Chat menu starts  -->
+                        <div class="chat-menu">
+                            <div class="friend-list">
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-1.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Morris Luck</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-2.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Liche Bore</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-4.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Jada King</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-5.jpeg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Babe Que</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-6.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Sio Joe</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-7.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Jamie Kaka</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/face-8.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Lemon Tea</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/tesla.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Tesla Coil</small>
+                                </a>
+
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/max.gif" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Max Well</small>
+                                </a>
+                                <a class="friend-list-item" href="PROFILE">
+                                    <div class="pull-left">
+                                        <img src="assets/img/einstein.jpg" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name">Stein Rock</small>
+                                </a>
+                            </div>
+                        </div>
+                        <!--  Chat menu ends  -->
+
+                        <!--  Chat box starts  -->
+                        <div class="chat-body">
+                            <!--  active chat profile starts  -->
+                            <div class="pull-left chat-profile">
+                                <img src="assets/img/tesla.jpg" alt="" class="avatar m-r-10">
+                                <span id="chat-name">Tesla Coil</span>
+                            </div>
+                            <!--  active chat profile ends  -->
+                            <!--  function nav starts  -->
+                            <ul class="function-nav">
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-times-rectangle" style="font-size:18px"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-folder-open" style="font-size:18px"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-refresh" style="font-size:18px"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--  function nav ends  -->
+                            <div class="chat-box">
+
+                                <div class="chat-bubble left">
+                                    <div class="pull-left">
+                                        <img src="assets/img/tesla.jpg" alt="" class="icon-avatar">
+                                    </div>
+                                    <div class="message-body">
+                                        <div class="message-content">
+                                            Hello how are you doing? How is it going with the new chapter? Any questions that I can help?
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chat-bubble right">
+                                    <div class="pull-right">
+                                        <img src="assets/img/face-3.jpg" alt="" class="icon-avatar">
+                                    </div>
+                                    <div class="message-body">
+                                        <div class="message-content pull-right">
+                                            I have some problem with the experiment procedure. Could you please explain a little bit on the initial set-up. What is the importance of the callibration at the beginning, and what would be affected if we skip the tedious steps? Further, isn't it likely that we need to callibrate each time we do another round of observation given the criteria, it doesn't seem practical.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <footer>
+
+                    </footer>
+                </div><!-- End of jumbotron-->
+
+            </div> <!-- End of row div-->
+        </div> <!-- ENd of content-con div-->
+    </div> <!-- End of wrapper-->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="javascript/chatbox.js"></script>
+</body>
+
+</html>
