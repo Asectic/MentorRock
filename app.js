@@ -28,5 +28,25 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
+/* ========================================================== */
+
+// Set another path to model-schema
+var data_path = require('./model-schema');
+
+// Database Connection Code
+var db = mongoose.connection;
+
+db.on('error', console.error);
+db.once('open', function() {
+    
+  // Create your schemas and models here.
+  console.log('Have an open mentorDB running!');    
+    
+});
+
+mongoose.connect('mongodb://localhost/mentorDB');
+
+/* ========================================================== */
+
 app.listen(3001);
 console.log('Running MentorRock on port 3001');
