@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 /* ========================================================== */
 
 // Set another path to model-schema
-var data_path = require('./model-schema');
+//var data_path = require('./model-schema');
 
 // Database Connection Code
 var db = mongoose.connection;
