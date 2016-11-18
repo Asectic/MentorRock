@@ -5,89 +5,49 @@ var router = express.Router();
 
 // Home, About, Login and Register
 router.get('/', function(req, res) {
-    res.render('home/home', {  // Note that .html is assumed.
-        errors: ''
-    });
-});
-
-router.get('/home', function(req, res) {
-    res.render('home/home', {  // Note that .html is assumed.
-        errors: ''
-    });
-});
-
-router.get('/about', function(req, res) {
-    res.render('home/about', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/home');
 });
 
 router.get('/login', function(req, res) {
-    res.render('user-setup/login', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/user-setup/login');
 });
 
 router.get('/register', function(req, res) {
-    res.render('user-setup/register', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/user-setup/register');
 });
 
-// Pages for Mentee, Mentor
+/* Mentee and Mentor Pages */
 router.get('/ui-home', function(req, res) {
-    res.render('main/mentee-home', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/main/mentee-home');
 });
 
 router.get('/myprofile', function(req, res) {
-    res.render('main/my-profile', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/main/my-profile');
 });
 
 router.get('/accsettings', function(req, res) {
-    res.render('main/acc-settings', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/main/acc-settings');
 });
 
 router.get('/chatslist', function(req, res) {
-    res.render('main/chatbox', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/main/chatbox');
 });
 
 router.get('/searchmentor', function(req, res) {
-    res.render('main/search-mentor', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/main/search-mentor');
 });
 
 router.get('/mentorapp', function(req, res) {
-    res.render('main/mentor-app', {  // Note that .html is assumed.
-        errors: ''
-    });
-});
-
-router.get('/one2one', function(req, res) {
-    res.render('main/one2one', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/main/mentor-app');
 });
 
 router.get('/contacts', function(req, res) {
-    res.render('main/contacts', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/main/contacts');
 });
 
-// Pages for Admin
+// Pages for admin
 router.get('/admin', function(req, res) {
-    res.render('admin/base', {  // Note that .html is assumed.
-        errors: ''
-    });
+    res.render('pages/admin/base');
 });
 
 /* ============================================ */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+    
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+    
+</head>    
+        
+<!-- Body of the html file -->
+<body>
+  
+    <div id="wrapper">
+        
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation %>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div id ="content-con" class="container">
+            <div class="row">
+        
+                <!-- Sidenav and page content-->
+                
+                <div id="left-menu" class="col-xs-5 col-md-3">
+                    <% include ../../partials/sidenav-main %>
+                </div><!-- End of left menu div --> 
+
+                <br>
+                
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+                    <!-- Page Username header-->
+                    <h2>TO-DO:</h2>
+                    <p>Implement function where once a user logs into their account (mongodb for us), show the current username on their own profile. And their corresponding icon image and field data</p><br>
+                    
+                    <br>
+                    <div id="image" >
+                        <img class="img-thumbnail" src="assets/img/face-6.jpg">
+                    </div>
+                    <br>
+                    
+                    <h1>USERNAME</h1>
+                    
+                    <br>
+                    
+                    <!--  About section -->
+                    <div id="about">
+                        <h1 id="user-about">About</h1>
+                        <div id="about-content">
+                            <p>Name:</p>
+                            <p>Age:</p>
+                            <p>School:</p>
+                            <p>Degree:</p>
+                            <p>Major</p>
+                        </div><!-- End of user about content div -->
+                    
+                    </div><!-- End of user about div -->
+                    
+                    <br>
+                    
+                    <!--  About section -->
+                    <div id="interests">
+                        <h1 id="user-interests">Interests</h1>
+                        <div id="interests-content">
+                            <p>Test content</p>
+                        
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div><!-- End of user interests content div -->
+                    
+                    </div><!-- End of user interests div -->
+                    
+                    <br>
+                    
+                    <!--  About section -->
+                    <div id="blog">
+                        <h1 id="user-blog">Comment of the Day</h1>
+                        <div id="blog-content">
+                            <p>Test comments</p>
+                        
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div><!-- End of user interests content div -->
+                    
+                    </div><!-- End of user interests div -->
+                    
+                    <br>
+
+                </div> <!-- ENd of main content div-->
+
+            </div><!-- End of row div-->
+        </div> 
+    </div>
+    
+</body>
+        
+</html>
