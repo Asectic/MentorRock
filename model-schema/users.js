@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema(
 {
 	Username: {
-		type: String, required: true 
+		type: String, required: true, unique: true
 	},
 	givenname: {
 		type: String, required: true
