@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+var app = require('express');
+var router = app.Router();
 
 /* Web-app pages directory */
 
@@ -49,6 +49,13 @@ router.get('/contacts', function(req, res) {
 router.get('/admin', function(req, res) {
     res.render('pages/admin/base');
 });
+
+/*
+app.get('/users', api.findAllUsers);//find all users and a user with a given user name
+app.post('/user', api.updateUser);
+app.delete('/user', api.deleteUser);
+
+*/
 
 /* ============================================ */
 
