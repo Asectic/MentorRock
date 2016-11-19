@@ -109,5 +109,51 @@ body{
     border-radius:50%;
 }
 
+#myNavbar li{
+    margin:0px;
+    padding:0px;
+    list-style-type: none;
+}
+
+
+/*Changing the padding of the menus on the navbar depending on the position*/
+
+@media only screen and (max-width:1010px){
+
+    .nav > li > a, .nav > .navbar-form {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media only screen and (max-width:960px){
+
+    .nav > li > a, .nav > .navbar-form {
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+        margin-right: 0 !important;
+    }
+}
+
+/*Change the background color of the search input*/
+.navbar-form input[type=text] {
+    background-color: black;
+    color: white;
+}
+
+/*Styling for the mentor request notify badge*/
+.badge-notify{
+    background:red;
+    position:relative;
+    top: -10px;
+    left: -6px;
+    padding: 2px;
+    margin: 0px;
+}
+
+
+
+
 
 
