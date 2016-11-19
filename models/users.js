@@ -51,6 +51,5 @@ var userSchema = new Schema(
 }
 );
 
-mongoose.connect('mongodb://localhost/db');
 
 module.exports = mongoose.model('Users', userSchema);

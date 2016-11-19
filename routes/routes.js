@@ -50,9 +50,12 @@ router.get('/admin', function(req, res) {
     res.render('pages/admin/base');
 });
 
+/*
 app.get('/users', api.findAllUsers);//find all users and a user with a given user name
 app.post('/user', api.updateUser);
 app.delete('/user', api.deleteUser);
+
+*/
 
 /* ============================================ */
 
