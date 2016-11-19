@@ -1,26 +1,52 @@
-// grab the things we need
 var mongoose = require('mongoose');
+
 var Schema = mongoose.Schema;
 
-// create a Schema
-var user = new Schema({
-    // TODO: COMPLETE
-    username: String,
-    email: String,
-    password: String,
-    birthday: String,
-    interests: Array,
-    avatar: ObjectId
-    
-});
 
-// NOTE: After defining a new Schema, can create custom methods
-// my_schema.methods.method_name = function() { ... };
+var userSchema = new Schema(
+{
+	Username: {
+		type: String, required: true 
+	},
+	givenname: {
+		type: String, required: true
+	},
+	familyname: {
+		type: String, required: true
+	},
+	stunum:{
+		type: Number, required: true, unique: true
+	},
+	emailAddress: {
+		type: String, required: true, unique: true
+	},
+	hashedPassword: {
+		hashed:String, salt:String
+	},
+	profilePicture:{//path to the profile picture
+		type: String, default:"defaultPicture" //some default profile picture 
+	},
+	birthday: {
+		type: Date, required: true
+	},
+	role: String, required:true, //the role can be "mentee" or "mentor"
+	specialty:{
+		academic:[], interests:[]
+	},
+    signup_date:Date.now, //signed up date
+	
+	gender: {
+		String, required:true
+	},
+	about:{
+		type: String, default: "Default text" //Default text about the user
+	}
+			
+}
+{
+	collection: 'users'
+}
+);
 
 
-// the schema is useless so far
-// we need to create a model using it
-var User = mongoose.model('User', user);
-
-// make this available to our users in our Node applications
-module.exports = User;
+module.exports = mongoose.model('Users', userSchema);
