@@ -85,6 +85,10 @@ var mentor = new Schema({
 
 var Chat = mongoose.model('Chat', chat);
 var Admin = mongoose.model('Admin', admin);
+var Mentor = mongoose.model('Mentor', mentor);
+var Mentee = mongoose.model('Mentee', mentee);
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
 module.exports = Chat;
 module.exports = Admin;
+module.exports = Mentor;
+module.exports = Mentee;
