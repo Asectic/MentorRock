@@ -17,27 +17,30 @@ var userSchema = new Schema(
 	stunum:{
 		type: Number, required: true, unique: true
 	},
-	emailAddress: {
+	email: {
 		type: String, required: true, unique: true
 	},
 	hashedPassword: {
 		hashed:String, salt:String
 	},
+	role: {
+		type: String, required:true, //the role can be "mentee" or "mentor"
+	}
+	specialty:{
+		academic:[], interests:[]
+	},
 	profilePicture:{//path to the profile picture
 		type: String, default:"defaultPicture" //some default profile picture 
+	},
+	gender: {
+		type: String, required:true
 	},
 	birthday: {
 		type: Date, required: true
 	},
-	role: String, required:true, //the role can be "mentee" or "mentor"
-	specialty:{
-		academic:[], interests:[]
-	},
+
     signup_date:Date.now, //signed up date
 	
-	gender: {
-		String, required:true
-	},
 	about:{
 		type: String, default: "Default text" //Default text about the user
 	}
