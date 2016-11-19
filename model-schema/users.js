@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema(
 {
-	Username: {
+	username: {
 		type: String, required: true, unique: true
 	},
 	givenname: {
@@ -20,20 +20,20 @@ var userSchema = new Schema(
 	email: {
 		type: String, required: true, unique: true
 	},
+	gender: {
+		type: String, required:true
+	},
 	hashedPassword: {
 		hashed:String, salt:String
+	},
+	profilePicture:{//path to the profile picture
+		type: String, default:"defaultPicture" //some default profile picture 
 	},
 	role: {
 		type: String, required:true, //the role can be "mentee" or "mentor"
 	}
 	specialty:{
 		academic:[], interests:[]
-	},
-	profilePicture:{//path to the profile picture
-		type: String, default:"defaultPicture" //some default profile picture 
-	},
-	gender: {
-		type: String, required:true
 	},
 	birthday: {
 		type: Date, required: true
