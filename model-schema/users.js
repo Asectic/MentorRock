@@ -20,15 +20,16 @@ var userSchema = new Schema(
 	email: {
 		type: String, required: true, unique: true
 	},
-	hashedPassword: {
-		hashed:String, salt:String
+	hashed: {
+		type:String, required: true
+	},
+	salt:{
+		type:String, required: true
 	},
 	role: {
 		type: String, required:true, //the role can be "mentee" or "mentor"
-	}
-	specialty:{
-		academic:[], interests:[]
 	},
+	specialty:[String],
 	profilePicture:{//path to the profile picture
 		type: String, default:"defaultPicture" //some default profile picture 
 	},
@@ -51,6 +52,6 @@ var userSchema = new Schema(
 }
 );
 
-mongoose.connect('mongodb://localhost/db');
+mongoose.connect('mongodb://localhost/mentorDB');
 
 module.exports = mongoose.model('Users', userSchema);
