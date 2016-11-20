@@ -18,6 +18,7 @@ var userSchema = mongoose.Schema({
         // Other parameters for user
         role: { type: String, required:true},
         specialty: [String],
+        
         //type: path to the profile picture, default: default profile picture 
         profilePicture: { type: String, default:"defaultPicture" },
         about: { type: String, default: "Default text" },

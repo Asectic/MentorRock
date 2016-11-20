@@ -12,8 +12,7 @@ var configAuth = require('./auth'); // use this one for testing
 
 module.exports = function(passport) {
 
-    // =========================================================================
-    // passport session setup ==================================================
+    // PASSPORT SESSION SIGNUP ==================================================
     // =========================================================================
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session
@@ -30,23 +29,23 @@ module.exports = function(passport) {
         });
     });
 
-    // =========================================================================
     // LOCAL LOGIN =============================================================
     // =========================================================================
     passport.use('local-login', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+        
         usernameField : 'username',
         passwordField : 'password',
-        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        
+        // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true 
     },
                                                   
     function(req, username, password, done) {
-        //if (email)
-          //  email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
         // asynchronous
         process.nextTick(function() {
             User.findOne({ 'local.username' :  username }, function(err, user) {
+                
                 // if there are any errors, return the error
                 if (err)
                     return done(err);
@@ -66,19 +65,18 @@ module.exports = function(passport) {
 
     }));
 
-    // =========================================================================
+
     // LOCAL SIGNUP ============================================================
-    // =========================================================================
+
     passport.use('local-signup', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+        
         usernameField : 'username',
-        //emailField: 'email',
         passwordField : 'password',
-        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        
+        //allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true 
     },
     function(req, username, password, done) {
-        //if (email)
-          //  email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
         // asynchronous
         process.nextTick(function() {
@@ -127,8 +125,10 @@ module.exports = function(passport) {
                     }
 
                 });
-            // if the user is logged in but has no local account...
+                
             } else if ( !req.user.local.email ) {
+                
+                // CASE: If the user is logged in but has no local account...
                 // ...presumably they're trying to connect a local account
                 // BUT let's check if the email used to connect a local account is being used by another user
                 User.findOne({ 'local.email' :  email }, function(err, user) {
