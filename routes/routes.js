@@ -22,33 +22,40 @@ module.exports = function(app, passport) {
     
     /* MENTORROCK PAGES */
     /* Mentee and Mentor Pages */
-    
-    app.get('/ui-home', function(req, res) {
-        res.render('pages/main/mentee-home');
-    });
-
     app.get('/myprofile', function(req, res) {
-        res.render('pages/main/my-profile');
+        res.render('pages/main/my-profile', {
+            user : req.user
+        }
     });
 
     app.get('/accsettings', function(req, res) {
-        res.render('pages/main/acc-settings');
+        res.render('pages/main/acc-settings', {
+            user : req.user
+        });
     });
 
     app.get('/chatslist', function(req, res) {
-        res.render('pages/main/chatbox');
+        res.render('pages/main/chatbox', {
+            user : req.user
+        }
     });
 
     app.get('/searchmentor', function(req, res) {
-        res.render('pages/main/search-mentor');
+        res.render('pages/main/search-mentor', {
+            user : req.user
+        }
     });
 
     app.get('/mentorapp', function(req, res) {
-        res.render('pages/main/mentor-app');
+        res.render('pages/main/mentor-app', {
+            user : req.user
+        }
     });
 
     app.get('/contacts', function(req, res) {
-        res.render('pages/main/contacts');
+        res.render('pages/main/contacts', {
+            user : req.user
+        }
     });
     
     // ERROR PAGE FOR AUTHENTICATION
