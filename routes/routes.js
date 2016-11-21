@@ -25,7 +25,7 @@ module.exports = function(app, passport) {
     app.get('/myprofile', function(req, res) {
         res.render('pages/main/my-profile', {
             user : req.user
-        }
+        });
     });
 
     app.get('/accsettings', function(req, res) {
@@ -37,25 +37,25 @@ module.exports = function(app, passport) {
     app.get('/chatslist', function(req, res) {
         res.render('pages/main/chatbox', {
             user : req.user
-        }
+        });
     });
 
     app.get('/searchmentor', function(req, res) {
         res.render('pages/main/search-mentor', {
             user : req.user
-        }
+        });
     });
 
     app.get('/mentorapp', function(req, res) {
         res.render('pages/main/mentor-app', {
             user : req.user
-        }
+        });
     });
 
     app.get('/contacts', function(req, res) {
         res.render('pages/main/contacts', {
             user : req.user
-        }
+        });
     });
     
     // ERROR PAGE FOR AUTHENTICATION
