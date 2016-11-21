@@ -110,11 +110,8 @@ module.exports = function(passport) {
                         // An string of comma interests "Swimming, Basketball, ..."
                         var interests = req.body.interests;
                         var interests_array = interests.split(',');
-
-                        newUser.specialty = interests_array;
-
-                        // Upon registration users are auto mentee
-                        newUser.local.role    = 'mentee';
+                        
+                        newUser.local.specialty = interests_array;
 
 
                         newUser.save(function(err) {

@@ -268,16 +268,49 @@ tr, td {
 #avatar, #general-acc, #interests-acc {
     background-color: grey;
     border: solid lightgray;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
-#avatar-content, #general-content, #interests-content {
-    background-color: ghostwhite;
-    /*border-bottom: solid lightgray;
-    border-radius: 15px;*/
+.acc-setts {
+    text-align: center;
 }
+
+#acc-settsh1 {
+    text-align: center;
+}
+
+#general-content, #interests-content {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    color: white;
+    align-content: center;
+    text-align: center;
+}
+
 #avatar-content {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    color: white;
+    align-content: left;
+    left: 50%;
+}
+
+#avatar-content {
+    align-content: center;
+}
+
+
+
+#user-table {
+    border-collapse: collapse;
+    background-color: transparent;
+    align-content: center;
+    text-align: center;
     left: 5%;
+}
+
+#user-table.tr, #user-table.td {
+    border: 1px solid black;
+    align-content: center;
+    text-align: center;
 }
 
 /* ===================================================== */
