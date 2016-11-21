@@ -6,29 +6,28 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
 
     local            : {
-        email        : { type: String, required: true, unique: true},
-        password     : { type: String, required: true},
-        username     : { type: String, required: true, unique: true},
-        stunum       : { type: String, required: true, unique: true},
-        gender       : { type: String, required: true},
-        givenname    : { type: String, required: true},
-        familyname   : { type: String, required: true},
-        birthday     : { type: String, required: true},
-        
+        email        : { type: String, unique: true},
+        password     : { type: String, },
+        username     : { type: String, unique: true},
+        stunum       : { type: String, unique: true},
+        gender       : { type: String, },
+        givenname    : { type: String, },
+        familyname   : { type: String, },
+        birthday     : { type: String, },
+
         // Other parameters for user
-        role: { type: String, required:true},
+        role: { type: String, default:"mentee"},
         specialty: [String],
-        
-        //type: path to the profile picture, default: default profile picture 
+
+        //type: path to the profile picture, default: default profile picture
         profilePicture: { type: String, default:"defaultPicture" },
         about: { type: String, default: "Default text" },
         collection: [String]
     },
     facebook         : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
+        id           : { type: String, },
+        token        : { type: String, },
+        email        : { type: String, }
     },
     twitter          : {
         id           : String,

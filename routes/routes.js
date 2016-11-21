@@ -19,9 +19,10 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
-    
+
     /* MENTORROCK PAGES */
     /* Mentee and Mentor Pages */
+
     app.get('/myprofile', function(req, res) {
         res.render('pages/main/my-profile', {
             user : req.user
@@ -57,7 +58,7 @@ module.exports = function(app, passport) {
             user : req.user
         });
     });
-    
+
     // ERROR PAGE FOR AUTHENTICATION
     app.get('/error', function(req, res) {
         res.render('partials/error.ejs');
@@ -78,15 +79,15 @@ module.exports = function(app, passport) {
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
             successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/error', // redirect back to the signup page if there is an error
+            failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
-    
-    
-        /*app.post('/login', function(req, res, next) {    
-            
+
+
+        /*app.post('/login', function(req, res, next) {
+
           var user = req.user;
-            
+
           passport.authenticate('local-login', function(err, user, info) {
             if (err) {
               return next(err); // will generate a 500 error
@@ -106,10 +107,10 @@ module.exports = function(app, passport) {
                 return next(loginErr);
               }
               return res.send({ success : true, message : 'authentication succeeded' });
-            });      
+            });
           })(req, res, next);
         });*/
-    
+
 
         // SIGNUP =================================
         // show the signup form
@@ -120,7 +121,7 @@ module.exports = function(app, passport) {
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
             successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/error', // redirect back to the signup page if there is an error
+            failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
 
