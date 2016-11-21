@@ -36,91 +36,115 @@
                 <!-- Main content of the page -->
                 <div id="content" class="col-xs-13 col-md-9">
                     
-                    <h1>Account Settings</h1>
+                    <h1 id="acc-settsh1">Account Settings</h1>
+                    
+                    <br>
+                    
+                    <p>Here are your current settings for your user profile!</p>
+                    
+                    <br>
                     
                     <!--  General Account section -->
                     <div id="general-acc">
-                        <h2>General Account Settings</h2>
+                        <h2 class="acc-setts">General Account Settings</h2>
                         <div id="general-content">
                             <br>
-                            <!-- TODO: ADD SETTINGS HERE -->
-                            <table class="general-table">
+                            
+                            <table id="user-table">
+                            
+                                <!-- USERNAME COLUMN-->
+                                <tr>
+                                    <td>Username</td>
+                                    <td>
+                                        <% if (user.local.email) { %>
+                                                <%= user.local.username %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                                
+                                    </td>
+                                </tr>                                 
                                 
-                              <tr>
-                                <td class="tg-yw4l">
-                                    Username
-                                </td>
-                                <td class="tg-yw4l">
-                                  
-                                    <% if (user.local.email) { %>
-                                            <%= user.local.username %>
-                                    <% } else { %>
-                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                    <% } %>
-                                </td>
-                                <td class="tg-yw4l"><a href="#change">Change Username</a></td>
-                              </tr>
+                                <!-- PASSWORD COLUMN-->
+                                <tr>
+                                    <td>Password</td>
+                                    <td>
+                                        <% if (user.local.email) { %>
+                                                <%= user.local.password %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                                
+                                    </td>
+                                </tr>                                
                                 
-                              <tr>
-                                <td class="tg-yw4l">E-mail</td>
-                                <td class="tg-yw4l">
-                                    <% if (user.local.email) { %>
-                                            <%= user.local.email %>
-                                    <% } else { %>
-                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                    <% } %>  
-                                </td>
-                                <td class="tg-yw4l"><a href="#change">Change e-mail</a></td>
-                              </tr>
+                                <!-- EMAIL COLUMN-->
+                                <tr>
+                                    <td>Email</td>
+                                    <td>
+                                        <% if (user.local.email) { %>
+                                                <%= user.local.email %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                             
+                                    </td>
+                                </tr>                                
                                 
-                              
-                             <tr>
-                              <td class="tg-yw4l">Student Number</td>
-                                <td class="tg-yw4l">
-                                    <% if (user.local.email) { %>
-                                            <%= user.local.stunum %>
-                                    <% } else { %>
-                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                    <% } %>                                         
-                                </td>
-                                <td class="tg-yw4l"><a href="#change">Change Student Number</a></td>
-                              </tr>     
+                                <!-- STUNUM COLUMN-->
+                                <tr>
+                                    <td>Student Number</td>
+                                    <td>
+                                        <% if (user.local.email) { %>
+                                                <%= user.local.stunum %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                           
+                                    </td>
+                                </tr>                                
                                 
-                              <tr>
-                                <td class="tg-yw4l">Date of Birth</td>
-                                <td class="tg-yw4l">
-                                    <% if (user.local.email) { %>
-                                            <%= user.local.birthday %>
-                                    <% } else { %>
-                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                    <% } %>                                         
-                                </td>
-                                <td class="tg-yw4l"><a href="#change">Change DoB</a></td>
-                              </tr>                                                           
-                              <tr>
-                                <td class="tg-yw4l">First Name</td>
-                                <td class="tg-yw4l">
-                                    <% if (user.local.email) { %>
-                                            <%= user.local.givenname %>
-                                    <% } else { %>
-                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                    <% } %>                                         
-                                </td>
-                                <td class="tg-yw4l"><a href="#change">Change your name</a></td>
-                              </tr>                              
-                              <tr>
-                                <td class="tg-yw4l">Last Name</td>
-                                <td class="tg-yw4l">
-                                    <% if (user.local.email) { %>
-                                            <%= user.local.familyname %>
-                                    <% } else { %>
-                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                    <% } %>                                         
-                                </td>
-                                <td class="tg-yw4l"><a href="#change">Change last name</a></td>
-                              </tr>
+                                <!-- First Name COLUMN-->
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>
+                                        <% if (user.local.email) { %>
+                                                <%= user.local.givenname %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>            
+                                    </td>
+                                </tr>                                
+                                
+                                <!-- Last Name COLUMN-->
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>
+                                        <% if (user.local.email) { %>
+                                                <%= user.local.familyname %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                                
+                                    </td>
+                                </tr>                                
+                                
+                                <!-- BIRTH COLUMN-->
+                                <tr>
+                                    <td>Birthdate</td>
+                                    <td>
+                                        <% if (user.local.email) { %>
+                                                <%= user.local.birthday %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                            
+                                    </td>
+                                </tr>
+                            
                             </table>
+                        
                             <br>
+                            
+                            <!-- Change user settings -->
+                            <a href="#change">Change settings</a>
+                            
+                            <br>
+                            
                         </div><!-- End of user about content div -->
                     
                     </div><!-- End of general account settings div -->                    
@@ -129,23 +153,22 @@
                     
                     <!-- INTERESTS: Remove, Add, Change Existing Interests -->
                     <div id="interests-acc">
-                        <h2>My Interests Settings</h2>
+                        <h2 class="acc-setts">My Interests Settings</h2>
                         <div id="interests-content">
+                            
+                            <br>
+                            <br>
                             
                             <!-- TODO: IMPLEMENT INTERESTS -->
                             
-                            <br>
-                            <br>
-                            <br>
-                            <p>Test Content: Use EJS to get a user's interest instances</p>
-                            <br>
-                            <br>
-                            <br>
+                            <% if (user.local.email) { %>
+                                    <%= user.local.specialty %>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>  
                             
-                            
-                            
-                            
-                            
+                            <br>
+                            <br>         
                         </div><!-- End of interests content div -->
                     
                     </div><!-- End of interests settings div -->
@@ -154,7 +177,7 @@
                     
                     <!--  Avatar  section -->
                     <div id="avatar">
-                        <h2>Avatar Settings</h2>
+                        <h2 class="acc-setts">Avatar Settings</h2>
                         <div id="avatar-content">
 
                             <p>This is currently you!</p>
@@ -178,6 +201,7 @@
                     
                     <center><button id="save-changes" class="button" onclick="accSaveChanges(this.id)">Save Changes</button></center>
                     
+                    <br>
                     
                 </div>
 
