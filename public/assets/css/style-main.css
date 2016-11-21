@@ -171,13 +171,12 @@ body {
 #about, #interests, #blog {
     background-color: grey;
     border: solid lightgray;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
 #about-content, #interests-content, #blog-content {
-    background-color: ghostwhite;
-    /*border-bottom: solid lightgray;
-    border-radius: 15px;*/
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    color: white;
 }
 
 #user-about, #user-interests, #user-blog {
@@ -225,17 +224,6 @@ body {
 .mentors {
     color: black;
 }
-
-/*#interests-li, #academic-list {
-    height: 200px; 
-    -webkit-column-count: 5;
-       -moz-column-count: 5;
-            column-count: 5;
-}
-#interests-li li, #academic-list li {
-    display: inline-block;
-    padding-bottom: 20px; 
-}*/
 
 .patt-one {
     background-color: white;
@@ -297,14 +285,13 @@ tr, td {
     align-content: center;
 }
 
-
-
 #user-table {
     border-collapse: collapse;
     background-color: transparent;
     align-content: center;
     text-align: center;
     left: 5%;
+    width: 100%;
 }
 
 #user-table.tr, #user-table.td {
