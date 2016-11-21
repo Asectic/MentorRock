@@ -110,7 +110,7 @@ module.exports = function(passport) {
                         var interests = req.body.interests;
                         var interests_array = interests.split(',');
                         
-                        newUser.specialty = interests_array;
+                        newUser.local.specialty = interests_array;
                         
                         // Upon registration users are auto mentee
                         newUser.local.role    = 'mentee';
