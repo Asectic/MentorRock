@@ -6,14 +6,14 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
 
     local            : {
-        email        : { type: String, unique: true},
+        email        : { type: String, unique: true, sparse: true},
         password     : { type: String, },
-        username     : { type: String, unique: true},
-        stunum       : { type: String, unique: true},
-        gender       : { type: String, },
-        givenname    : { type: String, },
-        familyname   : { type: String, },
-        birthday     : { type: String, },
+        username     : { type: String, unique: true, sparse: true},
+        stunum       : { type: String, unique: true, sparse: true},
+        gender       : { type: String },
+        givenname    : { type: String },
+        familyname   : { type: String },
+        birthday     : { type: String },
 
         // Other parameters for user
         role: { type: String, default:"mentee"},
@@ -25,9 +25,12 @@ var userSchema = mongoose.Schema({
         collection: [String]
     },
     facebook         : {
-        id           : { type: String, },
-        token        : { type: String, },
-        email        : { type: String, }
+        id           : { type: String, unique: true, sparse: true },
+        token        : { type: String },
+        email        : { type: String },
+        gender       : { type: String },
+        givenname    : { type: String },
+        familyname   : { type: String }
     }
 
 });

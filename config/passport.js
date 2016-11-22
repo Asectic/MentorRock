@@ -164,7 +164,6 @@ module.exports = function(passport) {
     fbStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new FacebookStrategy(fbStrategy,
     function(req, token, refreshToken, profile, done) {
-
         // asynchronous
         process.nextTick(function() {
 
@@ -183,7 +182,7 @@ module.exports = function(passport) {
                             user.facebook.givenname = profile.givenName;
                             user.facebook.familyname = profile.familyName;
                             user.facebook.email = (profile.emails[0].value || '').toLowerCase();
-
+                            user.facebook.email = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
                             user.save(function(err) {
                                 if (err)
                                     return done(err);
@@ -202,6 +201,7 @@ module.exports = function(passport) {
                         newUser.facebook.givenname = profile.givenName;
                         newUser.facebook.familyname = profile.familyName;
                         newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
+                        user.facebook.email = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
                         newUser.save(function(err) {
                             if (err){
                             console.log("save error");
@@ -222,6 +222,7 @@ module.exports = function(passport) {
                 user.facebook.givenname = profile.givenName;
                 user.facebook.familyname = profile.familyName;
                 user.facebook.email = (profile.emails[0].value || '').toLowerCase();
+                user.facebook.email = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
 
                 user.save(function(err) {
                     if (err)
