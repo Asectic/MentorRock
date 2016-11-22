@@ -15,10 +15,6 @@ var userSchema = mongoose.Schema({
         familyname   : { type: String },
         birthday     : { type: String },
 
-        // Other parameters for user
-        role: { type: String, default:"mentee"},
-        specialty: [String],
-
         //type: path to the profile picture, default: default profile picture
         profilePicture: { type: String, default:"defaultPicture" },
         about: { type: String, default: "Default text" },
@@ -30,9 +26,12 @@ var userSchema = mongoose.Schema({
         email        : { type: String },
         gender       : { type: String },
         givenname    : { type: String },
-        familyname   : { type: String }
+        familyname   : { type: String },
+        profilePicture: { type: String, default:"defaultPicture" },
     }
-
+    // Other parameters for user
+    role: { type: String, default:"mentee"},
+    specialty: [String],
 });
 
 // generating a hash

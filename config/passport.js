@@ -111,7 +111,7 @@ module.exports = function(passport) {
                         var interests = req.body.interests;
                         var interests_array = interests.split(',');
 
-                        newUser.local.specialty = interests_array;
+                        newUser.specialty = interests_array;
 
 
                         newUser.save(function(err) {
