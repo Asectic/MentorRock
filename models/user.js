@@ -16,8 +16,6 @@ var userSchema = mongoose.Schema({
         birthday     : { type: String },
 
         //type: path to the profile picture, default: default profile picture
-        profilePicture: { type: String, default:"defaultPicture" },
-        about: { type: String, default: "Default text" },
         collection: [String]
     },
     facebook         : {
@@ -27,9 +25,11 @@ var userSchema = mongoose.Schema({
         gender       : { type: String },
         givenname    : { type: String },
         familyname   : { type: String },
-        profilePicture: { type: String, default:"defaultPicture" },
-    }
+
+    },
     // Other parameters for user
+    profilePicture: { type: String, default:"defaultPicture" },
+    about: { type: String, default: "Default text" },
     role: { type: String, default:"mentee"},
     specialty: [String],
 });
