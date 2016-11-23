@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
  * Note that the database was loaded with data from a JSON file into a
  * collection called gillers.
  */
-var chat = new Schema({
+var chatroom = new Schema(
     speaker1_id: {
         type: String,
         required: true
@@ -16,24 +16,48 @@ var chat = new Schema({
         type: String,
         requried: true
     },
-    msgs: [
-        sender_num: {
-            type: String
-        },
-        text: {
-            type: String
-        },
-        file: {
-            type: Object
-        },
-        time: {
-            time: String,
-            required: true
+    room_id: {
+        type: String,
+        requried: true
+    },
+    chatlog: [
+        {
+            sender_id: {
+                type: String,
+                required: true
+            },
+            receiver_id: {
+                type: String,
+                requried: true
+            },
+            text: {
+                type: String
+            },
+            file: {
+                type: ObjectId
+            },
+            time: {
+                time: String,
+                required: true
+            }
+            /*
+                    msgs: [
+                        text: {
+                            type: String
+                        },
+                        file: {
+                            type: ObjectId
+                        },
+                        time: {
+                            time: String,
+                            required: true
+                        }
+                    ]
+            */
         }
-        ]
-}, {
-    collection: 'chats'
-});
+    ], {
+        collection: 'chatrooms'
+    });
 
 var admin = new Schema({
     user_name”: {
@@ -79,16 +103,12 @@ var mentor = new Schema({
     collection: 'mentors'
 });
 
-
-
-
-
-var Chat = mongoose.model('Chat', chat);
+var Chat = mongoose.model('Chatrooms', chatroom);
 var Admin = mongoose.model('Admin', admin);
 var Mentor = mongoose.model('Mentor', mentor);
 var Mentee = mongoose.model('Mentee', mentee);
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
-module.exports = Chat;
+module.exports = Chatrooms;
 module.exports = Admin;
 module.exports = Mentor;
 module.exports = Mentee;

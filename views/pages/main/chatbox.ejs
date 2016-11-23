@@ -1,105 +1,84 @@
-<html>
+<!--  pure javascript starts  -->
+<% 
+var my_id = 1;
+var friend_id = 2;
+var my_pic = 'assets/img/face-3.jpg'
+var friend_pic = 'assets/img/tesla.jpg'
 
-<head>
-    <!-- Importing the main-style headers -->
-    <% include ../../partials/chatbox-header %>
+var friend_names = ['Morris Luck', 'Liche Bore', 'Jada King', 'Babe Que', 'Sio Joe', 'Jamie Kaka', 'Lemon Tea', 'Tesla Coil', 'Max Well', 'Stein Rock'];
 
-</head>
+var friend_pics = ['assets/img/face-1.jpg', 'assets/img/face-2.jpg', 'assets/img/face-4.jpg', 'assets/img/face-5.jpeg', 'assets/img/face-6.jpg', 'assets/img/face-7.jpg', 'assets/img/face-8.jpg', 'assets/img/tesla.jpg', 'assets/img/max.gif', 'assets/img/einstein.jpg'];
+
+var chatlog = [
+    {
+        "sender_id": "2",
+        "receiver_id": "1",
+        "text": "Hello how are you doing? How is it going with the new chapter? Any questions that I can help?",
+        "file": "null",
+        "time": 1
+    },
+    {
+        "sender_id": "1",
+        "receiver_id": "2",
+        "text": "I have some problem with the experiment procedure. Could you please explain a little bit on the initial set-up. What is the importance of the callibration at the beginning, and what would be affected if we skip the tedious steps? Further, isn't it likely that we need to callibrate each time we do another round of observation given the criteria, it doesn't seem practical.",
+        "file": "null",
+        "time": 2
+    },
+    {
+        "sender_id": "2",
+        "receiver_id": "1",
+        "text": "Yeah that's a good question!! I remember having similar confusiton while I first read that part. Well, in fact, I think it would be easier if you try to go through the whole procedure in your mind, and consider taking out one step, and compare what might go wrong. Maybe you can now describe the procedure to me, and let's discuss what really is a must and what is not, and why.",
+        "file": "null",
+        "time": 3
+     },
+     {
+        "sender_id": "1",
+        "receiver_id": "2",
+        "text": "Oh that would be awesome, so from what I read, we should first .... and then ... so .... but.... XD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, tenetur?",
+        "file": "null",
+        "time": 4
+     }
+];
+
+%>
+    <!--  pure javascript ends  -->
 
 
-<body>
+    <html>
 
-    <div id="wrapper">
+    <head>
+        <!-- Importing the main-style headers -->
+        <% include ../../partials/chatbox-header %>
 
-         <!-- Naivgation Bar: TOP -->
-        <% include ../../partials/navigation-ui %>
-        
-        <br>
-        <br>
-        <br>
-        <br>
-        
-        <div id ="content-con" class="container">
-            <div class="row">
-        
-                <!-- Sidenav and page content-->
-                
-                <div id="left-menu" class="col-xs-5 col-md-3">
-                    <% include ../../partials/sidenav-main %>
-                </div><!-- End of left menu div --> 
+    </head>
 
-                <br>
 
-                <!-- Main content of the page -->
-                <!--<div id="content" class="jumbotron col-xs-13 col-md-9">-->
-                <div id="content" class="jumbotron col-xs-13 col-md-9">
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Naivgation Bar: TOP -->
+            <% include ../../partials/navigation-ui %>
+
+                <div id="content-con" class="container">
+                    <div id="space"></div>
+
+                    <!-- Main content of the page -->
 
                     <div class="container bigpanel">
 
                         <!--  Chat menu starts  -->
                         <div class="chat-menu">
                             <div class="friend-list">
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/face-1.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Morris Luck</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/face-2.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Liche Bore</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/face-4.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Jada King</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/face-5.jpeg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Babe Que</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/face-6.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Sio Joe</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/face-7.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Jamie Kaka</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/face-8.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Lemon Tea</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/tesla.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Tesla Coil</small>
-                                </a>
 
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/max.gif" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Max Well</small>
-                                </a>
-                                <a class="friend-list-item" href="PROFILE">
-                                    <div class="pull-left">
-                                        <img src="assets/img/einstein.jpg" alt="" class="friend-list-avatar">
-                                    </div>
-                                    <small class="friend-list-item-name">Stein Rock</small>
-                                </a>
+                                <% for(var i=0; i<friend_names.length; i++) { %>
+                                    <a class="friend-list-item" href="PROFILE">
+                                        <div class="pull-left">
+                                            <img src="<%= friend_pics[i] %>" alt="" class="friend-list-avatar">
+                                        </div>
+                                        <small class="friend-list-item-name"><%= friend_names[i] %></small>
+                                    </a>
+                                    <% } %>
                             </div>
                         </div>
                         <!--  Chat menu ends  -->
@@ -108,7 +87,7 @@
                         <div class="chat-body">
                             <!--  active chat profile starts  -->
                             <div class="pull-left chat-profile">
-                                <img src="assets/img/tesla.jpg" alt="" class="avatar m-r-10">
+                                <img src="assets/img/tesla.jpg" alt="" class="icon-big-avatar">
                                 <span id="chat-name">Tesla Coil</span>
                             </div>
                             <!--  active chat profile ends  -->
@@ -133,43 +112,60 @@
                             <!--  function nav ends  -->
                             <div class="chat-box">
 
-                                <div class="chat-bubble left">
-                                    <div class="pull-left">
-                                        <img src="assets/img/tesla.jpg" alt="" class="icon-avatar">
-                                    </div>
-                                    <div class="message-body">
-                                        <div class="message-content">
-                                            Hello how are you doing? How is it going with the new chapter? Any questions that I can help?
+                                <% for(var i=0; i<chatlog.length; i++) { %>
+                                    <%if (chatlog[i].sender_id == my_id) { %>
+                                        <div class="chat-bubble right">
+                                            <div class="pull-right">
+                                                <img src="<%= my_pic %>" alt="" class="icon-avatar">
+                                            </div>
+                                            <div class="message-body">
+                                                <div class="message-content pull-right">
+                                                    <%= chatlog[i].text %>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                        <% } else if (chatlog[i].sender_id == friend_id) { %>
+                                            <div class="chat-bubble left">
+                                                <div class="pull-left">
+                                                    <img src="<%= friend_pic %>" alt="" class="icon-avatar">
+                                                </div>
+                                                <div class="message-body">
+                                                    <div class="message-content">
+                                                        <%= chatlog[i].text %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                                <% } %>
 
-                                <div class="chat-bubble right">
-                                    <div class="pull-right">
-                                        <img src="assets/img/face-3.jpg" alt="" class="icon-avatar">
-                                    </div>
-                                    <div class="message-body">
-                                        <div class="message-content pull-right">
-                                            I have some problem with the experiment procedure. Could you please explain a little bit on the initial set-up. What is the importance of the callibration at the beginning, and what would be affected if we skip the tedious steps? Further, isn't it likely that we need to callibrate each time we do another round of observation given the criteria, it doesn't seem practical.
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="row create-message">
+                                <textarea id="message-input" placeholder="I want to say..."></textarea>
+                                <button id="upload-button" class="bottom-button"><i class="fa fa-cloud-upload" style="font-size:24px"></i></button>
+                                <button id="send-message-button" class="bottom-button"><i class="fa fa-send-o" style="font-size:24px"></i></button>
                             </div>
                         </div>
                     </div>
-                    
+
+
                     <footer>
 
+                        <a href="/contacts"><button id="go_back">
+                    BACK
+                    </button></a>
+
                     </footer>
-                </div><!-- End of jumbotron-->
+                    <!-- End of jumbotron-->
 
-            </div> <!-- End of row div-->
-        </div> <!-- ENd of content-con div-->
-    </div> <!-- End of wrapper-->
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="javascript/chatbox.js"></script>
-</body>
+                    <!-- End of row div-->
+                </div>
+                <!-- ENd of content-con div-->
+        </div>
+        <!-- End of wrapper-->
 
-</html>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="javascript/chatbox.js"></script>
+    </body>
+
+    </html>
