@@ -17,6 +17,11 @@ var session      = require('express-session');
 // Database name set to MentorRock
 var configDB = require('./config/database.js');
 
+// Initialize a new socket.io object. It is bound to
+// the express app, which allows them to coexist.
+var io = require('socket.io').listen(app.listen(port));
+
+
 // views and public  ===============================================================
 
 var path = require('path');
@@ -51,8 +56,12 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-require('./routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
+// load our routes and pass in our app and fully configured passport
+// Require the configuration and the routes files, and pass
+// the app and io as arguments to the returned functions.
+require('./routes/routes.js')(app, passport);
+require('./routes/chat-routes.js')(app, io);
 // launch ======================================================================
-app.listen(port);
+//app.listen(port);
 console.log('MentorRock is running on port ' + port);
