@@ -6,42 +6,32 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
 
     local            : {
-        email        : { type: String, unique: true},
+        email        : { type: String, unique: true, sparse: true},
         password     : { type: String, },
-        username     : { type: String, unique: true},
-        stunum       : { type: String, unique: true},
-        gender       : { type: String, },
-        givenname    : { type: String, },
-        familyname   : { type: String, },
-        birthday     : { type: String, },
-
-        // Other parameters for user
-        role: { type: String, default:"mentee"},
-        specialty: [String],
+        username     : { type: String, unique: true, sparse: true},
+        stunum       : { type: String, unique: true, sparse: true},
+        gender       : { type: String },
+        givenname    : { type: String },
+        familyname   : { type: String },
+        birthday     : { type: String },
 
         //type: path to the profile picture, default: default profile picture
-        profilePicture: { type: String, default:"defaultPicture" },
-        about: { type: String, default: "Default text" },
         collection: [String]
     },
     facebook         : {
-        id           : { type: String, },
-        token        : { type: String, },
-        email        : { type: String, }
-    },
-    twitter          : {
-        id           : String,
-        token        : String,
-        displayName  : String,
-        username     : String
-    },
-    google           : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
-    }
+        id           : { type: String, unique: true, sparse: true },
+        token        : { type: String },
+        email        : { type: String },
+        gender       : { type: String },
+        givenname    : { type: String },
+        familyname   : { type: String },
 
+    },
+    // Other parameters for user
+    profilePicture: { type: String, default:"defaultPicture" },
+    about: { type: String, default: "Default text" },
+    role: { type: String, default:"mentee"},
+    specialty: [String],
 });
 
 // generating a hash
