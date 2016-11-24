@@ -1,18 +1,19 @@
 var User = require('../models/user');
 var fs = require('fs');
 
+/*
+ //Inserting data from a file
+ var userObj;
+ fs.readFile('routes/fewUsers.json', 'utf-8', function(err, data) {
+ if(err) throw err;
+ userObj = JSON.parse(data);//parsing the data
 
+ for(var i=0; i<userObj.users.length; i++){
+ addNewUser(userObj.users[i]);//call the function belwo to add a new user into the database
+ }
+ });
 
-//Inserting data from a file
-var userObj;
-fs.readFile('routes/fewUsers.json', 'utf-8', function(err, data) {
-    if(err) throw err;
-    userObj = JSON.parse(data);//parsing the data
-
-    for(var i=0; i<userObj.users.length; i++){
-        addNewUser(userObj.users[i]);//call the function belwo to add a new user into the database
-    }
-});
+*/
 
 
 //Adding a new user to the database

@@ -12,7 +12,7 @@
       "givenname": "Michael",
       "familyname": "Burns",
       "thirdparty": "false",
-      "profilePicture": "../../../public/assets/img/users/image1.jpg",
+      "profilePicture": "assets/img/users/image1.jpg",
       "about": "disintermediate one-to-one e-markets",
       "role": "mentor",
       "specialty": "Mathematics"
@@ -29,7 +29,7 @@
       "givenname": "Shirley",
       "familyname": "Kelley",
       "thirdparty": "false",
-      "profilePicture": "../../../public/assets/img/users/image2.jpg",
+      "profilePicture": "assets/img/users/image2.jpg",
       "about": "productize magnetic convergence",
       "role": "mentee",
       "specialty": "Programming"
@@ -46,7 +46,7 @@
       "givenname": "Carolyn",
       "familyname": "Scott",
       "thirdparty": "false",
-      "profilePicture": "../../../public/assets/img/users/image3.jpg",
+      "profilePicture": "assets/img/users/image3.jpg",
       "about": "matrix rich ROI",
       "role": "mentee",
       "specialty": "Cinema"
