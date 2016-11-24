@@ -25,11 +25,11 @@
     }                
 
     if(last_name.value != last_name.defaultValue) {
-        user.local.familyname = last_name;
+        user.familyname = last_name;
     }                
 
     if(first_name.value != first_name.defaultValue) {
-        user.local.givenname = first_name;
+        user.givenname = first_name;
     }                
 
     if(birth.value != birth.defaultValue) {
@@ -46,7 +46,7 @@ function interestChanges(user) {
     var sub = document.getElementById("interests-in").value;
     var sub_arr = sub.split(",");
     
-    user.local.specialty = sub_arr;
+    user.specialty = sub_arr;
     
     /// After updating userSchema, redirect back to acc-settings.ejs
     return res.redirect('/accsettings');
@@ -61,9 +61,10 @@ function aboutChanges(user) {
     // And now the div of aboutcont-settings
     var dest = document.getElementById("aboutcont-settings");
 
-    user.local.about = content;
+    user.about = content;
+    
     // Change div content to user defined text
-    dest.innerHTML = user.local.about;
+    dest.innerHTML = user.about;
 
     // After updating userSchema, redirect back to acc-settings.ejs
     return res.redirect('/accsettings');
@@ -77,7 +78,7 @@ function avatarChange(user){
     var txt = "";
     
     if('files' in x) {
-        user.local.profilePicture = x.files.name;
+        user.profilePicture = x.files.name;
     }
 
 } %>
