@@ -181,9 +181,9 @@ module.exports = function(passport) {
                         // if there is a user id already but no token (user was linked at one point and then removed)
                         if (!user.facebook.token) {
                             user.facebook.token = token;
-                            user.facebook.gender = profile.gender;
-                            user.facebook.givenname = profile.givenName;
-                            user.facebook.familyname = profile.familyName;
+                            user.gender = profile.gender;
+                            user.givenname = profile.givenName;
+                            user.familyname = profile.familyName;
                             user.facebook.email = (profile.emails[0].value || '').toLowerCase();
 
                             user.save(function(err) {
@@ -200,9 +200,9 @@ module.exports = function(passport) {
                         var newUser            = new User();
                         newUser.facebook.id    = profile.id;
                         newUser.facebook.token = token;
-                        newUser.facebook.gender = profile.gender;
-                        newUser.facebook.givenname = profile.givenName;
-                        newUser.facebook.familyname = profile.familyName;
+                        newUser.gender = profile.gender;
+                        newUser.givenname = profile.givenName;
+                        newUser.familyname = profile.familyName;
                         newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
                         newUser.save(function(err) {
                             if (err){
@@ -220,9 +220,9 @@ module.exports = function(passport) {
 
                 user.facebook.id    = profile.id;
                 user.facebook.token = token;
-                user.facebook.gender = profile.gender;
-                user.facebook.givenname = profile.givenName;
-                user.facebook.familyname = profile.familyName;
+                user.gender = profile.gender;
+                user.givenname = profile.givenName;
+                user.familyname = profile.familyName;
                 user.facebook.email = (profile.emails[0].value || '').toLowerCase();
 
                 user.save(function(err) {

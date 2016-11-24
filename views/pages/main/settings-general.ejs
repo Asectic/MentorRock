@@ -53,7 +53,93 @@
                         <div id="general-content">
                             <br>
                             
-                            <% include ../../partials/general-table %>
+                                <table id="user-table">
+                            
+                                <!-- USERNAME COLUMN-->
+                                <tr>
+                                    <td>Username</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                                <input class="gen" type="text" name="username" value="<%= user.local.username %>"><br>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                                
+                                    </td>
+                                </tr>                                 
+                                
+                                <!-- PASSWORD COLUMN-->
+                                <tr>
+                                    <td>Password</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                            <input class="gen" type="text" name="password" value="<%= user.local.password %>"><br>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                                
+                                    </td>
+                                </tr>                                
+                                
+                                <!-- EMAIL COLUMN-->
+                                <tr>
+                                    <td>Email</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                            <input class="gen" type="text" name="email" value="<%= user.local.email %>"><br>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                             
+                                    </td>
+                                </tr>                                
+                                
+                                <!-- STUNUM COLUMN-->
+                                <tr>
+                                    <td>Student Number</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                            <input class="gen" type="text" name="stunum" value="<%= user.local.stunum %>"><br>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                           
+                                    </td>
+                                </tr>                                
+                                
+                                <!-- First Name COLUMN-->
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                            <input class="gen" type="text" name="givenname" value="<%= user.givenname %>"><br>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>            
+                                    </td>
+                                </tr>                                
+                                
+                                <!-- Last Name COLUMN-->
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                            <input class="gen" type="text" name="familyname" value="<%= user.familyname %>"><br>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                                
+                                    </td>
+                                </tr>                                
+                                
+                                <!-- BIRTH COLUMN-->
+                                <tr>
+                                    <td>Birthdate</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                            <input class="gen" type="text" name="birthday" value="<%= user.local.birthday %>"><br>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>                            
+                                    </td>
+                                </tr>
+                            
+                            </table>
                         
                             <br>
           

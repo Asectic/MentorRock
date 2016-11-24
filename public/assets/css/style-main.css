@@ -300,8 +300,12 @@ tr, td {
     text-align: center;
 }
 
-#about-text {
+#about-text, .gen {
     color: black;
+}
+
+.gen {
+    width: 100%;
 }
 
 /* ===================================================== */
