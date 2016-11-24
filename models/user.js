@@ -77,7 +77,12 @@ var userSchema = mongoose.Schema({
             }
         }
     ]
-});
+},
+{
+  collection: 'users'
+}
+);
+
 
 // generating a hash
 userSchema.methods.generateHash = function (password) {

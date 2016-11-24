@@ -7,51 +7,53 @@ var Schema = mongoose.Schema;
  * Note that the database was loaded with data from a JSON file into a
  * collection called gillers.
  */
-var chatroom = new Schema(
-    speaker1_id: {
-        type: String,
-        required: true
-    },
-    speaker2_id: {
-        type: String,
-        requried: true
-    },
-    room_id: {
-        type: String,
-        requried: true
-    },
-    chatlog: [
-        {
-            sender_id: {
-                type: String,
-                required: true
-            },
-            text: {
-                type: String
-            },
-            file: {
-                type: ObjectId
-            },
-            time: {
-                time: String,
-                required: true
+var chatroom = new Schema({
+        speaker1_id:{
+            type: String,
+            required: true
+        },
+        speaker2_id: {
+            type: String,
+            requried: true
+        },
+        room_id: {
+            type: String,
+            requried: true
+        },
+        chatlog: [
+            {
+                sender_id: {
+                    type: String,
+                    required: true
+                },
+                text: {
+                    type: String
+                },
+                file: {
+                    type: ObjectId
+                },
+                time: {
+                    time: String,
+                    required: true
+                }
             }
-        }
-    ], {
+        ]
+},
+    {
         collection: 'chatrooms'
     });
 
 var admin = new Schema({
-    user_name”: {
+    user_name: {
         type: String,
         required: true
     },
-    “Password”: {“
-        hashed”: {
+    Password: {
+        hashed: {
             type: String,
             required: true
         },
-        “salt”: {
+        salt: {
             type: String,
             required: true
         }
@@ -75,13 +77,14 @@ var mentor = new Schema({
         type: String,
         required: true
     },
-    mentee_list[
+    mentee_list:{
         mentee_id: {
             type: String,
             required: true
         }
-        ],
-} {
+    }
+},
+{
     collection: 'mentors'
 });
 

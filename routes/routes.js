@@ -29,12 +29,34 @@ module.exports = function(app, passport) {
         });
     });
 
+    // ACCOUNT SETTINGS PAGES
     app.get('/accsettings', function(req, res) {
         res.render('pages/main/acc-settings', {
             user : req.user
         });
+    });    
+    
+    app.get('/general-change', function(req, res) {
+        res.render('pages/main/settings-general', {
+            user : req.user
+        });
+    });    
+    
+    app.get('/interests-change', function(req, res) {
+        res.render('pages/main/settings-interests', {
+            user : req.user
+        });
+    });    
+    
+    app.get('/about-change', function(req, res) {
+        res.render('pages/main/settings-about', {
+            user : req.user
+        });
     });
+    
 
+    // =========================================
+    
     app.get('/chatslist', function(req, res) {
         res.render('pages/main/chatbox', {
             user : req.user
@@ -82,35 +104,6 @@ module.exports = function(app, passport) {
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
-
-
-        /*app.post('/login', function(req, res, next) {
-
-          var user = req.user;
-
-          passport.authenticate('local-login', function(err, user, info) {
-            if (err) {
-              return next(err); // will generate a 500 error
-            }
-            // Generate a JSON response reflecting authentication status
-            if (! user) {
-              return res.send({ success : false, message : 'authentication failed' });
-            }
-            // ***********************************************************************
-            // "Note that when using a custom callback, it becomes the application's
-            // responsibility to establish a session (by calling req.login()) and send
-            // a response."
-            // Source: http://passportjs.org/docs
-            // ***********************************************************************
-            req.login(user, loginErr => {
-              if (loginErr) {
-                return next(loginErr);
-              }
-              return res.send({ success : true, message : 'authentication succeeded' });
-            });
-          })(req, res, next);
-        });*/
-
 
         // SIGNUP =================================
         // show the signup form
@@ -163,7 +156,6 @@ module.exports = function(app, passport) {
                 failureRedirect : '/'
             }));
 
-
 // =============================================================================
 // UNLINK ACCOUNTS =============================================================
 // =============================================================================
@@ -189,6 +181,8 @@ module.exports = function(app, passport) {
             res.redirect('/profile');
         });
     });
+
+
 
 };
 
