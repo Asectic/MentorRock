@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <!-- Head of the html file -->
 <head>
     <% include ../../partials/title %>
-    
+
     <!-- Importing the main-style headers -->
     <% include ../../partials/main-style %>
-    
-</head>    
-        
+
+</head>
+
 <!-- Body of the html file -->
 <body>
-  
+
     <div id="wrapper">
-        
+
          <!-- Naivgation Bar: TOP -->
         <% include ../../partials/navigation-ui %>
-        
+
         <br>
         <br>
         <br>
         <br>
-        
+
         <div id ="content-con" class="container">
             <div class="row">
-        
+
                 <!-- Sidenav and page content-->
-                
+
                 <div id="left-menu" class="col-xs-5 col-md-3">
                     <% include ../../partials/sidenav-main %>
-                </div><!-- End of left menu div --> 
+                </div><!-- End of left menu div -->
 
                 <br>
-                
+
                 <!-- Main content of the page -->
                 <div id="content" class="col-xs-13 col-md-9">
 
@@ -43,24 +43,24 @@
                         <img class="img-thumbnail" src="assets/img/face-6.jpg">
                     </div>
                     <br>
-                    
+
                     <!-- Fetch individual -->
-                    
+
                     <!-- Fetch username from db -->
                     <% if (user.local.email) { %>
                             <h1><%= user.local.username %></h1>
                     <% } else { %>
                         <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                    <% } %> 
-                    
+                    <% } %>
+
                     <br>
-                    
+
                     <!--  About section -->
                     <div id="about">
                         <h1 id="user-about">About</h1>
                         <div id="about-content">
                             <br>
-                            
+
                             <% if (user.local.email) { %>
                                 <p>
                                     <strong>Name</strong>: <%= user.local.givenname + " " + user.local.familyname %><br>
@@ -73,58 +73,58 @@
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>
-                            
+
                             <br>
                         </div><!-- End of user about content div -->
-                    
+
                     </div><!-- End of user about div -->
-                    
+
                     <br>
-                    
+
                     <!--  About section -->
                     <div id="interests">
                         <h1 id="user-interests">Interests</h1>
                         <div id="interests-content">
                             <br>
-                            
+
                             <% if (user.local.email) { %>
                                     <%= user.local.specialty %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>
-                            
+
                             <br>
                             <br>
-                            
-                            
+
+
                         </div><!-- End of user interests content div -->
-                    
+
                     </div><!-- End of user interests div -->
-                    
+
                     <br>
-                    
+
                     <!--  About section -->
                     <div id="blog">
                         <h1 id="user-blog">Comment of the Day</h1>
                         <div id="blog-content">
                             <p>Test comments</p>
-                        
+
                             <br>
                             <br>
                             <br>
                             <br>
                         </div><!-- End of user interests content div -->
-                    
+
                     </div><!-- End of user interests div -->
-                    
+
                     <br>
 
                 </div> <!-- ENd of main content div-->
 
             </div><!-- End of row div-->
-        </div> 
+        </div>
     </div>
-    
+
 </body>
-        
+  <script src="assets/js/custom.js"></script>      
 </html>
