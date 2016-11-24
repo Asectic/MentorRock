@@ -4,16 +4,17 @@
 <!-- ACC-SETTINGS.EJS
 
     NOTE: ONLY ADD IN THE INCLUDE ACC-SETTINGS.EJS FILE TO IMPLEMENT
-          AVATAR CHANGES IN THIS FILE
+          ABOUT USER CHANGES IN THIS FILE
 
--->    
+-->      
     
 <!-- Head of the html file -->
 <head>
     <% include ../../partials/title %>
     
     <!-- Importing the main-style headers -->
-    <% include ../../partials/main-style %>   
+    <% include ../../partials/main-style %>  
+    
 </head>    
         
 <!-- Body of the html file -->
@@ -24,10 +25,7 @@
          <!-- Naivgation Bar: TOP -->
         <% include ../../partials/navigation-ui %>
         
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br>
         
         <div id ="content-con" class="container">
             <div class="row row-offcanvas row-offcanvas-left">
@@ -57,8 +55,8 @@
                             
                             <div class="row">
                                 <div class="col-xs-13 col-md-9">
-                                        <% include ../../partials/general-table %>
-
+                                     
+                                    <% include ../../partials/general-table %>
 
                                 </div>
                             </div>
@@ -66,12 +64,8 @@
                         
                             <br>
                             
-                            <!-- TODO: IMPLEMENT THIS
-                                    Change user settings -->
-                            <a href="/general-change">Change settings</a>
-                            
-                            <br>
-                            <br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "ABOUT" -->
                             
                         </div><!-- End of user about content div -->
                     
@@ -86,9 +80,7 @@
                 
                             <br>
                             
-                            <!-- TODO: IMPLEMENT INTERESTS CHANGES -->
-                            
-                            <% if (user.local.email) { %>
+                            <% if (user.local) { %>
                                     <%= user.specialty %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
@@ -97,12 +89,8 @@
                             <br>
                             <br>       
                             
-                            <!-- TODO: IMPLEMENT THIS
-                                    Change user settings -->
-                            <a href="/interests-change">Change interests</a>
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "ABOUT" -->
                             
-                            <br>
-                            <br>
                         </div><!-- End of interests content div -->
                     
                     </div><!-- End of interests settings div -->
@@ -120,24 +108,13 @@
                             
                             <p>Upload your avatar</p>
                                 <div class="fileinput fileinput-new" data-provides="fileinput"></div>
-                                <input id="profilePic-in" type="file" />
+                            <input type="file" multiple />
                             <p style="font-style: italic;">(Image size must be within XXXpx by XXXpx)</p>
                                  
                             <br>        
                             <br>        
-                            
-                            <!-- TODO: IMPLEMENT AVATAR CHANGE -->
-                            <% if (user) { %>
-                            
-                                    <% include ../../partials/acc-settings %>
-                            
-                                    <center><button id="save-changes" class="button" onclick="avatarChange()">Save Changes</button></center>
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>  
-                            
-                            <br>
-                            <br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "ABOUT" -->
                             
                         </div><!-- End of avatar content div -->
                     
@@ -148,25 +125,27 @@
                     <div id="about-settings">
                         <h2 class="acc-setts">About Settings</h2>
                         <div id="aboutcont-settings">
-                            
+                        
                             <br>
                             
+                            <!-- TODO: 
+                                FIX EJS TEMPLATING ERROR HERE
+                            -->
+                            
                             <% if (user) { %>
-                                    <%= user.about %>
+                                    <textarea id="about-text" rows="4" cols="80"><%= user.about %></textarea>
+                            
+                                    <br>
+                            
+                                    <center><button id="save-changes" class="button" onclick="aboutChanges(user)">Save Changes</button></center>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>  
+                            <% } %>   
                             
-                            <br><br>
-                            
-                            <!-- TODO: IMPLEMENT THIS
-                                    Change user settings -->
-                            <a href="/about-change">Change settings</a>
-                            
-                        </div><!-- End of aboutcont-settings -->
-                    </div><!-- End of about-settings -->
+                        </div> <!-- End of aboutcont-settings-->
+                    </div><!-- ENd of about-settings div -->
                     
-                </div><!-- End of content div s-->
+                </div>
 
             </div>
         </div> 
@@ -174,5 +153,4 @@
     
 </body>
         
-</html>
 </html>

@@ -63,6 +63,8 @@ module.exports = function(passport) {
                     return done(null, user);
             });
         });
+        
+        
 
     }));
 
@@ -110,7 +112,7 @@ module.exports = function(passport) {
                         // An string of comma interests "Swimming, Basketball, ..."
                         var interests = req.body.interests;
                         var interests_array = interests.split(',');
-
+                        
                         newUser.specialty = interests_array;
 
 
@@ -164,6 +166,7 @@ module.exports = function(passport) {
     fbStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new FacebookStrategy(fbStrategy,
     function(req, token, refreshToken, profile, done) {
+
         // asynchronous
         process.nextTick(function() {
 
@@ -181,9 +184,9 @@ module.exports = function(passport) {
                             user.gender = profile.gender;
                             user.givenname = profile.givenName;
                             user.familyname = profile.familyName;
-                            user.thirdparty = true;
                             user.facebook.email = (profile.emails[0].value || '').toLowerCase();
                             user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
+
                             user.save(function(err) {
                                 if (err)
                                     return done(err);
@@ -201,9 +204,8 @@ module.exports = function(passport) {
                         newUser.gender = profile.gender;
                         newUser.givenname = profile.givenName;
                         newUser.familyname = profile.familyName;
-                        user.thirdparty = true;
                         newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
-                        user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
+                        newUser.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
                         newUser.save(function(err) {
                             if (err){
                             console.log("save error");
@@ -223,8 +225,7 @@ module.exports = function(passport) {
                 user.gender = profile.gender;
                 user.givenname = profile.givenName;
                 user.familyname = profile.familyName;
-                user.thirdparty = true;
-                user.email = (profile.emails[0].value || '').toLowerCase();
+                user.facebook.email = (profile.emails[0].value || '').toLowerCase();
                 user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
 
                 user.save(function(err) {
@@ -238,5 +239,7 @@ module.exports = function(passport) {
         });
 
     }));
+
+
 
 };

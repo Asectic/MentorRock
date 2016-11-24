@@ -1,57 +1,23 @@
+<html>
 <!--  pure javascript starts  -->
-<%
-var my_id = 1;
-var friend_id = 2;
-var my_pic = 'assets/img/face-3.jpg'
-var friend_pic = 'assets/img/tesla.jpg'
+<%  
+    var my_id = 1;
+    var friend_id = 2;
+    var my_pic = 'assets/img/face-3.jpg'
+    var friend_pic = 'assets/img/tesla.jpg'
 
-var friend_names = ['Morris Luck', 'Liche Bore', 'Jada King', 'Babe Que', 'Sio Joe', 'Jamie Kaka', 'Lemon Tea', 'Tesla Coil', 'Max Well', 'Stein Rock'];
+    var friend_names = ['Morris Luck', 'Liche Bore', 'Jada King', 'Babe Que', 'Sio Joe', 'Jamie Kaka', 'Lemon Tea', 'Tesla Coil', 'Max Well', 'Stein Rock'];
 
-var friend_pics = ['assets/img/face-1.jpg', 'assets/img/face-2.jpg', 'assets/img/face-4.jpg', 'assets/img/face-5.jpeg', 'assets/img/face-6.jpg', 'assets/img/face-7.jpg', 'assets/img/face-8.jpg', 'assets/img/tesla.jpg', 'assets/img/max.gif', 'assets/img/einstein.jpg'];
-
-var chatlog = [
-    {
-        "sender_id": "2",
-        "receiver_id": "1",
-        "text": "Hello how are you doing? How is it going with the new chapter? Any questions that I can help?",
-        "file": "null",
-        "time": 1
-    },
-    {
-        "sender_id": "1",
-        "receiver_id": "2",
-        "text": "I have some problem with the experiment procedure. Could you please explain a little bit on the initial set-up. What is the importance of the callibration at the beginning, and what would be affected if we skip the tedious steps? Further, isn't it likely that we need to callibrate each time we do another round of observation given the criteria, it doesn't seem practical.",
-        "file": "null",
-        "time": 2
-    },
-    {
-        "sender_id": "2",
-        "receiver_id": "1",
-        "text": "Yeah that's a good question!! I remember having similar confusiton while I first read that part. Well, in fact, I think it would be easier if you try to go through the whole procedure in your mind, and consider taking out one step, and compare what might go wrong. Maybe you can now describe the procedure to me, and let's discuss what really is a must and what is not, and why.",
-        "file": "null",
-        "time": 3
-     },
-     {
-        "sender_id": "1",
-        "receiver_id": "2",
-        "text": "Oh that would be awesome, so from what I read, we should first .... and then ... so .... but.... XD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, tenetur?",
-        "file": "null",
-        "time": 4
-     }
-];
-
+    var friend_pics = ['assets/img/face-1.jpg', 'assets/img/face-2.jpg', 'assets/img/face-4.jpg', 'assets/img/face-5.jpeg', 'assets/img/face-6.jpg', 'assets/img/face-7.jpg', 'assets/img/face-8.jpg', 'assets/img/tesla.jpg', 'assets/img/max.gif', 'assets/img/einstein.jpg'];
+  
 %>
+
     <!--  pure javascript ends  -->
-
-
-    <html>
 
     <head>
         <!-- Importing the main-style headers -->
         <% include ../../partials/chatbox-header %>
-
     </head>
-
 
     <body>
 
@@ -155,10 +121,10 @@ var chatlog = [
                 <!-- ENd of content-con div-->
         </div>
         <!-- End of wrapper-->
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="javascript/chatbox.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script src="/javascript/chatbox.js"></script>
     </body>
-    <script src="assets/js/custom.js"></script>
-    </html>
+
+    < /html>
