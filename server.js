@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 
 // configuration ===============================================================
+mongoose.Promise = global.Promise;
 mongoose.connect(configDB.url); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
@@ -62,6 +63,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // the app and io as arguments to the returned functions.
 require('./routes/routes.js')(app, passport);
 require('./routes/chat-routes.js')(app, io);
+
+require('./routes/admin-routes.js')(app, passport);
 // launch ======================================================================
 //app.listen(port);
 console.log('MentorRock is running on port ' + port);
