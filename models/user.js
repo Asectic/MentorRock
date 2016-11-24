@@ -22,7 +22,7 @@ var userSchema = mongoose.Schema({
     givenname    : { type: String },
     familyname   : { type: String },
 
-    thirdparty: { type : Boolean, default: false }
+    thirdparty: { type : Boolean, default: false },
     // Other parameters for user
     //type: path to the profile picture, default: default profile picture
     profilePicture: { type: String, default:"defaultPicture" },

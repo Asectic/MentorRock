@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema(
 {
-	Username: {
+	username: {
 		type: String, required: true, unique: true
 	},
 	givenname: {
@@ -46,12 +46,10 @@ var userSchema = new Schema(
 		type: String, default: "Default text" //Default text about the user
 	}
 			
-}
+},
 {
-	collection: 'users'
+	collection: 'newUsers'
 }
 );
-
-mongoose.connect('mongodb://localhost/mentorDB');
 
 module.exports = mongoose.model('Users', userSchema);
