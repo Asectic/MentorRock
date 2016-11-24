@@ -40,6 +40,10 @@ var userSchema = mongoose.Schema({
             type: String
         }
     },
+    third_party{
+        tyope: Boolean,
+        default: false
+    }
     gender: {
         type: String
     },
