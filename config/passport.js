@@ -185,6 +185,7 @@ module.exports = function(passport) {
                             user.givenname = profile.givenName;
                             user.familyname = profile.familyName;
                             user.facebook.email = (profile.emails[0].value || '').toLowerCase();
+                            user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
 
                             user.save(function(err) {
                                 if (err)
@@ -204,6 +205,7 @@ module.exports = function(passport) {
                         newUser.givenname = profile.givenName;
                         newUser.familyname = profile.familyName;
                         newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
+                        newUser.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
                         newUser.save(function(err) {
                             if (err){
                             console.log("save error");
@@ -224,6 +226,7 @@ module.exports = function(passport) {
                 user.givenname = profile.givenName;
                 user.familyname = profile.familyName;
                 user.facebook.email = (profile.emails[0].value || '').toLowerCase();
+                user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
 
                 user.save(function(err) {
                     if (err)
