@@ -1,96 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <!-- Head of the html file -->
 <head>
     <% include ../../partials/title %>
-    
+
     <!-- Importing the main-style headers -->
     <% include ../../partials/main-style %>
     <script src="assets/js/search-mentor.js"></script>
-    
-</head>    
-        
+
+</head>
+
 <!-- Body of the html file -->
 <body>
-  
+
     <div id="wrapper">
-        
+
          <!-- Naivgation Bar: TOP -->
         <% include ../../partials/navigation-ui %>
-        
+
         <br>
         <br>
         <br>
         <br>
-        
+
         <div id ="content-con" class="container">
             <div class="row">
-        
+
                 <!-- Sidenav and page content-->
-                
+
                 <div id="left-menu" class="col-xs-5 col-md-3">
                     <% include ../../partials/sidenav-main %>
-                </div><!-- End of left menu div -->   
+                </div><!-- End of left menu div -->
 
                 <br>
-                
+
                 <!-- Main content of the page -->
                 <div id="content" class="col-xs-13 col-md-9">
                     <h1>Search for Mentors</h1>
-                    
+
                     <br>
-                    
+
                     <p>Click on any of the following interest categories to get started.</p>
-                    
+
                     <br>
-                    
+
                     <button id="academics" class="btn" onclick="showList(this.id)">Academics</button>
-                    
+
                     <div id="academics-box">
                         <br>
-                        
+
                         <!-- Import the interests-table -->
                         <% include ../../partials/academics-table %>
-                        
+
                     </div>
-                    
+
                     <!-- Academic List Pagination -->
-                    
+
                     <br><br>
-                    
+
                     <button id="interests-butt" class="btn" onclick="showList(this.id)">Interests</button>
-                    
+
                     <div id="interests-box">
                         <br>
-                        
+
                         <!-- Import the acaemics-table -->
                         <% include ../../partials/interests-table %>
 
                     </div><!-- End of interests box -->
-                    
+
                     <br>
                     <br>
-                    
+
                     <center><button id="mentors-butt" class="btn" onclick="submitInterests()">Submit</button></center>
-                    
+
                     <br><br>
-                    
+
                     <div id="result">
                     </div>
-                    
+
                     <h2>TO-DO:</h2>
                     <p>Add the interest and academic categories list to the Database</p>
                     <p>Implement the "Submit" button function, so that it connects to the DB and searches for mentors.</p>
-                    
-                    
+
+
                 </div>
 
             </div>
-        </div> 
+        </div>
     </div>
-    
-    
+
+
 </body>
-        
+  <script src="assets/js/custom.js"></script>      
 </html>
