@@ -40,6 +40,10 @@ var userSchema = mongoose.Schema({
             type: String
         }
     },
+    third_party: {
+        type: Boolean,
+        default: false
+    }
     gender: {
         type: String
     },
@@ -77,6 +81,8 @@ var userSchema = mongoose.Schema({
             }
         }
     ]
+}, {
+    collection: 'users'
 });
 
 // generating a hash
