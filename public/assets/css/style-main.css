@@ -316,9 +316,15 @@ tr, td {
 
 /* ===================================================== */
 
-#sidebar.sidenav-buttons {
-  width: 95%;
+#sidebar {
+    
+    width: 20%;
 }
+
+#sidebar.sidenav-buttons {
+  width: 35%;
+}
+
 #sidebar li {
   border:0 #f2f2f2 solid;
   border-bottom-width:1px;

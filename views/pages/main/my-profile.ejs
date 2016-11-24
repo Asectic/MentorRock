@@ -65,10 +65,10 @@
                             </div>
                             
                             <div class="col-xs-14 col-md-10">
-                                <% if (user.local.email) { %>
+                                <% if (user.local) { %>
                                     <p>
-                                        <%= user.local.givenname + " " + user.local.familyname %><br>
-                                        <%= user.local.gender %><br>
+                                        <%= user.givenname + " " + user.familyname %><br>
+                                        <%= user.gender %><br>
                                         <%= user.local.birthday %><br>
                                         <%= user.local.email %><br>
                                         <%= user.role %><br>
@@ -120,7 +120,7 @@
                             <br>
                             
                             <!-- Fetching content from user schema-->
-                            <% if (user.local.email) { %>
+                            <% if (user.local) { %>
                                     <%= user.about %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>

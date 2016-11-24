@@ -104,9 +104,9 @@ module.exports = function(passport) {
 
                         //newUser.local.username    = req.body.username;
                         newUser.local.stunum    = req.body.stunum;
-                        newUser.local.givenname    = req.body.givenname;
-                        newUser.local.familyname    = req.body.familyname;
-                        newUser.local.gender    = req.body.gender;
+                        newUser.givenname    = req.body.givenname;
+                        newUser.familyname    = req.body.familyname;
+                        newUser.gender    = req.body.gender;
                         newUser.local.birthday    = req.body.birthday;
 
                         // An string of comma interests "Swimming, Basketball, ..."

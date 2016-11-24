@@ -1,0 +1,83 @@
+
+<% function generalChanges(){ 
+    // Get the dynamic inputted user values' divs
+    var username = document.getElementById("user-in");
+    var password = document.getElementById("password-in");
+    var email = document.getElementById("email-in");
+    var stunum = document.getElementById("stunum-in");
+    var first_name = document.getElementById("givenname-in");
+    var last_name = document.getElementById("familyname-in");
+    var birth = document.getElementById("birthday-in");
+
+    // param.defaultValue is the current value found in userSchema
+    if(username.value != username.defaultValue) {
+        user.local.username = username;
+    }                
+    if(password.value != password.defaultValue) {
+        user.local.password = password;
+    }                
+    if(email.value != email.defaultValue) {
+        user.local.email = email;
+    }                
+
+    if(stunum.value != stunum.defaultValue) {
+        user.local.stunum = stunum;
+    }                
+
+    if(last_name.value != last_name.defaultValue) {
+        user.local.familyname = last_name;
+    }                
+
+    if(first_name.value != first_name.defaultValue) {
+        user.local.givenname = first_name;
+    }                
+
+    if(birth.value != birth.defaultValue) {
+        user.local.birthday = birth;
+    }
+
+    // After updating userSchema, redirect back to acc-settings.ejs
+    return res.redirect('/accsettings');
+ } 
+ 
+function interestChanges(user) {
+
+    // Assuming interest changes will once again be in string
+    var sub = document.getElementById("interests-in").value;
+    var sub_arr = sub.split(",");
+    
+    user.local.specialty = sub_arr;
+    
+    /// After updating userSchema, redirect back to acc-settings.ejs
+    return res.redirect('/accsettings');
+    
+}
+
+function aboutChanges(user) {
+    
+    // Fetch the user defined about content
+    var content = document.getElementById("about-text").innerHTML;
+
+    // And now the div of aboutcont-settings
+    var dest = document.getElementById("aboutcont-settings");
+
+    user.local.about = content;
+    // Change div content to user defined text
+    dest.innerHTML = user.local.about;
+
+    // After updating userSchema, redirect back to acc-settings.ejs
+    return res.redirect('/accsettings');
+
+}
+
+// Directly from acc-settings.ejs page
+function avatarChange(user){
+    var x = document.getElementById("profilePic-in");
+    
+    var txt = "";
+    
+    if('files' in x) {
+        user.local.profilePicture = x.files.name;
+    }
+
+} %>
