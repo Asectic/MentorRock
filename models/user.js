@@ -10,29 +10,31 @@ var userSchema = mongoose.Schema({
         password     : { type: String, },
         username     : { type: String, unique: true, sparse: true},
         stunum       : { type: String, unique: true, sparse: true},
-        gender       : { type: String },
-        givenname    : { type: String },
-        familyname   : { type: String },
-        birthday     : { type: String },
-
-        //type: path to the profile picture, default: default profile picture
-        collection: [String]
+        birthday     : { type: String }
     },
     facebook         : {
         id           : { type: String, unique: true, sparse: true },
         token        : { type: String },
-        email        : { type: String },
-        gender       : { type: String },
-        givenname    : { type: String },
-        familyname   : { type: String },
-
+        email        : { type: String }
     },
+
+    gender       : { type: String },
+    givenname    : { type: String },
+    familyname   : { type: String },
+
+    thirdparty: { type : Boolean, default: false }
     // Other parameters for user
+    //type: path to the profile picture, default: default profile picture
     profilePicture: { type: String, default:"defaultPicture" },
     about: { type: String, default: "Default text" },
     role: { type: String, default:"mentee"},
     specialty: [String],
-});
+},
+{
+  collection: 'users'
+}
+
+);
 
 // generating a hash
 userSchema.methods.generateHash = function(password) {
