@@ -62,7 +62,7 @@
                             <% if (user.local) { %>
                                 <% include ../../partials/acc-settings %>
 
-                                <center><button id="save-generals" class="button" onclick="<%=generalChanges()%>">Save Changes</button></center>
+                                <center><button id="save-generals" class="button" onclick="generalChanges(user)">Save Changes</button></center>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>   
@@ -86,8 +86,8 @@
                             
                             <!-- TODO: IMPLEMENT INTERESTS CHANGES -->
                             
-                            <% if (user.local.email) { %>
-                                    <%= user.local.specialty %>
+                            <% if (user.local) { %>
+                                    <%= user.specialty %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>  
@@ -95,10 +95,6 @@
                             <br>
                             <br>       
                             
-                            <!-- SHOULD ONLY BE ABLE TO CHANGE "GENERAL" -->
-                            
-                            <br>
-                            <br>
                         </div><!-- End of interests content div -->
                     
                     </div><!-- End of interests settings div -->
