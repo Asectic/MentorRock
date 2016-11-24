@@ -23,10 +23,7 @@
          <!-- Naivgation Bar: TOP -->
         <% include ../../partials/navigation-ui %>
         
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br>
         
         <div id ="content-con" class="container">
             <div class="row row-offcanvas row-offcanvas-left">
@@ -146,7 +143,7 @@
                             <!-- TODO: IMPLEMENT THIS
                                     Change user settings -->
                             <% if (user.local) { %>
-                                <% include ../../partials/acc-settings %>
+                                <%- include ../../partials/acc-settings %>
 
                                 <center><button id="save-generals" class="button" onclick="generalChanges(user)">Save Changes</button></center>
                             <% } else { %>
@@ -227,9 +224,6 @@
                             
                             <br><br>
                             
-                            <!-- TODO: IMPLEMENT THIS
-                                    Change user settings -->
-                            <a href="/about-change">Change settings</a>
                             
                         </div><!-- End of aboutcont-settings -->
                     </div><!-- End of about-settings -->

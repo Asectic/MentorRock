@@ -12,6 +12,12 @@ module.exports = function(app, passport) {
         res.render('pages/main/mentee-home.ejs', {
             user : req.user
         });
+    });    
+    
+    app.get('/profile-facebook', isLoggedIn, function(req, res) {
+        res.render('pages/main/mentee-home-facebook.ejs', {
+            user : req.user
+        });
     });
 
     // LOGOUT ==============================

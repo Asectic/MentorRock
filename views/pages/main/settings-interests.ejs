@@ -17,10 +17,7 @@
          <!-- Naivgation Bar: TOP -->
         <% include ../../partials/navigation-ui %>
         
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br>
         
         <div id ="content-con" class="container">
             <div class="row row-offcanvas row-offcanvas-left">
@@ -83,9 +80,9 @@
                                     Change user's interests settings -->
                             
                             <% if (user.local) { %>
-                                    <% include ../../partials/acc-settings %>
+                                    <%- include ../../partials/acc-settings %>
                             
-                                    <center><button id="save-changes" class="button" onclick="interestChanges(user.local)">Save Changes</button></center>
+                                    <center><button id="save-changes" class="button" onclick="interestChanges(user)">Save Changes</button></center>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>  

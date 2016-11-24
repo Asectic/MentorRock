@@ -137,7 +137,8 @@
                             
                                     <br>
                             
-                                    <center><button id="save-changes" class="button" onclick="aboutChanges(user)">Save Changes</button></center>
+                                    <%- include ../../partials/acc-settings %>
+                                    <center><button id="save-changes" class="button" onclick="<% aboutChanges(user) %>">Save Changes</button></center>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>   
