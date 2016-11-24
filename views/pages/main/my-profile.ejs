@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <!-- Head of the html file -->
 <head>
     <% include ../../partials/title %>
-    
+
     <!-- Importing the main-style headers -->
     <% include ../../partials/main-style %>
-    
-</head>    
-        
+
+</head>
+
 <!-- Body of the html file -->
 <body>
-  
+
     <div id="wrapper">
-        
+
          <!-- Naivgation Bar: TOP -->
         <% include ../../partials/navigation-ui %>
-        
+
         <br><br><br><br>
-        
+
         <div id ="content-con" class="container">
             <div class="row row-offcanvas row-offcanvas-left">
-        
+
                 <!-- Sidenav and page content-->
                 <% include ../../partials/sidenav-main %>
 
                 <br>
-                
+
                 <!-- Main content of the page -->
                 <div id="content" class="col-xs-13 col-md-9">
 
@@ -37,23 +37,23 @@
                         <img class="img-thumbnail" src="assets/img/face-6.jpg">
                     </div>
                     <br>
-                    
+
                     <!-- Fetch individual -->
-                    
+
                     <!-- Fetch username from db -->
                     <% if (user.local.email) { %>
                             <h1><%= user.local.username %></h1>
                     <% } else { %>
                         <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                    <% } %> 
-                    
+                    <% } %>
+
                     <br><br>
-                    
+
                     <!--  About section -->
                     <div id="about">
                         <h1 id="user-about">User Details</h1>
                         <div id="about-content">
-                            
+
                             <div class="col-xs-4 col-md-2">
                                 <p>
                                 <strong>Name</strong>:<br>
@@ -63,7 +63,7 @@
                                 <strong>Status</strong>:<br>
                                 </p>
                             </div>
-                            
+
                             <div class="col-xs-14 col-md-10">
                                 <% if (user.local) { %>
                                     <p>
@@ -77,71 +77,71 @@
                                 <% } else { %>
                                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                 <% } %>
-                            
+
                             </div>
- 
+
                             <br><br>
-                            <br><br>                            
-                            <br>                            
-                            
+                            <br><br>
+                            <br>
+
                         </div><!-- End of user about content div -->
-                    
+
                     </div><!-- End of user about div -->
-                    
+
                     <br>
-                    
+
                     <!--  About section -->
                     <div id="interests">
                         <h1 id="user-interests">Interests</h1>
                         <div id="interests-content">
                             <br>
-                            
+
                             <% if (user.local) { %>
                                     <%= user.specialty %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>
-                            
+
                             <br>
                             <br>
-                            
-                            
+
+
                         </div><!-- End of user interests content div -->
-                    
+
                     </div><!-- End of user interests div -->
-                    
+
                     <br>
-                    
+
                     <!--  About section -->
                     <div id="blog">
                         <h1 id="user-blog">About</h1>
                         <div id="blog-content">
-                            
+
                             <br>
-                            
+
                             <!-- Fetching content from user schema-->
                             <% if (user.local) { %>
                                     <%= user.about %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>
-                            
+
                             <br><br>
-                            
+
                             <!-- Implement this-->
-                            
+
                         </div><!-- End of user interests content div -->
-                    
+
                     </div><!-- End of user interests div -->
-                    
+
                     <br>
 
                 </div> <!-- ENd of main content div-->
 
             </div><!-- End of row div-->
-        </div> 
+        </div>
     </div>
-    
+
 </body>
-        
+    <script src="assets/js/custom.js"></script>      
 </html>
