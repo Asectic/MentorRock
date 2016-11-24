@@ -63,8 +63,8 @@ module.exports = function(passport) {
                     return done(null, user);
             });
         });
-        
-        
+
+
 
     }));
 
@@ -112,7 +112,7 @@ module.exports = function(passport) {
                         // An string of comma interests "Swimming, Basketball, ..."
                         var interests = req.body.interests;
                         var interests_array = interests.split(',');
-                        
+
                         newUser.specialty = interests_array;
 
 
@@ -184,6 +184,7 @@ module.exports = function(passport) {
                             user.gender = profile.gender;
                             user.givenname = profile.givenName;
                             user.familyname = profile.familyName;
+                            user.third_party = true;
                             user.facebook.email = (profile.emails[0].value || '').toLowerCase();
                             user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
 
@@ -204,6 +205,7 @@ module.exports = function(passport) {
                         newUser.gender = profile.gender;
                         newUser.givenname = profile.givenName;
                         newUser.familyname = profile.familyName;
+                        newUser.third_party = true;
                         newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
                         newUser.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
                         newUser.save(function(err) {
@@ -225,6 +227,7 @@ module.exports = function(passport) {
                 user.gender = profile.gender;
                 user.givenname = profile.givenName;
                 user.familyname = profile.familyName;
+                user.third_party = true;
                 user.facebook.email = (profile.emails[0].value || '').toLowerCase();
                 user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
 
