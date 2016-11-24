@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     
-<!-- ACC-SETTINGS.EJS
-
-    NOTE: ONLY ADD IN THE INCLUDE ACC-SETTINGS.EJS FILE TO IMPLEMENT
-          AVATAR CHANGES IN THIS FILE
-
--->    
-    
 <!-- Head of the html file -->
 <head>
     <% include ../../partials/title %>
     
     <!-- Importing the main-style headers -->
-    <% include ../../partials/main-style %>   
+    <% include ../../partials/main-style %>  
+    
+    <!-- Script for updating local user fields -->
+    <script src="assets/js/settings-general.js"></script>
+    
+    
+    
 </head>    
         
 <!-- Body of the html file -->
@@ -31,7 +30,7 @@
         
         <div id ="content-con" class="container">
             <div class="row row-offcanvas row-offcanvas-left">
-        
+
                 <!-- Sidenav and page content-->
                 <% include ../../partials/sidenav-main %>
 
@@ -48,23 +47,22 @@
                     
                     <br>
                     
-                    
-                    <!--  General Account section -->
+                    <!--  I: GENERAL ACCOUNT SETTINGS-->
                     <div id="general-acc">
                         <h2 class="acc-setts">General Account Settings</h2>
                         <div id="general-content">
                             <br>
                             
-                            <div class="row">
-                                <div class="col-xs-13 col-md-9">
-                                    <table id="user-table">
+                            <table id="user-table">
                             
+                                <!-- ALL FIELDS SET TO INPUT FORMS -->
+                                
                                 <!-- USERNAME COLUMN-->
                                 <tr>
                                     <td>Username</td>
                                     <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.username %>
+                                        <% if (user.local) { %>
+                                                <input id="username-in" class="gen-field" type="text" value="<%= user.local.username %>">
                                         <% } else { %>
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>                                
@@ -75,8 +73,8 @@
                                 <tr>
                                     <td>Password</td>
                                     <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.password %>
+                                        <% if (user.local) { %>
+                                                <input id="password-in" class="gen-field" type="text" value="<%= user.local.password %>">
                                         <% } else { %>
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>                                
@@ -87,8 +85,8 @@
                                 <tr>
                                     <td>Email</td>
                                     <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.email %>
+                                        <% if (user.local) { %>
+                                                <input id="email-in" class="gen-field" type="text" value="<%= user.local.email %>">
                                         <% } else { %>
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>                             
@@ -99,8 +97,8 @@
                                 <tr>
                                     <td>Student Number</td>
                                     <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.stunum %>
+                                        <% if (user.local) { %>
+                                                <input id="stunum-in" class="gen-field" type="text" value="<%= user.local.stunum %>">
                                         <% } else { %>
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>                           
@@ -111,8 +109,8 @@
                                 <tr>
                                     <td>First Name</td>
                                     <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.givenname %>
+                                        <% if (user.local) { %>
+                                                <input id="givenname-in" class="gen-field" type="text" value="<%= user.local.givenname %>">
                                         <% } else { %>
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>            
@@ -123,8 +121,8 @@
                                 <tr>
                                     <td>Last Name</td>
                                     <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.familyname %>
+                                        <% if (user.local) { %>
+                                                <input id="givenname-in" class="gen-field" type="text" value="<%= user.local.familyname %>">
                                         <% } else { %>
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>                                
@@ -135,8 +133,8 @@
                                 <tr>
                                     <td>Birthdate</td>
                                     <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.birthday %>
+                                        <% if (user.local) { %>
+                                                <input id="birthday-in" class="gen-field" type="text" value="<%= user.local.birthday %>">
                                         <% } else { %>
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>                            
@@ -144,20 +142,19 @@
                                 </tr>
                             
                             </table>
-
-
-
-
-
-                                </div>
-                            </div>
-                            
                         
                             <br>
-                            
+          
                             <!-- TODO: IMPLEMENT THIS
                                     Change user settings -->
-                            <a href="/general-change">Change settings</a>
+                            <% if (user.local) { %>
+                                <% include ../../partials/acc-settings %>
+
+                                <center><button id="save-generals" class="button" onclick="<%=generalChanges()%>">Save Changes</button></center>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>   
+                    
                             
                             <br>
                             <br>
@@ -168,7 +165,7 @@
                     
                     <br>
                     
-                    <!-- INTERESTS: Remove, Add, Change Existing Interests -->
+                    <!-- II: INTERESTS SETTINGS -->
                     <div id="interests-acc">
                         <h2 class="acc-setts">My Interests Settings</h2>
                         <div id="interests-content">
@@ -178,7 +175,7 @@
                             <!-- TODO: IMPLEMENT INTERESTS CHANGES -->
                             
                             <% if (user.local.email) { %>
-                                    <%= user.specialty %>
+                                    <%= user.local.specialty %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>  
@@ -186,9 +183,7 @@
                             <br>
                             <br>       
                             
-                            <!-- TODO: IMPLEMENT THIS
-                                    Change user settings -->
-                            <a href="/interests-change">Change interests</a>
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "GENERAL" -->
                             
                             <br>
                             <br>
@@ -198,7 +193,7 @@
                     
                     <br>
                     
-                    <!--  Avatar  section -->
+                    <!--  III: AVATAR SETTINGS -->
                     <div id="avatar">
                         <h2 class="acc-setts">Avatar Settings</h2>
                         <div id="avatar-content">
@@ -209,24 +204,13 @@
                             
                             <p>Upload your avatar</p>
                                 <div class="fileinput fileinput-new" data-provides="fileinput"></div>
-                                <input id="profilePic-in" type="file" />
+                            <input type="file" multiple />
                             <p style="font-style: italic;">(Image size must be within XXXpx by XXXpx)</p>
                                  
                             <br>        
                             <br>        
-                            
-                            <!-- TODO: IMPLEMENT AVATAR CHANGE -->
-                            <% if (user) { %>
-                            
-                                    <% include ../../partials/acc-settings %>
-                            
-                                    <center><button id="save-changes" class="button" onclick="avatarChange()">Save Changes</button></center>
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>  
-                            
-                            <br>
-                            <br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "GENERAL" -->
                             
                         </div><!-- End of avatar content div -->
                     
@@ -234,6 +218,7 @@
                 
                     <br>
                     
+                    <!-- IV: ABOUT SETTINGS -->
                     <div id="about-settings">
                         <h2 class="acc-setts">About Settings</h2>
                         <div id="aboutcont-settings">
@@ -255,7 +240,8 @@
                         </div><!-- End of aboutcont-settings -->
                     </div><!-- End of about-settings -->
                     
-                </div><!-- End of content div s-->
+                    
+                </div><!-- END OF CONTENT DIV-->
 
             </div>
         </div> 
@@ -263,5 +249,4 @@
     
 </body>
         
-</html>
 </html>

@@ -63,6 +63,8 @@ module.exports = function(passport) {
                     return done(null, user);
             });
         });
+        
+        
 
     }));
 
@@ -102,15 +104,15 @@ module.exports = function(passport) {
 
                         //newUser.local.username    = req.body.username;
                         newUser.local.stunum    = req.body.stunum;
-                        newUser.givenname    = req.body.givenname;
-                        newUser.familyname    = req.body.familyname;
-                        newUser.gender    = req.body.gender;
+                        newUser.local.givenname    = req.body.givenname;
+                        newUser.local.familyname    = req.body.familyname;
+                        newUser.local.gender    = req.body.gender;
                         newUser.local.birthday    = req.body.birthday;
 
                         // An string of comma interests "Swimming, Basketball, ..."
                         var interests = req.body.interests;
                         var interests_array = interests.split(',');
-
+                        
                         newUser.specialty = interests_array;
 
 
@@ -164,6 +166,7 @@ module.exports = function(passport) {
     fbStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new FacebookStrategy(fbStrategy,
     function(req, token, refreshToken, profile, done) {
+
         // asynchronous
         process.nextTick(function() {
 
@@ -178,12 +181,11 @@ module.exports = function(passport) {
                         // if there is a user id already but no token (user was linked at one point and then removed)
                         if (!user.facebook.token) {
                             user.facebook.token = token;
-                            user.gender = profile.gender;
-                            user.givenname = profile.givenName;
-                            user.familyname = profile.familyName;
-                            user.thirdparty = true;
+                            user.facebook.gender = profile.gender;
+                            user.facebook.givenname = profile.givenName;
+                            user.facebook.familyname = profile.familyName;
                             user.facebook.email = (profile.emails[0].value || '').toLowerCase();
-                            user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
+
                             user.save(function(err) {
                                 if (err)
                                     return done(err);
@@ -198,12 +200,10 @@ module.exports = function(passport) {
                         var newUser            = new User();
                         newUser.facebook.id    = profile.id;
                         newUser.facebook.token = token;
-                        newUser.gender = profile.gender;
-                        newUser.givenname = profile.givenName;
-                        newUser.familyname = profile.familyName;
-                        user.thirdparty = true;
+                        newUser.facebook.gender = profile.gender;
+                        newUser.facebook.givenname = profile.givenName;
+                        newUser.facebook.familyname = profile.familyName;
                         newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
-                        user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
                         newUser.save(function(err) {
                             if (err){
                             console.log("save error");
@@ -220,12 +220,10 @@ module.exports = function(passport) {
 
                 user.facebook.id    = profile.id;
                 user.facebook.token = token;
-                user.gender = profile.gender;
-                user.givenname = profile.givenName;
-                user.familyname = profile.familyName;
-                user.thirdparty = true;
-                user.email = (profile.emails[0].value || '').toLowerCase();
-                user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
+                user.facebook.gender = profile.gender;
+                user.facebook.givenname = profile.givenName;
+                user.facebook.familyname = profile.familyName;
+                user.facebook.email = (profile.emails[0].value || '').toLowerCase();
 
                 user.save(function(err) {
                     if (err)
@@ -238,5 +236,7 @@ module.exports = function(passport) {
         });
 
     }));
+
+
 
 };
