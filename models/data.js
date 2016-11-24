@@ -26,10 +26,6 @@ var chatroom = new Schema(
                 type: String,
                 required: true
             },
-            receiver_id: {
-                type: String,
-                requried: true
-            },
             text: {
                 type: String
             },
@@ -40,20 +36,6 @@ var chatroom = new Schema(
                 time: String,
                 required: true
             }
-            /*
-                    msgs: [
-                        text: {
-                            type: String
-                        },
-                        file: {
-                            type: ObjectId
-                        },
-                        time: {
-                            time: String,
-                            required: true
-                        }
-                    ]
-            */
         }
     ], {
         collection: 'chatrooms'
