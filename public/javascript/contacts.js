@@ -13,7 +13,7 @@ $(function () {
                 items: 3
             },
             720: {
-                items: 5
+                items: 3
             },
             1080: {
                 items: 5
