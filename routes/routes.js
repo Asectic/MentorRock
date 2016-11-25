@@ -76,6 +76,63 @@ module.exports = function(app, passport) {
         res.redirect('/accsettings');
     }); 
     
+    app.post('/about-change', function(req, res) {
+        var preset_about = req.user.about;
+        var new_about = req.body.about_new;
+        
+        User.findOneAndUpdate(preset_about, new_about, options, callback);
+        
+        // After completing about update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    });
+    
+    app.post('/interests-change', function(req, res) {
+        
+        // GET CURRENT user.local fields
+        var preset_user = req.user.local.username;
+        var preset_password = req.user.local.password;
+        var preset_email = req.user.local.email;
+        var preset_stunum = req.user.local.stunum;
+        var preset_familyname = req.user.familyname;
+        var preset_givenname = req.user.givenname;
+        var preset_birthday = req.user.local.birthday;
+        
+        // LIST OF ALL "changed" input fields
+        var new_user = req.body.username_new;
+        var new_password = req.body.password_new;
+        var new_email = req.body.email_new;
+        var new_stunum = req.body.stunum_new;
+        var new_familyname = req.body.familyname_new;
+        var new_givenname = req.body.givenname_new;
+        var new_birthday = req.body.birthday_new;
+        
+        User.findOneAndUpdate(preset_user, new_user, options, callback);
+        User.findOneAndUpdate(preset_password, new_password, options, callback);
+        User.findOneAndUpdate(preset_email, new_email, options, callback);
+        User.findOneAndUpdate(preset_stunum, new_stunum, options, callback);
+        User.findOneAndUpdate(preset_familyname, new_familyname, options, callback);
+        User.findOneAndUpdate(preset_givenname, new_givenname, options, callback);
+        User.findOneAndUpdate(preset_birthday, new_birthday, options, callback);
+        
+        // After completing fields update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    });
+    
+    // In other words, "avatar changes"
+    app.post('/accsettings', function(req, res) {
+        
+        var preset_icon = req.user.profilePicture;
+        var new_icon = req.body.profilePic_new;
+        
+        User.findOneAndUpdate(preset_icon, new_icon, options, callback);
+        
+        // After completing fields update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    }); 
+    
 
     // =========================================
     
