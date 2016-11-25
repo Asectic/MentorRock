@@ -116,11 +116,13 @@
 
                             <form action="/accsettings" method="post">
                                 
+                                <br>
+                                
                                 <p>This is currently you!</p>
 
                                 <div id="image" class="img-thumbnail">
                                     <% if (user.local) { %>
-                                            <img class="img-thumbnail" src="<% user.profilePicture %>">
+                                            <img class="img-thumbnail" src="<%= user.profilePicture %>">
                                     <% } else { %>
                                         <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                     <% } %>
@@ -132,13 +134,16 @@
                                     <div class="form-group">
                                         <div class="fileinput fileinput-new" data-provides="fileinput"></div>
                                         <input id="profilePic-in" class="form-control" name="profilePic_new" type="file" />
-                                        <p style="font-style: italic;">(Image size must be within XXXpx by XXXpx)</p>
+                                        <p style="font-style: italic;">(Image size must be within 150px by 150px)</p>
                                     </div><!-- End of form-group div-->
+                                
+                                <br>
                                 
                                 <!-- Form submit button-->    
                                 <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
                                 
                                         
+                                
                             </form><!-- End of avatar form -->
 
                             <br>

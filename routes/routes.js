@@ -70,10 +70,19 @@ module.exports = function(app, passport) {
         var preset_interests = req.user.specialty;
         var new_interests = req.body.specialty_new;
         
-        User.findOneAndUpdate(preset_interests, new_interests, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
+        User.update(preset_interests, {$set: {specialty: new_interests}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
+        
+        /*	User.update({id: res.params.id}, {$set: {familyname: res.params.fname}}, function(err, updated) {
+  		        if( err || !updated ) console.log("User not updated");
+  		        else console.log("User updated");
+	       });*/
         
         // After completing interests update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -83,10 +92,14 @@ module.exports = function(app, passport) {
         var preset_about = req.user.about;
         var new_about = req.body.about_new;
         
-        User.findOneAndUpdate(preset_about, new_about, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
+        User.update(preset_about, {$set: {about: new_about}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
         
         // After completing about update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -113,34 +126,68 @@ module.exports = function(app, passport) {
         var new_givenname = req.body.givenname_new;
         var new_birthday = req.body.birthday_new;
         
-        User.findOneAndUpdate(preset_user, new_user, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
-        User.findOneAndUpdate(preset_password, new_password, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
-        User.findOneAndUpdate(preset_email, new_email, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
-        User.findOneAndUpdate(preset_stunum, new_stunum, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
-        User.findOneAndUpdate(preset_familyname, new_familyname, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
-        User.findOneAndUpdate(preset_givenname, new_givenname, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
-        User.findOneAndUpdate(preset_birthday, new_birthday, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
+        User.update(preset_user, {$set: {username: new_user}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
+        
+        User.update(preset_password, {$set: {password: new_password}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
+        
+        User.update(preset_email, {$set: {email: new_email}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
+        
+        User.update(preset_stunum, {$set: {stunum: new_stunum}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
+        
+        User.update(preset_familyname, {$set: {familyname: new_familyname}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
+        
+        User.update(preset_givenname, {$set: {stunum: new_givenname}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
+        
+        User.update(preset_birthday, {$set: {stunum: new_birthday}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
         
         // After completing fields update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -153,10 +200,14 @@ module.exports = function(app, passport) {
         var preset_icon = req.user.profilePicture;
         var new_icon = req.body.profilePic_new;
         
-        User.findOneAndUpdate(preset_icon, new_icon, {new:true}, function(err, person) {
-          if (err) {
-            console.log('got an error');
-        }});
+        User.update(preset_icon, {$set: {profilePicture: new_icon}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User updated");
+                }
+        });
         
         // After completing fields update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
