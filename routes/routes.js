@@ -70,7 +70,10 @@ module.exports = function(app, passport) {
         var preset_interests = req.user.specialty;
         var new_interests = req.body.specialty_new;
         
-        User.findOneAndUpdate(preset_interests, new_interests, options, callback);
+        User.findOneAndUpdate(preset_interests, new_interests, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
         
         // After completing interests update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -80,7 +83,10 @@ module.exports = function(app, passport) {
         var preset_about = req.user.about;
         var new_about = req.body.about_new;
         
-        User.findOneAndUpdate(preset_about, new_about, options, callback);
+        User.findOneAndUpdate(preset_about, new_about, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
         
         // After completing about update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -107,13 +113,34 @@ module.exports = function(app, passport) {
         var new_givenname = req.body.givenname_new;
         var new_birthday = req.body.birthday_new;
         
-        User.findOneAndUpdate(preset_user, new_user, options, callback);
-        User.findOneAndUpdate(preset_password, new_password, options, callback);
-        User.findOneAndUpdate(preset_email, new_email, options, callback);
-        User.findOneAndUpdate(preset_stunum, new_stunum, options, callback);
-        User.findOneAndUpdate(preset_familyname, new_familyname, options, callback);
-        User.findOneAndUpdate(preset_givenname, new_givenname, options, callback);
-        User.findOneAndUpdate(preset_birthday, new_birthday, options, callback);
+        User.findOneAndUpdate(preset_user, new_user, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
+        User.findOneAndUpdate(preset_password, new_password, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
+        User.findOneAndUpdate(preset_email, new_email, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
+        User.findOneAndUpdate(preset_stunum, new_stunum, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
+        User.findOneAndUpdate(preset_familyname, new_familyname, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
+        User.findOneAndUpdate(preset_givenname, new_givenname, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
+        User.findOneAndUpdate(preset_birthday, new_birthday, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
         
         // After completing fields update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -126,7 +153,10 @@ module.exports = function(app, passport) {
         var preset_icon = req.user.profilePicture;
         var new_icon = req.body.profilePic_new;
         
-        User.findOneAndUpdate(preset_icon, new_icon, options, callback);
+        User.findOneAndUpdate(preset_icon, new_icon, {new:true}, function(err, person) {
+          if (err) {
+            console.log('got an error');
+        });
         
         // After completing fields update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
