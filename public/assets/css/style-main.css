@@ -4,6 +4,7 @@
 }
 
 .jumbotron {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg) ;
     background-size: 100%;
     height: 760px;
     margin: 0;
@@ -65,7 +66,8 @@ html,body {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  padding-top: 00px;
+  padding-top: 00px; 
+  background-color: white;
 }
 
 html {
@@ -78,10 +80,10 @@ body {
     background-repeat: no-repeat;
 }
 
-.container .row .col-md-6 .col-sm-4 {
+.container .row .col-md-6 .col-sm-4 { 
   height: 100vh;
-  overflow: auto;
-}
+  overflow: auto;  
+} 
 
 .row {
     height: 100%;
@@ -103,6 +105,7 @@ body {
 }
 
 #sidenav-buttons > li {
+    height: 50%;
     margin-bottom: -5%;
     padding-top: 0%;
     padding-bottom: 0%;
@@ -119,7 +122,7 @@ body {
     height: 81vh;
     /*height: 70%;*/
     overflow-y: auto;
-
+    
     /*float:left;
     width:100%;
     background:#eee;*/
@@ -137,7 +140,7 @@ body {
     text-shadow: 0 0 5px rgba(179, 132, 255, 1), 0 0 10px  #b3b3ff,
              0 0 20px  #b3b3ff, 0 0 30px  #b3b3ff,
              0 0 40px  #b3b3ff;
-
+    
 }
 
 #title {
@@ -159,7 +162,7 @@ body {
     width: 100px;
     height: 100px;
     background-color: black;
-
+    
     float:left;
     margin-right: 10px;
 }
@@ -172,6 +175,7 @@ body {
 }
 
 #about-content, #interests-content, #blog-content {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
     color: white;
 }
 
@@ -197,12 +201,12 @@ body {
 
 /* Buttons: in the order in which they appear on the page*/
 #academics {
-    background-color:  royalblue;
+    background-color:  royalblue; 
     width: 200px;
-}
+} 
 
 #interests-butt {
-    background-color: green;
+    background-color: green; 
     width: 200px;
 }
 
@@ -211,7 +215,7 @@ body {
     align-content: center;
     text-align: center;
     width: 200px;
-}
+} 
 
 #academics-box, #interests-box, ul.pagination {
     display: none;
@@ -264,12 +268,14 @@ tr, td {
 }
 
 #general-content, #interests-content, #aboutcont-settings {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
     color: white;
     align-content: center;
     text-align: center;
 }
 
 #avatar-content {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
     color: white;
     align-content: left;
     left: 50%;
@@ -294,12 +300,8 @@ tr, td {
     text-align: center;
 }
 
-#about-text, .gen {
+#about-text {
     color: black;
-}
-
-.gen {
-    width: 100%;
 }
 
 /* ===================================================== */
@@ -314,15 +316,9 @@ tr, td {
 
 /* ===================================================== */
 
-#sidebar {
-
-    width: 20%;
-}
-
 #sidebar.sidenav-buttons {
-  width: 35%;
+  width: 95%;
 }
-
 #sidebar li {
   border:0 #f2f2f2 solid;
   border-bottom-width:1px;
