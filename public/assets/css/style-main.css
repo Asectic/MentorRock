@@ -184,6 +184,11 @@ body {
     text-align: center;
 }
 
+#blog-content {
+    align-content: center;
+    text-align: center;
+}
+
 /* ===================================================== */
 /* Buttons for search-mentor.html */
 .button {
@@ -304,6 +309,10 @@ tr, td {
     color: black;
 }
 
+#profilePic-in {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    width: 60%;
+}
 /* ===================================================== */
 
 /* Account Settings CSS (settings-general.html) */
@@ -312,7 +321,6 @@ tr, td {
     color: black;
     width: 100%;
 }
-
 
 /* ===================================================== */
 
@@ -331,9 +339,4 @@ input {
 
 tr {
   width: 100%;  
-}
-
-#profilePic-in {
-    background-image: url(../../assets/img/personal-mentor-blur.jpg);
-    width: 60%;
 }
