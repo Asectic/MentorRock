@@ -115,4 +115,41 @@ $(function () {
     $("#manageUsers").addClass("active");
     usersView();
 
+    //The following section pertaining to the autocomplete function
+    var availableTags=[];//array containing full name of users
+    var findAllUsersFullName=function () {
+        $(".users").show();
+        $(".users").siblings("div").hide();
+        //Ajax GET request to get users data
+        var users;
+        $.ajax({
+            url:'/users',
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+                users=data;
+                constructFullName(data);
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+    };
+    //concatenate first and last name, then push to the array.
+    var constructFullName=function (data) {
+      for(var i=0; i<data.length; i++){
+          availableTags.push(data[i].givenname+" "+data[i].familyname);
+      }
+    };
+
+    //call the function to find all the user names
+    findAllUsersFullName();
+    $( "#tags" ).autocomplete({
+        source: function(request, response) {
+            var results = $.ui.autocomplete.filter(availableTags, request.term);
+
+            response(results.slice(0, 10));
+        }
+    });
 });

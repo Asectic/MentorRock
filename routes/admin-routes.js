@@ -16,6 +16,7 @@ module.exports =  function(app, passport){
 
     //find all users to display
     app.get('/users', RouteUser.findAll);
+    
 
     //Update a user information
     app.post('/user', RouteUser.updateUser);

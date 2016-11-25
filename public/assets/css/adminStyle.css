@@ -151,6 +151,18 @@ body{
     padding: 2px;
     margin: 0px;
 }
+/*---style for the autocomplete----*/
+.ui-widget-content {
+    background: #2b2b2b;
+    color: #c6c6c6;
+}
+.ui-autocomplete {
+    z-index: 10000 !important;
+}
+.ui-state-active {
+    background: black !important;
+
+}
 
 
 
