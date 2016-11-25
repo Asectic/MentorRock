@@ -75,14 +75,9 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User interests updated");
                 }
         });
-        
-        /*	User.update({id: res.params.id}, {$set: {familyname: res.params.fname}}, function(err, updated) {
-  		        if( err || !updated ) console.log("User not updated");
-  		        else console.log("User updated");
-	       });*/
         
         // After completing interests update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -97,7 +92,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User about updated");
                 }
         });
         
@@ -131,7 +126,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("Username updated");
                 }
         });
         
@@ -140,7 +135,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User password updated");
                 }
         });
         
@@ -149,7 +144,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User email updated");
                 }
         });
         
@@ -158,7 +153,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User student number updated");
                 }
         });
         
@@ -167,7 +162,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User family name updated");
                 }
         });
         
@@ -176,7 +171,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User first name updated");
                 }
         });
         
@@ -185,7 +180,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User birthday updated");
                 }
         });
         
@@ -205,7 +200,7 @@ module.exports = function(app, passport) {
                     console.log("User not updated");
                 }
   		        else {
-                    console.log("User updated");
+                    console.log("User icon updated");
                 }
         });
         
