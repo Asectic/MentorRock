@@ -70,31 +70,26 @@
 
                             <br>
 
-                            <!-- TODO: IMPLEMENT INTERESTS CHANGES -->
+                            <!-- INTEREST CHANGES AS A POST ACTION-->
+                            <form action="/interests-change" method="post">
 
-                            <% if (user.local) { %>
-                                    <input id="interests-in" class="gen-field" type="text" value="<%= user.specialty %>">
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>
-
-                            <br>
-                            <br>
-
-                            <!-- TODO: IMPLEMENT THIS
-                                    Change user's interests settings -->
-
-                            <% if (user.local) { %>
-                                    <% include ../../partials/acc-settings %>
-
-                                    <center><button id="save-changes" class="button" onclick="interestChanges(user.local)">Save Changes</button></center>
-
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>
-
+                                <div class="form-group">
+                                    <% if (user.local) { %>
+                                            <input id="interests-in" name="specialty_new" class="gen-field" type="text" value="<%= user.specialty %>">
+                                    <% } else { %>
+                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                    <% } %>
+                                </div><!-- End of form group-->
+                                
+                                <br>
+                                
+                                <!-- Form submit button-->    
+                                <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
+                            
+                            </form>
 
                             <br>
+
                         </div><!-- End of interests content div -->
 
                     </div><!-- End of interests settings div -->
@@ -111,18 +106,17 @@
                             <div id="image" class="img-thumbnail">
                             
                                 <% if (user.local) { %>
-                                        <img class="img-thumbnail" src="<% user.profilePicture %>">
+                                        <img class="img-thumbnail" src="<%= user.profilePicture %>">
                                 <% } else { %>
                                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                 <% } %>
                             
                             </div>
 
-                            <p>Upload your avatar</p>
-                                <div class="fileinput fileinput-new" data-provides="fileinput"></div>
-                            <input type="file" multiple />
-                            <p style="font-style: italic;">(Image size must be within XXXpx by XXXpx)</p>
-
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             <br>
                             <br>
 
