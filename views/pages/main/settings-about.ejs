@@ -106,7 +106,7 @@
 
                             <div id="image" class="img-thumbnail">
                                 <% if (user.local) { %>
-                                        <img class="img-thumbnail" src="<% user.profilePicture %>">
+                                        <img class="img-thumbnail" src="<%= user.profilePicture %>">
                                 <% } else { %>
                                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                 <% } %>
@@ -135,20 +135,28 @@
 
                             <br>
 
-                            <!-- TODO:
-                                FIX EJS TEMPLATING ERROR HERE
-                            -->
+                            <form action="/about-change" method="post">
 
-                            <% if (user) { %>
-                                    <textarea id="about-text" rows="4" cols="80"><%= user.about %></textarea>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                
+                                <div class="form-group">
+                                
+                                    <% if (user) { %>
+                                        <textarea id="about-text" class="form-group" name="about_new" rows="4" cols="80"><%= user.about %></textarea>
+                                    <% } else { %>
+                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                    <% } %>
 
-                                    <br>
+                                
+                                </div><!-- End of form-group div -->
                             
-                                    <%- include ../../partials/acc-settings %>
-                                    <center><button id="save-changes" class="button" onclick="<% aboutChanges(user) %>">Save Changes</button></center>
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>
+                                <!-- Form submit button-->    
+                                <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
+                                        
+                            </form><!-- END OF ABOUT FORM -->
 
                         </div> <!-- End of aboutcont-settings-->
                     </div><!-- ENd of about-settings div -->

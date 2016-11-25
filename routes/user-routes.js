@@ -13,7 +13,10 @@ var fs = require('fs');
  }
  });
 
+
 */
+
+
 
 
 //Adding a new user to the database
@@ -31,10 +34,19 @@ function addNewUser(data){
  * @param {object} res response object
  */
 exports.findAll = function(req, res) {
-    User.find({}, function(err, allUsers) {
-        if (err) throw err;
-        res.send(allUsers);
-    });
+    if(!req.query.role){
+        User.find({}, function(err, allUsers) {
+            if (err) throw err;
+            res.send(allUsers);
+        });
+    }else{//when searching for a "mentor" or "mentee".
+        User.find({role:req.query.role}, function(err, selectedUsers) {
+            if (err) throw err;
+            res.send(selectedUsers);
+        });
+
+    }
+
 };
 
 

@@ -323,3 +323,8 @@ tr, td {
   border:0 #f2f2f2 solid;
   border-bottom-width:1px;
 }
+
+input {
+    color: black;
+    width: 100%;
+}

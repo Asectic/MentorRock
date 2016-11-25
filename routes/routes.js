@@ -1,3 +1,7 @@
+
+//var RouteUser = require('./user-routes');
+var User = require('../models/user');
+
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
@@ -59,6 +63,18 @@ module.exports = function(app, passport) {
             user : req.user
         });
     });
+    
+    // SUBMIT USER PARAMETER CHANGES TO ACC-SETTINGS
+    app.post('/interests-change', function(req, res) {
+        
+        var preset_interests = req.user.specialty;
+        var new_interests = req.body.specialty_new;
+        
+        User.findOneAndUpdate(preset_interests, new_interests, options, callback);
+        
+        // After completing interests update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+    }); 
     
 
     // =========================================
