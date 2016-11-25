@@ -34,17 +34,25 @@ function addNewUser(data){
  * @param {object} res response object
  */
 exports.findAll = function(req, res) {
-    if(!req.query.role){
+    if(!req.query.role&&!req.query.fullname){
         User.find({}, function(err, allUsers) {
             if (err) throw err;
             res.send(allUsers);
         });
-    }else{//when searching for a "mentor" or "mentee".
+    }else if(req.query.role != undefined) {//when searching for a "mentor" or "mentee".
         User.find({role:req.query.role}, function(err, selectedUsers) {
             if (err) throw err;
             res.send(selectedUsers);
         });
 
+    }else if(req.query.fullname != undefined){//Find users using full name
+        var fullname=req.query.fullname;
+        var names = fullname.split(" ");
+        console.log(fullname);
+        User.find({givenname:names[0], familyname:names[1]}, function(err, selectedUsers) {
+            if (err) throw err;
+            res.send(selectedUsers);
+        });
     }
 
 };
