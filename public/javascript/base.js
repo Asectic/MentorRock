@@ -152,4 +152,34 @@ $(function () {
             response(results.slice(0, 10));
         }
     });
+
+    //Find a user with a given full name
+    $("#searchUsers").click(function (e) {
+        e.preventDefault();
+        var userName=$("#tags").val();
+        console.log(userName);
+        $(".users").html("");
+        $(".users").show();
+        $(".users").siblings("div").hide();
+        $.ajax({
+            url:'/users?fullname='+userName,
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+                console.log("result for search: "+JSON.stringify(data));
+
+                if(data.length){
+                    $(".users").html(displayUser(data));
+                }else{
+                    $(".users").html("There is no user with the given name");
+                }
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+
+
+    });
 });
