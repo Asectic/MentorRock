@@ -7,13 +7,10 @@ var fs = require('fs');
  fs.readFile('routes/fewUsers.json', 'utf-8', function(err, data) {
  if(err) throw err;
  userObj = JSON.parse(data);//parsing the data
-
  for(var i=0; i<userObj.users.length; i++){
  addNewUser(userObj.users[i]);//call the function belwo to add a new user into the database
  }
  });
-
-
 */
 
 
@@ -34,26 +31,17 @@ function addNewUser(data){
  * @param {object} res response object
  */
 exports.findAll = function(req, res) {
-<<<<<<< HEAD
     if(!req.query.role&&!req.query.fullname){
-=======
-    if(!req.query.role){
->>>>>>> 4222c428992d22e54a8d41a911f4b20e39d2c9f3
         User.find({}, function(err, allUsers) {
             if (err) throw err;
             res.send(allUsers);
         });
-<<<<<<< HEAD
     }else if(req.query.role != undefined) {//when searching for a "mentor" or "mentee".
-=======
-    }else{//when searching for a "mentor" or "mentee".
->>>>>>> 4222c428992d22e54a8d41a911f4b20e39d2c9f3
         User.find({role:req.query.role}, function(err, selectedUsers) {
             if (err) throw err;
             res.send(selectedUsers);
         });
 
-<<<<<<< HEAD
     }else if(req.query.fullname != undefined){//Find users using full name
         var fullname=req.query.fullname;
         var names = fullname.split(" ");
@@ -62,8 +50,6 @@ exports.findAll = function(req, res) {
             if (err) throw err;
             res.send(selectedUsers);
         });
-=======
->>>>>>> 4222c428992d22e54a8d41a911f4b20e39d2c9f3
     }
 
 };
