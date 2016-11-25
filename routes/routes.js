@@ -87,7 +87,7 @@ module.exports = function(app, passport) {
         
     });
     
-    app.post('/interests-change', function(req, res) {
+    app.post('/general-change', function(req, res) {
         
         // GET CURRENT user.local fields
         var preset_user = req.user.local.username;
