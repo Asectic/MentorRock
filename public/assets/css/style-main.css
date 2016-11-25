@@ -159,8 +159,8 @@ body {
 
 /* User Profile CSS (my-profile.html) */
 #image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: black;
     
     float:left;
@@ -327,4 +327,13 @@ tr, td {
 input {
     color: black;
     width: 100%;
+}
+
+tr {
+  width: 100%;  
+}
+
+#profilePic-in {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    width: 60%;
 }
