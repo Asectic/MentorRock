@@ -73,7 +73,7 @@ module.exports = function(app, passport) {
         User.findOneAndUpdate(preset_interests, new_interests, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         
         // After completing interests update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -86,7 +86,7 @@ module.exports = function(app, passport) {
         User.findOneAndUpdate(preset_about, new_about, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         
         // After completing about update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -116,31 +116,31 @@ module.exports = function(app, passport) {
         User.findOneAndUpdate(preset_user, new_user, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         User.findOneAndUpdate(preset_password, new_password, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         User.findOneAndUpdate(preset_email, new_email, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         User.findOneAndUpdate(preset_stunum, new_stunum, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         User.findOneAndUpdate(preset_familyname, new_familyname, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         User.findOneAndUpdate(preset_givenname, new_givenname, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         User.findOneAndUpdate(preset_birthday, new_birthday, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         
         // After completing fields update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
@@ -156,7 +156,7 @@ module.exports = function(app, passport) {
         User.findOneAndUpdate(preset_icon, new_icon, {new:true}, function(err, person) {
           if (err) {
             console.log('got an error');
-        });
+        }});
         
         // After completing fields update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
