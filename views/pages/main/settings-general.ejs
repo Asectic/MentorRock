@@ -195,7 +195,13 @@
 
                             <p>This is currently you!</p>
 
-                            <div id="image" class="img-thumbnail"></div>
+                            <div id="image" class="img-thumbnail">
+                                <% if (user.local) { %>
+                                        <img class="img-thumbnail" src="<% user.profilePicture %>">
+                                <% } else { %>
+                                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                <% } %>
+                            </div>
 
                             <p>Upload your avatar</p>
                                 <div class="fileinput fileinput-new" data-provides="fileinput"></div>

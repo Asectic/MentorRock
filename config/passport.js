@@ -114,7 +114,7 @@ module.exports = function(passport) {
                         var interests_array = interests.split(',');
 
                         newUser.specialty = interests_array;
-
+                        newUser.profilePicture = req.body.profilePicture;
 
                         newUser.save(function(err) {
                             if (err)

@@ -57,7 +57,7 @@ var userSchema = mongoose.Schema({
     //type: path to the profile picture, default: default profile picture
     profilePicture: {
         type: String,
-        default: "defaultPicture"
+        default: "assets/img/default-profile-pic.png"
     },
     about: {
         type: String,

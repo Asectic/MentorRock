@@ -34,14 +34,19 @@
                     <!-- Page Username header-->
                     <br>
                     <div id="image" >
-                        <img class="img-thumbnail" src="assets/img/face-6.jpg">
+                        
+                        <% if (user.local) { %>
+                                <img class="img-thumbnail" src="<% user.profilePicture %>">
+                        <% } else { %>
+                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                        <% } %>
                     </div>
                     <br>
 
                     <!-- Fetch individual -->
 
                     <!-- Fetch username from db -->
-                    <% if (user.local.email) { %>
+                    <% if (user.local) { %>
                             <h1><%= user.local.username %></h1>
                     <% } else { %>
                         <a href="/connect/local" class="btn btn-default">Connect Local</a>
