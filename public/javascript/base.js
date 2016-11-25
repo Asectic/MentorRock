@@ -1,13 +1,12 @@
 $(function () {
-    $("#adminProfile").show();
-    $("#adminProfile").siblings("div").hide();
-    $("#adminProfilePic").addClass("active");
+
+
 
     //The following function remove the class active from the main menu and sidebar navigation
     var resetActive=function () {
 
         //Remove active class from the main menu
-        var countMainMenuItems=$("nav div li a").length;
+        var countMainMenuItems=$("nav div li").length;
         for(var i=0;i<countMainMenuItems; i++ ){
 
             if($("nav div li").eq(i).hasClass("active")){
@@ -15,49 +14,69 @@ $(function () {
             }
         }
 
-        //Remove active class from the sidebar menu
-        var countSideNavItems=$(".sidenav li a").length;
-        for(var j=0; j<countSideNavItems; j++){
-            $(".sidenav li a").eq(j).removeClass("active");
-        }
-
     };
 
     //The following control the display of content on the web page based on the input from the user
-    $("li>a").click(function () {
+    $("nav div li").click(function () {
         resetActive();
         $(this).addClass("active");
 
         var id=$(this).attr("id");
-        if(id=="addUsers"){
-            console.log("addUsers");
-            $(".userRequestView").show();
-            $(".userRequestView").siblings("div").hide();
-            //Ajax GET request to get users data
-            var users;
-            $.ajax({
-                url:'/users',
-                Type:'GET',
-                dataType:'json',
-                success:function (data) {
-                    users=data;
-                    $(".userRequestView").html(displayUser(data));
-                },
-                error:function () {
-                    throw error;
-                }
-
-            });
+        if(id=="manageMentors"){
+            console.log("manageMentorsView");
+            mentorsView();
 
         }else if(id=="manageUsers"){
             console.log("manageUsers");
-            $(".manageUsersView").show();
-            $(".manageUsersView").siblings("div").hide();
-        }else if(id=="adminProfilePic"){
-            $("#adminProfile").show();
-            $("#adminProfile").siblings("div").hide();
+            usersView();
+
+        }else if(id=="addUsers"){
+            $(".addUserView").show();
+            $(".addUserView").siblings("div").hide();
         }
     });
+
+    //Ajax request to find users data
+
+    var usersView=function () {
+        $(".users").show();
+        $(".users").siblings("div").hide();
+        //Ajax GET request to get users data
+        var users;
+        $.ajax({
+            url:'/users',
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+                users=data;
+                $(".users").html(displayUser(data));
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+    };
+
+    var mentorsView=function () {
+        $(".manageMentorsView").show();
+        $(".manageMentorsView").siblings("div").hide();
+        var users;
+        $.ajax({
+            url:'/users?role=mentor',
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+                users=data;
+                console.log(JSON.stringify(data));
+                $(".manageMentorsView").html(displayUser(data));
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+    };
 
     //displaying a given user on the admin page
     var displayUser=function (data) {
@@ -88,6 +107,12 @@ $(function () {
             "</div>" +
             "</div>";
         return content;
-    }
+    };
+
+    //display the home page by default
+    $(".users").show();
+    $(".users").siblings("div").hide();
+    $("#manageUsers").addClass("active");
+    usersView();
 
 });
