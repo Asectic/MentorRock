@@ -48,6 +48,9 @@ module.exports =  function(app, passport){
 
        res.render('pages/admin/adduser.ejs')
     });
+
+    //The following sends the list of specialities
+    app.get('/speciality', RouteUser.findSpeciality);
     //The page displaying the mentors
     app.get('/managementors', function (req, res) {
 

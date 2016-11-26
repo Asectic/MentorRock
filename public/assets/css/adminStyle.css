@@ -60,6 +60,8 @@ div.sidenav li{
     list-style-type: none;
     text-align: left;
 }
+/*
+
 div li a{
     display:block;
     padding:10px;
@@ -75,6 +77,9 @@ div li a.active{
     background:#C6C6C6;
     color:white;
 }
+
+*/
+
 body{
     background: #323232;
 }
@@ -182,8 +187,11 @@ body{
     border-radius: 15px;
 }
 
+/*change text color*/
+a.customColor{
+    color: #2a62bc;
 
-
+}
 
 
 

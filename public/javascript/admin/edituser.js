@@ -40,7 +40,7 @@ $(function () {
         userData.gender=$("#gender").val();
         userData.givenname=$("#givenname").val();
         userData.familyname=$("#familyname").val();
-        userData.specialty=$("#specialty").val();
+        userData.specialty=$("#selectInterest").val();
 
         $.post('/user?id='+userId, userData,  function(data) {
             console.log(data);

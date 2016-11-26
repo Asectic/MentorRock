@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
  /*//Inserting data from a file
  var userObj;
- fs.readFile('routes/fewUsers.json', 'utf-8', function(err, data) {
+ fs.readFile('routes/sample/fewUsers.json', 'utf-8', function(err, data) {
      if(err) throw err;
      userObj = JSON.parse(data);//parsing the data
      for(var i=0; i<userObj.users.length; i++){
@@ -15,8 +15,8 @@ var mongoose = require('mongoose');
      }
 
  });*/
-/*
-User.find({role:"mentee"}, function(err, allUsers) {
+
+/*User.find({role:"mentee"}, function(err, allUsers) {
     if (err) throw err;
     console.log(JSON.stringify(allUsers[0]._id));
     for(var i=0; i<1; i++){
@@ -189,6 +189,15 @@ exports.checkPwd = function(req, res) {
    User.findOne({id: req.params.id}, function(err, thatUser) {
       res.send(thatUser);
    });
+};
+
+//The following sends the speciality list
+exports.findSpeciality=function(req, res){
+
+    fs.readFile('routes/sample/specialitylist.json', 'utf-8', function(err, data) {
+        if(err) throw err;
+        res.send(data);
+    });
 };
 
 ///------------------------- find user -------------------------
