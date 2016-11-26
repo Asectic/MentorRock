@@ -8,12 +8,11 @@ var fs = require('fs');
  if(err) throw err;
  userObj = JSON.parse(data);//parsing the data
  for(var i=0; i<userObj.users.length; i++){
- addNewUser(userObj.users[i]);//call the function belwo to add a new user into the database
+ addNewUser(userObj.users[i]);//call the function below to add a new user into the database
  }
  });
+
 */
-
-
 
 
 //Adding a new user to the database
@@ -69,7 +68,13 @@ exports.addOne = function(req, res) {
     });
 };
 
-
+//-----------delete a users with a given id -----------------
+exports.deleteOne = function(req, res) {
+    console.log("deleteOne: "+req.query.id);
+    User.remove( { _id : req.query.id }, function (err, user){
+        if(err)throw err;
+    });
+};
 
 //Apply the required format to the users input
 function formatInput(data){
@@ -101,11 +106,13 @@ exports.checkPwd = function(req, res) {
 };
 
 ///------------------------- find user -------------------------
-exports.fineById = function(req, res) {
-	 // TODO
-	 User.findOne({id: req.params.id}, function(err, thatUser) {		
-	    res.send(thatUser);
-	 });	 
+exports.findById = function(userId) {
+
+	 User.findOne({_id: userId}, function(err, thatUser) {
+	     console.log("find by id:"+thatUser);
+	    return thatUser;
+	 });
+
 };
 
 exports.fineBySpecialty = function(req, res) {
@@ -174,9 +181,3 @@ exports.updateMentor= function(req, res) {
    });  
 };
 
-///------------------------- delete user -------------------------
-exports.deleteOne = function(req, res) {
-	console.log("deleteOne");
-    Users.remove( { id : req.params.id } );
-   
-};
