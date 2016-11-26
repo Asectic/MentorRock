@@ -104,24 +104,43 @@ $(function () {
         });
 
     };
+
+    var countMentorRequest=function(){
+        $.ajax({
+            url:'/mrequests',
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+                console.log("result for search: "+JSON.stringify(data));
+                if(data.length){
+                    $("#badgenum").html(data.length);
+                }
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+    };
+    countMentorRequest();
 });
 
 //displaying a given user on the admin page
 var displayUser=function (data) {
-    var content="";
-    content+="<div class='row'>" +
+    var content = "";
+    content += "<div class='row'>" +
         "<div class = 'col-sm-5'>" +
         "<div class='row'>";
-    for (var i=0; i<data.length; i++){
+    for (var i = 0; i < data.length; i++) {
         //For a given user
-        content+="<div class='media mentor-box' style='float:left' id='"+data[i]._id+"'>" +
+        content += "<div class='media mentor-box' style='float:left' id='" + data[i]._id + "'>" +
             "<a class='pull-left' href='#'>" +
-            "<img class='media-object' data-src='holder.js/64x64' alt='64x64' style='width: 60px; height: 60px;' src='"+data[i].profilePicture+"'>" +
+            "<img class='media-object' data-src='holder.js/64x64' alt='64x64' style='width: 60px; height: 60px;' src='" + data[i].profilePicture + "'>" +
             "</a>" +
             "<div class='media-body'>" +
-            "<h5 class='media-heading'>"+data[i].givenname+" "+data[i].familyname+"</h5>" +
-            "<a>"+data[i].specialty+"</a>" +"<div class='pull-right'>" +
-            "<a href = '/edit?id="+ data[i]._id + "' class = 'btn btn-primary' role = 'button'>" +
+            "<h5 class='media-heading'>" + data[i].givenname + " " + data[i].familyname + "</h5>" +
+            "<a class='customColor'>" + data[i].specialty[0] + "</a>" + "<div class='pull-right'>" +
+            "<a href = '/edit?id=" + data[i]._id + "' class = 'btn btn-primary' role = 'button'>" +
             "<span class='glyphicon glyphicon-pencil'></span>" +
             "</a>" +
             "<button class = 'btn btn-default removeUser' role = 'button' onclick='deleteUser(this)'>" +
@@ -131,8 +150,9 @@ var displayUser=function (data) {
             "</div>" +
             "</div>";
     }
-    content+="</div>" +
+    content += "</div>" +
         "</div>" +
         "</div>";
     return content;
 };
+
