@@ -40,10 +40,10 @@ var userSchema = mongoose.Schema({
             type: String
         }
     },
-    third_party: {
+    thirdparty: {
         type: Boolean,
         default: false
-    }
+    },
     gender: {
         type: String
     },
@@ -69,7 +69,7 @@ var userSchema = mongoose.Schema({
     specialty: [String],
     contacts: [
         {
-            username: {
+            name: {
                 type: String,
                 required: true
             },

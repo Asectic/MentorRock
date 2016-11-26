@@ -1,0 +1,28 @@
+"chatrooms": [
+    {
+        "speaker1_id": 1,
+        "speaker2_id": 2,
+        "room_id": 0,
+        "chatlog": [
+            {
+                sender_id: 2,
+                text: "hello",
+                file: null,
+                time: null
+            }
+        ]
+    },
+    {
+        "speaker1_id": 3,
+        "speaker2_id": 4,
+        "room_id": 1,
+        "chatlog": [
+            {
+                sender_id: 4,
+                text: "hello",
+                file: null,
+                time: null
+            }
+        ]
+    }
+]
