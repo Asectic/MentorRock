@@ -1,18 +1,55 @@
+var bcrypt = require('bcrypt-nodejs');
 var User = require('../models/user');
 var fs = require('fs');
+var Request= require('../models/request');
+var mongoose = require('mongoose');
 
-/*
- //Inserting data from a file
+
+ /*//Inserting data from a file
  var userObj;
  fs.readFile('routes/fewUsers.json', 'utf-8', function(err, data) {
- if(err) throw err;
- userObj = JSON.parse(data);//parsing the data
- for(var i=0; i<userObj.users.length; i++){
- addNewUser(userObj.users[i]);//call the function below to add a new user into the database
- }
- });
+     if(err) throw err;
+     userObj = JSON.parse(data);//parsing the data
+     for(var i=0; i<userObj.users.length; i++){
+         addNewUser(userObj.users[i]);//call the function below to add a new user into the database
+     }
 
-*/
+ });*/
+/*
+User.find({role:"mentee"}, function(err, allUsers) {
+    if (err) throw err;
+    console.log(JSON.stringify(allUsers[0]._id));
+    for(var i=0; i<1; i++){
+
+        var data={};
+        data.userID=allUsers[0]._id;
+        var newRequest=new Request(data);
+        newRequest.save(function (err, newReq) {
+            if(err) throw err;
+            console.log("The new request: "+JSON.stringify(newReq));
+        });
+    }
+
+});*/
+
+//Find users who requested to become a mentor
+exports.findMentorRequest=function (req, res) {
+    Request.find({}, function(err, allIds) {
+        if (err) throw err;
+        var userIds = [];
+        for (var i=0; i<allIds.length;i++) {
+            userIds.push(new mongoose.Types.ObjectId(allIds[i].userID));
+        }
+        User.find({_id: {$in: userIds}}, function (err, users) {
+            if (err) throw err;
+            else {
+                console.log("Requested User: "+users);
+                res.send(users);
+            }
+        });
+    });
+
+};
 
 
 //Adding a new user to the database
@@ -52,7 +89,6 @@ exports.findAll = function(req, res) {
     }
 
 };
-
 
 
 ///------------------------- add new user -------------------------
@@ -97,12 +133,62 @@ function formatInput(data){
    return formattedData;
 }
 
+
+///--------------update all user information----------------------
+
+exports.updateUser=function (req, res) {
+   findUserById(req.query.id);
+
+    var updatedData=req.body;
+
+    //assuming the password length is less than 20 characters
+    if(req.body.local.password.length<20){
+
+       updatedData.local.password = bcrypt.hashSync(updatedData.local.password, bcrypt.genSaltSync(8), null);
+    }
+
+   User.update({_id: req.query.id}, {$set: updatedData}, function(err, updated) {
+        if( err || !updated ){
+            console.log("User not updated");
+        }else{
+            console.log("User updated");
+        }
+    });
+};
+
+
+//reject a mentor request and remove from the Request collection
+exports.acceptMentorReq=function (req, res) {
+    console.log("Reject one: "+req.query.id);
+    Request.remove( { userID : req.query.id }, function (err, user){
+        if(err)throw err;
+        User.update({_id: req.query.id}, {$set: {role:"mentor"}}, function(err, updated) {
+            if( err || !updated ){
+                console.log("User not updated");
+            }else{
+                console.log("User updated");
+            }
+            res.send("success");
+        });
+    });
+};
+
+
+//reject a mentor request and remove from the request collection
+exports.rejectMentorReq=function (req, res) {
+    console.log("Reject one: "+req.query.id);
+    Request.remove( { userID : req.query.id }, function (err, user){
+        if(err)throw err;
+        res.send("success");
+    });
+};
+
 exports.checkPwd = function(req, res) {
     console.log('like: ' + req.params.id);
    // TODO
-   User.findOne({id: req.params.id}, function(err, thatUser) {    
+   User.findOne({id: req.params.id}, function(err, thatUser) {
       res.send(thatUser);
-   });   
+   });
 };
 
 ///------------------------- find user -------------------------
@@ -110,11 +196,19 @@ exports.findById = function(userId) {
 
 	 User.findOne({_id: userId}, function(err, thatUser) {
 	     console.log("find by id:"+thatUser);
-	    return thatUser;
 	 });
 
 };
 
+
+var findUserById = function(userId) {
+
+    User.findOne({_id: userId}, function(err, thatUser) {
+        console.log("find by id:"+thatUser);
+        return thatUser;
+    });
+
+};
 exports.fineBySpecialty = function(req, res) {
 	 // TODO
 	 User.findOne({specialty: req.params.specialty}, function(err, thatUser) {		
@@ -122,16 +216,6 @@ exports.fineBySpecialty = function(req, res) {
 	 });	 
 };
 
-///------------------------- update user -------------------------
-
-exports.updateUser=function (req, res) {
-
-    //Need to be done
-    User.update({id: res.params.id}, {$set: {givenname: res.params.gname}}, function(err, updated) {
-        if( err || !updated ) console.log("User not updated");
-        else console.log("User updated");
-    });
-};
 exports.updatePwd= function(req, res) {
   //TODO :  encode the pwd before send to server
 	User.update({id: res.params.id}, {$set: {hashed: res.params.hashed, salt : res.params.salt}}, function(err, updated) {

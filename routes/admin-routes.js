@@ -15,12 +15,14 @@ module.exports =  function(app, passport){
         var userId=req.query.id;
 
         User.findOne({_id: userId}, function(err, userData) {
-            console.log("find by id:"+userData);
 
             res.render('pages/admin/edit.ejs', {user:userData});
         });
 
     });
+
+    //Find the mentor requests
+    app.get('/mrequests', RouteUser.findMentorRequest);
 
     //find all users to display
     app.get('/users', RouteUser.findAll);
@@ -34,6 +36,12 @@ module.exports =  function(app, passport){
 
     //Delete a user with a given id
     app.delete('/user', RouteUser.deleteOne);
+
+    //Accept a mentor request and remove form the request database
+    app.delete('/acceptmentor', RouteUser.acceptMentorReq);
+
+    //Reject a mentor request and remove form the request database
+    app.delete('/rejectmentor', RouteUser.rejectMentorReq);
 
     //The page displaying the page to add a user
     app.get('/adduser', function (req, res) {
