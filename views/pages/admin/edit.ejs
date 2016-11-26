@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/admin-style %>
+
+</head>
+
+<body>
+
+<!-- Importing the the navigation bar -->
+<% include ../../partials/admin-sidenav %>
+<div class = "container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-left main-content" >
+
+            <div class = "col-sm-9">
+                <div class="row">
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Username</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" id="username" value=<%- user.local.username%> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Email</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="email" placeholder="abc@mail.com" id="email" value=<%- user.local.email%>>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Student Number</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="number" id="stunum" value=<%- user.local.stunum %>>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label" >First Name</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" id="fname" value= <%- user.givenname %> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-2 col-form-label">Last Name</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" name="lname" id="lname" value=<%- user.familyname%> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-2 col-form-label">Gender</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" placeholder="Male or Female?" id="gender" value=<%- user.gender%> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Birth Date</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" placeholder="YYYY-MM-DD" id="birthdate" value=<%- user.local.birthday %>>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="lastItem">
+                        <label class="col-xs-2 col-form-label">Interest Fields</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" name="interests" placeholder="EG: Swimming, Programming" id="interest" value=<%- user.specialty %>>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-md" id="changepwd">Change Password</button>
+                    <center><button type="submit" class="btn btn-warning btn-md">Update</button></center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+</div>
+<footer>
+    <div class="container-fluid col-sm-12" >
+        <p >Copyright@2016</p>
+    </div>
+</footer>
+<script>
+$(function () {
+   $("#changepwd").click(function () {
+       $(this).remove();
+       $("#lastItem").after("<div class='form-group row'>" +
+               "<label class='col-xs-2 col-form-label'>New Password</label>" +
+               "<div class='col-xs-10'>" +
+               "<input class='form-control' type='password' id='password'>" +
+               "</div>" +
+               "</div>"
+       );
+
+   });
+});
+</script>
+</body>
+
+</html>

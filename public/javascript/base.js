@@ -93,7 +93,7 @@ $(function () {
                 "<div class='media-body'>" +
                 "<h5 class='media-heading'>"+data[i].givenname+" "+data[i].familyname+"</h5>" +
                 "<a>"+data[i].specialty+"</a>" +"<div class='pull-right'>" +
-                "<a href = '#' class = 'btn btn-primary' role = 'button'>" +
+                "<a href = '/edit?id="+ data[i]._id + "' class = 'btn btn-primary' role = 'button'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
                 "</a>" +
                 "<button class = 'btn btn-default removeUser' role = 'button' onclick='deleteUser(this)'>" +
@@ -203,6 +203,7 @@ $(function () {
         });
 
     };
+
 
 
 

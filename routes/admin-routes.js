@@ -1,6 +1,7 @@
 
 //separate admin router
 var RouteUser = require('./user-routes');
+var User = require('../models/user');
 
 module.exports =  function(app, passport){
 
@@ -10,8 +11,15 @@ module.exports =  function(app, passport){
     });
 
     //The page to modify a given user's data
-    app.get('/addNewUser', function(req, res) {
-        res.render('pages/admin/addUser.ejs');
+    app.get('/edit', function(req, res) {
+        var userId=req.query.id;
+
+        User.findOne({_id: userId}, function(err, userData) {
+            console.log("find by id:"+userData);
+
+            res.render('pages/admin/edit.ejs', {user:userData});
+        });
+
     });
 
     //find all users to display

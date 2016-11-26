@@ -16,9 +16,6 @@ var fs = require('fs');
 */
 
 
-
-
-
 //Adding a new user to the database
 function addNewUser(data){
     console.log("added a user");
@@ -110,11 +107,13 @@ exports.checkPwd = function(req, res) {
 };
 
 ///------------------------- find user -------------------------
-exports.fineById = function(req, res) {
-	 // TODO
-	 User.findOne({id: req.params.id}, function(err, thatUser) {		
-	    res.send(thatUser);
-	 });	 
+exports.findById = function(userId) {
+
+	 User.findOne({_id: userId}, function(err, thatUser) {
+	     console.log("find by id:"+thatUser);
+	    return thatUser;
+	 });
+
 };
 
 exports.fineBySpecialty = function(req, res) {
