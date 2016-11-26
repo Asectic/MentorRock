@@ -41,10 +41,10 @@ var userSchema = mongoose.Schema({
         }
     },
     third_party: {
-        tyope: Boolean,
+        type: Boolean,
         default: false
     },
-    
+
     gender: {
         type: String
     },

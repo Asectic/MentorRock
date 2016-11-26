@@ -1,5 +1,7 @@
+var bcrypt = require('bcrypt-nodejs');
 var User = require('../models/user');
 var fs = require('fs');
+
 
 /*
  //Inserting data from a file
@@ -97,12 +99,37 @@ function formatInput(data){
    return formattedData;
 }
 
+
+///------------------------ update user -------------------------
+
+exports.updateUser=function (req, res) {
+
+
+   findUserById(req.query.id);
+
+    var updatedData=req.body;
+
+    //assuming the password length is less than 20 characters
+    if(req.body.local.password.length<20){
+
+       updatedData.local.password = bcrypt.hashSync(updatedData.local.password, bcrypt.genSaltSync(8), null);
+    }
+
+   User.update({_id: req.query.id}, {$set: updatedData}, function(err, updated) {
+        if( err || !updated ){
+            console.log("User not updated");
+        }else{
+            console.log("User updated");
+        }
+    });
+};
+
 exports.checkPwd = function(req, res) {
     console.log('like: ' + req.params.id);
    // TODO
-   User.findOne({id: req.params.id}, function(err, thatUser) {    
+   User.findOne({id: req.params.id}, function(err, thatUser) {
       res.send(thatUser);
-   });   
+   });
 };
 
 ///------------------------- find user -------------------------
@@ -110,11 +137,19 @@ exports.findById = function(userId) {
 
 	 User.findOne({_id: userId}, function(err, thatUser) {
 	     console.log("find by id:"+thatUser);
-	    return thatUser;
 	 });
 
 };
 
+
+var findUserById = function(userId) {
+
+    User.findOne({_id: userId}, function(err, thatUser) {
+        console.log("find by id:"+thatUser);
+        return thatUser;
+    });
+
+};
 exports.fineBySpecialty = function(req, res) {
 	 // TODO
 	 User.findOne({specialty: req.params.specialty}, function(err, thatUser) {		
@@ -122,16 +157,6 @@ exports.fineBySpecialty = function(req, res) {
 	 });	 
 };
 
-///------------------------- update user -------------------------
-
-exports.updateUser=function (req, res) {
-
-    //Need to be done
-    User.update({id: res.params.id}, {$set: {givenname: res.params.gname}}, function(err, updated) {
-        if( err || !updated ) console.log("User not updated");
-        else console.log("User updated");
-    });
-};
 exports.updatePwd= function(req, res) {
   //TODO :  encode the pwd before send to server
 	User.update({id: res.params.id}, {$set: {hashed: res.params.hashed, salt : res.params.salt}}, function(err, updated) {

@@ -15,7 +15,6 @@ module.exports =  function(app, passport){
         var userId=req.query.id;
 
         User.findOne({_id: userId}, function(err, userData) {
-            console.log("find by id:"+userData);
 
             res.render('pages/admin/edit.ejs', {user:userData});
         });
