@@ -13,8 +13,8 @@ var fs = require('fs');
  }
  });
 
-
 */
+
 
 
 
@@ -72,7 +72,13 @@ exports.addOne = function(req, res) {
     });
 };
 
-
+//-----------delete a users with a given id -----------------
+exports.deleteOne = function(req, res) {
+    console.log("deleteOne: "+req.query.id);
+    User.remove( { _id : req.query.id }, function (err, user){
+        if(err)throw err;
+    });
+};
 
 //Apply the required format to the users input
 function formatInput(data){
@@ -177,9 +183,3 @@ exports.updateMentor= function(req, res) {
    });  
 };
 
-///------------------------- delete user -------------------------
-exports.deleteOne = function(req, res) {
-	console.log("deleteOne");
-    Users.remove( { id : req.params.id } );
-   
-};

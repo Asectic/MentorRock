@@ -16,7 +16,7 @@ module.exports =  function(app, passport){
 
     //find all users to display
     app.get('/users', RouteUser.findAll);
-    
+
 
     //Update a user information
     app.post('/user', RouteUser.updateUser);
@@ -24,7 +24,7 @@ module.exports =  function(app, passport){
     //Add a new user
     app.post('/addUser', RouteUser.addOne);
 
-    //Delete a given User
+    //Delete a user with a given id
     app.delete('/user', RouteUser.deleteOne);
 
 

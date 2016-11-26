@@ -96,9 +96,9 @@ $(function () {
                 "<a href = '#' class = 'btn btn-primary' role = 'button'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
                 "</a>" +
-                "<a href = '#' class = 'btn btn-default' role = 'button'>" +
+                "<button class = 'btn btn-default removeUser' role = 'button' onclick='deleteUser(this)'>" +
                 "<span class='glyphicon glyphicon-trash'></span>" +
-                "</a>" +
+                "</button>" +
                 "</div>" +
                 "</div>" +
                 "</div>";
@@ -171,8 +171,11 @@ $(function () {
                 if(data.length){
                     $(".users").html(displayUser(data));
                 }else{
-                    $(".users").html("There is no user with the given name");
+                    $(".users").html("<span class='wrong'>There is no user with the name: "+userName+"</span>");
                 }
+                //resetting the result for the previous search
+                $('#tags').val("");
+
             },
             error:function () {
                 throw error;
@@ -182,4 +185,26 @@ $(function () {
 
 
     });
+
+    //remove a user when the trash button corresponding to the user is clicked
+    window.deleteUser=function (that) {
+        console.log("deleting a user");
+        var userId=$(that).parent().parent().parent().attr("id");
+        console.log(userId);
+        $("#"+userId).remove();
+
+        $.ajax({
+         url:'/user?id='+userId,
+         type:'DELETE',
+         success:function () {
+         console.log("Deleted a user");
+
+         }
+        });
+
+    };
+
+
+
 });
+
