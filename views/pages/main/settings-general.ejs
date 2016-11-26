@@ -151,6 +151,20 @@
                                             <% } %>
                                         </div><!-- End of form-group div -->
                                     </td>
+                                </tr>                                
+                                    
+                                <tr>
+                                    
+                                    <td>Gender</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="gender_new" value="<%= user.gender %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        </div><!-- End of form-group div -->
+                                    </td>
                                 </tr>
 
                                 <!-- BIRTH COLUMN-->
