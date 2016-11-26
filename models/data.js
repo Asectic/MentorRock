@@ -7,39 +7,6 @@ var Schema = mongoose.Schema;
  * Note that the database was loaded with data from a JSON file into a
  * collection called gillers.
  */
-var chatroom = new Schema(
-    speaker1_id: {
-        type: String,
-        required: true
-    },
-    speaker2_id: {
-        type: String,
-        requried: true
-    },
-    room_id: {
-        type: String,
-        requried: true
-    },
-    chatlog: [
-        {
-            sender_id: {
-                type: String,
-                required: true
-            },
-            text: {
-                type: String
-            },
-            file: {
-                type: ObjectId
-            },
-            time: {
-                time: String,
-                required: true
-            }
-        }
-    ], {
-        collection: 'chatrooms'
-    });
 
 var admin = new Schema({
     user_name”: {
@@ -85,12 +52,11 @@ var mentor = new Schema({
     collection: 'mentors'
 });
 
-var Chat = mongoose.model('Chatrooms', chatroom);
+
 var Admin = mongoose.model('Admin', admin);
 var Mentor = mongoose.model('Mentor', mentor);
 var Mentee = mongoose.model('Mentee', mentee);
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
-module.exports = Chatrooms;
 module.exports = Admin;
 module.exports = Mentor;
 module.exports = Mentee;

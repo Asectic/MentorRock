@@ -73,11 +73,20 @@ var userSchema = mongoose.Schema({
                 type: String,
                 required: true
             },
-            user_id: {
+            pic: {
                 type: String
             },
+            id: {
+                type: String,
+                required: true
+            },
             relation: {
-                type: String
+                type: String,
+                required: true
+            },
+            room_id: {
+                type: String,
+                required: true
             }
         }
     ]

@@ -1,8 +1,25 @@
+//exports.findUserRoom = function (req, res) {
+//    var query = require('url').parse(req.url, true).query;
+//    var my_id = query.myid;
+//    console.log('findRooms of user ' + my_id);
+//    Chatroom.find({
+//        $or: [{
+//            speaker1_id: my_id
+//        }, {
+//            speaker2_id: my_id
+//        }]
+//    }, function (err, rooms) {
+//        if (err) throw err;
+//        res.send(rooms);
+//    });
+//};
+
+
+
 // =============================================================================
 // socket io implement =============================================================
 // =============================================================================
 // Initialize a new socket.io application, named 'chat'
-
 module.exports = function (app, io) {
 
     var chat = io.on('connection', function (socket) {
@@ -33,6 +50,8 @@ module.exports = function (app, io) {
                     boolean: true,
                     id: data.id
                 });
+            } else {
+                console.log(">= 2 ppl in chat");
             }
         });
 

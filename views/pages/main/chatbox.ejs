@@ -1,16 +1,15 @@
 <html>
 <!--  pure javascript starts  -->
 <%  
-    var my_id = 1;
+    var my_id = user._id;
     var friend_id = 2;
-    var my_pic = 'assets/img/face-3.jpg'
+    var my_pic = user._
     var friend_pic = 'assets/img/tesla.jpg'
 
     var friend_names = ['Morris Luck', 'Liche Bore', 'Jada King', 'Babe Que', 'Sio Joe', 'Jamie Kaka', 'Lemon Tea', 'Tesla Coil', 'Max Well', 'Stein Rock'];
 
     var friend_pics = ['assets/img/face-1.jpg', 'assets/img/face-2.jpg', 'assets/img/face-4.jpg', 'assets/img/face-5.jpeg', 'assets/img/face-6.jpg', 'assets/img/face-7.jpg', 'assets/img/face-8.jpg', 'assets/img/tesla.jpg', 'assets/img/max.gif', 'assets/img/einstein.jpg'];
-    
-    var room_urls = [0,1,2,3,4,5,6,7,8,9];
+
   
 %>
 
@@ -40,7 +39,7 @@
                             <div class="friend-list">
 
                                 <% for(var i=0; i<friend_names.length; i++) { %>
-                                    <a class="friend-list-item" href="<%= room_urls[i] %>">
+                                    <a class="friend-list-item" href="#" id="<%= i %>">
                                         <div class="pull-left">
                                             <img src="<%= friend_pics[i] %>" alt="" class="friend-list-avatar">
                                         </div>
