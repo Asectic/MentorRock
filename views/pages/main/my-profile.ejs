@@ -36,11 +36,13 @@
                     <div id="image" >
                         
                         <% if (user.local) { %>
-                                <img class="img-thumbnail" src="<% user.profilePicture %>">
+                                <img class="img-thumbnail" src="<%= user.profilePicture %>">
                         <% } else { %>
                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                         <% } %>
                     </div>
+                    <br>
+                    <br>
                     <br>
 
                     <!-- Fetch individual -->

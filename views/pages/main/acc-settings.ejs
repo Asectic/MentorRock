@@ -114,36 +114,41 @@
                         <h2 class="acc-setts">Avatar Settings</h2>
                         <div id="avatar-content">
 
-                            <p>This is currently you!</p>
+                            <form action="/accsettings" method="post">
+                                
+                                <br>
+                                
+                                <p>This is currently you!</p>
 
-                            <div id="image" class="img-thumbnail">
-                                <% if (user.local) { %>
-                                        <img class="img-thumbnail" src="<% user.profilePicture %>">
-                                <% } else { %>
-                                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                <% } %>
-                            
-                            </div>
+                                <div id="image" class="img-thumbnail">
+                                    <% if (user.local) { %>
+                                            <img class="img-thumbnail" src="<%= user.profilePicture %>">
+                                    <% } else { %>
+                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                    <% } %>
 
-                            <p>Upload your avatar</p>
-                                <div class="fileinput fileinput-new" data-provides="fileinput"></div>
-                                <input id="profilePic-in" type="file" />
-                            <p style="font-style: italic;">(Image size must be within XXXpx by XXXpx)</p>
+                                </div>
 
-                            <br>
-                            <br>
+                                <p>Please add in your avatar link:</p>
+                                
+                                    <div class="form-group">
+                                        
+                                        <input type="text" class="form-control" name="profilePic_new" placeholder="http://myimage-url.ca" style="width: 60%;">  
+                                        
+                                        <!--<input id="profilePic-in" class="form-control" name="profilePic_new" type="file" />-->
+                                        <p style="font-style: italic;">(Image will be resized to 150px by 150px)</p>
+                                        
+                                    </div><!-- End of form-group div-->
+                                
+                                <br>
+                                
+                                <!-- Form submit button-->    
+                                <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
+                                
+                                        
+                                
+                            </form><!-- End of avatar form -->
 
-                            <!-- TODO: IMPLEMENT AVATAR CHANGE -->
-                            <% if (user) { %>
-                            
-                                    <%- include ../../partials/acc-settings %>
-                            
-                                    <center><button id="save-changes" class="button" onclick="avatarChange(user)">Save Changes</button></center>
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>
-
-                            <br>
                             <br>
 
                         </div><!-- End of avatar content div -->

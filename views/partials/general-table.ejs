@@ -58,7 +58,7 @@
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>            
                                     </td>
-                                </tr>                                
+                                </tr>
                                 
                                 <!-- Last Name COLUMN-->
                                 <tr>
@@ -70,7 +70,20 @@
                                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                                         <% } %>                                
                                     </td>
-                                </tr>                                
+                                </tr>
+                                        
+                                <!-- GENDER COLUMN-->
+                                <tr>
+                                    
+                                    <td>Gender</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                                <%= user.gender %>
+                                        <% } else { %>
+                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                        <% } %>  
+                                    </td>
+                                </tr>
                                 
                                 <!-- BIRTH COLUMN-->
                                 <tr>

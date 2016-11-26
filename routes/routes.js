@@ -1,3 +1,7 @@
+
+//var RouteUser = require('./user-routes');
+var User = require('../models/user');
+
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
@@ -59,6 +63,162 @@ module.exports = function(app, passport) {
             user : req.user
         });
     });
+    
+    // SUBMIT USER PARAMETER CHANGES TO ACC-SETTINGS
+    app.post('/interests-change', function(req, res) {
+        
+        var preset_interests = req.user.specialty;
+        var new_interests = req.body.specialty_new;
+        
+        User.update(preset_interests, {$set: {specialty: new_interests}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User interests updated");
+                }
+        });
+        
+        // After completing interests update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+    }); 
+    
+    app.post('/about-change', function(req, res) {
+        var preset_about = req.user.about;
+        var new_about = req.body.about_new;
+        
+        User.update(preset_about, {$set: {about: new_about}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User about updated");
+                }
+        });
+        
+        // After completing about update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    });
+    
+    app.post('/general-change', function(req, res) {
+        
+        // GET CURRENT user.local fields
+        var preset_user = req.user.local.username;
+        var preset_password = req.user.local.password;
+        var preset_email = req.user.local.email;
+        var preset_stunum = req.user.local.stunum;
+        var preset_familyname = req.user.familyname;
+        var preset_givenname = req.user.givenname;
+        var preset_gender = req.user.gender;
+        var preset_birthday = req.user.local.birthday;
+        
+        // LIST OF ALL "changed" input fields
+        var new_user = req.body.username_new;
+        var new_password = req.body.password_new;
+        var new_email = req.body.email_new;
+        var new_stunum = req.body.stunum_new;
+        var new_familyname = req.body.familyname_new;
+        var new_givenname = req.body.givenname_new;
+        var new_gender = req.body.gender_new;
+        var new_birthday = req.body.birthday_new;
+        
+        User.update(preset_user, {$set: {'local.username': new_user}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("Username updated");
+                }
+        });
+        
+        User.update(preset_password, {$set: {'local.password': new_password}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User password updated");
+                }
+        });
+        
+        User.update(preset_email, {$set: {'local.email': new_email}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User email updated");
+                }
+        });
+        
+        User.update(preset_stunum, {$set: {'local.stunum': new_stunum}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User student number updated");
+                }
+        });
+        
+        User.update(preset_familyname, {$set: {familyname: new_familyname}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User family name updated");
+                }
+        });
+        
+        User.update(preset_givenname, {$set: {givenname: new_givenname}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User first name updated");
+                }
+        });       
+        
+        User.update(preset_gender, {$set: {gender: new_gender}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User gender updated");
+                }
+        });
+        
+        User.update(preset_birthday, {$set: {'local.birthday': new_birthday}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User birthday updated");
+                }
+        });
+        
+        // After completing fields update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    });
+    
+    // In other words, "avatar changes"
+    app.post('/accsettings', function(req, res) {
+        
+        var preset_icon = req.user.profilePicture;
+        var new_icon = req.body.profilePic_new;
+        
+        User.update(preset_icon, {$set: {profilePicture: new_icon}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+        });
+        
+        // After completing fields update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    }); 
     
 
     // =========================================
