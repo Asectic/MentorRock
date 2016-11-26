@@ -77,7 +77,7 @@ $(function () {
         var bubble = $(
             '<div class="chat-bubble left">' +
             '<div class="pull-left">' +
-            '<img src= ' + my_pic + ' alt="" class="icon-avatar">' +
+            '<img src= ' + friend_pic + ' alt="" class="icon-avatar">' +
             '</div>' +
             '<div class="message-body">' +
             '<div class="message-content pull-left">' + msgText + '</div>' +
@@ -86,6 +86,34 @@ $(function () {
         );
 
         $('.chat-box').append(bubble);
+    }
+
+    function sendMessage() {
+        var msgText = $("#message-input").val().trim();
+        if (msgText.length) {
+            // Creat my chat bubble
+            createRihgtBubble(msgText);
+            scrollToButtom();
+
+            // Send the message to the other person in the chat
+            socket.emit('msg', {
+                msg: msgText,
+                img: null
+            });
+
+            // Insert into db
+            var logitem_text = {
+                "sender_id": my_id,
+                "text": msgText,
+                "file": "null",
+                "time": "null"
+            };
+            //var logitem = JSON.parse(logitem_text);
+        }
+
+        // Clear input field
+        $('#message-input').val("");
+        showMessage("your msg is sent");
     }
 
 
@@ -140,32 +168,17 @@ $(function () {
         }
     });
 
-    $("#send-message-button").click(function () {
-        var msgText = $("#message-input").val().trim();
-        if (msgText.length) {
-            // Creat my chat bubble
-            createRihgtBubble(msgText);
-            scrollToButtom();
-
-            // Send the message to the other person in the chat
-            socket.emit('msg', {
-                msg: msgText,
-                img: null
-            });
-
-            // Insert into db
-            var logitem_text = {
-                "sender_id": my_id,
-                "text": msgText,
-                "file": "null",
-                "time": "null"
-            };
-            //var logitem = JSON.parse(logitem_text);
+    $("#message-input").keypress(function (e) {
+        // send message on enter
+        if (e.which == 13) {
+            e.preventDefault();
+            sendMessage();
         }
 
-        // Clear input field
-        $('#message-input').val("");
-        showMessage("your msg is sent");
+    });
+
+    $("#send-message-button").click(function () {
+        sendMessage();
     });
 
 

@@ -52,7 +52,6 @@ module.exports = function (app, io) {
 
         // Handle the sending of messages
         socket.on('msg', function (data) {
-            console.log("on message");
             // When the server receives a message, it sends it to the other person in the room.
             socket.broadcast.to(socket.room).emit('receive', {
                 msg: data.msg,
