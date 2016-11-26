@@ -21,6 +21,9 @@ module.exports =  function(app, passport){
 
     });
 
+    //Find the mentor requests
+    app.get('/mrequests', RouteUser.findMentorRequest);
+
     //find all users to display
     app.get('/users', RouteUser.findAll);
 
@@ -33,6 +36,12 @@ module.exports =  function(app, passport){
 
     //Delete a user with a given id
     app.delete('/user', RouteUser.deleteOne);
+
+    //Accept a mentor request and remove form the request database
+    app.delete('/acceptmentor', RouteUser.acceptMentorReq);
+
+    //Reject a mentor request and remove form the request database
+    app.delete('/rejectmentor', RouteUser.rejectMentorReq);
 
     //The page displaying the page to add a user
     app.get('/adduser', function (req, res) {
