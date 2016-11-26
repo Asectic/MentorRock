@@ -110,6 +110,7 @@ module.exports = function(app, passport) {
         var preset_stunum = req.user.local.stunum;
         var preset_familyname = req.user.familyname;
         var preset_givenname = req.user.givenname;
+        var preset_gender = req.user.gender;
         var preset_birthday = req.user.local.birthday;
         
         // LIST OF ALL "changed" input fields
@@ -119,9 +120,10 @@ module.exports = function(app, passport) {
         var new_stunum = req.body.stunum_new;
         var new_familyname = req.body.familyname_new;
         var new_givenname = req.body.givenname_new;
+        var new_gender = req.body.gender_new;
         var new_birthday = req.body.birthday_new;
         
-        User.update(preset_user, {$set: {username: new_user}}, function(err, updated) {
+        User.update(preset_user, {$set: {'local.username': new_user}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
                 }
@@ -130,7 +132,7 @@ module.exports = function(app, passport) {
                 }
         });
         
-        User.update(preset_password, {$set: {password: new_password}}, function(err, updated) {
+        User.update(preset_password, {$set: {'local.password': new_password}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
                 }
@@ -139,7 +141,7 @@ module.exports = function(app, passport) {
                 }
         });
         
-        User.update(preset_email, {$set: {email: new_email}}, function(err, updated) {
+        User.update(preset_email, {$set: {'local.email': new_email}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
                 }
@@ -148,7 +150,7 @@ module.exports = function(app, passport) {
                 }
         });
         
-        User.update(preset_stunum, {$set: {stunum: new_stunum}}, function(err, updated) {
+        User.update(preset_stunum, {$set: {'local.stunum': new_stunum}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
                 }
@@ -166,16 +168,25 @@ module.exports = function(app, passport) {
                 }
         });
         
-        User.update(preset_givenname, {$set: {stunum: new_givenname}}, function(err, updated) {
+        User.update(preset_givenname, {$set: {givenname: new_givenname}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
                 }
   		        else {
                     console.log("User first name updated");
                 }
+        });       
+        
+        User.update(preset_gender, {$set: {gender: new_gender}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User gender updated");
+                }
         });
         
-        User.update(preset_birthday, {$set: {stunum: new_birthday}}, function(err, updated) {
+        User.update(preset_birthday, {$set: {'local.birthday': new_birthday}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
                 }
