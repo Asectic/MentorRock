@@ -61,11 +61,11 @@ var userSchema = mongoose.Schema({
     },
     about: {
         type: String,
-        default: "Default text"
+        default: "Welcome to my profile!"
     },
     role: {
         type: String,
-        default: "mentee"
+        default: "Mentee"
     },
     specialty: [String],
     contacts: [
