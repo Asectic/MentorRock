@@ -165,9 +165,13 @@ body{
 }
 
 /*-----coloring error message---*/
+.success{
+    color:green;
+}
 .wrong{
     color:red;
 }
+
 
 
 

@@ -65,8 +65,8 @@
                             <input class="form-control" name="interests" placeholder="EG: Swimming, Programming" id="interest" value=<%- user.specialty %>>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-md" id="changepwd">Change Password</button>
-                    <center><button type="submit" class="btn btn-warning btn-md">Update</button></center>
+                    <button  class="btn btn-primary btn-md" id="changepwd">Change Password</button>
+                    <center><button href="/admin" class="btn btn-warning btn-md">Update</button></center>
                 </div>
             </div>
         </div>
@@ -74,11 +74,7 @@
     </div>
 
 </div>
-<footer>
-    <div class="container-fluid col-sm-12" >
-        <p >Copyright@2016</p>
-    </div>
-</footer>
+<% include ../../partials/adminfooter %>
 <script>
 $(function () {
    $("#changepwd").click(function () {

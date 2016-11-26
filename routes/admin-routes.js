@@ -7,7 +7,7 @@ module.exports =  function(app, passport){
 
     //Get the admin page
     app.get('/admin', function(req, res) {
-        res.render('pages/admin/base.ejs');
+        res.render('pages/admin/users.ejs');
     });
 
     //The page to modify a given user's data
@@ -34,6 +34,22 @@ module.exports =  function(app, passport){
 
     //Delete a user with a given id
     app.delete('/user', RouteUser.deleteOne);
+
+    //The page displaying the page to add a user
+    app.get('/adduser', function (req, res) {
+
+       res.render('pages/admin/adduser.ejs')
+    });
+    //The page displaying the mentors
+    app.get('/managementors', function (req, res) {
+
+       res.render('pages/admin/managementors.ejs')
+    });
+    //The page displaying the
+    app.get('/mentorrequest', function (req, res) {
+
+       res.render('pages/admin/mentorrequest.ejs')
+    });
 
 
 };
