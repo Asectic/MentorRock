@@ -32,7 +32,7 @@ module.exports =  function(app, passport){
     app.post('/user', RouteUser.updateUser);
 
     //Add a new user
-    app.post('/addUser', RouteUser.addOne);
+    app.post('/addUser', RouteUser.addUser);
 
     //Delete a user with a given id
     app.delete('/user', RouteUser.deleteOne);

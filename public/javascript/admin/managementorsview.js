@@ -12,7 +12,6 @@ $(function () {
             dataType:'json',
             success:function (data) {
                 users=data;
-                console.log(JSON.stringify(data));
                 $(".manageMentorsView").html(displayUser(data));
             },
             error:function () {
