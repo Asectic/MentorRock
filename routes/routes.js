@@ -32,12 +32,6 @@ module.exports = function(app, passport) {
 
     /* MENTORROCK PAGES */
     /* Mentee and Mentor Pages */
-    app.get('/mentor-home', function(req, res) {
-        res.render('pages/main/mentor-home', {
-            user : req.user
-        });
-    });
-    
     app.get('/myprofile', function(req, res) {
         res.render('pages/main/my-profile', {
             user : req.user

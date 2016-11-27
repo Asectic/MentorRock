@@ -48,6 +48,15 @@ var userSchema = mongoose.Schema({
     givenname: { type: String },
     familyname: { type: String },
     
+    mentorapp: {
+        options: { type: String},
+        experience_field: { type: String },
+        experience_work: { type: String },
+        cv: { type: String },
+        voluntary: { type: String },
+        additionals: { type: String}
+    },
+    
     //type: path to the profile picture, default: default profile picture
     profilePicture: { type: String, default: "assets/img/default-profile-pic.png" },
     about: { type: String, default: "Welcome to my profile!" },
@@ -67,17 +76,7 @@ var userSchema = mongoose.Schema({
                 type: String
             }
         }
-    ],
-    
-    mentorapp: {
-        options: { type: String, required: true},
-        experience_field: { type: String, required: true},
-        experience_work: { type: String, required: true},
-        cv: { type: String, required: true},
-        voluntary: { type: String, required: true},
-        additionals: { type: String}
-    }
-    
+    ]
 },
 {
   collection: 'users'
