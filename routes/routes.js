@@ -32,7 +32,6 @@ module.exports = function(app, passport) {
 
     /* MENTORROCK PAGES */
     /* Mentee and Mentor Pages */
-
     app.get('/myprofile', function(req, res) {
         res.render('pages/main/my-profile', {
             user : req.user
@@ -217,6 +216,98 @@ module.exports = function(app, passport) {
         
         // After completing fields update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
+        
+    }); 
+    
+    // MENTOR APPLICATION FORM SUBMISSION
+    app.post('/mentorapp', function(req, res) {
+        
+        // Get the user inputted fields
+        var academic = req.body.mentor_academic;
+        var interests = req.body.mentor_interests;
+        var exp_field = req.body.mentor_field;
+        var cv = req.body.mentor_cv;
+        var experience = req.body.mentor_experience;
+        var voluntary = req.body.mentor_voluntary;
+        var additionals = req.body.mentor_additionals;
+        
+        // Saving db fields to variables
+        var either = req.user.mentorapp.options;
+        var field = req.user.mentorapp.experience_field;
+        var work = req.user.mentorapp.experience_work;
+        var cover = req.user.mentorapp.cv;
+        var volun = req.user.mentorapp.voluntary;
+        var adds = req.user.mentorapp.additionals;
+        
+        // I: if academics only; II: interests only
+        if((academic == null) && (interests != null)) {
+            User.update(either, {$set: {'mentorapp.options': interests}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+            });       
+        } else if((academic != null) && (interests == null)) {
+            User.update(either, {$set: {'mentorapp.options': academic}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+            });      
+        }
+        
+        // Now for the rest of the fieldss
+        User.update(field, {$set: {'mentorapp.experience_field': exp_field}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+        });
+        
+        User.update(cover, {$set: {'mentorapp.cv': cv}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+        });
+        
+        User.update(work, {$set: {'mentorapp.experience_work': experience}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+        });
+        
+        User.update(volun, {$set: {'mentorapp.voluntary': voluntary}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+        });        
+        
+        User.update(adds, {$set: {'mentorapp.additionals': additionals}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+        });
+        
+        // After completing fields update, redirect to user's home page
+        res.redirect('/profile');
         
     }); 
     

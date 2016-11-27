@@ -27,6 +27,7 @@ var userSchema = mongoose.Schema({
             type: String
         }
     },
+    
     facebook: {
         id: {
             type: String,
@@ -40,34 +41,28 @@ var userSchema = mongoose.Schema({
             type: String
         }
     },
-    third_party: {
-        type: Boolean,
-        default: false
-    },
+    
+    third_party: { type: Boolean, default: false },
 
-    gender: {
-        type: String
+    gender: { type: String },
+    givenname: { type: String },
+    familyname: { type: String },
+    
+    mentorapp: {
+        options: { type: String},
+        experience_field: { type: String },
+        experience_work: { type: String },
+        cv: { type: String },
+        voluntary: { type: String },
+        additionals: { type: String}
     },
-    givenname: {
-        type: String
-    },
-    familyname: {
-        type: String
-    },
+    
     //type: path to the profile picture, default: default profile picture
-    profilePicture: {
-        type: String,
-        default: "assets/img/default-profile-pic.png"
-    },
-    about: {
-        type: String,
-        default: "Welcome to my profile!"
-    },
-    role: {
-        type: String,
-        default: "Mentee"
-    },
+    profilePicture: { type: String, default: "assets/img/default-profile-pic.png" },
+    about: { type: String, default: "Welcome to my profile!" },
+    role: { type: String, default: "Mentee" },
     specialty: [String],
+
     contacts: [
         {
             username: {
