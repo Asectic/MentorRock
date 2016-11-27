@@ -34,13 +34,13 @@
                             <div class="form-group row">
                                 <label class="col-xs-2 col-form-label">Username</label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" type="text" id="username" >
+                                    <input class="form-control" type="text" id="username"  >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-xs-2 col-form-label">Email</label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" type="email" placeholder="abc@mail.com" id="email" >
+                                    <input class="form-control" type="email" placeholder="abc@mail.com" id="email">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -56,37 +56,52 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-xs-2 col-form-label">First Name</label>
+                                <label class="col-xs-2 col-form-label" >First Name</label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" type="text" id="fname">
+                                    <input class="form-control" type="text" id="givenname" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-xs-2 col-form-label">Last Name</label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" type="text" name="lname" id="lname">
+                                    <input class="form-control" type="text" name="lname" id="familyname" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-xs-2 col-form-label">Gender</label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" type="text" placeholder="Male or Female?" id="gender">
+                                    <input class="form-control" type="text" placeholder="Male or Female?" id="gender" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-xs-2 col-form-label">Birth Date</label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" type="text" placeholder="YYYY-MM-DD" id="birthdate">
+                                    <input class="form-control" type="text" placeholder="YYYY-MM-DD" id="birthday">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row" id="lastItem">
+                                <label class="col-xs-2 col-form-label">Profile Picture</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" name="profilePicture" placeholder="http://myimage-url.ca" id="profilePicture">
+                                </div>
+                            </div>
+
+                            <div class="form-group row" id="lastItem">
                                 <label class="col-xs-2 col-form-label">Interest Fields</label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" name="interests" placeholder="EG: Swimming, Programming" id="interest">
+                                    <form >
+                                        <select data-placeholder="EG: Swimming, Programming" style="width:100%" class="form-control chosen-select" multiple tabindex="6" id="selectInterest">
+
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
+                            <center><button  class="btn btn-primary btn-md" id="addNewUser">Add User</button></center>
                         </div>
-                        <center><button  class="btn btn-primary btn-md" id="addNewUser">Add User</button></center>
+
+                    </div>
+
+
                     </div>
                 </div>
 
@@ -102,10 +117,100 @@
     </div> <!-- End of row content -->
 </div> <!-- End of container-fluid -->
 
+
+
 <% include ../../partials/adminfooter %>
 
 <script src="javascript/admin/commonview.js"></script>
 <script src="javascript/admin/adduserview.js"></script>
+<script src="javascript/admin/chosen.jquery.min.js"></script>
+<script>
+$(function () {
+    //Send ajax request to obtain the list of specialities
+    var findSpeciality=function () {
+        $.ajax({
+            url:'/speciality',
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+
+                $("#selectInterest").append(printSelect(data));
+                $("#selectInterest").chosen({ width: '100%' });
+                chosenSelectSetting();
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+    };
+    //Print the list of options for the select
+    function printSelect(data) {
+        var content ="<option  value='"+"'></option>" +
+                "<optgroup label='Academics'>";
+        for(var i=0; i<data.speciality.academics.length; i++){
+            content+="<option>"+data.speciality.academics[i]+"</option>";
+
+        }
+        content +="</optgroup>" +
+                "<optgroup label='Extracurricular Activities'>";
+        for(var j=0; j<data.speciality.interests.length; j++){
+            content+="<option>"+data.speciality.interests[j]+"</option>";
+        }
+        content +="</optgroup>";
+
+        return content;
+
+    }
+    findSpeciality();
+
+    //pertaining to the chosen select
+    function chosenSelectSetting() {
+        var config = {
+            '.chosen-select'           : {},
+            '.chosen-select-deselect'  : {allow_single_deselect:true},
+            '.chosen-select-no-single' : {disable_search_threshold:10},
+            '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+            '.chosen-select-width'     : {width:"95%"}
+        };
+
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+
+    }
+
+    $("#addNewUser").click(function () {
+
+        var userData={};
+        userData.local={};
+        //The following lines collect the updated information from the form
+        userData.local.email=$("#email").val();
+        userData.local.password=$("#password").val();
+        userData.local.username=$("#username").val();
+        userData.local.stunum=$("#stunum").val();
+        userData.local.birthday=$("#birthday").val();
+        userData.gender=$("#gender").val();
+        userData.givenname=$("#givenname").val();
+        userData.familyname=$("#familyname").val();
+        userData.profilePicture=$("#profilePicture").val()
+        userData.specialty=$("#selectInterest").val();
+
+        $.post('/addUser', userData,  function(data) {
+            console.log(data);
+            location.reload();
+
+        }).fail(function(){
+            console.log("There was an error");
+        });
+
+
+    });
+});
+
+
+
+</script>
 
 </body>
 </html>

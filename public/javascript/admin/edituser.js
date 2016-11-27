@@ -1,7 +1,70 @@
 //The following pertains specifically to the edit page of the user
-//Global boolean variable
-var passwordchanged=false;
+
+
+
 $(function () {
+
+//Send ajax request to obtain the list of specialities
+    var findSpeciality=function () {
+        $.ajax({
+            url:'/speciality',
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+
+                $("#selectInterest").append(printSelect(data));
+                $("#selectInterest").chosen({ width: '100%' });
+                chosenSelectSetting();
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+    };
+    function printSelect(data) {
+        var content ="<option  value='"+"'></option>" +
+            "<optgroup label='Academics'>";
+        for(var i=0; i<data.speciality.academics.length; i++){
+            content+="<option>"+data.speciality.academics[i]+"</option>";
+
+        }
+        content +="</optgroup>" +
+            "<optgroup label='Extracurricular Activities'>";
+        for(var j=0; j<data.speciality.interests.length; j++){
+            content+="<option>"+data.speciality.interests[j]+"</option>";
+        }
+        content +="</optgroup>";
+
+        return content;
+
+    }
+    findSpeciality();
+
+    //pertaining to the chosen select
+    function chosenSelectSetting() {
+        var config = {
+            '.chosen-select'           : {},
+            '.chosen-select-deselect'  : {allow_single_deselect:true},
+            '.chosen-select-no-single' : {disable_search_threshold:10},
+            '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+            '.chosen-select-width'     : {width:"95%"}
+        };
+
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+        $("#selectInterest").val(newinterest);
+        $('#selectInterest').trigger('chosen:updated');
+
+    }
+
+
+
+
+
+
+
 
     //when the button to change password is clicked
     $(".changepwd").eq(0).click(function () {
@@ -13,7 +76,6 @@ $(function () {
             "</div>" +
             "</div>"
         );
-        passwordchanged=true;
 
     });
 

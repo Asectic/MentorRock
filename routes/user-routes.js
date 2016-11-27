@@ -87,17 +87,23 @@ exports.findAll = function(req, res) {
             res.send(selectedUsers);
         });
     }
+        var fullname=req.query.fullname;
+
 
 };
 
 
 ///------------------------- add new user -------------------------
-exports.addOne = function(req, res) {
+exports.addUser = function(req, res) {
 	console.log("addOne");
     console.log(req.body);
-    var userData=formatInput(req.body);
+    var userData=req.body;
+
+    //encrypt the password
+    userData.local.password = bcrypt.hashSync(userData.local.password, bcrypt.genSaltSync(8), null);
     //create the user
     var newUser = new User(userData);
+
     newUser.save(function(err, newUser) {
         if (err) throw err;
         res.send('Success');
@@ -112,26 +118,7 @@ exports.deleteOne = function(req, res) {
     });
 };
 
-//Apply the required format to the users input
-function formatInput(data){
 
-    var formattedData={};
-    formattedData.local={};
-    formattedData.local.email=data.email;
-    formattedData.local.password=data.password;
-    formattedData.local.username=data.username;
-    formattedData.local.stunum=data.stunum;
-    formattedData.local.birthday=data.birthday;
-    formattedData.gender=data.gender;
-    formattedData.givenname=data.givenname;
-    formattedData.familyname=data.familyname;
-    formattedData.thirdparty=false;
-    formattedData.profilePicture="default Pic";
-    formattedData.about=data.about;
-    formattedData.role=data.role;
-    formattedData.specialty=data.specialty;
-   return formattedData;
-}
 
 
 ///--------------update all user information----------------------
@@ -274,3 +261,24 @@ exports.updateMentor= function(req, res) {
    });  
 };
 
+
+//Apply the required format to the users input
+function formatInput(data){
+
+    var formattedData={};
+    formattedData.local={};
+    formattedData.local.email=data.email;
+    formattedData.local.password=data.password;
+    formattedData.local.username=data.username;
+    formattedData.local.stunum=data.stunum;
+    formattedData.local.birthday=data.birthday;
+    formattedData.gender=data.gender;
+    formattedData.givenname=data.givenname;
+    formattedData.familyname=data.familyname;
+    formattedData.thirdparty=false;
+    formattedData.profilePicture="default Pic";
+    formattedData.about=data.about;
+    formattedData.role=data.role;
+    formattedData.specialty=data.specialty;
+    return formattedData;
+}
