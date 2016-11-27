@@ -2,7 +2,7 @@
 // Chatroom database functions =================================================
 // =============================================================================
 // ===========chatroom handling functions =====================
-//var Chatroom = require('../models/chatroom');
+var Chatroom = require('../models/chatroom');
 
 function findContacts(req, res) {
     var query = require('url').parse(req.url, true).query;
@@ -19,7 +19,6 @@ function findContacts(req, res) {
 function postChatLog(req, res) {
     var query = require('url').parse(req.url, true).query;
     var rid = query.room;
-    console.log('find contacts of user ' + my_id);
     Chatroom.findOne({
         room_id: rid
     }, function (err, room) {
@@ -33,6 +32,19 @@ function postChatLog(req, res) {
             console.log("add chat log");
             res.send(JSON.stringify(redata));
         });
+    });
+};
+
+function findChatLog(req, res) {
+    var query = require('url').parse(req.url, true).query;
+    var rid = query.room;
+    Chatroom.findOne({
+        room_id: rid
+    }, function (err, room) {
+        if (err) throw err;
+        res.send(room.chatlog);
+        //        var retdata = room.chatlog;
+        //        res.send(JSON.stringify(redata));
     });
 };
 
@@ -78,27 +90,37 @@ module.exports = function (app, passport) {
     app.get('/chatslist', function (req, res) {
         var pics = [];
         var names = [];
-        var contacts = JSON.parse(req.user.contacts);
+        var contacts = req.user.contacts;
+        console.log(req);
         for (var idx in contacts) {
             if (contacts.hasOwnProperty(idx)) {
                 names.push(contacts[idx].name);
                 pics.push(contacts[idx].pic);
             }
         }
-        var data = JSON.stringify({
+        var data = {
             "my_id": req.user._id,
             "friend_id": req.user.contacts[0].id,
-            "my_pic": user.profilePicture,
+            "my_pic": req.user.profilePicture,
             "friend_pic": req.user.contacts[0].pic,
+            "friend_name": req.user.contacts[0].name,
             "friend_names": names,
             "friend_pics": pics,
             "chatlog": []
-        })
+        };
         res.render('pages/main/chatbox', data);
     });
 
+    app.get('/chatuser', function (req, res) {
+        res.send(req.user);
+    });
+
+    app.get('/chatlog', findChatLog);
+
+
     app.get('/chat', function (req, res) {
         var data = req.body;
+        console.log(data);
         res.render('pages/main/chatbox', data);
     });
 

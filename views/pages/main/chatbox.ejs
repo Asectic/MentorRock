@@ -1,134 +1,119 @@
 <html>
-<!--  pure javascript starts  -->
-<%  
-    var my_id = user._id;
-    var friend_id = 2;
-    var my_pic = user._
-    var friend_pic = 'assets/img/tesla.jpg'
 
-    var friend_names = ['Morris Luck', 'Liche Bore', 'Jada King', 'Babe Que', 'Sio Joe', 'Jamie Kaka', 'Lemon Tea', 'Tesla Coil', 'Max Well', 'Stein Rock'];
+<head>
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/chatbox-header %>
+</head>
 
-    var friend_pics = ['assets/img/face-1.jpg', 'assets/img/face-2.jpg', 'assets/img/face-4.jpg', 'assets/img/face-5.jpeg', 'assets/img/face-6.jpg', 'assets/img/face-7.jpg', 'assets/img/face-8.jpg', 'assets/img/tesla.jpg', 'assets/img/max.gif', 'assets/img/einstein.jpg'];
+<body>
 
-  
-%>
+    <div id="wrapper">
 
-    <!--  pure javascript ends  -->
+        <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
 
-    <head>
-        <!-- Importing the main-style headers -->
-        <% include ../../partials/chatbox-header %>
-    </head>
+            <div id="content-con" class="container">
+                <div id="space"></div>
 
-    <body>
+                <!-- Main content of the page -->
 
-        <div id="wrapper">
+                <div class="bigpanel">
 
-            <!-- Naivgation Bar: TOP -->
-            <% include ../../partials/navigation-ui %>
+                    <!--  Chat menu starts  -->
+                    <div class="chat-menu">
+                        <div class="friend-list">
 
-                <div id="content-con" class="container">
-                    <div id="space"></div>
-
-                    <!-- Main content of the page -->
-
-                    <div class="bigpanel">
-
-                        <!--  Chat menu starts  -->
-                        <div class="chat-menu">
-                            <div class="friend-list">
-
-                                <% for(var i=0; i<friend_names.length; i++) { %>
-                                    <a class="friend-list-item" href="#" id="<%= i %>">
-                                        <div class="pull-left">
-                                            <img src="<%= friend_pics[i] %>" alt="" class="friend-list-avatar">
-                                        </div>
-                                        <small class="friend-list-item-name"><%= friend_names[i] %></small>
-                                    </a>
-                                    <% } %>
-                            </div>
+                            <% for(var i=0; i<friend_names.length; i++) { %>
+                                <a class="friend-list-item" href="#" id="<%= i %>">
+                                    <div class="pull-left">
+                                        <img src="<%= friend_pics[i] %>" alt="" class="friend-list-avatar">
+                                    </div>
+                                    <small class="friend-list-item-name"><%= friend_names[i] %></small>
+                                </a>
+                                <% } %>
                         </div>
-                        <!--  Chat menu ends  -->
+                    </div>
+                    <!--  Chat menu ends  -->
 
-                        <!--  Chat box starts  -->
-                        <div class="chat-body">
-                            <!--  active chat profile starts  -->
-                            <div class="pull-left chat-profile">
-                                <img src="assets/img/tesla.jpg" alt="" class="icon-big-avatar">
-                                <span id="chat-name">Tesla Coil</span>
-                            </div>
-                            <!--  active chat profile ends  -->
-                            <!--  function nav starts  -->
-                            <ul class="function-nav">
-                                <li>
-                                    <a href="">
-                                        <i class="fa fa-times-rectangle" style="font-size:18px"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <i class="fa fa-folder-open" style="font-size:18px"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <i class="fa fa-refresh" style="font-size:18px"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!--  function nav ends  -->
-                            <div class="chat-box">
+                    <!--  Chat box starts  -->
+                    <div class="chat-body">
+                        <!--  active chat profile starts  -->
+                        <div class="pull-left chat-profile">
+                            <img src="<%= friend_pic %>" alt="" class="icon-big-avatar">
+                            <span id="chat-name"><%= friend_name %></span>
+                        </div>
+                        <!--  active chat profile ends  -->
+                        <!--  function nav starts  -->
+                        <ul class="function-nav">
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-times-rectangle" style="font-size:18px"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-folder-open" style="font-size:18px"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-refresh" style="font-size:18px"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--  function nav ends  -->
+                        <div class="chat-box">
 
-                                <% for(var i=0; i<chatlog.length; i++) { %>
-                                    <%if (chatlog[i].sender_id == my_id) { %>
-                                        <div class="chat-bubble right">
-                                            <div class="pull-right">
-                                                <img src="<%= my_pic %>" alt="" class="icon-avatar">
+                            <% for(var i=0; i<chatlog.length; i++) { %>
+                                <%if (chatlog[i].sender_id == my_id) { %>
+                                    <div class="chat-bubble right">
+                                        <div class="pull-right">
+                                            <img src="<%= my_pic %>" alt="" class="icon-avatar">
+                                        </div>
+                                        <div class="message-body">
+                                            <div class="message-content pull-right">
+                                                <%= chatlog[i].text %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } else if (chatlog[i].sender_id == friend_id) { %>
+                                        <div class="chat-bubble left">
+                                            <div class="pull-left">
+                                                <img src="<%= friend_pic %>" alt="" class="icon-avatar">
                                             </div>
                                             <div class="message-body">
-                                                <div class="message-content pull-right">
+                                                <div class="message-content">
                                                     <%= chatlog[i].text %>
                                                 </div>
                                             </div>
                                         </div>
-                                        <% } else if (chatlog[i].sender_id == friend_id) { %>
-                                            <div class="chat-bubble left">
-                                                <div class="pull-left">
-                                                    <img src="<%= friend_pic %>" alt="" class="icon-avatar">
-                                                </div>
-                                                <div class="message-body">
-                                                    <div class="message-content">
-                                                        <%= chatlog[i].text %>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <% } %>
                                             <% } %>
-                                                <% } %>
 
-                            </div>
-                            <div class="row create-message">
-                                <textarea id="message-input" placeholder="I want to say..."></textarea>
-                                <button id="upload-button" class="bottom-button"><i class="fa fa-cloud-upload" style="font-size:24px"></i></button>
-                                <button id="send-message-button" class="bottom-button"><i class="fa fa-send-o" style="font-size:24px"></i></button>
-                            </div>
                         </div>
-
+                        <div class="row create-message">
+                            <textarea id="message-input" placeholder="I want to say..."></textarea>
+                            <button id="upload-button" class="bottom-button"><i class="fa fa-cloud-upload" style="font-size:24px"></i></button>
+                            <button id="send-message-button" class="bottom-button"><i class="fa fa-send-o" style="font-size:24px"></i></button>
+                        </div>
                     </div>
 
-                    <footer>
-                        <a href="/contacts"><button id="go_back">BACK</button></a>
-                    </footer>
-                    <!-- End of jumbotron-->
                 </div>
-                <!-- ENd of content-con div-->
-        </div>
-        <div id="snackbar">snackbar text</div>
-        <!-- End of wrapper-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="assets/js/custom.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="/javascript/chatbox.js"></script>
-    </body>
 
-    < /html>
+                <footer>
+                    <a href="/contacts"><button id="go_back">BACK</button></a>
+                </footer>
+                <!-- End of jumbotron-->
+            </div>
+            <!-- ENd of content-con div-->
+    </div>
+    <div id="snackbar">snackbar text</div>
+    <!-- End of wrapper-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascript/chatbox.js"></script>
+</body>
+
+< /html>

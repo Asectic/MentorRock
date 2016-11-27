@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
 // define the schema for our user model
-var userSchema = mongoose.Schema({
+var userSchema = new mongoose.Schema({
     local: {
         email: {
             type: String,
@@ -82,7 +82,6 @@ var userSchema = mongoose.Schema({
             },
             relation: {
                 type: String,
-                required: true
             },
             room_id: {
                 type: String,
