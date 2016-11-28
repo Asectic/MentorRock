@@ -28,6 +28,7 @@ $(function () {
                 room_ids.push(contacts[idx].room_id);
             }
         }
+
     });
 
     // socket variables 
@@ -96,6 +97,7 @@ $(function () {
 
             // Send the message to the other person in the chat
             socket.emit('msg', {
+                id: room_ids[i],
                 msg: msgText,
                 img: null
             });
@@ -217,9 +219,8 @@ $(function () {
 
     //createChat(room_ids[0]);
 
-
     // clicking on a contact, go to a new chatroom
-    $('.friend-list-item').click(function (e) {
+    $('.friend-list-item').off().click(function (e) {
         e.preventDefault();
         //location.reload();
         $('.chat-box').empty();

@@ -57,7 +57,7 @@ module.exports = function (app, io) {
                 socket.emit('peopleinchat', {
                     number: 0
                 }); // only you there, leave a message
-                socket.join(data.id);
+                socket.join(data);
             } else if (room.length === 1) {
                 console.log("1 ppl in chat");
                 socket.emit('peopleinchat', {

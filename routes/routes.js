@@ -90,6 +90,9 @@ module.exports = function (app, passport) {
         var contacts = req.user.contacts;
         for (var idx in contacts) {
             if (contacts.hasOwnProperty(idx)) {
+                if (typeof contacts[idx].name === "undefined") {
+                    break;
+                }
                 names.push(contacts[idx].name);
                 pics.push(contacts[idx].pic);
             }
@@ -104,7 +107,6 @@ module.exports = function (app, passport) {
             "friend_pics": pics,
             "chatlog": []
         };
-
 
         res.render('pages/main/chatbox', data);
     });
