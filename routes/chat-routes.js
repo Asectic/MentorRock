@@ -28,45 +28,28 @@ module.exports = function (app, io) {
         // When the client emits the 'load' event, reply with the
         // number of people in this chat room
 
-        socket.on('error', function (data) {
-            console.log("client err");
-        });
-
-        socket.on('reconnect', function (data) {
-            console.log("reconnect");
-        });
-
-        socket.on('reconnect_attempt', function (data) {
-            console.log("reconnect_attempt");
-        });
-
-        socket.on('reconnecting', function (data) {
-            console.log("reconnecting");
-        });
-
-        socket.on('reconnect_error', function (data) {
-            console.log("reconnect error");
-        });
-
         socket.on('load', function (data) {
-            console.log("loading");
+            console.log("loading" + data);
 
             var room = findClientsSocket(io, data);
+
             if (room.length === 0) {
                 console.log("0 ppl in chat");
                 socket.emit('peopleinchat', {
                     number: 0
                 }); // only you there, leave a message
                 socket.join(data);
+                console.log("joined " + data);
             } else if (room.length === 1) {
                 console.log("1 ppl in chat");
                 socket.emit('peopleinchat', {
                     number: 1
                 }); // already someone there, chat with him/her
 
-                socket.join(data.id);
+                socket.join(data);
+                console.log("joined " + data);
                 console.log("chat starts");
-                chat.in(data.id).emit('startChat', {
+                chat.in(data).emit('startChat', {
                     boolean: true,
                     id: data.id
                 });
@@ -96,11 +79,9 @@ module.exports = function (app, io) {
         // Handle the sending of messages
         socket.on('msg', function (data) {
             console.log("on message");
-            console.log(socket.room);
             // When the server receives a message, it sends it to the other person in the room.
-            socket.broadcast.to(socket.room).emit('receive', {
-                msg: data.msg,
-                img: data.img
+            socket.in(data.id).emit('receive', {
+                msg: data.msg
             });
         });
     });
@@ -109,7 +90,8 @@ module.exports = function (app, io) {
 function findClientsSocket(io, roomId, namespace) {
     var res = [],
         ns = io.of(namespace || "/"); // the default namespace is "/"
-
+        //console.log(ns);
+        //console.log(ns.connected[id]);
     if (ns) {
         for (var id in ns.connected) {
             if (roomId) {

@@ -28,10 +28,9 @@ $(function () {
                 room_ids.push(contacts[idx].room_id);
             }
         }
-
     });
 
-    // socket variables 
+    // socket variables
 
     var id = null; //room id, default
 
@@ -97,9 +96,8 @@ $(function () {
 
             // Send the message to the other person in the chat
             socket.emit('msg', {
-                id: room_ids[i],
                 msg: msgText,
-                img: null
+                id : room_ids[i]
             });
 
             // Insert into db
@@ -138,6 +136,7 @@ $(function () {
     function createChat(id) {
 
         socket = io();
+        socket.reconnect();
         console.log('createChat');
         socket.on('connect', function () {
             showMessage("connect");
@@ -182,7 +181,6 @@ $(function () {
             });
         }
         socket.on('startChat', function (data) {
-            console.log(data);
             if (data.boolean && data.id == id) {
                 showMessage("chat starts");
             }
@@ -219,6 +217,7 @@ $(function () {
 
     //createChat(room_ids[0]);
 
+
     // clicking on a contact, go to a new chatroom
     $('.friend-list-item').off().click(function (e) {
         e.preventDefault();
@@ -226,11 +225,25 @@ $(function () {
         $('.chat-box').empty();
         $('.chat-body').show();
         i = $(this).attr("id");
+        if(socket) {
+          console.log( " restart ```");
+           unregisterListener();
+           socket.disconnect();
+           socket = null;
+        }
         createChat(room_ids[i]);
         getChatLog(room_ids[i], i);
         $('#friend-pic').attr("src", pics[i]);
         $('#chat-name').text(names[i]);
     });
+
+    function unregisterListener() {
+      socket.removeListener('connect');
+      socket.removeListener('peopleinchat');
+      socket.removeListener('leave');
+      socket.removeListener('receive');
+      socket.removeListener('startChat');
+    }
 
 
 });
