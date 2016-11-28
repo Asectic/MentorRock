@@ -29,6 +29,7 @@ var userSchema = mongoose.Schema({
     },
     
     facebook: {
+        // id returns a number, not a name
         id: {
             type: String,
             unique: true,
