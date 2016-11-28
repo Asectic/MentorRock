@@ -246,6 +246,9 @@ module.exports = function(app, passport) {
         res.render('pages/main/mentor-app', {
             user : req.user
         });
+        
+        console.log(req.body.acd);
+        console.log(req.body.inter);
     });
 
     app.get('/contacts', function(req, res) {
