@@ -191,9 +191,7 @@ app.post('/mentorapp', function(req, res) {
                         console.log("User cover letter updated");
                     }
                 });
-                res.send(
-                    '<a href="uploads/' + file_name + '"> FILE </a>'
-                );
+              
                 res.end('success');       
           });
 
