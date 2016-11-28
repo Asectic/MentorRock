@@ -62,5 +62,10 @@ module.exports =  function(app, passport){
        res.render('pages/admin/mentorrequest.ejs')
     });
 
+    //Display application information
+    app.get('/request', function (req, res) {
+        res.render('pages/admin/request.ejs');
+    });
+
 
 };

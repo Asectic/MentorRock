@@ -80,6 +80,7 @@ module.exports = function(passport) {
         passReqToCallback : true
     },
     function(req, username, password, done) {
+        console.log(JSON.stringify(req.body));
 
         // asynchronous
         process.nextTick(function() {
@@ -110,11 +111,12 @@ module.exports = function(passport) {
                         newUser.local.birthday    = req.body.birthday;
 
                         // An string of comma interests "Swimming, Basketball, ..."
-                        var interests = req.body.interests;
-                        var interests_array = interests.split(',');
+                        newUser.specialty = req.body.specialty;
+                       // var interests_array = interests.split(',');
 
-                        newUser.specialty = interests_array;
+                      //  newUser.specialty = interests_array;
                         newUser.profilePicture = req.body.profilePicture;
+                        console.log("just before"+JSON.stringify(newUser));
 
                         newUser.save(function(err) {
                             if (err)

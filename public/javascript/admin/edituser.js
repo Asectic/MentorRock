@@ -64,8 +64,6 @@ $(function () {
 
 
 
-
-
     //when the button to change password is clicked
     $(".changepwd").eq(0).click(function () {
         $(this).remove();
