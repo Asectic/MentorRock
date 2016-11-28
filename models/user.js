@@ -50,7 +50,8 @@ var userSchema = mongoose.Schema({
     familyname: { type: String },
     
     mentorapp: {
-        options: { type: String},
+        academics: { type: String},
+        interests: { type: String},
         experience_field: { type: String },
         experience_work: { type: String },
         cv: { type: String },

@@ -62,9 +62,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // MENTOR APPLICATION FORM SUBMISSION
 app.post('/mentorapp', function(req, res) {
         
-        
-        
-        
     // ===================================================================    
         
         // Get the user inputted fields
@@ -76,32 +73,31 @@ app.post('/mentorapp', function(req, res) {
         var additionals = req.body.mentor_additionals;
         
         // Saving db fields to variables
-        var either = req.user.mentorapp.options;
+        var inter = req.user.mentorapp.interests;
+        var acd = req.user.mentorapp.academics;
         var field = req.user.mentorapp.experience_field;
         var work = req.user.mentorapp.experience_work;
         var volun = req.user.mentorapp.voluntary;
         var adds = req.user.mentorapp.additionals;
         
         // I: if academics only; II: interests only
-        if((academic == null) && (interests != null)) {
-            User.update(either, {$set: {'mentorapp.options': interests}}, function(err, updated) {
+        User.update(inter, {$set: {'mentorapp.interests': interests}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("Academics not updated");
                 }
   		        else {
                     console.log("Academic interests updated");
                 }
-            });       
-        } else if((academic != null) && (interests == null)) {
-            User.update(either, {$set: {'mentorapp.options': academic}}, function(err, updated) {
+         });    
+    
+        User.update(acd, {$set: {'mentorapp.academics': academic}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("Interests not updated");
                 }
   		        else {
                     console.log("Interests updated");
                 }
-            });      
-        }
+        });      
         
         // Now for the rest of the fieldss
         User.update(field, {$set: {'mentorapp.experience_field': exp_field}}, function(err, updated) {
