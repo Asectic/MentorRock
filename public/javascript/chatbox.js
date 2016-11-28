@@ -222,13 +222,13 @@ $(function () {
     $('.friend-list-item').click(function (e) {
         e.preventDefault();
         //location.reload();
-
-
         $('.chat-box').empty();
         $('.chat-body').show();
         i = $(this).attr("id");
         createChat(room_ids[i]);
         getChatLog(room_ids[i], i);
+        $('#friend-pic').attr("src", pics[i]);
+        $('#chat-name').text(names[i]);
     });
 
 

@@ -109,10 +109,6 @@ module.exports = function (app, io) {
 function findClientsSocket(io, roomId, namespace) {
     var res = [],
         ns = io.of(namespace || "/"); // the default namespace is "/"
-    console.log(io.sockets.clients);
-    console.log(io.sockets.clients(roomId));
-    console.log(ns.clients());
-
 
     if (ns) {
         for (var id in ns.connected) {
