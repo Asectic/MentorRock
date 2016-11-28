@@ -63,7 +63,9 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // Require the configuration and the routes files, and pass
 // the app and io as arguments to the returned functions.
 require('./routes/routes.js')(app, passport);
+
 require('./routes/chat-routes.js')(app, io);
+
 // launch ======================================================================
 //app.listen(port);
 console.log('MentorRock is running on port ' + port);

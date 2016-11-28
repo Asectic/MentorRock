@@ -26,14 +26,11 @@ function postChatLog(req, res) {
         room.chatlog.push(req.body);
         room.save(function (err) {
             if (err) throw err;
-            redata = {
-                "status": success
-            }
             console.log("add chat log");
-            res.send(JSON.stringify(redata));
         });
     });
-};
+    res.sendStatus(200);
+}
 
 function findChatLog(req, res) {
     var query = require('url').parse(req.url, true).query;
@@ -91,7 +88,6 @@ module.exports = function (app, passport) {
         var pics = [];
         var names = [];
         var contacts = req.user.contacts;
-        console.log(req);
         for (var idx in contacts) {
             if (contacts.hasOwnProperty(idx)) {
                 names.push(contacts[idx].name);
@@ -108,6 +104,8 @@ module.exports = function (app, passport) {
             "friend_pics": pics,
             "chatlog": []
         };
+
+
         res.render('pages/main/chatbox', data);
     });
 
@@ -118,11 +116,11 @@ module.exports = function (app, passport) {
     app.get('/chatlog', findChatLog);
 
 
-    app.get('/chat', function (req, res) {
-        var data = req.body;
-        console.log(data);
-        res.render('pages/main/chatbox', data);
-    });
+    //    app.get('/chat', function (req, res) {
+    //        var data = req.body;
+    //        console.log(data);
+    //        res.render('pages/main/chatbox', data);
+    //    });
 
     app.post('/chat', postChatLog);
 

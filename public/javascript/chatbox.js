@@ -4,12 +4,15 @@ $(function () {
     $('.chat-body').hide();
 
     // global variables
+    var i = 0;
     var my_id = null;
     var my_pic = null;
     var names = [];
     var pics = [];
     var ids = [];
     var room_ids = [];
+
+    var socket;
 
     // initial setup
     $.get('/chatuser', function (data) {
@@ -28,7 +31,7 @@ $(function () {
     });
 
     // socket variables 
-    var socket = io();
+
     var id = null; //room id, default
 
     //---------------------------------------------------------
@@ -73,7 +76,7 @@ $(function () {
         var bubble = $(
             '<div class="chat-bubble left">' +
             '<div class="pull-left">' +
-            '<img src= ' + friend_pic + ' alt="" class="icon-avatar">' +
+            '<img src= ' + pics[i] + ' alt="" class="icon-avatar">' +
             '</div>' +
             '<div class="message-body">' +
             '<div class="message-content pull-left">' + msgText + '</div>' +
@@ -98,10 +101,10 @@ $(function () {
             });
 
             // Insert into db
+
             $.ajax({
-                url: "/chat?room=" + id,
+                url: "/chat?room=" + room_ids[i],
                 type: "POST",
-                dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
                     "sender_id": my_id,
@@ -109,10 +112,14 @@ $(function () {
                     "file": "null",
                     "time": "null"
                 }),
-                success: function (data) {
-                    snackbarMessage("add chat to log");
+                success: function () {
+                    console.log("add chat to log");
+                },
+                error: function (request, status, error) {
+                    alert(request.responseText);
                 }
             });
+
         }
 
         // Clear input field
@@ -124,12 +131,17 @@ $(function () {
     //---------------------------------------------------------
     //------- scoket part ------------------------------------
     //---------------------------------------------------------
+    //var socket = io();
 
-    if (id) {
+    function createChat(id) {
 
+        socket = io();
+        console.log('createChat');
         socket.on('connect', function () {
             showMessage("connect");
+            console.log('connect');
             socket.emit('load', id); // room_id of the first user of the list
+            console.log('load emitted');
         });
 
 
@@ -156,24 +168,24 @@ $(function () {
             showMessage("receive a message");
             if (data.msg.trim().length) {
                 // Create friend chat bubble
+                console.log("recv msg");
                 createLeftBubble(data.msg);
                 scrollToButtom();
             }
         });
 
-
+        function force_leave(rid) {
+            socket.emit("force_leave", {
+                id: rid
+            });
+        }
         socket.on('startChat', function (data) {
             console.log(data);
             if (data.boolean && data.id == id) {
                 showMessage("chat starts");
             }
         });
-
-
-
     }
-
-
     $("#message-input").keypress(function (e) {
         // send message on enter
         if (e.which == 13) {
@@ -188,73 +200,35 @@ $(function () {
     });
 
 
-    // get chat log of a room
-    //    function getChatLog(room_id) {
-    //        var mdata;
-    //        $.get('/chatlog?room=' + room_id, function (data) {
-    //            console.log(data);
-    //            mdata = data;
-    //        });
-    //        console.log(mdata);
-    //        return mdata;
-    //    }
-
-    function getChatLog(room_id) {
-        var data = $.ajax({
-            type: "GET",
-            url: '/chatlog?room=' + room_id,
-            async: false
-        }).resoponseText;
-
-        console.log(data);
-        return data;
-    }
-
     function getChatLog(room_id, i) {
         var mdata;
         $.get('/chatlog?room=' + room_id, function (data) {
-            callGetRoom(data, i);
+            var chatlog = data;
+            for (var i in chatlog) {
+                if (chatlog[i].sender_id == my_id) {
+                    createRihgtBubble(chatlog[i].text);
+                } else {
+                    createLeftBubble(chatlog[i].text);
+                }
+            }
+            scrollToButtom();
         });
     }
 
-    function callGetRoom(chatlog, i) {
-        $.ajax({
-            url: "/chat?room=" + id,
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            data: {
-                "my_id": my_id,
-                "friend_id": ids[i],
-                "my_pic": my_pic,
-                "friend_pic": pics[i],
-                "friend_name": names[i],
-                "friend_names": names,
-                "friend_pics": pics,
-                "chatlog": chatlog
-            },
-            success: function (data) {
-                showMessage("enter chatroom");
-            },
-            error: function (er) {
-                console.log(er);
-            }
-        });
-    }
+    //createChat(room_ids[0]);
 
 
     // clicking on a contact, go to a new chatroom
     $('.friend-list-item').click(function (e) {
         e.preventDefault();
+        //location.reload();
+
+
+        $('.chat-box').empty();
         $('.chat-body').show();
-        var i = $(this).attr("id");
-
-        //        jQuery.ajaxSetup({
-        //            async: false
-        //        });
-
+        i = $(this).attr("id");
+        createChat(room_ids[i]);
         getChatLog(room_ids[i], i);
-
     });
 
 

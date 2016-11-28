@@ -75,5 +75,16 @@ d.save(function (err) {
     if (err) {
         console.log(err);
     }
-    console.log("room success");
 });
+
+//var dd = new Room({
+//    "speaker1_id": "583b340c1e0d8c1470b4d757",
+//    "speaker2_id": "583b93a14fd67530d61168eb",
+//    "room_id": "1112",
+//    "chatlog": []
+//});
+//dd.save(function (err) {
+//    if (err) {
+//        console.log(err);
+//    }
+//});

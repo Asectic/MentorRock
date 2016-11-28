@@ -28,6 +28,26 @@ module.exports = function (app, io) {
         // When the client emits the 'load' event, reply with the
         // number of people in this chat room
 
+        socket.on('error', function (data) {
+            console.log("client err");
+        });
+
+        socket.on('reconnect', function (data) {
+            console.log("reconnect");
+        });
+
+        socket.on('reconnect_attempt', function (data) {
+            console.log("reconnect_attempt");
+        });
+
+        socket.on('reconnecting', function (data) {
+            console.log("reconnecting");
+        });
+
+        socket.on('reconnect_error', function (data) {
+            console.log("reconnect error");
+        });
+
         socket.on('load', function (data) {
             console.log("loading");
 
@@ -56,6 +76,10 @@ module.exports = function (app, io) {
         });
 
 
+        socket.on("force_leave", function () {
+            socket.leave(socket.room);
+        });
+
         // Somebody left the chat
         socket.on('disconnect', function () {
             console.log("recv disconnect");
@@ -71,6 +95,8 @@ module.exports = function (app, io) {
 
         // Handle the sending of messages
         socket.on('msg', function (data) {
+            console.log("on message");
+            console.log(socket.room);
             // When the server receives a message, it sends it to the other person in the room.
             socket.broadcast.to(socket.room).emit('receive', {
                 msg: data.msg,
@@ -83,6 +109,10 @@ module.exports = function (app, io) {
 function findClientsSocket(io, roomId, namespace) {
     var res = [],
         ns = io.of(namespace || "/"); // the default namespace is "/"
+    console.log(io.sockets.clients);
+    console.log(io.sockets.clients(roomId));
+    console.log(ns.clients());
+
 
     if (ns) {
         for (var id in ns.connected) {
