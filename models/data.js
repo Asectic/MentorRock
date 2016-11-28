@@ -43,25 +43,6 @@ var chatroom = new Schema({
         collection: 'chatrooms'
     });
 
-var admin = new Schema({
-    user_name: {
-        type: String,
-        required: true
-    },
-    Password: {
-        hashed: {
-            type: String,
-            required: true
-        },
-        salt: {
-            type: String,
-            required: true
-        }
-    }
-
-}, {
-    collection: 'admins'
-});
 
 var mentee = new Schema({
     user_id: {
@@ -89,11 +70,9 @@ var mentor = new Schema({
 });
 
 var Chat = mongoose.model('Chatrooms', chatroom);
-var Admin = mongoose.model('Admin', admin);
 var Mentor = mongoose.model('Mentor', mentor);
 var Mentee = mongoose.model('Mentee', mentee);
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
 module.exports = Chatrooms;
-module.exports = Admin;
 module.exports = Mentor;
 module.exports = Mentee;
