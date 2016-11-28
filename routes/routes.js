@@ -1,6 +1,7 @@
 
 //var RouteUser = require('./user-routes');
 var User = require('../models/user');
+var Admin = require('../models/admin');
 var formidable = require('formidable');
 var fs = require('fs');
 
@@ -260,6 +261,40 @@ module.exports = function(app, passport) {
     // ERROR PAGE FOR AUTHENTICATION
     app.get('/error', function(req, res) {
         res.render('partials/error.ejs');
+    });    
+    
+    // ============================================
+    // ADMIN LOGIN AND SIGNUP PAGES
+    // ============================================
+    
+    app.get('/admin-user', function(req, res) {
+        res.render('pages/user-setup/admin-user', {
+            admin : req.admin
+        });
+    });
+    
+    // process the login form
+    app.post('/admin-login', passport.authenticate('admin-login', {
+        successRedirect : '/admin', // redirect to the secure profile section
+        failureRedirect : '/admin-user', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+    
+    // process the signup form
+    app.post('/admin-signup', passport.authenticate('admin-signup', {
+        successRedirect : '/admin', // redirect to the secure profile section
+        failureRedirect : '/admin-user', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+    
+    // local -----------------------------------
+    app.get('/unlink/local-admin', isLoggedIn, function(req, res) {
+        var admin            = req.admin;
+        admin.username  = undefined;
+        admin.password = undefined;
+        admin.save(function(err) {
+            res.redirect('/');
+        });
     });
 
     
