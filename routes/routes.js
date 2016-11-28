@@ -49,7 +49,7 @@ module.exports = function(app, passport) {
         res.render('pages/main/settings-general', {
             user : req.user
         });
-    });    
+    });
     
     app.get('/interests-change', function(req, res) {
         res.render('pages/main/settings-interests', {
@@ -66,10 +66,17 @@ module.exports = function(app, passport) {
     // SUBMIT USER PARAMETER CHANGES TO ACC-SETTINGS
     app.post('/interests-change', function(req, res) {
         
-        var preset_interests = req.user.specialty;
-        var new_interests = req.body.specialty_new;
+        var new_interests = req.body;
+        console.log("Id"+req.query.id);
+        for(var i=0; i<new_interests.length; i++){
+            console.log("changed interest"+ new_interests[i]);
+        }
+        console.log("changed interest"+ new_interests[1]);
+
+
+
         
-        User.update(preset_interests, {$set: {specialty: new_interests}}, function(err, updated) {
+        User.update({_id: req.query.id}, {$set: {specialty: new_interests.specialty}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
                 }
@@ -79,7 +86,7 @@ module.exports = function(app, passport) {
         });
         
         // After completing interests update, redirect page to acc-settings.ejs
-        res.redirect('/accsettings');
+        res.send('success');
     }); 
     
     app.post('/about-change', function(req, res) {
