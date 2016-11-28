@@ -197,6 +197,7 @@ exports.findById = function(userId) {
 };
 
 
+
 var findUserById = function(userId) {
 
     User.findOne({_id: userId}, function(err, thatUser) {
@@ -235,18 +236,7 @@ exports.updateGname= function(req, res) {
 };
 
 
-exports.updateSpecialty= function(req, res) {
 
-   User.findOne({id: req.params.id}, function(err, thatUser) {    
-      if( err ) console.log("User not updated");
-      else console.log("User updated");
-      thatUser.specialty.push(res.params.specialty);
-      thatUser.save(function(err, thatUser) {
-      if (err) throw err; 
-      });
-      //TODO : whether to resend info
-   });  
-};
 
 exports.updateMentor= function(req, res) {
 
@@ -261,6 +251,19 @@ exports.updateMentor= function(req, res) {
    });  
 };
 
+//Update speciality in the users page
+exports.updateSpecialty= function(req, res) {
+
+    User.findOne({_id: req.query.id}, function(err, thatUser) {
+        if( err ) console.log("User not updated");
+        else console.log("User updated");
+        thatUser.specialty.push(req.body);
+        thatUser.save(function(err, thatUser) {
+            if (err) throw err;
+        });
+
+    });
+};
 
 //Apply the required format to the users input
 function formatInput(data){
