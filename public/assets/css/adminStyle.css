@@ -192,6 +192,19 @@ a.customColor{
     color: #2a62bc;
 
 }
+/*The font obtained from google*/
+.mentorshipApplication{
+    font-family: 'Farsan', cursive;
+
+    /*font-family: 'Economica', sans-serif;
+    font-family: 'Old Standard TT', serif;
+    font-family: 'Katibeh', cursive;*/
+}
+
+div>label.field{
+    font-size: 20px;
+    font-weight: bold;
+}
 
 
 

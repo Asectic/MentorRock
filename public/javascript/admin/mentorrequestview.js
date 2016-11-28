@@ -42,12 +42,11 @@ $(function () {
                 "<div class='media-body'>" +
                 "<h5 class='media-heading'>"+data[i].givenname+" "+data[i].familyname+"</h5>" +
                 "<a>"+data[i].specialty[0]+"</a>" +
-                "<div class='pull-right'>" +
-                "<a href = '#' class = 'btn btn-success btn-circle' role = 'button' onclick='acceptRequest(this)'>" +
-                "<span class='glyphicon glyphicon-ok'></span>" +
+                "<div class='pull-right'>" + "<a href = '/request' class = 'btn btn-primary btn-circle' role = 'button'>" +
+                "<span class='glyphicon glyphicon-list-alt'></span>" +
                 "</a>" +
-                "<a href = '#' class = 'btn btn-default btn-circle' role = 'button' onclick='rejectRequest(this)'>" +
-                "<span class='glyphicon glyphicon-remove'></span>" +
+                "<a href = '/edit?id=" + data[i]._id + "' class = 'btn btn-default btn-circle' role = 'button'>" +
+                "<span class='glyphicon glyphicon-pencil'></span>" +
                 "</a>" +
                 "</div>" +
                 "</div>" +

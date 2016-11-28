@@ -66,7 +66,6 @@ $(function () {
             Type:'GET',
             dataType:'json',
             success:function (data) {
-                console.log("result for search: "+JSON.stringify(data));
 
                 if(data.length){
                     $(".searchResults").html(displayUser(data));
