@@ -1,23 +1,73 @@
 
+// =============================================================================
+// Chatroom database functions =================================================
+// =============================================================================
+// ===========chatroom handling functions =====================
+var Chatroom = require('../models/chatroom');
+
+function findContacts(req, res) {
+    var query = require('url').parse(req.url, true).query;
+    var my_id = query.myid;
+    console.log('find contacts of user ' + my_id);
+    User.find({
+        _id: my_id
+    }, function (err, data) {
+        if (err) throw err;
+        res.send(data.contacts);
+    });
+};
+
+function postChatLog(req, res) {
+    var query = require('url').parse(req.url, true).query;
+    var rid = query.room;
+    Chatroom.findOne({
+        room_id: rid
+    }, function (err, room) {
+        if (err) throw err;
+        room.chatlog.push(req.body);
+        room.save(function (err) {
+            if (err) throw err;
+            console.log("add chat log");
+        });
+    });
+    res.sendStatus(200);
+}
+
+function findChatLog(req, res) {
+    var query = require('url').parse(req.url, true).query;
+    var rid = query.room;
+    Chatroom.findOne({
+        room_id: rid
+    }, function (err, room) {
+        if (err) throw err;
+        res.send(room.chatlog);
+        //        var retdata = room.chatlog;
+        //        res.send(JSON.stringify(redata));
+    });
+};
+
 //var RouteUser = require('./user-routes');
 var User = require('../models/user');
 var Admin = require('../models/admin');
 var formidable = require('formidable');
 var fs = require('fs');
 
-module.exports = function(app, passport) {
 
-// normal routes ===============================================================
+//================================================
+
+module.exports = function (app, passport) {
+
+    // normal routes ===============================================================
 
     // show the home page (will also have our login links)
-    app.get('/', function(req, res) {
+    app.get('/', function (req, res) {
         res.render('pages/home.ejs');
     });
 
     // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
+    app.get('/profile', isLoggedIn, function (req, res) {
         res.render('pages/main/mentee-home.ejs', {
-            user : req.user
+            user: req.user
         });
     });    
     
@@ -28,23 +78,25 @@ module.exports = function(app, passport) {
     });
 
     // LOGOUT ==============================
-    app.get('/logout', function(req, res) {
+    app.get('/logout', function (req, res) {
         req.logout();
         res.redirect('/');
     });
 
     /* MENTORROCK PAGES */
     /* Mentee and Mentor Pages */
+
     app.get('/myprofile', function(req, res) {
         res.render('pages/main/my-profile', {
-            user : req.user
+            user: req.user
         });
     });
+
 
     // ACCOUNT SETTINGS PAGES
     app.get('/accsettings', function(req, res) {
         res.render('pages/main/acc-settings', {
-            user : req.user
+            user: req.user
         });
     });    
     
@@ -228,38 +280,84 @@ module.exports = function(app, passport) {
     
 
     
+    app.get('/chatslist', function (req, res) {
+        var pics = [];
+        var names = [];
+        var contacts = req.user.contacts;
+        for (var idx in contacts) {
+            if (contacts.hasOwnProperty(idx)) {
+                if (typeof contacts[idx].name === "undefined") {
+                    break;
+                }
+                names.push(contacts[idx].name);
+                pics.push(contacts[idx].pic);
+            }
+        }
+        var data = {
+            "my_id": req.user._id,
+            "friend_id": req.user.contacts[0].id,
+            "my_pic": req.user.profilePicture,
+            "friend_pic": req.user.contacts[0].pic,
+            "friend_name": req.user.contacts[0].name,
+            "friend_names": names,
+            "friend_pics": pics,
+            "chatlog": []
+        };
 
-    // =========================================
-    
-    app.get('/chatslist', function(req, res) {
-        res.render('pages/main/chatbox', {
-            user : req.user
-        });
+        res.render('pages/main/chatbox', data);
     });
 
-    app.get('/searchmentor', function(req, res) {
+    app.get('/chatuser', function (req, res) {
+        res.send(req.user);
+    });
+
+    app.get('/chatlog', findChatLog);
+
+    app.post('/chat', postChatLog);
+
+    app.get('/getcontacts', findContacts);
+
+    app.get('/searchmentor', function (req, res) {
         res.render('pages/main/search-mentor', {
-            user : req.user
+            user: req.user
         });
     });
 
-    app.get('/mentorapp', function(req, res) {
+    app.get('/mentorapp', function (req, res) {
         res.render('pages/main/mentor-app', {
-            user : req.user
+            user: req.user
         });
         
         console.log(req.body.acd);
         console.log(req.body.inter);
     });
 
-    app.get('/contacts', function(req, res) {
-        res.render('pages/main/contacts', {
-            user : req.user
-        });
+    app.get('/contacts', function (req, res) {
+        var pics = [];
+        var names = [];
+        var relations = [];
+        var contacts = req.user.contacts;
+        for (var idx in contacts) {
+            if (contacts.hasOwnProperty(idx)) {
+                if (typeof contacts[idx].name === "undefined") {
+                    break;
+                }
+                names.push(contacts[idx].name);
+                pics.push(contacts[idx].pic);
+                relations.push(contacts[idx].relation);
+            }
+        }
+        var data = {
+            "friend_names": names,
+            "friend_pics": pics,
+            "relationships": relations
+        };
+
+        res.render('pages/main/contacts', data);
     });
 
     // ERROR PAGE FOR AUTHENTICATION
-    app.get('/error', function(req, res) {
+    app.get('/error', function (req, res) {
         res.render('partials/error.ejs');
     });    
     
@@ -299,7 +397,7 @@ module.exports = function(app, passport) {
 
     
 
-// =============================================================================
+ // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
 
@@ -330,43 +428,51 @@ module.exports = function(app, passport) {
             failureFlash : true // allow flash messages
         }));
 
+
     // facebook -------------------------------
 
-        // send to facebook to do the authentication
-        app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    // send to facebook to do the authentication
+    app.get('/auth/facebook', passport.authenticate('facebook', {
+        scope: 'email'
+    }));
 
-        // handle the callback after facebook has authenticated the user
-        app.get('/auth/facebook/callback',
-            passport.authenticate('facebook', {
-                successRedirect : '/profile',
-                failureRedirect : '/'
-            }));
-
-// =============================================================================
-// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
-// =============================================================================
-
-    // locally --------------------------------
-        app.get('/connect/local', function(req, res) {
-            res.render('pages/main/mentee-home.ejs', { message: req.flash('loginMessage') });
-        });
-        app.post('/connect/local', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
+    // handle the callback after facebook has authenticated the user
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect: '/profile',
+            failureRedirect: '/'
         }));
 
+    // =============================================================================
+    // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
+    // =============================================================================
+
+    // locally --------------------------------
+    app.get('/connect/local', function (req, res) {
+        res.render('pages/main/mentee-home.ejs', {
+            message: req.flash('loginMessage')
+        });
+    });
+    app.post('/connect/local', passport.authenticate('local-signup', {
+        successRedirect: '/profile', // redirect to the secure profile section
+        failureRedirect: '/connect/local', // redirect back to the signup page if there is an error
+        failureFlash: true // allow flash messages
+    }));
+
     // facebook -------------------------------
 
-        // send to facebook to do the authentication
-        app.get('/connect/facebook', passport.authorize('facebook', { scope : 'email' }));
+    // send to facebook to do the authentication
+    app.get('/connect/facebook', passport.authorize('facebook', {
+        scope: 'email'
+    }));
 
-        // handle the callback after facebook has authorized the user
-        app.get('/connect/facebook/callback',
-            passport.authorize('facebook', {
-                successRedirect : '/profile',
-                failureRedirect : '/'
-            }));
+    // handle the callback after facebook has authorized the user
+    app.get('/connect/facebook/callback',
+        passport.authorize('facebook', {
+            successRedirect: '/profile',
+            failureRedirect: '/'
+        }));
+
 
 // =============================================================================
 // UNLINK ACCOUNTS =============================================================
@@ -375,21 +481,22 @@ module.exports = function(app, passport) {
 // for local account, remove email and password
 // user account will stay active in case they want to reconnect in the future
 
+
     // local -----------------------------------
-    app.get('/unlink/local', isLoggedIn, function(req, res) {
-        var user            = req.user;
-        user.local.email    = undefined;
+    app.get('/unlink/local', isLoggedIn, function (req, res) {
+        var user = req.user;
+        user.local.email = undefined;
         user.local.password = undefined;
-        user.save(function(err) {
+        user.save(function (err) {
             res.redirect('/');
         });
     });
 
     // facebook -------------------------------
-    app.get('/unlink/facebook', isLoggedIn, function(req, res) {
-        var user            = req.user;
+    app.get('/unlink/facebook', isLoggedIn, function (req, res) {
+        var user = req.user;
         user.facebook.token = undefined;
-        user.save(function(err) {
+        user.save(function (err) {
             res.redirect('/profile');
         });
     });

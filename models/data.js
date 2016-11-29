@@ -7,6 +7,7 @@ var Schema = mongoose.Schema;
  * Note that the database was loaded with data from a JSON file into a
  * collection called gillers.
  */
+
 var chatroom = new Schema({
         speaker1_id:{
             type: String,
@@ -68,6 +69,7 @@ var mentor = new Schema({
 {
     collection: 'mentors'
 });
+
 
 var Chat = mongoose.model('Chatrooms', chatroom);
 var Mentor = mongoose.model('Mentor', mentor);
