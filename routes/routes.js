@@ -117,13 +117,6 @@ module.exports = function (app, passport) {
 
     app.get('/chatlog', findChatLog);
 
-
-    //    app.get('/chat', function (req, res) {
-    //        var data = req.body;
-    //        console.log(data);
-    //        res.render('pages/main/chatbox', data);
-    //    });
-
     app.post('/chat', postChatLog);
 
     app.get('/getcontacts', findContacts);
@@ -141,9 +134,27 @@ module.exports = function (app, passport) {
     });
 
     app.get('/contacts', function (req, res) {
-        res.render('pages/main/contacts', {
-            user: req.user
-        });
+        var pics = [];
+        var names = [];
+        var relations = [];
+        var contacts = req.user.contacts;
+        for (var idx in contacts) {
+            if (contacts.hasOwnProperty(idx)) {
+                if (typeof contacts[idx].name === "undefined") {
+                    break;
+                }
+                names.push(contacts[idx].name);
+                pics.push(contacts[idx].pic);
+                relations.push(contacts[idx].relation);
+            }
+        }
+        var data = {
+            "friend_names": names,
+            "friend_pics": pics,
+            "relationships": relations
+        };
+
+        res.render('pages/main/contacts', data);
     });
 
     // ERROR PAGE FOR AUTHENTICATION

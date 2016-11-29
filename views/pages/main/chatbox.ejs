@@ -40,25 +40,16 @@
                         <!--  active chat profile starts  -->
                         <div class="pull-left chat-profile">
                             <img id="friend-pic" src="<%= friend_pic %>" alt="" class="icon-big-avatar">
-                            <span id="chat-name"><%= friend_name %></span>
+                            <span id="chat-name"><%= friend_name %></span><span id="status"></span>
                         </div>
                         <!--  active chat profile ends  -->
                         <!--  function nav starts  -->
                         <ul class="function-nav">
                             <li>
-                                <a href="">
-                                    <i class="fa fa-times-rectangle" style="font-size:18px"></i>
-                                </a>
+                                <i class="fa fa-folder-open" style="font-size:18px"></i>
                             </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-folder-open" style="font-size:18px"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-refresh" style="font-size:18px"></i>
-                                </a>
+                            <li id="contact">
+                                <i class="fa fa-user" style="font-size:18px"></i>
                             </li>
                         </ul>
                         <!--  function nav ends  -->
@@ -91,7 +82,7 @@
                                             <% } %>
 
                         </div>
-                        <div class="row create-message">
+                        <div class="create-message">
                             <textarea id="message-input" placeholder="I want to say..."></textarea>
                             <button id="upload-button" class="bottom-button"><i class="fa fa-cloud-upload" style="font-size:24px"></i></button>
                             <button id="send-message-button" class="bottom-button"><i class="fa fa-send-o" style="font-size:24px"></i></button>

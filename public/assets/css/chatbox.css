@@ -5,6 +5,18 @@
     color: #767676;
 }
 
+#contact {
+    display: none;
+}
+
+#status {
+    margin-left: 8px;
+    font-size: 15px;
+    color: #f0ecec;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
 #snackbar {
     visibility: hidden;
     min-width: 250px;
@@ -67,6 +79,10 @@
     border-radius: 5px 0px 0px 5px;
 }
 
+#contact-button {
+    display: none;
+}
+
 @media (min-width:768px) {
     .bigpanel .chat-body {
         padding-left: 160px;
@@ -75,14 +91,39 @@
 }
 
 @media (max-width:767px) {
+    #contact {
+        display: block;
+    }
     .bigpanel .chat-menu {
+        margin-top: 18px;
         height: calc(100% - 58px);
-        display: none;
+        width: 60px;
+        visibility: visible;
         z-index: 1;
         top: 58px;
     }
     .bigpanel .chat-body {
         overflow: hidden;
+    }
+    .create-message {
+        margin-left: 60px;
+        clear: both;
+        top: 85%;
+        width: 80%;
+        overflow: auto;
+    }
+    #message-input {
+        border-radius: 5px;
+        background-color: rgba(208, 222, 222, 0.95);
+        float: left;
+        max-width: 70%;
+        padding: 5px;
+    }
+    button {
+        float: right;
+        margin-right: 5%;
+        height: 35px;
+        border-radius: 6px;
     }
 }
 

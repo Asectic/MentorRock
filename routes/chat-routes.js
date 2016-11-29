@@ -60,6 +60,10 @@ module.exports = function (app, io) {
 
 
         socket.on("force_leave", function () {
+            socket.broadcast.to(this.room).emit('leave', {
+                boolean: true,
+                room: this.room
+            });
             socket.leave(socket.room);
         });
 
@@ -90,8 +94,8 @@ module.exports = function (app, io) {
 function findClientsSocket(io, roomId, namespace) {
     var res = [],
         ns = io.of(namespace || "/"); // the default namespace is "/"
-        //console.log(ns);
-        //console.log(ns.connected[id]);
+    //console.log(ns);
+    //console.log(ns.connected[id]);
     if (ns) {
         for (var id in ns.connected) {
             if (roomId) {
