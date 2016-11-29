@@ -18,44 +18,25 @@
          <!-- Naivgation Bar: TOP -->
         <% include ../../partials/navigation-ui %>
 
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br>
 
         <div id ="content-con" class="container">
-            <div class="row">
+            <div class="row row-offcanvas row-offcanvas-left">
+
 
                 <!-- Sidenav and page content-->
-
-                <div id="left-menu" class="col-xs-5 col-md-3">
-                    <% include ../../partials/sidenav-main %>
-                </div><!-- End of left menu div -->
+                <% include ../../partials/sidenav-main %>
 
                 <br>
 
                 <!-- Main content of the page -->
                 <div id="content" class="col-xs-13 col-md-9">
 
+
                     <!-- Whatever content goes here -->
 
-                    <% if (user.local.email) { %>
-                        <h1>Welcome <%= user.local.username %></h1> <br>
-
-                        <p>Your user information is as follows...</p><br>
-                        <p>
-                            <strong>id</strong>: <%= user._id %><br>
-                            <strong>Email</strong>: <%= user.local.email %><br>
-                            <strong>Password</strong>: <%= user.local.password %><br>
-                            <strong>Student Number</strong>: <%= user.local.stunum %><br>
-                            <strong>Given Name</strong>: <%= user.local.givenname %><br>
-                            <strong>Family Name</strong>: <%= user.local.familyname %><br>
-                            <strong>Gender</strong>: <%= user.local.gender %><br>
-                            <strong>Birthday</strong>: <%= user.local.birthday %><br>
-                            <strong>You are a</strong>: <%= user.local.role %><br>
-                            <strong>Interests</strong>: <%= user.local.specialty %><br>
-                        </p>
-
+                    <% if (user) { %>
+                        <center><h1>Welcome <%= user.local.username %></h1> <br></center>
                     <% } else { %>
                         <a href="/connect/local" class="btn btn-default">Connect Local</a>
                     <% } %>
@@ -101,5 +82,5 @@
     </div><!-- End of wrapper-->
 
 </body>
-<script src="assets/js/custom.js"></script>      
+          <script src="assets/js/custom.js"></script>
 </html>

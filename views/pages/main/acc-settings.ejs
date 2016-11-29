@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- ACC-SETTINGS.EJS
+
+    NOTE: ONLY ADD IN THE INCLUDE ACC-SETTINGS.EJS FILE TO IMPLEMENT
+          AVATAR CHANGES IN THIS FILE
+
+-->
+
 <!-- Head of the html file -->
 <head>
     <% include ../../partials/title %>
@@ -23,13 +30,10 @@
         <br>
 
         <div id ="content-con" class="container">
-            <div class="row">
+            <div class="row row-offcanvas row-offcanvas-left">
 
                 <!-- Sidenav and page content-->
-
-                <div id="left-menu" class="col-xs-5 col-md-3">
-                    <% include ../../partials/sidenav-main %>
-                </div><!-- End of left menu div -->
+                <% include ../../partials/sidenav-main %>
 
                 <br>
 
@@ -44,105 +48,27 @@
 
                     <br>
 
+
                     <!--  General Account section -->
                     <div id="general-acc">
                         <h2 class="acc-setts">General Account Settings</h2>
                         <div id="general-content">
                             <br>
 
-                            <table id="user-table">
+                            <div class="row">
+                                <div class="col-xs-13 col-md-9">
+                                        <% include ../../partials/general-table %>
 
-                                <!-- USERNAME COLUMN-->
-                                <tr>
-                                    <td>Username</td>
-                                    <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.username %>
-                                        <% } else { %>
-                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                        <% } %>
-                                    </td>
-                                </tr>
 
-                                <!-- PASSWORD COLUMN-->
-                                <tr>
-                                    <td>Password</td>
-                                    <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.password %>
-                                        <% } else { %>
-                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                        <% } %>
-                                    </td>
-                                </tr>
+                                </div>
+                            </div>
 
-                                <!-- EMAIL COLUMN-->
-                                <tr>
-                                    <td>Email</td>
-                                    <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.email %>
-                                        <% } else { %>
-                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                        <% } %>
-                                    </td>
-                                </tr>
-
-                                <!-- STUNUM COLUMN-->
-                                <tr>
-                                    <td>Student Number</td>
-                                    <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.stunum %>
-                                        <% } else { %>
-                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                        <% } %>
-                                    </td>
-                                </tr>
-
-                                <!-- First Name COLUMN-->
-                                <tr>
-                                    <td>First Name</td>
-                                    <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.givenname %>
-                                        <% } else { %>
-                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                        <% } %>
-                                    </td>
-                                </tr>
-
-                                <!-- Last Name COLUMN-->
-                                <tr>
-                                    <td>Last Name</td>
-                                    <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.familyname %>
-                                        <% } else { %>
-                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                        <% } %>
-                                    </td>
-                                </tr>
-
-                                <!-- BIRTH COLUMN-->
-                                <tr>
-                                    <td>Birthdate</td>
-                                    <td>
-                                        <% if (user.local.email) { %>
-                                                <%= user.local.birthday %>
-                                        <% } else { %>
-                                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                        <% } %>
-                                    </td>
-                                </tr>
-
-                            </table>
 
                             <br>
 
                             <!-- TODO: IMPLEMENT THIS
                                     Change user settings -->
-                            <a href="#change">Change settings</a>
+                            <a href="/general-change">Change settings</a>
 
                             <br>
                             <br>
@@ -163,7 +89,7 @@
                             <!-- TODO: IMPLEMENT INTERESTS CHANGES -->
 
                             <% if (user.local.email) { %>
-                                    <%= user.local.specialty %>
+                                    <%= user.specialty %>
                             <% } else { %>
                                 <a href="/connect/local" class="btn btn-default">Connect Local</a>
                             <% } %>
@@ -173,7 +99,7 @@
 
                             <!-- TODO: IMPLEMENT THIS
                                     Change user settings -->
-                            <a href="#change">Change interests</a>
+                            <a href="/interests-change">Change interests</a>
 
                             <br>
                             <br>
@@ -188,21 +114,41 @@
                         <h2 class="acc-setts">Avatar Settings</h2>
                         <div id="avatar-content">
 
-                            <p>This is currently you!</p>
+                            <form action="/accsettings" method="post">
+                                
+                                <br>
+                                
+                                <p>This is currently you!</p>
 
-                            <div id="image" class="img-thumbnail"></div>
+                                <div id="image" class="img-thumbnail">
+                                    <% if (user.local) { %>
+                                            <img class="img-thumbnail" src="<%= user.profilePicture %>">
+                                    <% } else { %>
+                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                    <% } %>
 
-                            <p>Upload your avatar</p>
-                                <div class="fileinput fileinput-new" data-provides="fileinput"></div>
-                            <input type="file" multiple />
-                            <p style="font-style: italic;">(Image size must be within XXXpx by XXXpx)</p>
+                                </div>
 
-                            <br>
-                            <br>
+                                <p>Please add in your avatar link:</p>
+                                
+                                    <div class="form-group">
+                                        
+                                        <input type="text" class="form-control" name="profilePic_new" placeholder="http://myimage-url.ca" style="width: 60%;">  
+                                        
+                                        <!--<input id="profilePic-in" class="form-control" name="profilePic_new" type="file" />-->
+                                        <p style="font-style: italic;">(Image will be resized to 150px by 150px)</p>
+                                        
+                                    </div><!-- End of form-group div-->
+                                
+                                <br>
+                                
+                                <!-- Form submit button-->    
+                                <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
+                                
+                                        
+                                
+                            </form><!-- End of avatar form -->
 
-                            <center><button id="save-changes" class="button" onclick="accSaveChanges(this.id)">Save Changes</button></center>
-
-                            <br>
                             <br>
 
                         </div><!-- End of avatar content div -->
@@ -210,15 +156,34 @@
                     </div><!-- End of avatar div -->
 
                     <br>
-                    <br>
 
-                </div>
+                    <div id="about-settings">
+                        <h2 class="acc-setts">About Settings</h2>
+                        <div id="aboutcont-settings">
+
+                            <br>
+
+                            <% if (user) { %>
+                                    <%= user.about %>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>
+
+                            <br><br>
+
+                            <!-- TODO: IMPLEMENT THIS
+                                    Change user settings -->
+                            <a href="/about-change">Change settings</a>
+
+                        </div><!-- End of aboutcont-settings -->
+                    </div><!-- End of about-settings -->
+
+                </div><!-- End of content div s-->
 
             </div>
         </div>
     </div>
 
 </body>
-<script src="assets/js/custom.js"></script>
-
+    <script src="assets/js/custom.js"></script>      
 </html>

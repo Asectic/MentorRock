@@ -1,3 +1,4 @@
+
 // =============================================================================
 // Chatroom database functions =================================================
 // =============================================================================
@@ -45,6 +46,13 @@ function findChatLog(req, res) {
     });
 };
 
+//var RouteUser = require('./user-routes');
+var User = require('../models/user');
+var Admin = require('../models/admin');
+var formidable = require('formidable');
+var fs = require('fs');
+
+
 //================================================
 
 module.exports = function (app, passport) {
@@ -61,6 +69,12 @@ module.exports = function (app, passport) {
         res.render('pages/main/mentee-home.ejs', {
             user: req.user
         });
+    });    
+    
+    app.get('/profile-facebook', isLoggedIn, function(req, res) {
+        res.render('pages/main/mentee-home-facebook.ejs', {
+            user : req.user
+        });
     });
 
     // LOGOUT ==============================
@@ -72,18 +86,200 @@ module.exports = function (app, passport) {
     /* MENTORROCK PAGES */
     /* Mentee and Mentor Pages */
 
-    app.get('/myprofile', function (req, res) {
+    app.get('/myprofile', function(req, res) {
         res.render('pages/main/my-profile', {
             user: req.user
         });
     });
 
-    app.get('/accsettings', function (req, res) {
+
+    // ACCOUNT SETTINGS PAGES
+    app.get('/accsettings', function(req, res) {
         res.render('pages/main/acc-settings', {
             user: req.user
         });
+    });    
+    
+    app.get('/general-change', function(req, res) {
+        res.render('pages/main/settings-general', {
+            user : req.user
+        });
     });
+    
+    app.get('/interests-change', function(req, res) {
+        res.render('pages/main/settings-interests', {
+            user : req.user
+        });
+    });    
+    
+    app.get('/about-change', function(req, res) {
+        res.render('pages/main/settings-about', {
+            user : req.user
+        });
+    });
+    
+    // SUBMIT USER PARAMETER CHANGES TO ACC-SETTINGS
+    app.post('/interests-change', function(req, res) {
+        
+        var new_interests = req.body;
+        console.log("Id"+req.query.id);
+        for(var i=0; i<new_interests.length; i++){
+            console.log("changed interest"+ new_interests[i]);
+        }
+        console.log("changed interest"+ new_interests[1]);
+        
+        User.update({_id: req.query.id}, {$set: {specialty: new_interests.specialty}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User interests updated");
+                }
+        });
+        
+        // After completing interests update, redirect page to acc-settings.ejs
+        res.send('success');
+    }); 
+    
+    app.post('/about-change', function(req, res) {
+        var preset_about = req.user.about;
+        var new_about = req.body.about_new;
+        
+        User.update(preset_about, {$set: {about: new_about}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User about updated");
+                }
+        });
+        
+        // After completing about update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    });
+    
+    app.post('/general-change', function(req, res) {
+        
+        // GET CURRENT user.local fields
+        var preset_user = req.user.local.username;
+        var preset_password = req.user.local.password;
+        var preset_email = req.user.local.email;
+        var preset_stunum = req.user.local.stunum;
+        var preset_familyname = req.user.familyname;
+        var preset_givenname = req.user.givenname;
+        var preset_gender = req.user.gender;
+        var preset_birthday = req.user.local.birthday;
+        
+        // LIST OF ALL "changed" input fields
+        var new_user = req.body.username_new;
+        var new_password = req.body.password_new;
+        var new_email = req.body.email_new;
+        var new_stunum = req.body.stunum_new;
+        var new_familyname = req.body.familyname_new;
+        var new_givenname = req.body.givenname_new;
+        var new_gender = req.body.gender_new;
+        var new_birthday = req.body.birthday_new;
+        
+        User.update(preset_user, {$set: {'local.username': new_user}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("Username updated");
+                }
+        });
+        
+        User.update(preset_password, {$set: {'local.password': new_password}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User password updated");
+                }
+        });
+        
+        User.update(preset_email, {$set: {'local.email': new_email}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User email updated");
+                }
+        });
+        
+        User.update(preset_stunum, {$set: {'local.stunum': new_stunum}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User student number updated");
+                }
+        });
+        
+        User.update(preset_familyname, {$set: {familyname: new_familyname}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User family name updated");
+                }
+        });
+        
+        User.update(preset_givenname, {$set: {givenname: new_givenname}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User first name updated");
+                }
+        });       
+        
+        User.update(preset_gender, {$set: {gender: new_gender}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User gender updated");
+                }
+        });
+        
+        User.update(preset_birthday, {$set: {'local.birthday': new_birthday}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User birthday updated");
+                }
+        });
+        
+        // After completing fields update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    });
+    
+    // In other words, "avatar changes"
+    app.post('/accsettings', function(req, res) {
+        
+        var preset_icon = req.user.profilePicture;
+        var new_icon = req.body.profilePic_new;
+        
+        User.update(preset_icon, {$set: {profilePicture: new_icon}}, function(err, updated) {
+  		        if( err || !updated ) {
+                    console.log("User not updated");
+                }
+  		        else {
+                    console.log("User icon updated");
+                }
+        });
+        
+        // After completing fields update, redirect page to acc-settings.ejs
+        res.redirect('/accsettings');
+        
+    }); 
+    
 
+    
     app.get('/chatslist', function (req, res) {
         var pics = [];
         var names = [];
@@ -131,6 +327,9 @@ module.exports = function (app, passport) {
         res.render('pages/main/mentor-app', {
             user: req.user
         });
+        
+        console.log(req.body.acd);
+        console.log(req.body.inter);
     });
 
     app.get('/contacts', function (req, res) {
@@ -160,72 +359,75 @@ module.exports = function (app, passport) {
     // ERROR PAGE FOR AUTHENTICATION
     app.get('/error', function (req, res) {
         res.render('partials/error.ejs');
+    });    
+    
+    // ============================================
+    // ADMIN LOGIN AND SIGNUP PAGES
+    // ============================================
+    
+    app.get('/admin-user', function(req, res) {
+        res.render('pages/user-setup/admin-user', {
+            admin : req.admin
+        });
+    });
+    
+    // process the login form
+    app.post('/admin-login', passport.authenticate('admin-login', {
+        successRedirect : '/admin', // redirect to the secure profile section
+        failureRedirect : '/admin-user', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+    
+    // process the signup form
+    app.post('/admin-signup', passport.authenticate('admin-signup', {
+        successRedirect : '/admin', // redirect to the secure profile section
+        failureRedirect : '/admin-user', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+    
+    // local -----------------------------------
+    app.get('/unlink/local-admin', isLoggedIn, function(req, res) {
+        var admin            = req.admin;
+        admin.username  = undefined;
+        admin.password = undefined;
+        admin.save(function(err) {
+            res.redirect('/');
+        });
     });
 
+    
 
-    // =============================================================================
-    // AUTHENTICATE (FIRST LOGIN) ==================================================
-    // =============================================================================
+ // =============================================================================
+// AUTHENTICATE (FIRST LOGIN) ==================================================
+// =============================================================================
 
     // locally --------------------------------
-    // LOGIN ===============================
-    // show the login form
-    app.get('/login', function (req, res) {
-        res.render('pages/user-setup/login.ejs', {
-            message: req.flash('loginMessage')
+        // LOGIN ===============================
+        // show the login form
+        app.get('/login', function(req, res) {
+            res.render('pages/user-setup/login.ejs', { message: req.flash('loginMessage') });
         });
-    });
 
-    // process the login form
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/profile', // redirect to the secure profile section
-        failureRedirect: '/login', // redirect back to the signup page if there is an error
-        failureFlash: true // allow flash messages
-    }));
+        // process the login form
+        app.post('/login', passport.authenticate('local-login', {
+            successRedirect : '/profile', // redirect to the secure profile section
+            failureRedirect : '/login', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        }));
 
-
-    /*app.post('/login', function(req, res, next) {
-
-      var user = req.user;
-
-      passport.authenticate('local-login', function(err, user, info) {
-        if (err) {
-          return next(err); // will generate a 500 error
-        }
-        // Generate a JSON response reflecting authentication status
-        if (! user) {
-          return res.send({ success : false, message : 'authentication failed' });
-        }
-        // ***********************************************************************
-        // "Note that when using a custom callback, it becomes the application's
-        // responsibility to establish a session (by calling req.login()) and send
-        // a response."
-        // Source: http://passportjs.org/docs
-        // ***********************************************************************
-        req.login(user, loginErr => {
-          if (loginErr) {
-            return next(loginErr);
-          }
-          return res.send({ success : true, message : 'authentication succeeded' });
+        // SIGNUP =================================
+        // show the signup form
+        app.get('/signup', function(req, res) {
+            res.render('pages/user-setup/register.ejs', { message: req.flash('signupMessage') });
         });
-      })(req, res, next);
-    });*/
 
+        // process the signup form
+        app.post('/signup', passport.authenticate('local-signup', {
+            successRedirect : '/profile', // redirect to the secure profile section
+            failureRedirect : '/signup', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        }));
 
-    // SIGNUP =================================
-    // show the signup form
-    app.get('/signup', function (req, res) {
-        res.render('pages/user-setup/register.ejs', {
-            message: req.flash('signupMessage')
-        });
-    });
-
-    // process the signup form
-    app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/profile', // redirect to the secure profile section
-        failureRedirect: '/signup', // redirect back to the signup page if there is an error
-        failureFlash: true // allow flash messages
-    }));
 
     // facebook -------------------------------
 
@@ -272,12 +474,13 @@ module.exports = function (app, passport) {
         }));
 
 
-    // =============================================================================
-    // UNLINK ACCOUNTS =============================================================
-    // =============================================================================
-    // used to unlink accounts. for social accounts, just remove the token
-    // for local account, remove email and password
-    // user account will stay active in case they want to reconnect in the future
+// =============================================================================
+// UNLINK ACCOUNTS =============================================================
+// =============================================================================
+// used to unlink accounts. for social accounts, just remove the token
+// for local account, remove email and password
+// user account will stay active in case they want to reconnect in the future
+
 
     // local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function (req, res) {
@@ -297,6 +500,8 @@ module.exports = function (app, passport) {
             res.redirect('/profile');
         });
     });
+
+
 
 };
 

@@ -27,7 +27,9 @@ var userSchema = new mongoose.Schema({
             type: String
         }
     },
+    
     facebook: {
+        // id returns a number, not a name
         id: {
             type: String,
             unique: true,
@@ -40,33 +42,30 @@ var userSchema = new mongoose.Schema({
             type: String
         }
     },
-    thirdparty: {
-        type: Boolean,
-        default: false
+
+    
+    third_party: { type: Boolean, default: false },
+
+    gender: { type: String },
+    givenname: { type: String },
+    familyname: { type: String },
+    
+    mentorapp: {
+        academics: { type: String},
+        interests: { type: String},
+        experience_field: { type: String },
+        experience_work: { type: String },
+        cv: { type: String },
+        voluntary: { type: String },
+        additionals: { type: String}
     },
-    gender: {
-        type: String
-    },
-    givenname: {
-        type: String
-    },
-    familyname: {
-        type: String
-    },
+    
     //type: path to the profile picture, default: default profile picture
-    profilePicture: {
-        type: String,
-        default: "defaultPicture"
-    },
-    about: {
-        type: String,
-        default: "Default text"
-    },
-    role: {
-        type: String,
-        default: "mentee"
-    },
+    profilePicture: { type: String, default: "assets/img/default-profile-pic.png" },
+    about: { type: String, default: "Welcome to my profile!" },
+    role: { type: String, default: "Mentee" },
     specialty: [String],
+
     contacts: [
         {
             name: {
@@ -92,6 +91,7 @@ var userSchema = new mongoose.Schema({
 }, {
     collection: 'users'
 });
+
 
 // generating a hash
 userSchema.methods.generateHash = function (password) {

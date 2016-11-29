@@ -8,25 +8,42 @@ var Schema = mongoose.Schema;
  * collection called gillers.
  */
 
-var admin = new Schema({
-    user_name”: {
-        type: String,
-        required: true
-    },
-    “Password”: {“
-        hashed”: {
+var chatroom = new Schema({
+        speaker1_id:{
             type: String,
             required: true
         },
-        “salt”: {
+        speaker2_id: {
             type: String,
-            required: true
-        }
-    }
+            requried: true
+        },
+        room_id: {
+            type: String,
+            requried: true
+        },
+        chatlog: [
+            {
+                sender_id: {
+                    type: String,
+                    required: true
+                },
+                text: {
+                    type: String
+                },
+                file: {
+                    type: ObjectId
+                },
+                time: {
+                    time: String,
+                    required: true
+                }
+            }
+        ]
+},
+    {
+        collection: 'chatrooms'
+    });
 
-}, {
-    collection: 'admins'
-});
 
 var mentee = new Schema({
     user_id: {
@@ -42,21 +59,22 @@ var mentor = new Schema({
         type: String,
         required: true
     },
-    mentee_list[
+    mentee_list:{
         mentee_id: {
             type: String,
             required: true
         }
-        ],
-} {
+    }
+},
+{
     collection: 'mentors'
 });
 
 
-var Admin = mongoose.model('Admin', admin);
+var Chat = mongoose.model('Chatrooms', chatroom);
 var Mentor = mongoose.model('Mentor', mentor);
 var Mentee = mongoose.model('Mentee', mentee);
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
-module.exports = Admin;
+module.exports = Chatrooms;
 module.exports = Mentor;
 module.exports = Mentee;

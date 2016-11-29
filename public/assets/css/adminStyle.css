@@ -60,6 +60,8 @@ div.sidenav li{
     list-style-type: none;
     text-align: left;
 }
+/*
+
 div li a{
     display:block;
     padding:10px;
@@ -75,6 +77,9 @@ div li a.active{
     background:#C6C6C6;
     color:white;
 }
+
+*/
+
 body{
     background: #323232;
 }
@@ -151,7 +156,55 @@ body{
     padding: 2px;
     margin: 0px;
 }
+/*---style for the autocomplete----*/
+.ui-widget-content {
+    background: #2b2b2b;
+    color: #c6c6c6;
+}
+.ui-autocomplete {
+    z-index: 10000 !important;
+}
+.ui-state-active {
+    background: black !important;
 
+}
+
+/*-----coloring error message---*/
+.success{
+    color:green;
+}
+.wrong{
+    color:red;
+}
+/*Styling for accept request or reject request buttons*/
+.btn-circle {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+/*change text color*/
+a.customColor{
+    color: #2a62bc;
+
+}
+/*The font obtained from google*/
+.mentorshipApplication{
+    font-family: 'Farsan', cursive;
+
+    /*font-family: 'Economica', sans-serif;
+    font-family: 'Old Standard TT', serif;
+    font-family: 'Katibeh', cursive;*/
+}
+
+div>label.field{
+    font-size: 20px;
+    font-weight: bold;
+}
 
 
 

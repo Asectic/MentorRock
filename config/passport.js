@@ -6,6 +6,7 @@ var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
 // load up the user model
 var User       = require('../models/user');
+var Admin       = require('../models/admin');
 
 // load the auth variables
 var configAuth = require('./auth'); // use this one for testing
@@ -80,6 +81,7 @@ module.exports = function(passport) {
         passReqToCallback : true
     },
     function(req, username, password, done) {
+        console.log(JSON.stringify(req.body));
 
         // asynchronous
         process.nextTick(function() {
@@ -110,11 +112,12 @@ module.exports = function(passport) {
                         newUser.local.birthday    = req.body.birthday;
 
                         // An string of comma interests "Swimming, Basketball, ..."
-                        var interests = req.body.interests;
-                        var interests_array = interests.split(',');
+                        newUser.specialty = req.body.specialty;
+                       // var interests_array = interests.split(',');
 
-                        newUser.specialty = interests_array;
-
+                      //  newUser.specialty = interests_array;
+                        newUser.profilePicture = req.body.profilePicture;
+                        console.log("just before"+JSON.stringify(newUser));
 
                         newUser.save(function(err) {
                             if (err)
@@ -159,6 +162,124 @@ module.exports = function(passport) {
 
     }));
 
+    // =========================================================================
+    // ADMIN  ================================================================
+    // =========================================================================
+    
+    passport.use('admin-login', new LocalStrategy({
+
+        usernameField : 'username',
+        passwordField : 'password',
+
+        // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true
+    },
+
+    function(req, username, password, done) {
+
+        // asynchronous
+        process.nextTick(function() {
+            Admin.findOne({ 'username' :  username }, function(err, user) {
+
+                // if there are any errors, return the error
+                if (err)
+                    return done(err);
+
+                // if no user is found, return the message
+                if (!user){
+                  console.log('loginMessage No user found.');
+                    return done(null, false, req.flash('loginMessage', 'No user found.'));}
+
+                if (!user.validPassword(password))
+                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+
+                // all is well, return user
+                else
+                    return done(null, user);
+            });
+        });
+    })); // end of admin login
+    
+    // ADMIN SIGNUP =================================================
+    
+    passport.use('admin-signup', new LocalStrategy({
+
+        usernameField : 'username',
+        passwordField : 'password',
+
+        //allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true
+    },
+    function(req, username, password, done) {
+        console.log(JSON.stringify(req.body));
+
+        // asynchronous
+        process.nextTick(function() {
+            // if the user is not already logged in:
+            if (!req.user) {
+                Admin.findOne({ 'username' :  username }, function(err, user) {
+                    // if there are any errors, return the error
+                    if (err)
+                        return done(err);
+
+                    // check to see if theres already a user with that email
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                    } else {
+
+                        // create the user
+                        var newAdmin = new Admin();
+
+                        newAdmin.username    = username;
+                        newAdmin.email    = req.body.email;
+                        newAdmin.password = newAdmin.generateHash(password);
+
+                        newAdmin.save(function(err) {
+                            if (err)
+                                return done(err);
+
+                            return done(null, newAdmin);
+                        });
+                    }
+
+                });
+
+            } else if ( !req.admin.username ) {
+
+                // CASE: If the user is logged in but has no local account...
+                // ...presumably they're trying to connect a local account
+                // BUT let's check if the email used to connect a local account is being used by another user
+                Admin.findOne({ username :  username }, function(err, user) {
+                    if (err)
+                        return done(err);
+
+                    if (user) {
+                        return done(null, false, req.flash('loginMessage', 'That username is already taken.'));
+                        // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
+                    } else {
+                        var admin = req.admin;
+                        admin.username = username;
+                        admin.password = admin.generateHash(password);
+                        admin.save(function (err) {
+                            if (err)
+                                return done(err);
+
+                            return done(null,admin);
+                        });
+                    }
+                });
+            } else {
+                // user is logged in and already has a local account. Ignore signup. (You should log out before trying to create a new account, user!)
+                return done(null, req.admin);
+            }
+
+        });
+
+    }));
+    
+    
+    
+    
     // =========================================================================
     // FACEBOOK ================================================================
     // =========================================================================
