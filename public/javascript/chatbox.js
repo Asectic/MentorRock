@@ -164,6 +164,7 @@ function createChat(id) {
     });
 
     socket.on('receive', function (data) {
+        $('#status').text("Online");
         showMessage("receive a message");
         if (data.msg.trim().length) {
             // Create friend chat bubble
@@ -232,6 +233,8 @@ $('.friend-list-item').on('click', function (e) {
         socket = io().connect('http://localhost:3000');
         createChat(room_ids[i]);
     }
+
+    //socket.emit('load', room_ids[i]); // room_id
 
     getChatLog(room_ids[i], i);
     $('#friend-pic').attr("src", pics[i]);
