@@ -1,10 +1,18 @@
 var mongoose = require('mongoose');
 
 //This schema will be used to store the id of the users who requested to become a mentor
-var requestSchema = mongoose.Schema({
-        userID: {
-            type: String
-        }
+var requestSchema = new mongoose.Schema({
+
+        userID: { type: String },
+        academics: { type: String},
+        interests: { type: String},
+        givenname: { type: String },
+        fname: { type: String },
+        experience_field: { type: String },
+        experience_work: { type: String },
+        cv: { type: String },
+        voluntary: { type: String },
+        additionals: { type: String}
     },
     {
         collection: 'request'
@@ -13,4 +21,3 @@ var requestSchema = mongoose.Schema({
 
 // exporting the model
 module.exports = mongoose.model('Request', requestSchema);
-

@@ -22,7 +22,7 @@ $('#upload-input').on('change', function(){
     }
 
     $.ajax({
-      url: '/mentorapp',
+      url: '/upload',
       type: 'POST',
       data: formData,
       processData: false,

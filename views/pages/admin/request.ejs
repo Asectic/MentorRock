@@ -31,41 +31,42 @@
                     <div class="row">
                             <div >
                                 <label class="field">Full Name:&nbsp;&nbsp;</label>
-                                <a id="name"></a>
+                                <a id="name"><%- data.givenname %> &nbsp; <%- data.familyname %></a>
                             </div>
                             <div >
                                 <label class="field">Academic Specialty:&nbsp;&nbsp;</label>
-                                <a id="academics"></a>
+                                <a id="academics"><%- data.academics %></a>
                             </div>
 
                             <div>
                                 <label class="field">Interest Specialty:&nbsp;&nbsp;</label>
-                                <a id="interest"></a>
+                                <a id="interest"><%- data.interests %></a>
                             </div>
                         <div >
                             <label class="field">Experience in Field:&nbsp;&nbsp;</label>
-                            <a id="yearOfExp">4</a>
+                            <a id="yearOfExp"><%- data.experience_field %> </a>
 
                         </div>
                         <div>
                                 <label class="field">Working experience</label><br>
-                                <p id="workExp">Integer in vestibulum in rutrum nec enim, vivamus et volutpat mauris amet pellentesque, adipiscing metus sapien lobortis neque semper nunc. Ut condimentum lectus amet hac, neque sit ultricies ut ultricies, tortor feugiat at, est in viverra adipiscing justo sed. Libero wisi.</p>
+                                <p id="workExp"><%- data.experience_work %></p>
                         </div>
                         <div>
                                 <label class="field">Voluntary Information</label><br>
-                                <p> Lorem ipsum dolor sit amet, integer orci turpis augue sagittis, nulla ipsum facilisis, eros purus gravida id duis, erat sit. At sed amet, phasellus wisi. Eget mi justo massa, condimentum in deleniti donec, vivamus quam. Diam dis suscipit porta sint volutpat, sagittis nascetur elementum potenti.
-                                </p>
+                                <p><%- data.voluntary %></p>
                         </div>
                         <div>
                             <label class="field">Additional Note</label><br>
-                            <p id="additionalInfo"></p>
+                            <p id="additionalInfo"><%- data.additionals %></p>
                         </div>
+						
                         <div>
                             <center>
-                                <a href = "#" class = "btn btn-success btn-circle" role = "button" onclick="acceptRequest(this)">
+							    
+                                <a href = "/mentorrequest" class = "btn btn-success btn-circle" role = "button" onclick="acceptRequest(this)" id="success">
                                     <span class="glyphicon glyphicon-ok"></span>
                                 </a>
-                                <a href = "#" class = "btn btn-default btn-circle" role = "button" onclick="rejectRequest(this)">
+                                <a href = "/mentorrequest" class = "btn btn-default btn-circle" role = "button" onclick="rejectRequest(this)">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </a>
                             </center>
@@ -86,8 +87,23 @@
     </div>
 
 </div>
+
 <% include ../../partials/adminfooter %>
 <script src="javascript/admin/mentorrequestview.js"></script>
+<script src="javascript/admin/commonview.js"></script>
+
+<script>
+    var userId='<%-  data.userID %>';
+    console.log(userId);
+
+    $(function(){
+        $("#success").before('<a href = "/download?id='+userId+'" class = "btn btn-primary btn-circle" role = "button">' +
+                '<span class="glyphicon glyphicon-download-alt"></span>' +
+                '</a> &nbsp;');
+
+    });
+  </script>
+
 
 
 </body>

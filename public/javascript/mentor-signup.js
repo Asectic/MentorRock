@@ -1,7 +1,7 @@
 "use strict";
 
 $(function () {
-    $('#interest-field').hide();
+   /* $('#interest-field').hide();
     $('#academic-field').hide();
 
     $('#academic-button').click(function () {
@@ -18,6 +18,6 @@ $(function () {
         $('#academic-button').hide();
         $('#interest-button').hide();
         $('#prompt-field').hide();
-    });
+    });*/
 
 });

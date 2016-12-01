@@ -42,7 +42,7 @@ $(function () {
                 "<div class='media-body'>" +
                 "<h5 class='media-heading'>"+data[i].givenname+" "+data[i].familyname+"</h5>" +
                 "<a>"+data[i].specialty[0]+"</a>" +
-                "<div class='pull-right'>" + "<a href = '/request' class = 'btn btn-primary btn-circle' role = 'button'>" +
+                "<div class='pull-right'>" + "<a href = '/request?id=" + data[i]._id + "' class = 'btn btn-primary btn-circle' role = 'button'>" +
                 "<span class='glyphicon glyphicon-list-alt'></span>" +
                 "</a>" +
                 "<a href = '/edit?id=" + data[i]._id + "' class = 'btn btn-default btn-circle' role = 'button'>" +
@@ -63,9 +63,9 @@ $(function () {
     //accept mentor request
     window.acceptRequest=function (that) {
         console.log("accept a mentor request");
-        var userId=$(that).parent().parent().parent().attr("id");
+        //var userId=$(that).parent().parent().parent().attr("id");
         console.log(userId);
-        $("#"+userId).remove();
+       // $("#"+userId).remove();
 
         $.ajax({
             url:'/acceptmentor?id='+userId,
@@ -81,9 +81,9 @@ $(function () {
     //reject mentor request
     window.rejectRequest=function (that) {
         console.log("reject a mentor request");
-        var userId=$(that).parent().parent().parent().attr("id");
+        //var userId=$(that).parent().parent().parent().attr("id");
         console.log(userId);
-        $("#"+userId).remove();
+        //$("#"+userId).remove();
 
         $.ajax({
             url:'/rejectmentor?id='+userId,
