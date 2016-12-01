@@ -77,7 +77,7 @@ module.exports = function (app, passport) {
     });    
 
     // LOGOUT ==============================
-    app.get('/logout', function (req, res) {
+    app.get('/logout', isLoggedIn, function (req, res) {
         req.logout();
         res.redirect('/');
     });
@@ -85,14 +85,14 @@ module.exports = function (app, passport) {
     /* MENTORROCK PAGES */
     /* Mentee and Mentor Pages */
 
-    app.get('/myprofile', function(req, res) {
+    app.get('/myprofile', isLoggedIn, function(req, res) {
         res.render('pages/main/my-profile', {
             user: req.user
         });
     });
 
     // Access third-party User
-    app.get('/userprofile', function(req, res) {
+    app.get('/userprofile', isLoggedIn, function(req, res) {
   
         var quer = req.query.id;
         
@@ -106,35 +106,33 @@ module.exports = function (app, passport) {
     });
     
     // ===============================================================
-    
-    app.get('/display', function(req, res) {
-        res.render('pages/main/display-users');
-    });
 
     // ACCOUNT SETTINGS PAGES
-    app.get('/accsettings', function(req, res) {
+    app.get('/accsettings', isLoggedIn, function(req, res) {
         res.render('pages/main/acc-settings', {
             user: req.user
         });
     });    
     
-    app.get('/general-change', function(req, res) {
+    app.get('/general-change', isLoggedIn, function(req, res) {
         res.render('pages/main/settings-general', {
             user : req.user
         });
     });
     
-    app.get('/interests-change', function(req, res) {
+    app.get('/interests-change', isLoggedIn, function(req, res) {
         res.render('pages/main/settings-interests', {
             user : req.user
         });
     });    
     
-    app.get('/about-change', function(req, res) {
+    app.get('/about-change', isLoggedIn, function(req, res) {
         res.render('pages/main/settings-about', {
             user : req.user
         });
     });
+    
+    // =====================================================
     
     // SUBMIT USER PARAMETER CHANGES TO ACC-SETTINGS
     app.post('/interests-change', function(req, res) {
@@ -299,9 +297,10 @@ module.exports = function (app, passport) {
         
     }); 
     
+    // ====================================================================================
 
-    
-    app.get('/chatslist', function (req, res) {
+    // MORE MENTEE AND MENTOR ROUTES
+    app.get('/chatslist', isLoggedIn, function (req, res) {
         var pics = [];
         var names = [];
         var contacts = req.user.contacts;
@@ -328,23 +327,23 @@ module.exports = function (app, passport) {
         res.render('pages/main/chatbox', data);
     });
 
-    app.get('/chatuser', function (req, res) {
+    app.get('/chatuser', isLoggedIn, function (req, res) {
         res.send(req.user);
     });
 
-    app.get('/chatlog', findChatLog);
+    app.get('/chatlog', isLoggedIn, findChatLog);
 
     app.post('/chat', postChatLog);
 
-    app.get('/getcontacts', findContacts);
+    app.get('/getcontacts', isLoggedIn, findContacts);
 
-    app.get('/searchmentor', function (req, res) {
+    app.get('/searchmentor', isLoggedIn, function (req, res) {
         res.render('pages/main/search-mentor', {
             user: req.user
         });
     });
 
-    app.get('/mentorapp', function (req, res) {
+    app.get('/mentorapp', isLoggedIn, function (req, res) {
         res.render('pages/main/mentor-app', {
             user: req.user
         });
@@ -353,7 +352,7 @@ module.exports = function (app, passport) {
         console.log(req.body.inter);
     });
 
-    app.get('/contacts', function (req, res) {
+    app.get('/contacts', isLoggedIn, function (req, res) {
         var pics = [];
         var names = [];
         var relations = [];
