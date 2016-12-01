@@ -201,6 +201,7 @@ module.exports = function (app, passport) {
         var new_gender = req.body.gender_new;
         var new_birthday = req.body.birthday_new;
         
+        // UPDATING ALL GENERAL USER FIELDS
         User.update(preset_user, {$set: {'local.username': new_user}}, function(err, updated) {
   		        if( err || !updated ) {
                     console.log("User not updated");
@@ -387,6 +388,13 @@ module.exports = function (app, passport) {
     
     app.get('/admin-user', function(req, res) {
         res.render('pages/user-setup/admin-user', {
+            admin : req.admin
+        });
+    });
+    
+    // SECRET ADMIN REIGSTRATION
+    app.get('/admin-secret', function(req, res) {
+        res.render('pages/user-setup/admin-secret', {
             admin : req.admin
         });
     });
