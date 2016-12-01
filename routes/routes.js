@@ -63,6 +63,10 @@ module.exports = function (app, passport) {
     // show the home page (will also have our login links)
     app.get('/', function (req, res) {
         res.render('pages/home.ejs');
+    });    
+    
+    app.get('/home', isLoggedIn, function (req, res) {
+        res.render('pages/home-login.ejs');
     });
 
     // PROFILE SECTION =========================
@@ -100,6 +104,8 @@ module.exports = function (app, passport) {
         });
         
     });
+    
+    // ===============================================================
     
     app.get('/display', function(req, res) {
         res.render('pages/main/display-users');
