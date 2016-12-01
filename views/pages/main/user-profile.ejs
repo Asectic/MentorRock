@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br><br><br><br>
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">     
+                    
+                    
+                    <!-- Page Username header-->
+                    <br>
+                    <div id="image" >
+                        <% if (user) { %>
+                               <img class="img-thumbnail" src=<%= user.profilePicture %>> 
+                        <% } else { %>
+                            <h1>User is null for some reason!</h1>
+                        <% } %>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+
+                    <!-- Fetch individual -->
+
+                    <!-- Fetch username from db -->
+                    <form action="/userprofile" method="post">
+                        
+                        <% if (user) { %>
+                               <h1 style="float: left;"><%- user.local.username %></h1>
+                            <button name="contacts" class="btn btn-default">Add to Contacts</button>
+                        <% } else { %>
+                            <h1>User is null for some reason!</h1>
+                        <% } %>
+                        
+                    </form>
+
+                    <br><br>
+                    <br><br>
+                    <br>
+
+                    <!--  About section -->
+                    <div id="about">
+                        <h1 id="user-about">User Details</h1>
+                        <div id="about-content">
+
+                            <div class="col-xs-4 col-md-2">
+                                <p>
+                                <strong>Name</strong>:<br>
+                                <strong>Gender</strong>:<br>
+                                <strong>Birthday</strong>:<br>
+                                <strong>Email</strong>:<br>
+                                <strong>Status</strong>:<br>
+                                </p>
+                            </div>
+
+                            <div class="col-xs-14 col-md-10">
+                                
+                                <% if (user) { %>
+                                <p>
+                                    <%- user.givenname + " " + user.familyname %><br>
+                                    <%- user.gender %><br>
+                                    <%- user.local.birthday %><br>
+                                    <%- user.local.email %><br>
+                                    <%- user.role %><br>
+                                </p>
+                                <% } else { %>
+                                    <h1>User is null for some reason!</h1>
+                                <% } %>
+                                
+
+                            </div>
+
+                            <br><br>
+                            <br><br>
+                            <br>
+
+                        </div><!-- End of user about content div -->
+
+                    </div><!-- End of user about div -->
+
+                    <br>
+
+                    <!--  About section -->
+                    <div id="interests">
+                        <h1 id="user-interests">Interests</h1>
+                        <div id="interests-content">
+                            <br>
+                                <% if (user) { %>
+                                    <%- user.specialty %>
+                                <% } else { %>
+                                    <h1>User is null for some reason!</h1>
+                                <% } %>
+                            <br>
+                            <br>
+
+
+                        </div><!-- End of user interests content div -->
+
+                    </div><!-- End of user interests div -->
+
+                    <br>
+
+                    <!--  About section -->
+                    <div id="blog">
+                        <h1 id="user-blog">About</h1>
+                        <div id="blog-content">
+
+                            <br>
+
+                            <% if (user) { %>
+                                <!-- Fetching content from user schema-->
+                                <%- user.about %>
+                            <% } else { %>
+                                <h1>User is null for some reason!</h1>
+                            <% } %>
+                    
+
+                            <br><br>
+
+                            <!-- Implement this-->
+
+                        </div><!-- End of user interests content div -->
+
+                    </div><!-- End of user interests div -->
+
+                    <br>
+
+                </div> <!-- ENd of main content div-->
+
+            </div><!-- End of row div-->
+        </div>
+    </div>
+
+</body>
+    <script src="assets/js/custom.js"></script>   
+    <script src="javascript/admin/usersview.js"></script>
+    <script src="assets/js/menteeview.js"></script>
+</html>

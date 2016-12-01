@@ -51,6 +51,7 @@ var User = require('../models/user');
 var Admin = require('../models/admin');
 var formidable = require('formidable');
 var fs = require('fs');
+var RouteUser = require('./user-routes');
 
 
 //================================================
@@ -70,12 +71,6 @@ module.exports = function (app, passport) {
             user: req.user
         });
     });    
-    
-    app.get('/profile-facebook', isLoggedIn, function(req, res) {
-        res.render('pages/main/mentee-home-facebook.ejs', {
-            user : req.user
-        });
-    });
 
     // LOGOUT ==============================
     app.get('/logout', function (req, res) {
@@ -92,6 +87,23 @@ module.exports = function (app, passport) {
         });
     });
 
+    // Access third-party User
+    app.get('/userprofile', function(req, res) {
+  
+        var quer = req.query.id;
+        
+        //get user information based on the id url parameter
+        User.findById(quer, function(err, userDat) {
+                res.render('pages/main/user-profile', {
+                    user: userDat
+                });     
+        });
+        
+    });
+    
+    app.get('/display', function(req, res) {
+        res.render('pages/main/display-users');
+    });
 
     // ACCOUNT SETTINGS PAGES
     app.get('/accsettings', function(req, res) {
@@ -122,7 +134,9 @@ module.exports = function (app, passport) {
     app.post('/interests-change', function(req, res) {
         
         var new_interests = req.body;
+        
         console.log("Id"+req.query.id);
+        
         for(var i=0; i<new_interests.length; i++){
             console.log("changed interest"+ new_interests[i]);
         }
