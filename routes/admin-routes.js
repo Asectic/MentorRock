@@ -2,7 +2,10 @@
 //separate admin router
 var RouteUser = require('./user-routes');
 var User = require('../models/user');
-
+var Request = require('../models/request');
+var mime = require('mime');
+var path = require('path');
+var fs = require('fs');
 module.exports =  function(app, passport){
 
     //Get the admin page
@@ -64,7 +67,39 @@ module.exports =  function(app, passport){
 
     //Display application information
     app.get('/request', function (req, res) {
-        res.render('pages/admin/request.ejs');
+		        var userId = req.query.id;
+
+        Request.findOne({userID: userId}, function(err, userData) {
+            console.log("Find: "+userData);
+
+            res.render('pages/admin/request.ejs', {data:userData});
+        });
+    });
+	
+	app.get('/download', function(req, res){
+		
+		var userId = req.query.id;
+		console.log("The user ID: "+userId);
+
+        Request.findOne({userID: userId}, function(err, userData) {
+          
+        console.log("Find: "+userData);
+
+            
+        var file = __dirname + '/uploads/'+ userData.cv;
+
+        var filename = path.basename(file);
+        var mimetype = mime.lookup(file);
+
+        res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+        res.setHeader('Content-type', mimetype);
+
+        var filestream = fs.createReadStream(file);
+        filestream.pipe(res);
+		
+        });
+		
+
     });
 
 
