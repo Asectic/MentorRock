@@ -339,3 +339,9 @@ input {
 tr {
   width: 100%;  
 }
+
+.SEARCH, .btn.btn-primary {
+    text-align: center;
+    white-space: normal;
+    width: 100%;
+}
