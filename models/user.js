@@ -50,16 +50,6 @@ var userSchema = new mongoose.Schema({
     givenname: { type: String },
     familyname: { type: String },
     
-    mentorapp: {
-        academics: { type: String},
-        interests: { type: String},
-        experience_field: { type: String },
-        experience_work: { type: String },
-        cv: { type: String },
-        voluntary: { type: String },
-        additionals: { type: String}
-    },
-    
     //type: path to the profile picture, default: default profile picture
     profilePicture: { type: String, default: "assets/img/default-profile-pic.png" },
     about: { type: String, default: "Welcome to my profile!" },
