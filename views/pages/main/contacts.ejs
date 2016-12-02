@@ -21,64 +21,47 @@
                 <div class="row">
                     <!-- Sidenav and page content-->
 
-                        <% include ../../partials/sidenav-main %>
+                    <% include ../../partials/sidenav-main %>
 
-                    <br>
+                        <br>
 
-                    <!-- Main content of the page -->
+                        <!-- Main content of the page -->
 
-                    <!--<div id="content" class="jumbotron col-xs-13 col-md-9">-->
-                    <div id="content" class="jumbotron col-xs-13 col-md-9">
+                        <!--<div id="content" class="jumbotron col-xs-13 col-md-9">-->
+                        <div id="content" class="jumbotron col-xs-13 col-md-9">
 
-                        <div>
-                            <div class="container">
-                                <h2 id="contact-title">My Contacts</h2>
-                            </div>
-                        </div>
-
-                        <!--  user-carousel start  -->
-                        <div id="mentor-list" class="owl-carousel">
-                            <% for(var i=0; i<friend_names.length; i++) { %>
-                                <div class="carousel-item"> <img class="avatar" src="<%= friend_pics[i] %>" alt="">
-                                    <span id="friend-name"><%= friend_names[i] %></span><br>
-                                        <span class="relation"><%= relationships[i] %></span>
-                                        <a href="/userprofile"></a>
+                            <div>
+                                <div class="container">
+                                    <h2 id="contact-title">My Contacts</h2>
+                                    <span id="hidden-my-id"><%=myid%></span>
                                 </div>
-                                <% } %>
+                            </div>
 
-                                    <!--
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/face-2.jpg" alt="">Liche Bore<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/face-1.jpg" alt="">Morris Luck<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/max.gif" alt="">Max Well<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/tesla.jpg" alt="">Tesla Coil<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/einstein.jpg" alt="">Stein Rock<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/face-4.jpg" alt="">Jada King<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/face-5.jpeg" alt="">Babe Que<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/face-6.jpg" alt="">Sio Joe<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/face-7.jpg" alt="">Jamie Kaka<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            <div class="carousel-item"> <img class="avatar" src="assets/img/face-8.jpg" alt="">Lemon Tea<br><a href="/chatslist"><button class="chat-button">Chat</button></a></div>
-                            -->
+                            <!--  user-carousel start  -->
+                            <div id="friend-list" class="owl-carousel">
+                                <% for(var i=0; i<friend_names.length; i++) { %>
+                                    <div class="carousel-item">
+                                        <a href="/userprofile?id=<%= friend_ids[i] %>">
+                                       <img class="avatar" src="<%= friend_pics[i] %>" alt="">
+                                        <span id="friend-name"><%= friend_names[i] %></span><br>
+                                        <span class="relation"><%= relationships[i] %></span>
+                                        </a>
+                                        <button class="unfriend" id="<%=friend_ids[i] %>">Unfriend</button>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <!--  user-carousel end  -->
+
+                            <footer>
+                            </footer>
                         </div>
-                        <!--  user-carousel end  -->
-
-                        <!--  mentee-carousel start  
-                        <div id="mentee-list" class="owl-carousel">
-                            <div class="carousel-item"> mentee 1 </div>
-                            <div class="carousel-item"> mentee 2 </div>
-                            <div class="carousel-item"> mentee 3 </div>
-                        </div>
-                          mentee-carousel end  -->
-
-                        <footer>
-
-                        </footer>
-                    </div>
-                    <!-- End of jumbotron-->
+                        <!-- End of jumbotron-->
 
                 </div>
                 <!-- End of row div-->
             </div>
             <!-- ENd of content-con div-->
+            <div id="snackbar">snackbar text</div>
     </div>
     <!-- End of wrapper-->
 
