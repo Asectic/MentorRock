@@ -8,43 +8,6 @@ var Schema = mongoose.Schema;
  * collection called gillers.
  */
 
-var chatroom = new Schema({
-        speaker1_id:{
-            type: String,
-            required: true
-        },
-        speaker2_id: {
-            type: String,
-            requried: true
-        },
-        room_id: {
-            type: String,
-            requried: true
-        },
-        chatlog: [
-            {
-                sender_id: {
-                    type: String,
-                    required: true
-                },
-                text: {
-                    type: String
-                },
-                file: {
-                    type: ObjectId
-                },
-                time: {
-                    time: String,
-                    required: true
-                }
-            }
-        ]
-},
-    {
-        collection: 'chatrooms'
-    });
-
-
 var mentee = new Schema({
     user_id: {
         type: String,
@@ -71,10 +34,9 @@ var mentor = new Schema({
 });
 
 
-var Chat = mongoose.model('Chatrooms', chatroom);
 var Mentor = mongoose.model('Mentor', mentor);
 var Mentee = mongoose.model('Mentee', mentee);
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
-module.exports = Chatrooms;
+
 module.exports = Mentor;
 module.exports = Mentee;

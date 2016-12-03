@@ -93,7 +93,7 @@
         for(var i = 0; i<response.length; i++){
           var new_div = $('<div class="col-sm-4 col-md-4 col-lg-4" id="' +response[i]._id +'"></div>');
           var profile_pic = $('<img class="avatar" src="'+response[i].profilePicture+'" alt="">');
-          var name_span = $('<span id="friend-name"><a href="/userprofile">'+ response[i].givenname +' '+response[i].familyname+ '</a></span><br>');
+          var name_span = $('<span id="friend-name"><a href="/userprofile?id='+response[i]._id+'">'+ response[i].givenname +' '+response[i].familyname+ '</a></span><br>');
           var visit_button = $('<button id="' +response[i]._id +'" class="btn btn-success" onclick="addcontact(this.id)">Add Mentor</button>');
           new_div.append(profile_pic);
           new_div.append(name_span);
@@ -107,7 +107,7 @@
          console.log(clicked_id);
          $.ajax({
            url: '/addmentors',
-           type: "GET",
+           type: "POST",
            data: {id : clicked_id},
            success: function(response){
                alert(response);
