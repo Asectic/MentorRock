@@ -135,6 +135,7 @@ module.exports = function (app, passport) {
     // SUBMIT USER PARAMETER CHANGES TO ACC-SETTINGS
     app.post('/interests-change', function (req, res) {
 
+        // Generated from settings-interests script
         var new_interests = req.body;
 
         console.log("Id" + req.query.id);
@@ -162,22 +163,25 @@ module.exports = function (app, passport) {
         res.send('success');
     });
 
-    app.post('/about-change', function (req, res) {
-        var preset_about = req.user.about;
-        var new_about = req.body.about_new;
+    app.post('/about-change', isLoggedIn, function (req, res) {
 
-        User.update(preset_about, {
+        var current_user = req.user._id;
+        var data = req.body.about_new;
+        
+        User.update({
+            _id: current_user
+        }, {
             $set: {
-                about: new_about
+                about: data
             }
         }, function (err, updated) {
             if (err || !updated) {
                 console.log("User not updated");
             } else {
-                console.log("User about updated");
+                console.log("User icon updated");
             }
         });
-
+        
         // After completing about update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
 
@@ -186,14 +190,7 @@ module.exports = function (app, passport) {
     app.post('/general-change', function (req, res) {
 
         // GET CURRENT user.local fields
-        var preset_user = req.user.local.username;
-        var preset_password = req.user.local.password;
-        var preset_email = req.user.local.email;
-        var preset_stunum = req.user.local.stunum;
-        var preset_familyname = req.user.familyname;
-        var preset_givenname = req.user.givenname;
-        var preset_gender = req.user.gender;
-        var preset_birthday = req.user.local.birthday;
+        var current_user = req.user._id;
 
         // LIST OF ALL "changed" input fields
         var new_user = req.body.username_new;
@@ -206,7 +203,7 @@ module.exports = function (app, passport) {
         var new_birthday = req.body.birthday_new;
 
         // UPDATING ALL GENERAL USER FIELDS
-        User.update(preset_user, {
+        User.update({_id: current_user}, {
             $set: {
                 'local.username': new_user
             }
@@ -218,7 +215,7 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update(preset_password, {
+        User.update({_id: current_user}, {
             $set: {
                 'local.password': new_password
             }
@@ -230,7 +227,7 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update(preset_email, {
+        User.update({_id: current_user}, {
             $set: {
                 'local.email': new_email
             }
@@ -242,7 +239,7 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update(preset_stunum, {
+        User.update({_id: current_user}, {
             $set: {
                 'local.stunum': new_stunum
             }
@@ -254,7 +251,7 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update(preset_familyname, {
+        User.update({_id: current_user}, {
             $set: {
                 familyname: new_familyname
             }
@@ -266,7 +263,7 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update(preset_givenname, {
+        User.update({_id: current_user}, {
             $set: {
                 givenname: new_givenname
             }
@@ -278,7 +275,7 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update(preset_gender, {
+        User.update({_id: current_user}, {
             $set: {
                 gender: new_gender
             }
@@ -290,7 +287,7 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update(preset_birthday, {
+        User.update({_id: current_user}, {
             $set: {
                 'local.birthday': new_birthday
             }
@@ -312,8 +309,12 @@ module.exports = function (app, passport) {
 
         var preset_icon = req.user.profilePicture;
         var new_icon = req.body.profilePic_new;
+        
+        var current_user = req.user._id;
 
-        User.update(preset_icon, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 profilePicture: new_icon
             }
