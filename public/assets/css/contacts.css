@@ -13,6 +13,10 @@
     padding: 0px;
 }
 
+.hidden-roomid {
+    display: none;
+}
+
 #hidden-my-id {
     display: none;
 }
