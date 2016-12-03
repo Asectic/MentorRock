@@ -110,7 +110,7 @@
            type: "GET",
            data: {id : clicked_id},
            success: function(response){
-               buildMentorTable(response);
+               alert(response);
            },
            error: function (request, status, error) {
                alert(request.responseText);
