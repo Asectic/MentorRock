@@ -103,20 +103,6 @@ module.exports = function (app, passport) {
         });
     });
 
-    // Access third-party User
-    app.get('/userprofile', isLoggedIn, function (req, res) {
-
-        var quer = req.query.id;
-
-        //get user information based on the id url parameter
-        User.findById(quer, function (err, userDat) {
-            res.render('pages/main/user-profile', {
-                user: userDat
-            });
-        });
-
-    });
-
     // ===============================================================
 
     // ACCOUNT SETTINGS PAGES
