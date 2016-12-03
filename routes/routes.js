@@ -444,6 +444,17 @@ module.exports = function (app, passport) {
         });
         res.send("Unfriend!");
     });
+    // search mentor route
+    app.get('/getmentors', function(req, res){
+      specialtyList = req.query;
+      var mentors = User.find({$and : [{ specialty :  { $in : specialtyList.specialty }}, {role: "mentor"}]}).limit(10);
+      mentors.exec(function (err, data) {
+        if (err) return err;
+        res.send(data);
+      });
+    });
+
+
 
     // ERROR PAGE FOR AUTHENTICATION
     app.get('/error', function (req, res) {
