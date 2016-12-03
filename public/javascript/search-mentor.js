@@ -10,8 +10,6 @@
         newinterest=interest.split(",");
     }
 
-
-    $(function () {
 //Send ajax request to obtain the list of specialities
         var findSpeciality=function () {
             $.ajax({
@@ -47,6 +45,7 @@
             return content;
 
         }
+
         findSpeciality();
 
         //pertaining to the chosen select
@@ -67,6 +66,7 @@
 
         }
         $("#saveInterest").click(function () {
+          $('#result').html("");
             var interestData=$("#selectInterest").val();
             console.log(interestData);
             var formatted={};
@@ -88,18 +88,32 @@
             });
         });
         function buildMentorTable(response){
-          console.log("response---");
-        $('#result').html("");
+
         $('#result').append($('<h1>Query Result</h1>'));
         for(var i = 0; i<response.length; i++){
-          var new_div = $('<div class="carousel-item" id="' +response[i]._id +'"></div>');
+          var new_div = $('<div class="col-sm-4 col-md-4 col-lg-4" id="' +response[i]._id +'"></div>');
           var profile_pic = $('<img class="avatar" src="'+response[i].profilePicture+'" alt="">');
-          var name_span = $('<span id="friend-name"><a href="/userprofile"></a>'+ response[i].givenname +' '+response[i].familyname+ '</span><br>');
-          var visit_button = $('<buttonc class="btn">Add Mentor</button>');
+          var name_span = $('<span id="friend-name"><a href="/userprofile">'+ response[i].givenname +' '+response[i].familyname+ '</a></span><br>');
+          var visit_button = $('<button id="' +response[i]._id +'" class="btn btn-success" onclick="addcontact(this.id)">Add Mentor</button>');
           new_div.append(profile_pic);
           new_div.append(name_span);
           new_div.append(visit_button);
           $('#result').append(new_div);
         }
       }
-    });
+
+       function addcontact(clicked_id) {
+         clicked_id =$.trim(clicked_id);
+         console.log(clicked_id);
+         $.ajax({
+           url: '/addmentors',
+           type: "GET",
+           data: {id : clicked_id},
+           success: function(response){
+               buildMentorTable(response);
+           },
+           error: function (request, status, error) {
+               alert(request.responseText);
+           }
+         });
+       }

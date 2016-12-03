@@ -191,7 +191,6 @@ $("#message-input").keypress(function (e) {
 });
 
 $("#send-message-button").click(function () {
-    console.log("button clicked~~~~");
     sendMessage();
 });
 
@@ -216,14 +215,12 @@ function getChatLog(room_id, i) {
 $('.friend-list-item').on('click', function (e) {
     //e.preventDefault();
     e.stopPropagation();
-    console.log("clicked the list~~~~");
     //location.reload();
     i = $(this).attr("id");
     $('.chat-box').empty();
     $('.chat-body').show();
     $('.chat-box').show();
     if (socket) {
-        console.log(" restart ```");
         unregisterListener();
         socket.io.disconnect();
         socket.io.reconnect('http://localhost:3000');

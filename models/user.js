@@ -117,18 +117,7 @@ fewusers = [
               "about": "disintermediate one-to-one e-markets",
               "role": "mentor",
               "specialty": "Mathematics",
-              "contacts": [
-                  {
-                      "name": "Shirley Kelley",
-                      "user_id": null,
-                      "relation": "mentee"
-                  },
-                  {
-                      "name": "Carolyn Scott",
-                      "user_id": null,
-                      "relation": "mentee"
-                  }
-              ]
+              "contacts": []
           },
           {
               "local": {
@@ -146,13 +135,7 @@ fewusers = [
               "about": "productize magnetic convergence",
               "role": "mentee",
               "specialty": "Programming",
-              "contacts": [
-                  {
-                      "name": "Michael Burns",
-                      "user_id": null,
-                      "relation": "mentor"
-                  }
-              ]
+              "contacts": []
           },
           {
               "local": {
@@ -170,22 +153,16 @@ fewusers = [
               "about": "matrix rich ROI",
               "role": "mentor",
               "specialty": "Reading",
-              "contacts": [
-                  {
-                      "name": "Michael Burns",
-                      "user_id": null,
-                      "relation": "mentor"
-                  }
-              ]
+              "contacts": []
           }
       ];
 
       User.collection.insert(fewusers,onInsert);
 
-function onInsert(err, docs) {
+function onInsert(err, result) {
     if (err) {
         // TODO: handle error
     } else {
-        console.info('%d potatoes were successfully stored.', docs.length);
+        console.log(result);
     }
 }

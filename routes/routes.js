@@ -6,7 +6,7 @@ var Chatroom = require('../models/chatroom');
 
 function removeItem(arr, prop, val) {
     var i;
-    var found = 0;
+    var found = 0
     for (i in arr) {
         if (arr[i][prop] == val) {
             found = 1;
@@ -19,14 +19,14 @@ function removeItem(arr, prop, val) {
 
 function findItem(arr, prop, val) {
     var i;
-    var found = 0;
     for (i in arr) {
         if (arr[i][prop] == val) {
-            found = 1;
+          console.log("found");
+            return 1；
             break;
         }
     }
-    return found;
+    return 0;
 }
 
 function findContacts(req, res) {
@@ -72,6 +72,7 @@ function findChatLog(req, res) {
 
 //var RouteUser = require('./user-routes');
 var User = require('../models/user');
+var CharRoom = require('../models/chatroom');
 var Admin = require('../models/admin');
 var formidable = require('formidable');
 var fs = require('fs');
@@ -508,6 +509,106 @@ module.exports = function (app, passport) {
             if (err) return err;
             res.send(data);
         });
+    });
+
+    app.get('/addmentors', function(req, res){
+      var user = req.user;
+      console.log(req.query);
+      //if already contacts, return err;
+      var exist;
+      User.find({_id: user._id},function(err, user){
+        if (err) {
+            // TODO: handle error
+        } else {
+          exist = findItem(user.contacts, "id", req.query.id);
+          console.log(exist);
+        }
+      });
+
+      if(exist){
+        console.log("already exist");
+        res.send("Already added!");
+      }else{
+
+        // if not, construct chattoom & update contacts list of both
+        var mentor ;
+        User.findOne({_id : req.query.id},function(err, mentor){
+          if (err) {
+              // TODO: handle error
+          } else {
+            callback(mentor);
+          }
+      });
+
+      function callback(mentor) {
+      var newChatRoom = {
+          "speaker1_id": user._id,
+          "speaker2_id": mentor._id,
+          "room_id": "",
+          "chatlog": []
+      }
+
+      console.log(user);
+      console.log(mentor);
+
+
+      CharRoom.collection.insert(newChatRoom,function(err, result) {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log("chatroom created");
+              var room_id = result._id;
+
+              mentor_data={
+                          "name" : mentor.givenname + " " + mentor.familyname,
+                          "pic" :  mentor.profilePicture,
+                          "id" : mentor._id,
+                          "relation" : "mentor",
+                          "room_id" : room_id
+              };
+
+              mentee_data={
+                          "name" : user.givenname + " " + user.familyname,
+                          "pic" :  user.profilePicture,
+                          "id" : user._id,
+                          "relation" : "mentee",
+                          "room_id" : room_id
+              };
+              // update mentor's contact list
+              User.update(
+                  {"_id": mentor._id},
+                  { "$push":
+                      {"contacts":
+                          mentee_data
+                      }
+                  }, function(err, updated) {
+                    if( err || !updated ) {
+                          console.log("Contact is not added");
+                      }
+                    else {
+                          console.log("New contact is added");
+                      }
+              });
+              // update mentee's contact list
+              User.update(
+                  {"_id": user._id},
+                  { "$push":
+                      {"contacts":
+                          mentor_data
+                      }
+                  }, function(err, updated) {
+                    if( err || !updated ) {
+                          console.log("Contact is not added");
+                      }
+                    else {
+                          console.log("New contact is added");
+                      }
+              });
+            }
+      });
+      }
+      //res.
+    }
     });
 
 
