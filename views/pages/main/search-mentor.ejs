@@ -8,6 +8,7 @@
     <!-- Importing the main-style headers -->
     <% include ../../partials/main-style %>
     <script src="assets/js/search-mentor.js"></script>
+    <link rel="stylesheet" href="assets/css/chosen_css/chosen.min.css">
 
 </head>
 
@@ -35,41 +36,22 @@
                 <!-- Main content of the page -->
                 <div id="content" class="col-xs-13 col-md-9">
                     <h1>Search for Mentors</h1>
-
+                    
+                    <br>
+                    
+                    <p>Type in to get started!</p>
+                    
                     <br>
 
-                    <p>Click on any of the following interest categories to get started.</p>
+                        <div class="form-group col-md-6 col-sm-8 col-xs-12">
+                            <form>
+                                <select data-placeholder="Type to get started!" class="form-control chosen-select" multiple tabindex="6" id="selectInterest" value="lolol">
+                                </select>
+                            </form>
 
-                    <br>
-
-                    <button id="academics" class="btn" onclick="showList(this.id)">Academics</button>
-
-                    <div id="academics-box">
-                        <br>
-
-                        <!-- Import the interests-table -->
-                        <% include ../../partials/academics-table %>
-
-                    </div>
-
-                    <!-- Academic List Pagination -->
-
-                    <br><br>
-
-                    <button id="interests-butt" class="btn" onclick="showList(this.id)">Interests</button>
-
-                    <div id="interests-box">
-                        <br>
-
-                        <!-- Import the acaemics-table -->
-                        <% include ../../partials/interests-table %>
-
-                    </div><!-- End of interests box -->
-
-                    <br>
-                    <br>
-
-                    <center><button id="mentors-butt" class="btn" onclick="submitInterests()">Submit</button></center>
+                        </div><!-- End of form group-->
+                    
+                        <center><button id="mentors-butt" class="btn" onclick="submitInterests()">Submit</button></center>
 
                     <br><br>
 
@@ -81,8 +63,102 @@
             </div>
         </div>
     </div>
+    
+    <script src="javascript/admin/chosen.jquery.min.js"></script>
+    <script>
+        var userId="<%- user._id %>";
+
+        // resetting this to new input template
+        var interest ="";
+        var newinterest;
+        if (interest.indexOf(',') == -1) {
+            newinterest=interest;
+        }else{
+            newinterest=interest.split(",");
+        }
 
 
+        $(function () {
+
+    //Send ajax request to obtain the list of specialities
+            var findSpeciality=function () {
+                $.ajax({
+                    url:'/speciality',
+                    Type:'GET',
+                    dataType:'json',
+                    success:function (data) {
+
+                        $("#selectInterest").append(printSelect(data));
+                        $("#selectInterest").chosen({ width: '100%' });
+                        chosenSelectSetting();
+                    },
+                    error:function () {
+                        throw error;
+                    }
+
+                });
+            };
+            function printSelect(data) {
+                var content ="<option  value='"+"'></option>" +
+                        "<optgroup label='Academics'>";
+                for(var i=0; i<data.speciality.academics.length; i++){
+                    content+="<option>"+data.speciality.academics[i]+"</option>";
+
+                }
+                content +="</optgroup>" +
+                        "<optgroup label='Extracurricular Activities'>";
+                for(var j=0; j<data.speciality.interests.length; j++){
+                    content+="<option>"+data.speciality.interests[j]+"</option>";
+                }
+                content +="</optgroup>";
+
+                return content;
+
+            }
+            findSpeciality();
+
+            //pertaining to the chosen select
+            function chosenSelectSetting() {
+                var config = {
+                    '.chosen-select'           : {},
+                    '.chosen-select-deselect'  : {allow_single_deselect:true},
+                    '.chosen-select-no-single' : {disable_search_threshold:10},
+                    '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                    '.chosen-select-width'     : {width:"95%"}
+                };
+
+                for (var selector in config) {
+                    $(selector).chosen(config[selector]);
+                }
+                $("#selectInterest").val(newinterest);
+                $('#selectInterest').trigger('chosen:updated');
+
+            }
+            $("#saveInterest").click(function () {
+                var interestData=$("#selectInterest").val();
+                console.log(interestData);
+                var formatted={};
+                formatted.specialty=[];
+                for (var i=0; i<interestData.length; i++){
+
+                    formatted.specialty.push(interestData[i]);
+                }
+
+
+                $.post('/interests-change?id='+userId, formatted,  function(data) {
+                    console.log(data);
+
+                }).fail(function(){
+                    console.log("There was an error");
+                });
+            });
+
+        });
+    </script>    
+    
+    
 </body>
+    
+    
   <script src="assets/js/custom.js"></script>      
 </html>
