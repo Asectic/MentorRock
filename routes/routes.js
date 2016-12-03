@@ -80,6 +80,10 @@ module.exports = function (app, passport) {
     app.get('/home', isLoggedIn, function (req, res) {
         res.render('pages/home-login.ejs');
     });
+    
+    app.get('/home2', function (req, res) {
+        res.render('pages/home-admin-login.ejs');
+    });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function (req, res) {
@@ -475,7 +479,7 @@ module.exports = function (app, passport) {
         failureFlash: true // allow flash messages
     }));
 
-    // process the signup form
+    // process the signup form: admin-secret.ejs
     app.post('/admin-signup', passport.authenticate('admin-signup', {
         successRedirect: '/admin', // redirect to the secure profile section
         failureRedirect: '/admin-user', // redirect back to the signup page if there is an error
