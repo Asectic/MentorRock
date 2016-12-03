@@ -46,7 +46,8 @@
                                         <span id="friend-name"><%= friend_names[i] %></span><br>
                                         <span class="relation"><%= relationships[i] %></span>
                                         </a>
-                                        <button class="unfriend" id="<%=friend_ids[i] %>">Unfriend</button>
+                                        <button class="unfriend" id="<%=friend_ids[i] %>">Unfriend<span class="hidden-roomid"><%=rooms[i] %></span></button>
+
                                     </div>
                                     <% } %>
                             </div>

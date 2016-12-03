@@ -405,6 +405,7 @@ module.exports = function (app, passport) {
         var relations = [];
         var ids = [];
         var contacts = req.user.contacts;
+        var rooms = [];
         var my_id = req.user._id;
         for (var idx in contacts) {
             if (contacts.hasOwnProperty(idx)) {
@@ -415,6 +416,7 @@ module.exports = function (app, passport) {
                 pics.push(contacts[idx].pic);
                 relations.push(contacts[idx].relation);
                 ids.push(contacts[idx].id);
+                rooms.push(contacts[idx].room_id);
             }
         }
         var data = {
@@ -422,7 +424,8 @@ module.exports = function (app, passport) {
             "friend_pics": pics,
             "relationships": relations,
             "friend_ids": ids,
-            "myid": my_id
+            "myid": my_id,
+            "rooms": rooms
         };
         res.render('pages/main/contacts', data);
     });
@@ -430,6 +433,7 @@ module.exports = function (app, passport) {
     app.post('/deletecontact', function (req, res) {
         var my_id = req.param('myid');
         var f_id = req.param('fid');
+        var r_id = req.param('room_id');
         // rm friend from my contacts
         User.findOne({
             _id: my_id
@@ -456,6 +460,17 @@ module.exports = function (app, passport) {
                 console.log("Failure");
             }
         });
+        // rm room from database
+        Chatroom.findOne({
+            room_id: r_id
+        }, function (err, room) {
+            if (err) throw err;
+            room.remove(function (err) {
+                if (err) throw err;
+                console.log('Remove room' + r_id);
+            });
+        });
+        // respond to client
         res.send("Unfriend!");
     });
 

@@ -33,6 +33,7 @@ $('.unfriend').click(function () {
         data: JSON.stringify({
             "myid": $('#hidden-my-id').text().toString(),
             "fid": $(this).attr('id').toString(),
+            "room_id": $(this).children("span").text().toString()
         }),
         success: function (data) {
             console.log(data);
