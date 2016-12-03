@@ -17,6 +17,18 @@ function removeItem(arr, prop, val) {
     return found;
 }
 
+function findItem(arr, prop, val) {
+    var i;
+    var found = 0;
+    for (i in arr) {
+        if (arr[i][prop] == val) {
+            found = 1;
+            break;
+        }
+    }
+    return found;
+}
+
 function findContacts(req, res) {
     var query = require('url').parse(req.url, true).query;
     var my_id = query.myid;
@@ -80,7 +92,7 @@ module.exports = function (app, passport) {
     app.get('/home', isLoggedIn, function (req, res) {
         res.render('pages/home-login.ejs');
     });
-    
+
     app.get('/home2', function (req, res) {
         res.render('pages/home-admin-login.ejs');
     });
@@ -171,7 +183,7 @@ module.exports = function (app, passport) {
 
         var current_user = req.user._id;
         var data = req.body.about_new;
-        
+
         User.update({
             _id: current_user
         }, {
@@ -185,7 +197,7 @@ module.exports = function (app, passport) {
                 console.log("User icon updated");
             }
         });
-        
+
         // After completing about update, redirect page to acc-settings.ejs
         res.redirect('/accsettings');
 
@@ -207,7 +219,9 @@ module.exports = function (app, passport) {
         var new_birthday = req.body.birthday_new;
 
         // UPDATING ALL GENERAL USER FIELDS
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 'local.username': new_user
             }
@@ -219,7 +233,9 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 'local.password': new_password
             }
@@ -231,7 +247,9 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 'local.email': new_email
             }
@@ -243,7 +261,9 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 'local.stunum': new_stunum
             }
@@ -255,7 +275,9 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 familyname: new_familyname
             }
@@ -267,7 +289,9 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 givenname: new_givenname
             }
@@ -279,7 +303,9 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 gender: new_gender
             }
@@ -291,7 +317,9 @@ module.exports = function (app, passport) {
             }
         });
 
-        User.update({_id: current_user}, {
+        User.update({
+            _id: current_user
+        }, {
             $set: {
                 'local.birthday': new_birthday
             }
@@ -313,7 +341,7 @@ module.exports = function (app, passport) {
 
         var preset_icon = req.user.profilePicture;
         var new_icon = req.body.profilePic_new;
-        
+
         var current_user = req.user._id;
 
         User.update({
@@ -465,13 +493,21 @@ module.exports = function (app, passport) {
         res.send("Unfriend!");
     });
     // search mentor route
-    app.get('/getmentors', function(req, res){
-      specialtyList = req.query;
-      var mentors = User.find({$and : [{ specialty :  { $in : specialtyList.specialty }}, {role: "mentor"}]}).limit(10);
-      mentors.exec(function (err, data) {
-        if (err) return err;
-        res.send(data);
-      });
+    app.get('/getmentors', function (req, res) {
+        specialtyList = req.query;
+        var mentors = User.find({
+            $and: [{
+                specialty: {
+                    $in: specialtyList.specialty
+                }
+            }, {
+                role: "mentor"
+            }]
+        }).limit(10);
+        mentors.exec(function (err, data) {
+            if (err) return err;
+            res.send(data);
+        });
     });
 
 
