@@ -345,3 +345,7 @@ tr {
     white-space: normal;
     width: 100%;
 }
+
+#secret {
+    display: none;
+}
