@@ -39,10 +39,10 @@
                     <!-- Fetch individual -->
 
                     <!-- Fetch username from db -->
-                    <% if (user.local) { %>
+                    <% if (!user.third_party) { %>
                             <h1 style="display:inline-block;"><%= user.local.username %></h1>
                     <% } else { %>
-                            <h1><%= user.facebook.givenname %></h1>
+                            <h1 style="display:inline-block;"><%= user.givenname %></h1>
                     <% } %>
 
                     <br><br>
@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="col-xs-14 col-md-10">
-                                <% if (user.local) { %>
+                                <% if (!user.third_party) { %>
                                     <p>
                                         <%= user.givenname + " " + user.familyname %><br>
                                         <%= user.gender %><br>
@@ -120,11 +120,8 @@
                             <br>
 
                             <!-- Fetching content from user schema-->
-                            <% if (user.local) { %>
                                     <%= user.about %>
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>
+
 
                             <br><br>
 

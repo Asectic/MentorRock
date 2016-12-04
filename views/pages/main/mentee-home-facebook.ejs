@@ -36,12 +36,9 @@
                     <!-- Whatever content goes here -->
 
                     <% if (user) { %>
-                        <center><h1>Welcome <%= user.facebook.givenname %></h1> <br></center>
-
-                    <% } else { %>
-                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                        <center><h1>Welcome <%= user.givenname %></h1> <br></center>
                     <% } %>
-                    
+
                     <!-- ===============================================================  -->
 
                     <div id="newsfeed" >

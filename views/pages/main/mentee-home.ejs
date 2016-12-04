@@ -35,10 +35,10 @@
 
                     <!-- Whatever content goes here -->
 
-                    <% if (user) { %>
+                    <% if (!user.third_party) { %>
                         <center><h1>Welcome <%= user.local.username %></h1> <br></center>
                     <% } else { %>
-                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                        <center><h1>Welcome <%= user.givenname %></h1> <br></center>
                     <% } %>
 
                     <div id="newsfeed" >

@@ -165,7 +165,7 @@ module.exports = function(passport) {
     // =========================================================================
     // ADMIN  ================================================================
     // =========================================================================
-    
+
     passport.use('admin-login', new LocalStrategy({
 
         usernameField : 'username',
@@ -199,9 +199,9 @@ module.exports = function(passport) {
             });
         });
     })); // end of admin login
-    
+
     // ADMIN SIGNUP =================================================
-    
+
     passport.use('admin-signup', new LocalStrategy({
 
         usernameField : 'username',
@@ -276,10 +276,10 @@ module.exports = function(passport) {
         });
 
     }));
-    
-    
-    
-    
+
+
+
+
     // =========================================================================
     // FACEBOOK ================================================================
     // =========================================================================
@@ -287,7 +287,8 @@ module.exports = function(passport) {
     fbStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new FacebookStrategy(fbStrategy,
     function(req, token, refreshToken, profile, done) {
-
+        //console.log(req);
+        //console.log(profile);
         // asynchronous
         process.nextTick(function() {
 
@@ -303,8 +304,8 @@ module.exports = function(passport) {
                         if (!user.facebook.token) {
                             user.facebook.token = token;
                             user.gender = profile.gender;
-                            user.givenname = profile.givenName;
-                            user.familyname = profile.familyName;
+                            user.givenname = profile.name.givenName;
+                            user.familyname = profile.name.familyName;
                             user.third_party = true;
                             user.facebook.email = (profile.emails[0].value || '').toLowerCase();
                             user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
@@ -324,8 +325,8 @@ module.exports = function(passport) {
                         newUser.facebook.id    = profile.id;
                         newUser.facebook.token = token;
                         newUser.gender = profile.gender;
-                        newUser.givenname = profile.givenName;
-                        newUser.familyname = profile.familyName;
+                        newUser.givenname = profile.name.givenName;
+                        newUser.familyname = profile.name.familyName;
                         newUser.third_party = true;
                         newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
                         newUser.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
@@ -346,8 +347,8 @@ module.exports = function(passport) {
                 user.facebook.id    = profile.id;
                 user.facebook.token = token;
                 user.gender = profile.gender;
-                user.givenname = profile.givenName;
-                user.familyname = profile.familyName;
+                user.givenname = profile.name.givenName;
+                user.familyname = profile.name.familyName;
                 user.third_party = true;
                 user.facebook.email = (profile.emails[0].value || '').toLowerCase();
                 user.profilePicture = "http://graph.facebook.com/" +profile.id +"/picture?type=large";
