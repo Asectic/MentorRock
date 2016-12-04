@@ -47,9 +47,10 @@ module.exports =  function(app, passport){
     });
 
   app.post('/addmentors', function(req, res){
+    console.log(req.body.id);
+
       //if already contacts, return err;
       User.findOne({_id: req.user._id},function(err, m_user){
-
         if (err) {
             // TODO: handle error
         } else {
@@ -59,12 +60,15 @@ module.exports =  function(app, passport){
       });
 
       function callback1(m_user) {
-        exist = findItem(m_user.contacts, "id", req.query.id);
+        console.log(m_user);
+        console.log(m_user.contacts);
+        //console.log(req.body.id);
+        exist = findItem(m_user.contacts, "id", req.body.id);
         if(exist){
           console.log("already exist");
           res.send("Already added!");
         }else{
-          User.findOne({_id : req.query.id},function(err, mentor){
+          User.findOne({_id : req.body.id},function(err, mentor){
             if (err) {
                 // TODO: handle error
             } else {
@@ -82,7 +86,7 @@ module.exports =  function(app, passport){
             "room_id": "",
             "chatlog": []
         }
-        CharRoom.collection.insert(newChatRoom,function(err, result) {
+        Chatroom.collection.insert(newChatRoom,function(err, result) {
             if (err) {
               console.log(err);
             } else {

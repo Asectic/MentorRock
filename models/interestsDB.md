@@ -92,6 +92,8 @@ INTERESTS LIST (To their ID Paramters):
 
 ----------------------------------------
 
+"Aboriginal Studies","Accounting","African Studies","American Studies", "East Asian Studies","Animal Physiology","Anthropology","Statistics","Mathematics", "Archaelogy","Architectural Studies" ,"Art and Art History", "Behaviour, Genetics and Neurobiology", "Biochemistry","Ecology",  "Biodiversity and Conservation Biology", "Bioethics","Bioinformatics","Bioinformatics and Computational Biology", "Biological Chemistry","Canadian Studies", "Chemistry","Christianity and Culture", "Cinema Studies", "Cognitive Science", "Computer Science","Criminology","Engineering","Linguistics","Tennis","Swimming", "Basketball","Baseball","Programming","Image Editing", "Blogging","Reading","Writing","Playing Instruments","Piano", "Violin", "Olympics","Teaching", "Volunteering", "Cooking", "Cleaning","Gardening","Arts and Crafts", "Forestry","Makeup and Beauty","Birdwatching", "Walking", "Cosplaying","Origami","Video Gaming", "Flower Arranging", "Yoga","Modeling","Magic"
+
 "Aboriginal Studies","Accounting", "African Studies","American Studies" "East Asian Studies"
 "Animal Physiology", "Anthropology" "Statistics","Mathematics", "Archaelogy" , "Architectural Studies"
 ,"Art and Art History",
