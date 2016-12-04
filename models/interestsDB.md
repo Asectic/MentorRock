@@ -17,9 +17,9 @@ ACADEMICS LIST (To their ID Paramters):
 - Archaelogy - archaelogy
 
 (Row 3):
-- Architectural Studies - architect 
-- Art and Art History - art 
-- Behaviour, Genetics and Neurobiology - genetics 
+- Architectural Studies - architect
+- Art and Art History - art
+- Behaviour, Genetics and Neurobiology - genetics
 - Biochemistry - biochemistry
 - Ecology - ecology
 
@@ -28,7 +28,7 @@ Biodiversity and Conservation Biology - biodiversity
 Bioethics - bioethics
 Bioinformatics - bioinformatics
 Bioinformatics and Computational Biology - compute-biology
-Biological Chemistry - bio-chemistry 
+Biological Chemistry - bio-chemistry
 
 (Row 5):
 - Canadian Studies - canadian
@@ -59,7 +59,7 @@ INTERESTS LIST (To their ID Paramters):
 - Blogging - blogging
 - Reading - reading
 - Writing - writing
-- Playing Instruments - play-instr 
+- Playing Instruments - play-instr
 
 (Row 3):
 - Piano - piano
@@ -88,3 +88,27 @@ INTERESTS LIST (To their ID Paramters):
 - Yoga - yoga
 - Modeling - modeling
 - Magic - magic
+
+
+----------------------------------------
+
+"Aboriginal Studies","Accounting", "African Studies","American Studies" "East Asian Studies"
+"Animal Physiology", "Anthropology" "Statistics","Mathematics", "Archaelogy" , "Architectural Studies"
+,"Art and Art History",
+"Behaviour, Genetics and Neurobiology",
+"Biochemistry","Ecology",
+
+"Biodiversity and Conservation Biology",
+"Bioethics","Bioinformatics"
+"Bioinformatics and Computational Biology",
+"Biological Chemistry","Canadian Studies",
+"Chemistry","Christianity and Culture", "Cinema Studies", "Cognitive Science",
+"Computer Science","Criminology","Engineering","Linguistics",
+
+"Tennis","Swimming", "Basketball","Baseball","Programming","Image Editing",
+"Blogging","Reading","Writing","Playing Instruments","Piano", "Violin",
+"Olympics","Teaching", "Volunteering",
+"Cooking", "Cleaning","Gardening","Arts and Crafts",
+"Forestry","Makeup and Beauty","Birdwatching",
+"Walking", "Cosplaying","Origami","Video Gaming",
+"Flower Arranging", "Yoga","Modeling","Magic"
