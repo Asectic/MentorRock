@@ -22,7 +22,6 @@
 }
 
 .unfriend {
-    float: right;
     border-radius: 5px;
     background-color: #84ccb4;
     color: #f9fdc0;
@@ -30,15 +29,19 @@
 }
 
 #friend-name {
+    text-align: center;
     font-size: 13px;
     color: #000;
     font-weight: bold;
+    clear: both;
 }
 
 .relation {
+    text-align: center;
     font-size: 13px;
     color: #000;
     clear: both;
+    display: block;
 }
 
 #contact-title {
@@ -56,10 +59,12 @@
     display: inline-block;
     cursor: pointer;
     border-radius: 3px;
-    height: 250px;
+    height: 260px;
     width: 130px;
     background: rgba(194, 242, 238, 0.68);
     color: #626060;
+    align-content: center;
+    text-align: center;
 }
 
 .avatar {
@@ -75,7 +80,7 @@
     height: auto;
     border-radius: 8px;
     border-style: dotted 1px;
-    float: right;
+    clear: both;
 }
 
 #snackbar {
