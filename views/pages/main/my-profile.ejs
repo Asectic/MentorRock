@@ -34,9 +34,9 @@
                     <!-- Page Username header-->
                     <br>
                     <div id="image" >
-                        
+
                         <% if (user.local) { %>
-                                <img class="img-thumbnail" src="<%= user.profilePicture %>">
+                                <img  width="150px" height="150px" src="<%= user.profilePicture %>">
                         <% } else { %>
                             <a href="/connect/local" class="btn btn-default">Connect Local</a>
                         <% } %>
@@ -150,5 +150,5 @@
     </div>
 
 </body>
-    <script src="assets/js/custom.js"></script>      
+    <script src="assets/js/custom.js"></script>
 </html>

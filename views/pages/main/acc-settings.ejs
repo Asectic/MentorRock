@@ -115,38 +115,33 @@
                         <div id="avatar-content">
 
                             <form action="/accsettings" method="post">
-                                
+
                                 <br>
-                                
+
                                 <p>This is currently you!</p>
 
-                                <div id="image" class="img-thumbnail">
-                                    <% if (user.local) { %>
-                                            <img class="img-thumbnail" src="<%= user.profilePicture %>">
-                                    <% } else { %>
-                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                                    <% } %>
-
+                                <div id="image" >
+                                    <img width="150px" height="150px" src="<%= user.profilePicture %>">
                                 </div>
 
                                 <p>Please add in your avatar link:</p>
-                                
+
                                     <div class="form-group">
-                                        
-                                        <input type="text" class="form-control" name="profilePic_new" placeholder="http://myimage-url.ca" style="width: 60%;">  
-                                        
+
+                                        <input type="text" class="form-control" name="profilePic_new" placeholder="http://myimage-url.ca" style="width: 60%;">
+
                                         <!--<input id="profilePic-in" class="form-control" name="profilePic_new" type="file" />-->
                                         <p style="font-style: italic;">(Image will be resized to 150px by 150px)</p>
-                                        
+
                                     </div><!-- End of form-group div-->
-                                
+
                                 <br>
-                                
-                                <!-- Form submit button-->    
+
+                                <!-- Form submit button-->
                                 <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
-                                
-                                        
-                                
+
+
+
                             </form><!-- End of avatar form -->
 
                             <br>
@@ -174,7 +169,7 @@
                             <!-- TODO: IMPLEMENT THIS
                                     Change user settings -->
                             <a href="/about-change" class="btn btn-warning btn-lg">Change Settings</a>
-                            
+
                             <br>
                             <br>
 
@@ -188,5 +183,5 @@
     </div>
 
 </body>
-    <script src="assets/js/custom.js"></script>      
+    <script src="assets/js/custom.js"></script>
 </html>
