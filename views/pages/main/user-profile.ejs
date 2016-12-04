@@ -7,6 +7,7 @@
 
     <!-- Importing the main-style headers -->
     <% include ../../partials/main-style %>
+    <link rel="stylesheet" href="assets/css/snackbar.css">
 
 </head>
 
@@ -166,6 +167,7 @@
                 </div> <!-- ENd of main content div-->
 
             </div><!-- End of row div-->
+            <div id="snackbar">snackbar text</div>
         </div>
     </div>
 
@@ -182,15 +184,22 @@
               type: "POST",
               data: {id : clicked_id},
               success: function(response){
-                  alert(response);
+                  snackbarMessage(response);
               },
               error: function (request, status, error) {
-                  alert(request.responseText);
+                  snackbarMessage(request.responseText);
               }
             });
 
-
       });
+
+      function snackbarMessage(message) {
+          snackbar.innerHTML = message;
+          snackbar.className = "show";
+          setTimeout(function () {
+              snackbar.className = snackbar.className.replace("show", "");
+          }, 2500);
+      }
 
     </script>
 

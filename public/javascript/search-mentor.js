@@ -93,7 +93,7 @@
             var usernameData= $("input[name='username']").val();
             usernameData = $.trim(usernameData);
             console.log(usernameData);
-            
+
             $.ajax({
               url: '/getmentor?username=' +usernameData,
               type: "GET",
@@ -129,10 +129,18 @@
            type: "POST",
            data: {id : clicked_id},
            success: function(response){
-               alert(response);
+               snackbarMessage(response);
            },
            error: function (request, status, error) {
-               alert(request.responseText);
+               snackbarMessage(request.responseText);
            }
          });
+       }
+
+       function snackbarMessage(message) {
+           snackbar.innerHTML = message;
+           snackbar.className = "show";
+           setTimeout(function () {
+               snackbar.className = snackbar.className.replace("show", "");
+           }, 2500);
        }
