@@ -123,13 +123,29 @@ $(function () {
     countMentorRequest();
 });
 
+//a variable to keep track of the number of users being displayed
+var usersData;
+var factor=0;
 //displaying a given user on the admin page
 var displayUser=function (data) {
+    usersData=data;
     var content = "";
     content += "<div class='row'>" +
         "<div class = 'col-sm-5'>" +
         "<div class='row'>";
-    for (var i = 0; i < data.length; i++) {
+    content+=constructContent(data);
+    content += "</div>" +
+        "</div>" +
+        "</div>";
+    return content;
+};
+
+
+//constructing the information to be displayed for the users
+var constructContent=function (data) {
+    var content= "";
+    var lengthOfData=data.length;//getting the array size
+    for (var i = 0; i < lengthOfData; i++) {
         //For a given user
         content += "<div class='media mentor-box' style='float:left' id='" + data[i]._id + "'>" +
             "<a class='pull-left' href='#'>" +
@@ -147,10 +163,31 @@ var displayUser=function (data) {
             "</div>" +
             "</div>" +
             "</div>";
+        if(i>=50){
+            content+="<center id='viewmore'><a  class='btn btn-info' role='button' onclick='showMore()' style='margin-top:16px'>View More Users</a></center>";
+            factor++;
+
+            break;
+        }
     }
-    content += "</div>" +
-        "</div>" +
-        "</div>";
     return content;
+
+}
+
+
+//Show more users whenever the button view More is clicked
+function showMore() {
+
+    var viewmore=document.querySelector('#viewmore');
+    usersData.splice(0, 51);//remove those already showed
+
+    var content= constructContent(usersData);
+
+    var divElement = document.createElement('div');
+    divElement.innerHTML=content;
+
+
+    viewmore.parentNode.replaceChild(divElement, viewmore);
+
 };
 

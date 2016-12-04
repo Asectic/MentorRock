@@ -43,7 +43,7 @@ exports.findMentorRequest=function (req, res) {
         User.find({_id: {$in: userIds}}, function (err, users) {
             if (err) throw err;
             else {
-                console.log("Requested User: "+users);
+                console.log("Mentor Request ");
                 res.send(users);
             }
         });
