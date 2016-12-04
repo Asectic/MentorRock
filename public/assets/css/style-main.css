@@ -66,7 +66,7 @@ html,body {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  padding-top: 00px; 
+  padding-top: 00px;
   background-color: white;
 }
 
@@ -80,10 +80,10 @@ body {
     background-repeat: no-repeat;
 }
 
-.container .row .col-md-6 .col-sm-4 { 
+.container .row .col-md-6 .col-sm-4 {
   height: 100vh;
-  overflow: auto;  
-} 
+  overflow: auto;
+}
 
 .row {
     height: 100%;
@@ -111,8 +111,15 @@ body {
     padding-left: 10%;
     padding-right: 10%;
 }
+.mentor_form {
+    line-height: 300%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 
 #content {
+
     border-radius: 15px;
     opacity: 0.8;
     filter: alpha(opacity=80);
@@ -121,7 +128,7 @@ body {
     height: 81vh;
     /*height: 70%;*/
     overflow-y: auto;
-    
+
     /*float:left;
     width:100%;
     background:#eee;*/
@@ -139,7 +146,7 @@ body {
     text-shadow: 0 0 5px rgba(179, 132, 255, 1), 0 0 10px  #b3b3ff,
              0 0 20px  #b3b3ff, 0 0 30px  #b3b3ff,
              0 0 40px  #b3b3ff;
-    
+
 }
 
 #title {
@@ -161,7 +168,7 @@ body {
     width: 150px;
     height: 150px;
     background-color: black;
-    
+
     float:left;
     margin-right: 10px;
 }
@@ -205,12 +212,12 @@ body {
 
 /* Buttons: in the order in which they appear on the page*/
 #academics {
-    background-color:  royalblue; 
+    background-color:  royalblue;
     width: 200px;
-} 
+}
 
 #interests-butt {
-    background-color: green; 
+    background-color: green;
     width: 200px;
 }
 
@@ -219,7 +226,7 @@ body {
     align-content: center;
     text-align: center;
     width: 200px;
-} 
+}
 
 #academics-box, #interests-box, ul.pagination {
     display: none;
@@ -337,7 +344,7 @@ input {
 }
 
 tr {
-  width: 100%;  
+  width: 100%;
 }
 
 .SEARCH, .btn.btn-primary {

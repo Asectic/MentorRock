@@ -31,13 +31,13 @@
 
 #friend-name {
     font-size: 15px;
-    color: #898686;
+    color: #000;
     font-weight: bold;
 }
 
 .relation {
     font-size: 13px;
-    color: #6d6d6d;
+    color: #000;
     clear: both;
 }
 
