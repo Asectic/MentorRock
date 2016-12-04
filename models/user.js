@@ -54,7 +54,7 @@ var userSchema = new mongoose.Schema({
     //type: path to the profile picture, default: default profile picture
     profilePicture: { type: String, default: "assets/img/default-profile-pic.png" },
     about: { type: String, default: "Welcome to my profile!" },
-    role: { type: String, default: "Mentee" },
+    role: { type: String, default: "mentee" },
     specialty: [String],
 
     contacts: [
