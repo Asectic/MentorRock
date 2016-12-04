@@ -50,7 +50,7 @@ module.exports =  function(app, passport){
     app.get('/getmentor', function (req, res) {
 
 
-          var mentors = User.find({'local.username' : req.query.username});
+          var mentors = User.find({'local.username' : req.query.username}).limit(1);
           mentors.exec(function (err, data) {
               if (err) return err;
               res.send(data);

@@ -78,11 +78,23 @@ module.exports = function (app, passport) {
 
     // show the home page (will also have our login links)
     app.get('/', function (req, res) {
-        res.render('pages/home.ejs');
+        var topusers =  User.find({role: 'mentor'}).limit(9);
+        topusers.exec(function (err, data) {
+            if (err) return err;
+            res.render('pages/home.ejs',{
+                userlist: data
+            });
+        });
     });
 
     app.get('/home', isLoggedIn, function (req, res) {
-        res.render('pages/home-login.ejs');
+      var topusers =  User.find({role: 'mentor'}).limit(9);
+      topusers.exec(function (err, data) {
+          if (err) return err;
+            res.render('pages/home-login.ejs',{
+              userlist: data
+          });
+      });
     });
 
     app.get('/home2', function (req, res) {
