@@ -7,7 +7,7 @@ var requestSchema = new mongoose.Schema({
         academics: { type: String},
         interests: { type: String},
         givenname: { type: String },
-        fname: { type: String },
+        familyname: { type: String },
         experience_field: { type: String },
         experience_work: { type: String },
         cv: { type: String },

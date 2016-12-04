@@ -83,7 +83,7 @@ module.exports =  function(app, passport){
 
         Request.findOne({userID: userId}, function(err, userData) {
           
-        console.log("Find: "+userData);
+        console.log("Find mentor request ");
 
             
         var file = __dirname + '/uploads/'+ userData.cv;
