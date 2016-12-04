@@ -35,7 +35,14 @@
                         <br>
                         <div id="image" >
                             <% if (user) { %>
-                                   <img class="img-thumbnail" src=<%= user.profilePicture %>>
+
+                                <img width="150px" height="150px" style="float: left;" src="<%= user.profilePicture %>">
+
+                                <!-- Fetch individual -->
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                             <% } else { %>
                                 <h1>User is null for some reason!</h1>
                             <% } %>
