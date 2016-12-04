@@ -2,6 +2,14 @@
 // Chatroom database functions =================================================
 // =============================================================================
 // ===========chatroom handling functions =====================
+//var RouteUser = require('./user-routes');
+var User = require('../models/user');
+var Chatroom = require('../models/chatroom');
+var Admin = require('../models/admin');
+var formidable = require('formidable');
+var fs = require('fs');
+var RouteUser = require('./user-routes');
+
 
 
 function removeItem(arr, prop, val) {
@@ -35,7 +43,7 @@ function postChatLog(req, res) {
     var query = require('url').parse(req.url, true).query;
     var rid = query.room;
     Chatroom.findOne({
-        room_id: rid
+        room_id:  rid
     }, function (err, room) {
         if (err) throw err;
         room.chatlog.push(req.body);
@@ -59,14 +67,6 @@ function findChatLog(req, res) {
         //        res.send(JSON.stringify(redata));
     });
 };
-
-//var RouteUser = require('./user-routes');
-var User = require('../models/user');
-var CharRoom = require('../models/chatroom');
-var Admin = require('../models/admin');
-var formidable = require('formidable');
-var fs = require('fs');
-var RouteUser = require('./user-routes');
 
 
 //================================================

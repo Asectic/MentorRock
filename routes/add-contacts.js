@@ -47,7 +47,6 @@ module.exports =  function(app, passport){
     });
 
   app.post('/addmentors', function(req, res){
-    console.log(req.body.id);
 
       //if already contacts, return err;
       User.findOne({_id: req.user._id},function(err, m_user){
@@ -60,8 +59,6 @@ module.exports =  function(app, passport){
       });
 
       function callback1(m_user) {
-        console.log(m_user);
-        console.log(m_user.contacts);
         //console.log(req.body.id);
         exist = findItem(m_user.contacts, "id", req.body.id);
         if(exist){
@@ -90,13 +87,23 @@ module.exports =  function(app, passport){
             if (err) {
               console.log(err);
             } else {
-              var room_id = result.insertedIds[0];
+              console.log(result);
+              console.log(result.ops[0]._id.toHexString());
+              var room_id = result.ops[0]._id.toHexString();
               callback3(m_user,mentor,room_id );
             }
         });
       }
 
       function callback3(m_user,mentor,room_id ) {
+        console.log(room_id);
+        Chatroom.findById(room_id,function(err, user) {
+          user.room_id = room_id;
+          user.save(function(err, thatBook) {
+    			     if (err) throw err;	
+    	    });
+        });
+
         mentor_data={
                     "name" : mentor.givenname + " " + mentor.familyname,
                     "pic" :  mentor.profilePicture,
