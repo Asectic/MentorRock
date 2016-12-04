@@ -34,13 +34,17 @@
                     <!-- Page Username header-->
                     <br>
 
-                    <img  width="150px" height="150px" src="<%= user.profilePicture %>">
+                    <img width="150px" height="150px" style="float: left;" src="<%= user.profilePicture %>">
 
                     <!-- Fetch individual -->
-
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
                     <!-- Fetch username from db -->
                     <% if (!user.third_party) { %>
-                            <h1 style="display:inline-block;"><%= user.local.username %></h1>
+                            <h1 style="display:inline-block;"> <%= " " + user.local.username %></h1>
                     <% } else { %>
                             <h1 style="display:inline-block;"><%= user.givenname %></h1>
                     <% } %>
