@@ -15,8 +15,14 @@
                     <li><a href="/accsettings"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li><br>
                     <li><a href="/chatslist"><span class="glyphicon glyphicon-road"></span> Chatbox</a></li><br>
                     <li><a href="/contacts"><span class="glyphicon glyphicon-star"></span> Contacts</a></li><br>
-                    <li><a href="/searchmentor"><span class="glyphicon glyphicon-search"></span> Search for Mentors</a></li><br>
-                    <li><a href="/mentorapp"><span class="glyphicon glyphicon-pencil"></span> Mentor Application</a></li><br>
+                    
+                    <% if (user.role == "Mentee") { %>
+                        <li><a href="/searchmentor"><span class="glyphicon glyphicon-search"></span> Search for Mentors</a></li><br>
+                        <li><a href="/mentorapp"><span class="glyphicon glyphicon-pencil"></span> Mentor Application</a></li><br>
+                    <% } else { %>
+                        <div id="empty"></div>
+                    <% } %>
+
                 </ul> 
 
               </nav>
