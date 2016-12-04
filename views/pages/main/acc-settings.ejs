@@ -43,11 +43,8 @@
                     <h1 id="acc-settsh1">Account Settings</h1>
 
                     <br>
-
                     <center><p>Here are your current settings for your user profile!</p></center>
-
                     <br>
-
 
                     <!--  General Account section -->
                     <div id="general-acc">
@@ -112,25 +109,20 @@
                         <div id="avatar-content">
 
                             <form action="/accsettings" method="post">
-
+                                
                                 <br>
-
                                 <p>This is currently you!</p>
-
-
-                                  <img width="150px" height="150px" src="<%= user.profilePicture %>">
-
+                                <img width="150px" height="150px" style="float: left;" src="<%= user.profilePicture %>">
 
                                 <p>Please add in your avatar link:</p>
 
-                                    <div class="form-group">
+                                <div class="form-group">
 
-                                        <input type="text" class="form-control" name="profilePic_new" placeholder="http://myimage-url.ca" style="width: 60%;">
+                                    <input type="text" class="form-control" name="profilePic_new" placeholder="http://myimage-url.ca" style="width: 60%;">
 
-                                        <!--<input id="profilePic-in" class="form-control" name="profilePic_new" type="file" />-->
-                                        <p style="font-style: italic;">(Image will be resized to 150px by 150px)</p>
+                                    <p style="font-style: italic;">(Image will be resized to 150px by 150px)</p>
 
-                                    </div><!-- End of form-group div-->
+                                </div><!-- End of form-group div-->
 
                                 <br>
 
