@@ -33,25 +33,16 @@
 
                     <!-- Page Username header-->
                     <br>
-                    <div id="image" >
 
-                        <% if (user.local) { %>
-                                <img  width="150px" height="150px" src="<%= user.profilePicture %>">
-                        <% } else { %>
-                            <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                        <% } %>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
+                    <img  width="150px" height="150px" src="<%= user.profilePicture %>">
 
                     <!-- Fetch individual -->
 
                     <!-- Fetch username from db -->
                     <% if (user.local) { %>
-                            <h1><%= user.local.username %></h1>
+                            <h1 style="display:inline-block;"><%= user.local.username %></h1>
                     <% } else { %>
-                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <h1><%= user.facebook.givenname %></h1>
                     <% } %>
 
                     <br><br>
@@ -82,7 +73,12 @@
                                     </p>
 
                                 <% } else { %>
-                                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                  <p>
+                                      <%= user.givenname + " " + user.familyname %><br>
+                                      <%= user.gender %><br>
+                                      <%= user.facebook.email %><br>
+                                      <%= user.role %><br>
+                                  </p>
                                 <% } %>
 
                             </div>
@@ -103,11 +99,8 @@
                         <div id="interests-content">
                             <br>
 
-                            <% if (user.local) { %>
-                                    <%= user.specialty %>
-                            <% } else { %>
-                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                            <% } %>
+
+                            <%= user.specialty %>
 
                             <br>
                             <br>
