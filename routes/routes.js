@@ -423,10 +423,7 @@ module.exports = function (app, passport) {
     });
 
     app.get('/contacts', isLoggedIn, function (req, res) {
-        var pics = [];
-        var names = [];
-        var relations = [];
-        var ids = [];
+        var pics = [], names = [], relations = [], ids = [];
         var contacts = req.user.contacts;
         var rooms = [];
         var my_id = req.user._id;
@@ -448,7 +445,8 @@ module.exports = function (app, passport) {
             "relationships": relations,
             "friend_ids": ids,
             "myid": my_id,
-            "rooms": rooms
+            "rooms": rooms,
+            "user": req.user
         };
         res.render('pages/main/contacts', data);
     });
