@@ -101,7 +101,7 @@ module.exports = mongoose.model('User', userSchema);
 var User = mongoose.model('User', userSchema);
 
 
-  var URL = path.join("/Users/WenZhao/Documents/Github/SHALEE-master", '/database/m_data.json')
+  var URL = path.join(__dirname, '/m_data.json')
   var users =  readJson(URL);
   User.collection.insert(users.users,onInsert);
 
