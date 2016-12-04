@@ -107,7 +107,7 @@ var User = mongoose.model('User', userSchema);
 
 function onInsert(err, result) {
     if (err) {
-      console.log(err);
+      console.log("User list Already inserted!");
         // TODO: handle error
     } else {
       console.log(result.insertedCount + " Users inserted successfully!");  //console.log(result);
