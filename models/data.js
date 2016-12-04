@@ -8,35 +8,37 @@ var Schema = mongoose.Schema;
  * collection called gillers.
  */
 
-var mentee = new Schema({
-    user_id: {
+var meeting_invi_schema= new Schema({
+    mentor_id: {
         type: String,
         required: true
-    }
+    },
+    meeting_time:{
+      type : String,
+      requried: true
+    },
+    meeting_content:{
+      type : String,
+    },
+    meeting_mentees:[
+      {
+        mentee_id: {
+            type: String
+        },
+        confirmed: {
+            type: Boolean,
+            default:false
+        }
+      }
+    ]
+
 }, {
     collection: 'mentees'
 });
 
-var mentor = new Schema({
-    user_id: {
-        type: String,
-        required: true
-    },
-    mentee_list:{
-        mentee_id: {
-            type: String,
-            required: true
-        }
-    }
-},
-{
-    collection: 'mentors'
-});
 
 
-var Mentor = mongoose.model('Mentor', mentor);
-var Mentee = mongoose.model('Mentee', mentee);
+var Meeting_Invitation = mongoose.model('Meeting', meeting_invi_schema);
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
 
-module.exports = Mentor;
-module.exports = Mentee;
+module.exports = Meeting_Invitation;

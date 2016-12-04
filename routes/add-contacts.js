@@ -87,7 +87,6 @@ module.exports =  function(app, passport){
             if (err) {
               console.log(err);
             } else {
-              console.log(result);
               console.log(result.ops[0]._id.toHexString());
               var room_id = result.ops[0]._id.toHexString();
               callback3(m_user,mentor,room_id );
@@ -100,7 +99,7 @@ module.exports =  function(app, passport){
         Chatroom.findById(room_id,function(err, user) {
           user.room_id = room_id;
           user.save(function(err, thatBook) {
-    			     if (err) throw err;	
+    			     if (err) throw err;
     	    });
         });
 

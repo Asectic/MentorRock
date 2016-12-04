@@ -6,6 +6,7 @@
 var User = require('../models/user');
 var Chatroom = require('../models/chatroom');
 var Admin = require('../models/admin');
+var Meeting = require('../models/data');
 var formidable = require('formidable');
 var fs = require('fs');
 var RouteUser = require('./user-routes');
@@ -425,6 +426,21 @@ module.exports = function (app, passport) {
     app.get('/mentorpost', isLoggedIn, function (req, res) {
         res.render('pages/main/mentor-post', {
             user: req.user
+        });
+    });
+    app.post('/mentorpost', isLoggedIn, function (req, res) {
+        console.log(req.body);
+        var form = req.body;
+        var new_meeting = {
+          "mentor_id": req.user._id,
+          "meeting_time": form.meeting_time,
+          "meeting_content": form.meeting_content,
+          "meeting_mentees": form.mentees
+        }
+        Meeting.collection.insert(new_meeting,function(err, result) {
+          if (err) {
+            console.log(err);
+          }
         });
     });
 
