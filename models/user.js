@@ -1,7 +1,8 @@
 // load the things we need
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-
+var fs = require('fs');
+var path = require('path');
 // define the schema for our user model
 var userSchema = new mongoose.Schema({
     local: {
@@ -99,70 +100,84 @@ module.exports = mongoose.model('User', userSchema);
 
 var User = mongoose.model('User', userSchema);
 
+//
+// fewusers = [
+//           {
+//               "local": {
+//                   "email": "mburns0@mit.edu",
+//                   "password": "$2a$08$6trpe7TET3mMj89oPs9U9uCc1zhf76MPxcs7yrcJtRhovwk.mYxpq",
+//                   "username": "mburns0",
+//                   "stunum": "8050087502",
+//                   "birthday": "1994-4-26"
+//               },
+//               "gender": "Male",
+//               "givenname": "Michael",
+//               "familyname": "Burns",
+//               "thirdparty": "false",
+//               "profilePicture": "assets/img/users/image1.jpg",
+//               "about": "disintermediate one-to-one e-markets",
+//               "role": "mentor",
+//               "specialty": "Mathematics",
+//               "contacts": []
+//           },
+//           {
+//               "local": {
+//                   "email": "skelley1@icio.us",
+//                   "password": "38ac62f5b80095dc8ff3de61d4e5fe7c0f62b6a5",
+//                   "username": "skelley1",
+//                   "stunum": "3442471968",
+//                   "birthday": "1992-3-06"
+//               },
+//               "gender": "Female",
+//               "givenname": "Shirley",
+//               "familyname": "Kelley",
+//               "thirdparty": "false",
+//               "profilePicture": "assets/img/users/image2.jpg",
+//               "about": "productize magnetic convergence",
+//               "role": "mentee",
+//               "specialty": "Programming",
+//               "contacts": []
+//           },
+//           {
+//               "local": {
+//                   "email": "cscott2@xinhuanet.com",
+//                   "password": "fa31cb20abded901c9c892dca82e41881bd69da2",
+//                   "username": "cscott2",
+//                   "stunum": "7768154953",
+//                   "birthday": "1992-11-27"
+//               },
+//               "gender": "Female",
+//               "givenname": "Carolyn",
+//               "familyname": "Scott",
+//               "thirdparty": "false",
+//               "profilePicture": "assets/img/users/image3.jpg",
+//               "about": "matrix rich ROI",
+//               "role": "mentor",
+//               "specialty": "Reading",
+//               "contacts": []
+//           }
+//       ];
 
-fewusers = [
-          {
-              "local": {
-                  "email": "mburns0@mit.edu",
-                  "password": "$2a$08$6trpe7TET3mMj89oPs9U9uCc1zhf76MPxcs7yrcJtRhovwk.mYxpq",
-                  "username": "mburns0",
-                  "stunum": "8050087502",
-                  "birthday": "1994-4-26"
-              },
-              "gender": "Male",
-              "givenname": "Michael",
-              "familyname": "Burns",
-              "thirdparty": "false",
-              "profilePicture": "assets/img/users/image1.jpg",
-              "about": "disintermediate one-to-one e-markets",
-              "role": "mentor",
-              "specialty": "Mathematics",
-              "contacts": []
-          },
-          {
-              "local": {
-                  "email": "skelley1@icio.us",
-                  "password": "38ac62f5b80095dc8ff3de61d4e5fe7c0f62b6a5",
-                  "username": "skelley1",
-                  "stunum": "3442471968",
-                  "birthday": "1992-3-06"
-              },
-              "gender": "Female",
-              "givenname": "Shirley",
-              "familyname": "Kelley",
-              "thirdparty": "false",
-              "profilePicture": "assets/img/users/image2.jpg",
-              "about": "productize magnetic convergence",
-              "role": "mentee",
-              "specialty": "Programming",
-              "contacts": []
-          },
-          {
-              "local": {
-                  "email": "cscott2@xinhuanet.com",
-                  "password": "fa31cb20abded901c9c892dca82e41881bd69da2",
-                  "username": "cscott2",
-                  "stunum": "7768154953",
-                  "birthday": "1992-11-27"
-              },
-              "gender": "Female",
-              "givenname": "Carolyn",
-              "familyname": "Scott",
-              "thirdparty": "false",
-              "profilePicture": "assets/img/users/image3.jpg",
-              "about": "matrix rich ROI",
-              "role": "mentor",
-              "specialty": "Reading",
-              "contacts": []
-          }
-      ];
-
-      User.collection.insert(fewusers,onInsert);
+  var URL = path.join("/Users/WenZhao/Documents/Github/SHALEE-master", '/database/m_data.json')
+  var users =  readJson(URL);
+  User.collection.insert(users.users,onInsert);
 
 function onInsert(err, result) {
     if (err) {
+      console.log();
         // TODO: handle error
     } else {
-        console.log(result);
+      console.log(result.insertedCount + " Users inserted successfully!");  //console.log(result);
     }
+}
+function readJson(url){
+  var data = fs.readFileSync(url, 'utf-8');
+  return JSON.parse(data);
+}
+
+//write to json file
+function writeJson(url, JObj){
+  var data =JSON.stringify(JObj);
+  fs.writeFileSync(url, data);
+  console.log("Export Account Success!");
 }
