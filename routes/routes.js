@@ -422,6 +422,12 @@ module.exports = function (app, passport) {
         console.log(req.body.inter);
     });
 
+    app.get('/mentorpost', isLoggedIn, function (req, res) {
+        res.render('pages/main/mentor-post', {
+            user: req.user
+        });
+    });
+
     app.get('/contacts', isLoggedIn, function (req, res) {
         var pics = [], names = [], relations = [], ids = [];
         var contacts = req.user.contacts;
@@ -627,6 +633,7 @@ module.exports = function (app, passport) {
             successRedirect: '/profile',
             failureRedirect: '/'
         }));
+
 
 
     // =============================================================================
