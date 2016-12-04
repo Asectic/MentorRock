@@ -65,7 +65,7 @@
             $('#selectInterest').trigger('chosen:updated');
 
         }
-        $("#saveInterest").click(function () {
+        $("#searchInterest").click(function () {
           $('#result').html("");
             var interestData=$("#selectInterest").val();
             console.log(interestData);
@@ -87,6 +87,25 @@
               }
             });
         });
+
+        $("#searchUsername").click(function () {
+            $('#result').html("");
+            var usernameData= $("input[name='username']").val();
+            usernameData = $.trim(usernameData);
+            console.log(usernameData);
+            
+            $.ajax({
+              url: '/getmentor?username=' +usernameData,
+              type: "GET",
+              success: function(response){
+                  buildMentorTable(response);
+              },
+              error: function (request, status, error) {
+                  alert(request.responseText);
+              }
+            });
+        });
+
         function buildMentorTable(response){
 
         $('#result').append($('<h1>Query Result</h1>'));

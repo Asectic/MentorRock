@@ -23,7 +23,8 @@ module.exports =  function(app, passport){
         //get user information based on the id url parameter
         User.findById(quer, function(err, userDat) {
                 res.render('pages/main/user-profile', {
-                    user: userDat
+                    other_user: userDat,
+                    user : req.user
                 });
         });
 
@@ -45,6 +46,17 @@ module.exports =  function(app, passport){
             res.send(data);
         });
     });
+
+    app.get('/getmentor', function (req, res) {
+
+
+          var mentors = User.find({'local.username' : req.query.username});
+          mentors.exec(function (err, data) {
+              if (err) return err;
+              res.send(data);
+          });
+    });
+
 
   app.post('/addmentors', function(req, res){
 

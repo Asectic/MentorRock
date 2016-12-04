@@ -34,18 +34,18 @@
                         <!-- Page Username header-->
                         <br>
                         <div id="image" >
-                            <% if (user) { %>
+                            <% if (other_user) { %>
 
-                                <img width="150px" height="150px" style="float: left;" src="<%= user.profilePicture %>">
+                                <img width="150px" height="150px" style="float: left;" src="<%= other_user.profilePicture %>">
 
                                 <!-- Fetch individual -->
                                 <br>
                                 <br>
                                 <br>
                                 <br>
-                            
+
                             <% } else { %>
-                                <h1>User is null for some reason!</h1>
+                                <h1>other_user is null for some reason!</h1>
                             <% } %>
                         </div>
 
@@ -58,18 +58,18 @@
                     <div id="submit-contact"  >
 
 
-                        <% if (user) { %>
-                               <h1 style="float: left;"><%- user.local.username %> <button id="sub"  name="<%=user._id %>" class="btn btn-default">Add to Contacts</button></h1>
+                        <% if (other_user) { %>
+                               <h1 style="float: left;"><%- other_user.local.username %> <button id="sub"  name="<%=other_user._id %>" class="btn btn-default">Add to Contacts</button></h1>
 
                         <% } else { %>
-                            <h1>User is null for some reason!</h1>
+                            <h1>other_user is null for some reason!</h1>
                         <% } %>
 
 
                         <div id="secret">
-                            <input type="text" class="form-control" value="<%= user.profilePicture %>" name="img" placeholder="http://">
-                            <input type="text" class="form-control" value="<%= user.givenname + " " + user.familyname %>" name="name" placeholder="First Last">
-                            <input type="text" class="form-control" value="<%= user._id %>" name="id" placeholder="id">
+                            <input type="text" class="form-control" value="<%= other_user.profilePicture %>" name="img" placeholder="http://">
+                            <input type="text" class="form-control" value="<%= other_user.givenname + " " + other_user.familyname %>" name="name" placeholder="First Last">
+                            <input type="text" class="form-control" value="<%= other_user._id %>" name="id" placeholder="id">
                         </div><!-- End of secret div-->
 
                     </div><!-- END OF FORM -->
@@ -94,15 +94,15 @@
 
                             <div class="col-xs-14 col-md-10">
 
-                                <% if (user) { %>
-                                <p><%- user.givenname + " " + user.familyname %><br>
-                                <%- user.gender %><br>
-                                <%- user.local.birthday %><br>
-                                <%- user.local.email %><br>
-                                <%- user.role %></p><br>
+                                <% if (other_user) { %>
+                                <p><%- other_user.givenname + " " + other_user.familyname %><br>
+                                <%- other_user.gender %><br>
+                                <%- other_user.local.birthday %><br>
+                                <%- other_user.local.email %><br>
+                                <%- other_user.role %></p><br>
 
                                 <% } else { %>
-                                    <h1>User is null for some reason!</h1>
+                                    <h1>other_user is null for some reason!</h1>
                                 <% } %>
 
 
@@ -123,8 +123,8 @@
                         <h1 id="user-interests">Interests</h1>
                         <div id="interests-content">
                             <br>
-                                <% if (user) { %>
-                                    <%- user.specialty %>
+                                <% if (other_user) { %>
+                                    <%- other_user.specialty %>
                                 <% } else { %>
                                     <h1>User is null for some reason!</h1>
                                 <% } %>
@@ -145,9 +145,9 @@
 
                             <br>
 
-                            <% if (user) { %>
+                            <% if (other_user) { %>
                                 <!-- Fetching content from user schema-->
-                                <%- user.about %>
+                                <%- other_user.about %>
                             <% } else { %>
                                 <h1>User is null for some reason!</h1>
                             <% } %>
