@@ -370,18 +370,31 @@ module.exports = function (app, passport) {
                 pics.push(contacts[idx].pic);
             }
         }
-        var data = {
-            "my_id": req.user._id,
-            "friend_id": req.user.contacts[0].id,
-            "my_pic": req.user.profilePicture,
-            "friend_pic": req.user.contacts[0].pic,
-            "friend_name": req.user.contacts[0].name,
-            "friend_names": names,
-            "friend_pics": pics,
-            "chatlog": []
-        };
-
-        res.render('pages/main/chatbox', data);
+        if (typeof contacts[0] != "undefined") {
+            var data = {
+                "my_id": req.user._id,
+                "friend_id": req.user.contacts[0].id,
+                "my_pic": req.user.profilePicture,
+                "friend_pic": req.user.contacts[0].pic,
+                "friend_name": req.user.contacts[0].name,
+                "friend_names": names,
+                "friend_pics": pics,
+                "chatlog": []
+            };
+            res.render('pages/main/chatbox', data);
+        } else {
+            var data = {
+                "my_id": req.user._id,
+                "friend_id": "",
+                "my_pic": "",
+                "friend_pic": "",
+                "friend_name": "",
+                "friend_names": names,
+                "friend_pics": pics,
+                "chatlog": []
+            };
+            res.render('pages/main/chatbox', data);
+        }
     });
 
     app.get('/chatuser', isLoggedIn, function (req, res) {
