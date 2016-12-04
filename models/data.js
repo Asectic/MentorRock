@@ -33,7 +33,7 @@ var meeting_invi_schema= new Schema({
     ]
 
 }, {
-    collection: 'mentees'
+    collection: 'meetings'
 });
 
 
