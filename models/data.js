@@ -14,8 +14,8 @@ var meeting_invi_schema= new Schema({
         required: true
     },
     meeting_time:{
-      type : String,
-      requried: true
+        type : String,
+        requried: true
     },
     meeting_content:{
       type : String,
