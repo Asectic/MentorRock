@@ -24,10 +24,10 @@ Preset accounts:
 
 (There are 1000 preset users, details in user_new.json):
 ￼￼￼
-#Admin Account:
+<b>Admin Account:</b>
 Username: csc309TAs Password: 123456
 
-#User Accounts: 
+<b>User Accounts:</b>
 Username: csc309ta1 Password: 123456<br>
 Username: csc309ta2 Password: 123456<br>
 Username: csc309ta3 Password: 123456
