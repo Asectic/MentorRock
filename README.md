@@ -1,3 +1,9 @@
+
+What is MentorRock?
+------------------
+
+Details found in the README.pdf file
+
 Setup instructions
 ------------------
 
