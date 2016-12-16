@@ -22,6 +22,6 @@ Preset accounts:
 Username: csc309TAs Password: 123456
 
 #User Accounts: 
-Username: csc309ta1 Password: 123456 
-Username: csc309ta2 Password: 123456 
+Username: csc309ta1 Password: 123456<br>
+Username: csc309ta2 Password: 123456<br>
 Username: csc309ta3 Password: 123456
