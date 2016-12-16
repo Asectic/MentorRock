@@ -1,17 +1,22 @@
-#Setup instructions
+Setup instructions
+------------------
 
 Command to run for the setup before running the server:
 
-#Shell 1: 
-mongodb
+<b>Shell 1:</b>
+
+mongodb<br>
 use MentorRock
 
-#Shell 2:
-npm install
+<b>Shell 2:</b>
+
+npm install<br>
 node server.js
 
-#Preset accounts for testing purposes 
-(there are 1000 preset users, details in user_new.json):
+Preset accounts:
+-----------------
+
+(There are 1000 preset users, details in user_new.json):
 ￼￼￼
 #Admin Account:
 Username: csc309TAs Password: 123456
