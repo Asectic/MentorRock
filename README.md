@@ -22,12 +22,12 @@ node server.js
 Preset accounts:
 -----------------
 
-(There are 1000 preset users, details in user_new.json):
+(There are 1000 preset users, details in user_new.json):<br><br>
 ￼￼￼
-<b>Admin Account:</b>
+<b>Admin Account:</b><br>
 Username: csc309TAs Password: 123456
 
-<b>User Accounts:</b>
+<b>User Accounts:</b><br>
 Username: csc309ta1 Password: 123456<br>
 Username: csc309ta2 Password: 123456<br>
 Username: csc309ta3 Password: 123456
